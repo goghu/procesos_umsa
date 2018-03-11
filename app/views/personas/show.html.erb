@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @persona.item %>
+</p>
+
+<p>
+  <strong>Ci:</strong>
+  <%= @persona.ci %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @persona.nombre %>
+</p>
+
+<p>
+  <strong>Facultad:</strong>
+  <%= @persona.facultad %>
+</p>
+
+<p>
+  <strong>Carrera:</strong>
+  <%= @persona.carrera %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @persona.tipo %>
+</p>
+
+<p>
+  <strong>Categoria:</strong>
+  <%= @persona.categoria %>
+</p>
+
+<p>
+  <strong>Borrado:</strong>
+  <%= @persona.borrado %>
+</p>
+
+<%= link_to 'Edit', edit_persona_path(@persona) %> |
+<%= link_to 'Back', personas_path %>

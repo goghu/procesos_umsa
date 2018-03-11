@@ -1,0 +1,270 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"b",
+				"byebug_history"
+			],
+			[
+				"sucursal",
+				"sucursal_id"
+			],
+			[
+				"sucurs",
+				"sucursals"
+			],
+			[
+				"re",
+				"recursive"
+			],
+			[
+				"can",
+				"cantidad_personas"
+			],
+			[
+				"tran",
+				"transaccione_params"
+			],
+			[
+				"tra",
+				"transaccione_params"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 320.0,
+		"last_filter": "ins",
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"console",
+				"Set Syntax: R Console"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"theme",
+				"UI: Select Theme"
+			],
+			[
+				"package in",
+				"Package Control: Install Package"
+			],
+			[
+				"git s",
+				"Git: Status"
+			],
+			[
+				"Package Control: instal",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Disable Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: isn",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 568.0
+	},
+	"console":
+	{
+		"height": 148.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/ruby/ucasos/app/controllers/elegidos_controller.rb",
+		"/C/ruby/ucasos/app/views/elegidos/muestra_generado.html.erb",
+		"/C/ruby/ucasos/.gitignore",
+		"/C/ruby/ucasos/ucasos.sublime-project",
+		"/C/ruby/igastos/config/routes.rb",
+		"/C/ruby/igastos/app/views/tareas/index.html.erb",
+		"/C/ruby/igastos/.gitignore",
+		"/C/ruby/ucasos/app/controllers/personas_controller.rb",
+		"/C/ruby/ucasos/app/controllers/cargos_controlle.rb",
+		"/C/Users/crist/AppData/Roaming/Sublime Text 3/Packages/User/QuickFileOpen.sublime-settings",
+		"/C/Users/crist/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/crist/AppData/Roaming/Sublime Text 3/Packages/User/cargos_controlle.rb",
+		"/C/Users/crist/AppData/Roaming/Sublime Text 3/Packages/FileFinder/FileFinder.sublime-settings",
+		"/C/ruby/ucasos/proySublime.sublime-project",
+		"/C/ruby/igastos/app/controllers/transacciones_controller.rb",
+		"/C/ruby/igastos/app/views/transacciones/index.html.erb",
+		"/C/Users/crist/Downloads/templates/admin/monster-template/main/index4.html",
+		"/C/ruby/igastos/app/assets/javascripts/moment.js",
+		"/C/php/contador/index.php",
+		"/C/Users/crist/Desktop/crt.php",
+		"/C/Users/crist/Documents/trabajo/vergara/contador/index.php",
+		"/C/ruby/igastos/app/controllers/categories_controller.rb"
+	],
+	"find":
+	{
+		"height": 40.0
+	},
+	"find_in_files":
+	{
+		"height": 104.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "generar.html.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"muestra",
+				"app\\views\\elegidos\\muestra_generado.html.erb"
+			],
+			[
+				"esco",
+				"app\\views\\elegidos\\escoger.html.erb"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 256.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

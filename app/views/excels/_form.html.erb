@@ -1,0 +1,27 @@
+<%= form_with(model: excel, local: true) do |form| %>
+  <% if excel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(excel.errors.count, "error") %> prohibited this excel from being saved:</h2>
+
+      <ul>
+      <% excel.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :excel_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :archivo %>
+    <%= form.text_field :archivo, id: :excel_archivo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card card-outline-info">
+
+      <div class="card-block">
+        <%= form_with(model: cargo, local: true) do |form| %>
+          <% if cargo.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(cargo.errors.count, "error") %> prohibited this cargo from being saved:</h2>
+
+              <ul>
+                <% proyecto.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="form-body">
+
+            <div class="row p-t-20">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Nombre</label>
+                  <%= form.text_field :nombre, id: :cargo_nombre, class: 'form-control', required: 'required' %>
+
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Tipo</label>
+                  <%= form.text_field :tipo, id: :cargo_tipo,  class: 'form-control', required: 'required' %>
+
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
+            <button type="button" class="btn btn-inverse">Cancel</button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

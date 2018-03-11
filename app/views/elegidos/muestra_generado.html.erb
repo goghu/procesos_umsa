@@ -1,0 +1,221 @@
+<div class="row">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">Lista 1 Admisiones Sala I</h4>
+        <h6 class="card-subtitle">Add class <code>.full-color-table .full-primary-table .hover-table</code></h6>
+        <div class="table-responsive">
+          <table class="table full-color-table full-primary-table hover-table">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Facultad</th>
+              <th>Cargo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%= @lista_1.each_with_index do |l1, cli1| %>
+                <tr>
+                  <td><%= cli1 %></td>
+                  <td><%= l1.persona.nombre %></td>
+                  <td><%= l1.persona.facultad %></td>
+                  <td><%= l1.cargo.nombre %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">Lista 2 Admisiones Sala II</h4>
+        <h6 class="card-subtitle">Add class <code>.full-color-table .full-success-table .hover-table</code></h6>
+        <div class="table-responsive">
+          <table class="table full-color-table full-success-table hover-table">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Facultad</th>
+              <th>Cargo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%= @lista_2.each_with_index do |l2, cli1| %>
+                <tr>
+                  <td><%= cli1 %></td>
+                  <td><%= l2.persona.nombre %></td>
+                  <td><%= l2.persona.facultad %></td>
+                  <td><%= l2.cargo.nombre %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Lista 3 Admisiones Sala III</h4>
+        <h6 class="card-subtitle">Add class <code>.full-color-table .full-info-table .hover-table</code></h6>
+        <div class="table-responsive">
+          <table class="table full-color-table full-info-table hover-table">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Facultad</th>
+              <th>Cargo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%= @lista_3.each_with_index do |l3, cli1| %>
+                <tr>
+                  <td><%= cli1 %></td>
+                  <td><%= l3.persona.nombre %></td>
+                  <td><%= l3.persona.facultad %></td>
+                  <td><%= l3.cargo.nombre %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Lista 4 Procesos Sala I</h4>
+        <h6 class="card-subtitle">Add class <code>.full-color-table .full-warning-table .hover-table</code></h6>
+        <div class="table-responsive">
+          <table class="table full-color-table full-warning-table hover-table">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Facultad</th>
+              <th>Cargo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%= @lista_4.each_with_index do |l4, cli1| %>
+                <tr>
+                  <td><%= cli1 %></td>
+                  <td><%= l4.persona.nombre %></td>
+                  <td><%= l4.persona.facultad %></td>
+                  <td><%= l4.cargo.nombre %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- row -->
+<div class="row">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Lista 5 Procesos Sala II</h4>
+        <h6 class="card-subtitle">Add class <code>.full-color-table .full-danger-table .hover-table</code></h6>
+        <div class="table-responsive">
+          <table class="table full-color-table full-danger-table hover-table">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Facultad</th>
+              <th>Cargo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%= @lista_5.each_with_index do |l5, cli1| %>
+                <tr>
+                  <td><%= cli1 %></td>
+                  <td><%= l5.persona.nombre %></td>
+                  <td><%= l5.persona.facultad %></td>
+                  <td><%= l5.cargo.nombre %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Lista 6 Procesos Sala III</h4>
+        <h6 class="card-subtitle">Add class <code>.full-color-table .full-inverse-table .hover-table</code></h6>
+        <div class="table-responsive">
+          <table class="table full-color-table full-inverse-table hover-table">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Facultad</th>
+              <th>Cargo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%= @lista_6.each_with_index do |l6, cli1| %>
+                <tr>
+                  <td><%= cli1 %></td>
+                  <td><%= l6.persona.nombre %></td>
+                  <td><%= l6.persona.facultad %></td>
+                  <td><%= l6.cargo.nombre %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Lista 7 Sala Apelaciones</h4>
+        <h6 class="card-subtitle">Add class <code>.full-color-table .full-danger-table .hover-table</code></h6>
+        <div class="table-responsive">
+          <table class="table full-color-table full-info-table hover-table">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Nombre</th>
+              <th>Facultad</th>
+              <th>Cargo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%= @lista_7.each_with_index do |l5, cli1| %>
+                <tr>
+                  <td><%= cli1 %></td>
+                  <td><%= l5.persona.nombre %></td>
+                  <td><%= l5.persona.facultad %></td>
+                  <td><%= l5.cargo.nombre %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

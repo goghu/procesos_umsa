@@ -1,0 +1,15 @@
+<h1>Solo Asesores Legales </h1>
+<table>
+  <% @nombre.each do |asesor| %>
+      <tr>
+        <td><%= asesor.item %></td>
+        <td><%= asesor.ci %></td>
+        <td><%= asesor.nombre %></td>
+        <td><%= asesor.facultad %></td>
+        <td><%= asesor.carrera %></td>
+        <td><%= asesor.tipo %></td>
+        <td><%= asesor.categoria %></td>
+      </tr>
+
+  <% end %>
+</table>

@@ -1,0 +1,42 @@
+<%= form_with(model: elegido, local: true) do |form| %>
+  <% if elegido.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(elegido.errors.count, "error") %> prohibited this elegido from being saved:</h2>
+
+      <ul>
+      <% elegido.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :persona_id %>
+    <%= form.number_field :persona_id, id: :elegido_persona_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cargo_id %>
+    <%= form.number_field :cargo_id, id: :elegido_cargo_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha %>
+    <%= form.date_select :fecha, id: :elegido_fecha %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lista %>
+    <%= form.number_field :lista, id: :elegido_lista %>
+  </div>
+
+  <div class="field">
+    <%= form.label :borrado %>
+    <%= form.datetime_select :borrado, id: :elegido_borrado %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

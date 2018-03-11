@@ -1,0 +1,78 @@
+# Ignore bundler config
+/.bundle
+/vendor/bundle/
+/vendor/ruby/
+
+# Ignore the default database.
+/db/*.sqlite3
+/db/*.javadb/
+
+#Ignore idea
+.idea/
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp
+.powder
+.virb*
+*.*~
+
+# various artifacts
+**.war
+*.gem
+*.rbc
+*.sassc
+.rspec
+.redcar/
+.config
+.sass-cache
+/public/cache
+/public/stylesheets/compiled
+/public/system/*
+/public/assets/*
+/public/sitemaps
+/spec/tmp/*
+/cache
+/capybara*
+/capybara-*.html
+/gems
+/specifications
+rerun.txt
+pickle-email-*.html
+.zeus.sock
+/solr/
+/.gemtags
+/coverage
+/coverage.data
+/InstalledFiles
+/pkg/
+/spec/reports/
+/test/tmp/
+/test/version_tmp/
+
+# scm revert files
+**.orig
+
+# Configuration files
+config/app_config.yml
+# config/database.yml
+config/application.yml
+config/mandrill.yml
+config/paperclip.yml
+
+# System Recordings from Tropo
+public/tropo_recordings/**/*
+public/system/**/*
+
+# Dev Machines
+.DS_Store
+*/.DS_Store
+Procfile.dev
+.env
+.env.development
+.env.test
+.env.staging
+.env.production
+/*.sublime-
+log/
+ucasos.sublime-workspace

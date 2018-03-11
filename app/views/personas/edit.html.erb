@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card card-outline-info">
+      <div class="card-header">
+        <h4 class="m-b-0 text-white">EDITAR PERSONA</h4>
+      </div>
+
+      <%= render 'form', persona: @persona %>
+    </div>
+    <%= link_to 'Show', @persona %> |
+    <%= link_to 'Back', personas_path %>
+  </div>
+</div>

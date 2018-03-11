@@ -1,0 +1,156 @@
+<div class="row page-titles">
+  <div class="col-md-6 col-8 align-self-center">
+    <h3 class="text-themecolor m-b-0 m-t-0">DATOS PRELIMINARES PARA LA ELECCION</h3>
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="javascript:void(0)">GESTION</a></li>
+      <li class="breadcrumb-item active">2018</li>
+    </ol>
+  </div>
+</div>
+<div class="row" sty>
+  <!-- Column -->
+  <div class="col-md-6 col-lg-3 col-xlg-3">
+    <div class="card card-inverse card-info">
+      <div class="box bg-info text-center">
+        <h1 class="font-light text-white"><%= @cantidad_personas %></h1>
+        <h6 class="text-white">Total Participantes</h6>
+      </div>
+    </div>
+  </div>
+  <!-- Column -->
+  <div class="col-md-6 col-lg-3 col-xlg-3">
+    <div class="card card-primary card-inverse">
+      <div class="box text-center">
+        <h1 class="font-light text-white"><%= @cantidad_estudiantes %></h1>
+        <h6 class="text-white">Estudiantes</h6>
+      </div>
+    </div>
+  </div>
+  <!-- Column -->
+  <div class="col-md-6 col-lg-3 col-xlg-3">
+    <div class="card card-inverse card-success">
+      <div class="box text-center">
+        <h1 class="font-light text-white"><%= @cantidad_docentes %></h1>
+        <h6 class="text-white">Docentes</h6>
+      </div>
+    </div>
+  </div>
+  <!-- Column -->
+  <div class="col-md-6 col-lg-3 col-xlg-3">
+    <div class="card card-inverse card-warning">
+      <div class="box text-center">
+        <h1 class="font-light text-white"><%= @cantidad_asesores %></h1>
+        <h6 class="text-white">Asesores Legales</h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <div class="card-block">
+      <h4 class="card-title">Haga click sobre el boton para generar</h4>
+      <div class="row button-group">
+        <div class="col-lg-6 col-md-6">
+          <button type="button" onclick="generar()" id="btn_generar" class="btn btn-block btn-lg btn-success">Generar</button>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <button type="button" class="btn btn-block btn-lg btn-danger">Borrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+
+  <!-- column -->
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">Default Progress bars
+          <a class="get-code" data-toggle="collapse" href="#pgr2" aria-expanded="true"><i class="fa fa-code" title="" data-toggle="tooltip" data-original-title="Get Code"></i></a>
+        </h4>
+        <div class="collapse m-t-15" id="pgr2">
+          <pre class="line-numbers language-javascript"><code>&lt;div class="progress"&gt;<br>&lt;div class="progress-bar bg-success" role="progressbar" style="width: 75%;height:15px;" role="progressbar""&gt; 75% &lt;/div&gt;<br>&lt;/div&gt;</code></pre>
+        </div>
+        <div class="progress m-t-20">
+          <div id="barra" class="progress-bar bg-success" style="width: 100%; height:15px;" role="progressbar">75%</div>
+        </div>
+        <p>&nbsp;</p>
+        <div id="mensajes">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div id="muestra_datos" style="display: none">
+Aqui muestran las tablas
+</div>
+<!-- row -->
+<script>
+    $(document).ready(function () {
+        console.log("cargo jQuery! Cristiam Herrera Daza");
+
+
+    });
+
+    function generar() {
+        console.log("Hizo click en generar");
+        $("#btn_generar").attr("disabled", "disabled");
+        $("#btn_generar").text("Generando");
+        move();
+        $.ajax({
+            type: 'GET',
+            url: '<%= url_for(controller: 'elegidos', action: 'generar') %>',
+            success: function () {
+                console.log('si lo logro')
+            }
+        });
+    }
+
+    function move() {
+
+        var barra = $("#barra");
+        var width = 0;
+        var id = setInterval(frame, 100);
+
+        function frame() {
+            if (width == 100) {
+                clearInterval(id);
+                $("#muestra_datos").html("aqui");
+                $("#muestra_datos").show("slow");
+                $("#muestra_datos").load('<%= url_for(controller: 'elegidos', action: 'muestra_generado') %>');
+            } else {
+                switch (width) {
+                    case 10:
+                        $("#mensajes").html('<p>Abriendo las listas...</p>');
+                        break;
+                    case 20:
+                        $("#mensajes").append('<p>Elaborando datos al azar</p>');
+                        break;
+                    case 50:
+                        $("#mensajes").append('<p>Generando las listas</p>');
+                        break;
+                    case 80:
+                        $("#mensajes").append('<p>Ordenando los datos</p>');
+                        break;
+                    case 90:
+                        $("#mensajes").append('<p>Finalizando</p>');
+                        break;
+                }
+
+                width++;
+                // console.log(width);
+                barra.css('width', width + '%');
+                barra.html(width + '%')
+                //elem.style.width = width + '%';
+            }
+        }
+    }
+
+
+</script>

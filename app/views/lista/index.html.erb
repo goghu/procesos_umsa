@@ -1,0 +1,86 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-block">
+        <h4 class="card-title">Lista </h4>
+
+        <div class="table-responsive m-t-40">
+          <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+            <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Descripcion</th>
+              <th>acciones</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <% @lista.each do |listum| %>
+              <tr>
+                <td><%= listum.nombre %></td>
+                <td><%= listum.descripcion %></td>
+                <td>
+                  <%= link_to "<i class='fa fa-eye'></i>".html_safe, listum %>&nbsp&nbsp
+                  <%= link_to "<i class='fa fa-pencil'></i>".html_safe,  edit_listum_path(listum) %>&nbsp&nbsp
+                  <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, listum, method: :delete, data: {confirm: 'Esta seguro de Eliminar?'} %>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<script>
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+        $(document).ready(function () {
+            var table = $('#example').DataTable({
+                "columnDefs": [{
+                    "visible": false,
+                    "targets": 2
+                }],
+                "order": [
+                    [2, 'asc']
+                ],
+                "displayLength": 25,
+                "drawCallback": function (settings) {
+                    var api = this.api();
+                    var rows = api.rows({
+                        page: 'current'
+                    }).nodes();
+                    var last = null;
+                    api.column(2, {
+                        page: 'current'
+                    }).data().each(function (group, i) {
+                        if (last !== group) {
+                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
+                            last = group;
+                        }
+                    });
+                }
+            });
+            // Order by the grouping
+            $('#example tbody').on('click', 'tr.group', function () {
+                var currentOrder = table.order()[0];
+                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+                    table.order([2, 'desc']).draw();
+                } else {
+                    table.order([2, 'asc']).draw();
+                }
+            });
+        });
+    });
+    $('#example23').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    });
+</script>
+
+<%= link_to 'New Listum', new_listum_path %>

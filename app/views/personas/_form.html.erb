@@ -1,0 +1,103 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card card-outline-info">
+
+      <div class="card-block">
+        <%= form_with(model: persona, local: true) do |form| %>
+          <% if persona.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(persona.errors.count, "error") %> prohibited this persona from being saved:</h2>
+
+              <ul>
+                <% persona.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="form-body">
+
+            <div class="row p-t-20">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">Item</label>
+                  <%= form.text_field :item, id: :persona_item, class: 'form-control', required: 'required' %>
+
+                </div>
+              </div>
+              <!--/span-->
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">CI</label>
+                  <%= form.text_field :ci, id: :persona_ci,  class: 'form-control', required: 'required' %>
+
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Nombre</label>
+                  <%= form.text_field :nombre, id: :persona_nombre, class: 'form-control', required: 'required' %>
+
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+
+            <div class="row p-t-20">
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Facultad</label>
+                  <%= form.text_field :facultad, id: :persona_facultad,  class: 'form-control', required: 'required' %>
+
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Carrera</label>
+                  <%= form.text_field :carrera, id: :persona_carrera, class: 'form-control', required: 'required' %>
+
+                </div>
+              </div>
+
+
+              <!--/span-->
+            </div>
+
+            <div class="row p-t-20">
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Tipo</label>
+
+                  <%= select_tag "persona[tipo]", options_for_select([['Docente '], ['Universitario']]), {:class => 'form-control', required: 'required', :prompt => "Seleccione tipo", required: 'required'} %>
+
+
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="control-label">Categoria</label>
+                  <%= form.text_field :categoria, id: :persona_categoria, class: 'form-control', required: 'required' %>
+                </div>
+              </div>
+
+
+              <!--/span-->
+            </div>
+
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
+            <button type="button" class="btn btn-inverse">Cancel</button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

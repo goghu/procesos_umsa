@@ -1,0 +1,111 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card card-outline-info">
+      <div class="card-block">
+        <%= form_with(model: facultade, local: true) do |form| %>
+        <% if facultade.errors.any? %>
+          <div id="error_explanation">
+      <h2><%= pluralize(facultade.errors.count, "error") %> prohibited this facultade from being saved:</h2>
+
+          <ul>
+      <% facultade.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+        <div class="form-body">
+
+          <!--Primera fila-->
+          <div class="row p-t-15">
+
+            <!--primera columna-->
+            <div class="col-md-4">
+              <div class="form-group">
+                <!-- etiqueta -->
+                <label class="control-label">nombre</label>
+                <!-- fin etiqueta -->
+
+                <!-- etiqueta para el formulario nom -->
+                <%= form.text_field :nombre, id: :facultade_nombre, class: 'form-control', required: 'required' %>
+                <!-- etiqueta de fin formulario nom -->
+
+              </div>
+            </div>
+            <!--fin primera columna-->
+
+            <!--segunda columna-->
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">observaciones</label>
+                <!-- etiqueta para el formulario obs -->
+                <%= form.text_field :observaciones, id: :facultade_observaciones,  class: 'form-control', required: 'required' %>
+                <!-- fin de etiqueta del formulario obs -->
+                
+
+
+              </div>
+            </div>
+            <!-- fin segunda columna -->
+
+            <!-- tercera columna -->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">estado</label>
+                <!-- etiqueta para el formulario estd -->
+                <%= form.text_field :estado, id: :facultade_estado, class: 'form-control', required: 'required' %>
+                <!-- fin etiqueta del formulario estd -->
+
+              </div>
+            </div>
+            <!-- fin tercera columna -->
+
+            <!-- cuarta columna -->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">borrado</label>
+                <!-- etiqueta para el formulario borrd -->
+                <%= form.text_field :borrado, id: :facultade_borrado, class: 'form-control', required: 'required' %>
+                <!-- fin etiqueta del formulario borrd -->
+
+              </div>
+            </div>
+            <!-- fin cuarta columna -->
+
+          </div>
+          <!--fin primera fila-->
+          
+        </div>      
+      </div>
+    </div>
+  </div>  
+</div>
+    
+
+      
+sigrid
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :facultade_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :observaciones %>
+    <%= form.text_field :observaciones, id: :facultade_observaciones %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estado %>
+    <%= form.text_field :estado, id: :facultade_estado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :borrado %>
+    <%= form.datetime_select :borrado, id: :facultade_borrado %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

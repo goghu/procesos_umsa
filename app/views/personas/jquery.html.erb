@@ -1,0 +1,81 @@
+<h1>Holas</h1>
+<div class="row">
+  <div class="col-md-6">
+    <button id='btnPrimero' type="button" class="btn btn-lg btn-primary">
+      Mi primera accion
+
+    </button>
+
+  </div>
+  <div class="col-md-6">
+    <button id='btnSegundo' type="button" class="btn btn-block btn-lg btn-info">Info</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    mi columna de 12
+    <div class="ribbon-wrapper card">
+      <div class="ribbon ribbon-default">Ribbon</div>
+      <p id="aqui" class="ribbon-content">
+        Duis mollis, est non commodo luctus, nisi erat porttitor ligula
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    mi columna de 12
+    <div class="ribbon-wrapper card">
+      <div class="ribbon ribbon-default">Ribbon</div>
+      <p id="pulsar" class="ribbon-content">
+        Duis mollis, est non commodo luctus, nisi erat porttitor ligula
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    suma de 2 numeros
+    <div class="ribbon-wrapper card">
+      <div class="ribbon ribbon-default"></div>
+      <P id="suma" class="ribbon-content"> suma numero 
+      	<div id="aqui_resulado">Aqui muestra resultado</div>
+      	<div id="llamoGoogle" with='100%' heigth='200px'>Aqui lo llamare</div>
+      </P>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-6">
+  <button id='btnSuma' type="button" class="btn btn-block btn-lg btn-primary">Info</button>
+</div>
+
+<input type="number" id='numero_1' name="num_1">
+<input type="number" id='numero_2' name="num_2">
+<input type="button" value="calcular" onclick="sumar();">
+
+<script>
+    $('#btnPrimero').click(function () {
+        $('#aqui').html('Hizo click en el primer boton');
+    });
+
+    $('#btnSegundo').click(function () {
+        $('#pulsar').html('nuevo boton');
+    });
+
+	  $('#btnSuma').click(function (){
+	      $('#suma').html('suma 2 numeros');
+	  });
+
+	function sumar(){
+		numero1 = parseInt($("#numero_1").val());
+		numero2 = parseInt($("#numero_2").val());
+		total = numero1 + numero2;
+		$('#aqui_resulado').html('La suma es: '+total);
+		$('#llamoGoogle').load('jquery');
+		console.log('el total es: '+total);
+	}
+</script>

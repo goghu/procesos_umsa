@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tipo_pe_persona: MyString
+  nombre: MyString
+  ci: MyString
+  ru_item: MyString
+  fecha: 2018-03-03
+  facultad_id: 1
+  carrera_id: 1
+  tipo_resol: MyString
+  codigo_caso: MyString
+  direccion: MyString
+  telefono: MyString
+  observaciones: MyString
+  fallo: MyString
+
+two:
+  tipo_pe_persona: MyString
+  nombre: MyString
+  ci: MyString
+  ru_item: MyString
+  fecha: 2018-03-03
+  facultad_id: 1
+  carrera_id: 1
+  tipo_resol: MyString
+  codigo_caso: MyString
+  direccion: MyString
+  telefono: MyString
+  observaciones: MyString
+  fallo: MyString

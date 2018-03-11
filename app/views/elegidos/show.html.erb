@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Persona:</strong>
+  <%= @elegido.persona_id %>
+</p>
+
+<p>
+  <strong>Cargo:</strong>
+  <%= @elegido.cargo_id %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @elegido.fecha %>
+</p>
+
+<p>
+  <strong>Lista:</strong>
+  <%= @elegido.lista %>
+</p>
+
+<p>
+  <strong>Borrado:</strong>
+  <%= @elegido.borrado %>
+</p>
+
+<%= link_to 'Edit', edit_elegido_path(@elegido) %> |
+<%= link_to 'Back', elegidos_path %>

@@ -1,0 +1,15 @@
+<h1>Solo Universitarios</h1>
+<table>
+  <% @nombre.each do |universitario| %>
+      <tr>
+        <td><%= universitario.item %></td>
+        <td><%= universitario.ci %></td>
+        <td><%= universitario.nombre %></td>
+        <td><%= universitario.facultad %></td>
+        <td><%= universitario.carrera %></td>
+        <td><%= universitario.tipo %></td>
+        <td><%= universitario.categoria %></td>
+      </tr>
+
+  <% end %>
+</table>
