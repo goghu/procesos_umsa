@@ -130,6 +130,7 @@ class ExcelsController < ApplicationController
           puts "Carrera -- #{workbook[0][cont][4].value}"
           puts "Tipo -- #{workbook[0][cont][5].value}"
           puts "Categoria -- #{workbook[0][cont][6].value}"
+          # validamos para que el carnet para que no se repitan las personas
           p = Persona.new
           p.item = workbook[0][cont][0].value
           p.ci = workbook[0][cont][1].value
