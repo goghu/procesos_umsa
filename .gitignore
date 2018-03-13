@@ -76,3 +76,6 @@ Procfile.dev
 /*.sublime-
 log/
 ucasos.sublime-workspace
+
+procesos.sublime-project
+procesos.sublime-workspace
