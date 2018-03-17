@@ -23,7 +23,7 @@
             <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">Tipo Persona</label>
-                <%= form.text_field :item, id: :persona_item, class: 'form-control', required: 'required' %>
+                <%= form.text_field :tipo_pe_persona, id: :denuncium_tipo_pe_persona, class: 'form-control', required: 'required' %>
 
               </div>
             </div>
@@ -51,8 +51,41 @@
           </div>
           <!--fin primera fila-->
           
-          
+          <!-- segunda fila -->
+          <div class="row p-t-20">
 
+            <!--primera columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Ru / Item</label>
+                <%= form.text_field :item, id: :persona_item, class: 'form-control', required: 'required' %>
+
+              </div>
+            </div>
+            <!--fin primera columna-->
+
+            <!--segunda columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Fecha</label>
+                <%= form.date_field :ci, id: :persona_ci,  class: 'form-control', required: 'required' %>
+
+              </div>
+            </div>
+            <!-- fin segunda columna -->
+
+            <!-- tercera columna -->
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">Nombre</label>
+                <%= form.text_field :nombre, id: :persona_nombre, class: 'form-control', required: 'required' %>
+              </div>
+            </div>
+            <!-- fin tercera columna -->
+
+          </div>
+          <!-- fin segunda fila -->
+          
         </div>      
       </div>
     </div>

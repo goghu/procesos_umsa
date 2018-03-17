@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180311005204) do
+ActiveRecord::Schema.define(version: 20180317142449) do
 
   create_table "cargos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nombre"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180311005204) do
   create_table "denuncia", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "tipo_pe_persona", limit: 20
     t.string "nombre", limit: 50
+    t.integer "persona_id"
     t.string "ci", limit: 20
     t.string "ru_item", limit: 30
     t.date "fecha"

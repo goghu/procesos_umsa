@@ -51,6 +51,10 @@ class DenunciaController < ApplicationController
     end
   end
 
+  def impresion
+    
+  end
+
   # DELETE /denuncia/1
   # DELETE /denuncia/1.json
   def destroy
