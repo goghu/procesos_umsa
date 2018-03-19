@@ -36,18 +36,18 @@ File: scss
 /*Top bar
 *******************/
 .topbar {
-  background: #009efb;
+  background: #4906ad;
   /* Old browsers */
-  background: -moz-linear-gradient(left, #0178bc 0%, #00bdda 100%);
+  background: -moz-linear-gradient(left, #0113bc 0%, #b20707 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #0178bc 0%, #00bdda 100%);
+  background: -webkit-linear-gradient(left, #0113bc 0%, #b20707 100%);
   /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, #0178bc 0%, #00bdda 100%);
+  background: linear-gradient(to right, #0113bc 0%, #b20707 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
 
 .topbar .navbar-header {
-  background: #272c33;
+  background: #4906ad;
   box-shadow: 4px -4px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -86,15 +86,15 @@ File: scss
 /*General Elements
 *******************/
 a {
-  color: #009efb;
+  color: #4906ad;
 }
 
 a.link:hover, a.link:focus {
-  color: #009efb !important;
+  color: #4906ad !important;
 }
 
 .bg-theme {
-  background-color: #009efb !important;
+  background-color: #4906ad !important;
 }
 
 .pagination > .active > a,
@@ -103,31 +103,31 @@ a.link:hover, a.link:focus {
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-  background-color: #009efb;
-  border-color: #009efb;
+  background-color: #4906ad;
+  border-color: #4906ad;
 }
 
 .right-sidebar .rpanel-title {
-  background: #009efb;
+  background: #4906ad;
 }
 
 .stylish-table tbody tr:hover, .stylish-table tbody tr.active {
-  border-left: 4px solid #009efb;
+  border-left: 4px solid #4906ad;
 }
 
 .text-themecolor {
-  color: #009efb !important;
+  color: #4906ad !important;
 }
 
 .profile-tab li a.nav-link.active,
 .customtab li a.nav-link.active {
-  border-bottom: 2px solid #009efb;
-  color: #009efb;
+  border-bottom: 2px solid #4906ad;
+  color: #4906ad;
 }
 
 .profile-tab li a.nav-link:hover,
 .customtab li a.nav-link:hover {
-  color: #009efb;
+  color: #4906ad;
 }
 
 /*******************
@@ -135,29 +135,29 @@ a.link:hover, a.link:focus {
 *******************/
 .btn-themecolor,
 .btn-themecolor.disabled {
-  background: #009efb;
+  background: #052b60;
   color: #ffffff;
-  border: 1px solid #009efb;
+  border: 1px solid #052b60;
 }
 
 .btn-themecolor:hover,
 .btn-themecolor.disabled:hover {
-  background: #009efb;
+  background: #052b60;
   opacity: 0.7;
-  border: 1px solid #009efb;
+  border: 1px solid #052b60;
 }
 
 .btn-themecolor.active, .btn-themecolor:focus,
 .btn-themecolor.disabled.active,
 .btn-themecolor.disabled:focus {
-  background: #028ee1;
+  background: #052b60;
 }
 
 /*******************
 /*sidebar navigation
 *******************/
 .card-no-border .left-sidebar, .card-no-border .sidebar-nav {
-  background: #272c33;
+  background: #a30824;
 }
 
 .mini-sidebar .sidebar-nav {
@@ -166,12 +166,12 @@ a.link:hover, a.link:focus {
 
 @media (min-width: 768px) {
   .mini-sidebar .sidebar-nav #sidebarnav > li > ul {
-    background: #181c22;
+    background: #052b60;
   }
 }
 
 .sidebar-nav {
-  background: #272c33;
+  background: #a30824;
 }
 
 .sidebar-nav ul li a {
@@ -179,7 +179,7 @@ a.link:hover, a.link:focus {
 }
 
 .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
-  color: #009efb;
+  color: #4906ad;
 }
 
 .sidebar-nav ul li a.active {
@@ -187,44 +187,44 @@ a.link:hover, a.link:focus {
 }
 
 .sidebar-nav ul li.nav-small-cap {
-  color: #90a4ae;
+  color: #4906ad;
 }
 
 .sidebar-nav > ul > li.active > a {
-  border-left: 3px solid #009efb;
-  color: #009efb;
+  border-left: 3px solid #4906ad;
+  color: #4906ad;
 }
 
 .sidebar-nav > ul > li.active > a i {
-  color: #009efb;
+  color: #4906ad;
 }
 
 .sidebar-nav > ul > li > a {
-  border-left: 3px solid #272c33;
+  border-left: 3px solid #052b60;
 }
 
 .sidebar-nav > ul > li > a.active, .sidebar-nav > ul > li > a:hover {
-  border-left: 3px solid #009efb;
+  border-left: 3px solid #4906ad;
 }
 
 .sidebar-nav > ul > li > a.active i, .sidebar-nav > ul > li > a:hover i {
-  color: #009efb;
+  color: #4906ad;
 }
 
 .sidebar-nav > ul > li > a i {
-  color: #798699;
+  color: #052b60;
 }
 
 .sidebar-nav > ul > li > a.active {
   font-weight: 400;
   background: #ffffff;
-  color: #009efb;
+  color: #4906ad;
 }
 
 .user-profile .profile-text a {
-  color: #798699 !important;
+  color: #052b60 !important;
 }
 
 .card-no-border .sidebar-footer {
-  background: #181c22;
+  background: #052b60;
 }
