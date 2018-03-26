@@ -20,30 +20,35 @@
           <div class="row p-t-20">
 
             <!--primera columna-->
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="control-label">Tipo Persona</label>
-                <%= form.text_field :tipo_pe_persona, id: :denuncium_tipo_pe_persona, class: 'form-control', required: 'required' %>
-
+                <%= select_tag "denuncium[tipo_pe_persona]", 
+                    options_for_select([['Denunciante'], ['Denunciado']]), 
+                    {
+                      :class => 'form-control', 
+                      required: 'required',
+                    } 
+                %>
               </div>
             </div>
             <!--fin primera columna-->
 
             <!--segunda columna-->
-            <div class="col-md-3">
+            <div class="col-md-5">
               <div class="form-group">
                 <label class="control-label">CI</label>
-                <%= form.text_field :ci, id: :persona_ci,  class: 'form-control', required: 'required' %>
-
+                <%= form.text_field :ci, id: :denuncium_ci, class: 'form-control' %>
+                <div id="des_personas"></div>
               </div>
             </div>
             <!-- fin segunda columna -->
 
             <!-- tercera columna -->
-            <div class="col-md-6">
+            <div class="col-md-5">
               <div class="form-group">
                 <label class="control-label">Nombre</label>
-                <%= form.text_field :nombre, id: :persona_nombre, class: 'form-control', required: 'required' %>
+                <%= form.text_field :nombre, id: :denuncium_nombre, class: 'form-control' %>
               </div>
             </div>
             <!-- fin tercera columna -->
@@ -58,8 +63,7 @@
             <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">Ru / Item</label>
-                <%= form.text_field :item, id: :persona_item, class: 'form-control', required: 'required' %>
-
+                <%= form.text_field :ru_item, id: :denuncium_ru_item, class: 'form-control' %>
               </div>
             </div>
             <!--fin primera columna-->
@@ -68,8 +72,101 @@
             <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">Fecha</label>
-                <%= form.date_field :ci, id: :persona_ci,  class: 'form-control', required: 'required' %>
+                <%= form.date_field :fecha, id: :denuncium_fecha,  class: 'form-control', required: 'required' %>
+              </div>
+            </div>
+            <!-- fin segunda columna -->
 
+          </div>
+          <!-- fin segunda fila -->
+
+          <!-- tercera fila -->
+          <div class="row p-t-20">
+
+            <!--primera columna-->
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">Facultad</label>
+                <% form.number_field :facultad_id, id: :denuncium_facultad_id, class: 'form-control' %>
+                <%= select_tag "denuncium[facultad_id]", 
+                options_from_collection_for_select(
+                  Facultade.where(
+                    borrado: nil, 
+                    ).order(
+                    nombre: :asc
+                    ), 
+                    :id, 
+                    :nombre, 
+                    :selected => form.object.facultad_id
+                    ), 
+                {
+                  :class => 'form-control', 
+                  :prompt => "Seleccione Facultad"
+                } 
+                %>
+              </div>
+            </div>
+            <!--fin primera columna-->
+
+            <!--segunda columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Carrera</label>
+                <% form.number_field :carrera_id, id: :denuncium_carrera_id, class: 'form-control' %>
+                <%= select_tag "denuncium[carrera_id]", 
+                options_from_collection_for_select(
+                  Carrera.order(
+                    nombre: :asc
+                    ), 
+                    :id, 
+                    :nombre, 
+                    :selected => form.object.carrera_id
+                    ), 
+                {
+                  :class => 'form-control', 
+                  :prompt => "Seleccione Carrera"
+                } 
+                %>
+              </div>
+            </div>
+            <!-- fin segunda columna -->
+
+            <!-- tercera columna -->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Tipo Resolucion</label>
+                <% form.text_field :tipo_resol, id: :denuncium_tipo_resol, class: 'form-control' %>
+                <%= select_tag "denuncium[tipo_resol]", 
+                options_for_select([['Facultativa'], ['HCU']]), 
+                {
+                  :class => 'form-control', 
+                  required: 'required',
+                } 
+                %>
+              </div>
+            </div>
+            <!-- fin tercera columna -->
+
+          </div>
+          <!-- fin tercera fila -->
+
+          <!-- cuarta fila -->
+          <div class="row p-t-20">
+
+            <!--primera columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Codigo</label>
+                <%= form.text_field :codigo_caso, id: :denuncium_codigo_caso, class: 'form-control' %>
+              </div>
+            </div>
+            <!--fin primera columna-->
+
+            <!--segunda columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Direccion</label>
+                <%= form.text_field :direccion, id: :denuncium_direccion, class: 'form-control' %>
               </div>
             </div>
             <!-- fin segunda columna -->
@@ -77,90 +174,64 @@
             <!-- tercera columna -->
             <div class="col-md-6">
               <div class="form-group">
-                <label class="control-label">Nombre</label>
-                <%= form.text_field :nombre, id: :persona_nombre, class: 'form-control', required: 'required' %>
+                <label class="control-label">Telefono</label>
+                <%= form.text_field :telefono, id: :denuncium_telefono, class: 'form-control' %>
               </div>
             </div>
             <!-- fin tercera columna -->
 
           </div>
-          <!-- fin segunda fila -->
-          
+          <!-- fin cuarta fila -->
+
+          <!-- quita fila -->
+          <div class="row p-t-20">
+
+            <!--primera columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Fallo</label>
+                <%= form.text_field :fallo, id: :denuncium_fallo, class: 'form-control' %>
+              </div>
+            </div>
+            <!--fin primera columna-->
+
+            <!--segunda columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Observaciones</label>
+                <%= form.text_field :observaciones, id: :denuncium_observaciones, class: 'form-control' %>
+              </div>
+            </div>
+            <!-- fin segunda columna -->
+
+          </div>
+          <!-- fin quinta fila -->
+
         </div>      
       </div>
     </div>
   </div>  
 </div>
 
-
-
-
-  <div class="field">
-    <%= form.label :tipo_pe_persona %>
-    <%= form.text_field :tipo_pe_persona, id: :denuncium_tipo_pe_persona %>
-  </div>
-
-  <div class="field">
-    <%= form.label :nombre %>
-    <%= form.text_field :nombre, id: :denuncium_nombre %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ci %>
-    <%= form.text_field :ci, id: :denuncium_ci %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ru_item %>
-    <%= form.text_field :ru_item, id: :denuncium_ru_item %>
-  </div>
-
-  <div class="field">
-    <%= form.label :fecha %>
-    <%= form.date_select :fecha, id: :denuncium_fecha %>
-  </div>
-
-  <div class="field">
-    <%= form.label :facultad_id %>
-    <%= form.number_field :facultad_id, id: :denuncium_facultad_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :carrera_id %>
-    <%= form.number_field :carrera_id, id: :denuncium_carrera_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tipo_resol %>
-    <%= form.text_field :tipo_resol, id: :denuncium_tipo_resol %>
-  </div>
-
-  <div class="field">
-    <%= form.label :codigo_caso %>
-    <%= form.text_field :codigo_caso, id: :denuncium_codigo_caso %>
-  </div>
-
-  <div class="field">
-    <%= form.label :direccion %>
-    <%= form.text_field :direccion, id: :denuncium_direccion %>
-  </div>
-
-  <div class="field">
-    <%= form.label :telefono %>
-    <%= form.text_field :telefono, id: :denuncium_telefono %>
-  </div>
-
-  <div class="field">
-    <%= form.label :observaciones %>
-    <%= form.text_field :observaciones, id: :denuncium_observaciones %>
-  </div>
-
-  <div class="field">
-    <%= form.label :fallo %>
-    <%= form.text_field :fallo, id: :denuncium_fallo %>
-  </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+<script>
+  $("#denuncium_ci").keyup(function () {
+    var campo_texto = $("#denuncium_ci").val();
+    var cantidad_letras = campo_texto.length;
+    console.log('var: '+campo_texto);
+    if(cantidad_letras > 3){        
+      Rails.ajax({
+        type: 'GET',
+        url: '/denuncias/busca_ci_ajax/'+campo_texto,
+        data: {"dato_crt": campo_texto},
+        success: function(data, textStatus, jqXHR){
+          $("#des_personas").load('/denuncias/busca_ci_ajax/'+campo_texto);
+          console.log('retorno '+ data);
+        }
+      });
+    }
+  });
+</script>

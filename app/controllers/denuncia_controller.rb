@@ -15,6 +15,7 @@ class DenunciaController < ApplicationController
   # GET /denuncia/new
   def new
     @denuncium = Denuncium.new
+
   end
 
   # GET /denuncia/1/edit
@@ -53,6 +54,16 @@ class DenunciaController < ApplicationController
 
   def impresion
     
+  end
+
+  def busca_ci_ajax
+    ci_buscar = params[:ci]
+    @datos_persona = Persona.where("ci like ?",  "%#{ci_buscar}%")
+    respond_to do |format|
+      format.html { @datos_persona }
+      format.json { render json: @datos_persona }
+    end
+    render layout: false
   end
 
   # DELETE /denuncia/1

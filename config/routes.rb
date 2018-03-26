@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get '/elegido/muestra_generado/', to: 'elegidos#muestra_generado'
   get '/persona/jquery/', to: 'personas#jquery'
   get '/denuncias/impresion/', to: 'denuncia#impresion'
+  get '/denuncias/busca_ci_ajax/:ci', to: 'denuncia#busca_ci_ajax'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -22,3 +22,4 @@
 //= require custom.min
 //= require datatables/jquery.dataTables.min
 // require_tree .
+
