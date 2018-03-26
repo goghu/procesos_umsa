@@ -126,19 +126,23 @@ class ExcelsController < ApplicationController
           puts "Item -- #{workbook[0][cont][0].value}"
           puts "Carnet -- #{workbook[0][cont][1].value}"
           puts "Nombre -- #{workbook[0][cont][2].value}"
-          puts "Facultad -- #{workbook[0][cont][3].value}"
-          puts "Carrera -- #{workbook[0][cont][4].value}"
-          puts "Tipo -- #{workbook[0][cont][5].value}"
-          puts "Categoria -- #{workbook[0][cont][6].value}"
+          puts "Ap_paterno -- #{workbook[0][cont][3].value}"
+          puts "Ap_materno -- #{workbook[0][cont][4].value}"
+          puts "Facultad -- #{workbook[0][cont][5].value}"
+          puts "Carrera -- #{workbook[0][cont][6].value}"
+          puts "Tipo -- #{workbook[0][cont][7].value}"
+          puts "Categoria -- #{workbook[0][cont][8].value}"
           # validamos para que el carnet para que no se repitan las personas
           p = Persona.new
           p.item = workbook[0][cont][0].value
           p.ci = workbook[0][cont][1].value
           p.nombre = workbook[0][cont][2].value
-          p.facultad = workbook[0][cont][3].value
-          p.carrera = workbook[0][cont][4].value
-          p.tipo = workbook[0][cont][5].value
-          p.categoria = workbook[0][cont][6].value
+          p.ap_paterno = workbook[0][cont][3].value
+          p.ap_materno = workbook[0][cont][4].value
+          p.facultad = workbook[0][cont][5].value
+          p.carrera = workbook[0][cont][6].value
+          p.tipo = workbook[0][cont][7].value
+          p.categoria = workbook[0][cont][8].value
           p.save
         end
 
