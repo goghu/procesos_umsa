@@ -157,7 +157,7 @@ a.link:hover, a.link:focus {
 /*sidebar navigation
 *******************/
 .card-no-border .left-sidebar, .card-no-border .sidebar-nav {
-  background: #a30824;
+  background: #071418;
 }
 
 .mini-sidebar .sidebar-nav {
@@ -166,12 +166,12 @@ a.link:hover, a.link:focus {
 
 @media (min-width: 768px) {
   .mini-sidebar .sidebar-nav #sidebarnav > li > ul {
-    background: #052b60;
+    background: #edf1f7;
   }
 }
 
 .sidebar-nav {
-  background: #a30824;
+  background: ##071418;
 }
 
 .sidebar-nav ul li a {
@@ -179,7 +179,7 @@ a.link:hover, a.link:focus {
 }
 
 .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
-  color: #4906ad;
+  color: ##edf1f7;
 }
 
 .sidebar-nav ul li a.active {
@@ -187,16 +187,16 @@ a.link:hover, a.link:focus {
 }
 
 .sidebar-nav ul li.nav-small-cap {
-  color: #4906ad;
+  color: ##edf1f7;
 }
 
 .sidebar-nav > ul > li.active > a {
   border-left: 3px solid #4906ad;
-  color: #4906ad;
+  color: #edf1f7;
 }
 
 .sidebar-nav > ul > li.active > a i {
-  color: #4906ad;
+  color: #edf1f7;
 }
 
 .sidebar-nav > ul > li > a {

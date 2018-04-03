@@ -79,6 +79,11 @@ class PersonasController < ApplicationController
     @nombre = Persona.where(tipo: "Asesor")
   end
 
+  def emisioncertf
+    @nombre = Persona.where(tipo:"Emisioncertf")
+  end
+
+
 
 =begin
     @persona.destroy
