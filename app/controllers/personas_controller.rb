@@ -5,7 +5,7 @@ class PersonasController < ApplicationController
   # GET /personas
   # GET /personas.json
   def index
-    @personas = Persona.where(borrado: nil)
+    @personas = Persona.where(borrado: nil).limit(20)
   end
 
   # GET /personas/1

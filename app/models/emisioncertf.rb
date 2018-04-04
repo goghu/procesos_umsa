@@ -1,0 +1,2 @@
+class Emision < ApplicationRecord
+end

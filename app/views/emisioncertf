@@ -1,0 +1,46 @@
+<h1>Emision de certificados</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Ap_Paterno</th>
+      <th>Ap_Materno</th>
+      <th>Ci</th>
+      <th>Ru_item</th>
+      <th>Fecha</th>
+      <th>Facultad</th>
+      <th>Carrera</th>
+      <th>Direccion</th>
+      <th>Telefono</th>
+      <th>Sancion</th>
+      <th>Emision</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @emision.each do |emision| %>
+      <tr>
+        <td><%= emisioncertf.nombre %></td>
+        <td><%= emisioncertf.ap_paterno %></td>
+        <td><%= emisioncertf.ap_materno %></td>
+        <td><%= emisioncertf.ci %></td>
+        <td><%= emisioncertf.ru_item %></td>
+        <td><%= emisioncertf.fecha %></td>
+        <td><%= emisioncertf.facultad_id %></td>
+        <td><%= emisioncertf.carrera_id %></td>
+        <td><%= emisioncertf.direccion %></td>
+        <td><%= emisioncertf.telefono %></td>
+        <td><%= emisioncertf.sancion %></td>
+        <td><%= emisioncertf.emision %></td>
+        <td><%= link_to 'Show', emisioncertf %></td>
+        <td><%= link_to 'Edit', edit_emisioncertf_path(emisioncertf) %></td>
+        <td><%= link_to 'Destroy', emisioncertf, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New emisioncertf', new_emisioncertif_path %>

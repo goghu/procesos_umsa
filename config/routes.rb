@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :personas
   resources :cargos
   resources :facultades
+  resources :emisioncertf
   #devise_for :users
   root to: "facultades#index"
   devise_for :users, controllers: {
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
   get '/persona/jquery/', to: 'personas#jquery'
   get '/denuncias/impresion/', to: 'denuncia#impresion'
   get '/denuncias/busca_ci_ajax/:ci', to: 'denuncia#busca_ci_ajax'
+  get '/persona/emisioncertf/', to: 'personas#emisioncertf'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

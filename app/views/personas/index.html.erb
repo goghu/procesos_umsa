@@ -8,14 +8,19 @@
           <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
             <tr>
-              <th>Item</th>
-              <th>Ci</th>
+              
+              
               <th>Nombre</th>
               <th>Apellido_paterno</th>
               <th>Apellido_materno</th>
+              <th>Ci</th>
+              <th>Tipo</th>
+              <th>Item</th>
               <th>Facultad</th>
               <th>Carrera</th>
-              <th>Tipo</th>
+              <th>Categoria</th>
+              <th>Direccion</th>
+              <th>Telefono</th>
               <th>Acciones</th>
             </tr>
             </thead>
@@ -23,16 +28,21 @@
             <tbody>
             <% @personas.each do |persona| %>
               <tr>
-                <td><%= persona.item %></td>
-                <td><%= persona.ci %></td>
                 <td><%= persona.nombre %></td>
                 <td><%= persona.ap_paterno%></td>
                 <td><%= persona.ap_materno%></td>
+                <td><%= persona.ci %></td>
+                <td><%= persona.tipo %></td>
+                <td><%= persona.item %></td>                       
                 <td><%= persona.facultad %></td>
                 <td><%= persona.carrera %></td>
-                <td><%= persona.tipo %></td>
+                <td><%= persona.categoria %></td>
+                <td><%= persona.direccion %></td>
+                <td><%= persona.telefono %></td>
+                <td>Acciones</td>
+                
                 <td>
-                  <%= link_to "<i class='fa fa-eye'></i>".html_safe, persona %>&nbsp&nbsp
+                  <%= link_to "<i class='fa fa-eye'></i>".html_safe, persona %>&nbsp;&nbsp;
                   <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_persona_path(persona) %>&nbsp&nbsp
                   <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, persona, method: :delete, data: {confirm: 'Esta seguro de Eliminar?'} %>
                 </td>

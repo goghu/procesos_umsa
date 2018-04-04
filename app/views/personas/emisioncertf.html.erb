@@ -1,0 +1,188 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card card-outline-info">
+      <div class="card-block">
+        <%= form_tag("/guarda", method: "POST") do %>
+        <div class="form-body">
+
+          <!--Primera fila-->
+          <div class="row p-t-20">
+
+            <!--primera columna-->
+            <div class="col-md-2">
+              <div class="form-group">
+                <label class="control-label">Tipo Persona</label>
+                <%= select_tag "denuncium[tipo_pe_persona]", 
+                    options_for_select([['Denunciante'], ['Denunciado']]), 
+                    {
+                      :class => 'form-control', 
+                      required: 'required',
+                    } 
+                %>
+              </div>
+            </div>
+            <!--fin primera columna-->
+
+            <!--segunda columna-->
+            <div class="col-md-5">
+              <div class="form-group">
+                <label class="control-label">CI</label>
+                <%= text_field_tag('nombre') %>
+                <div id="des_personas"></div>
+              </div>
+            </div>
+            <!-- fin segunda columna -->
+
+            <!-- tercera columna -->
+            <div class="col-md-5">
+              <div class="form-group">
+                <label class="control-label">Nombre</label>
+                <%= text_field_tag('nombre', class: 'form-control') %>
+              </div>
+            </div>
+            <!-- fin tercera columna -->
+
+          </div>
+          <!--fin primera fila-->
+          
+          <!-- segunda fila -->
+          <div class="row p-t-20">
+
+            <!--primera columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Ru / Item</label>
+                <%= text_field_tag('nombre', class: 'form-control') %>
+              </div>
+            </div>
+            <!--fin primera columna-->
+
+            <!--segunda columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Fecha</label>
+                <%= text_field_tag('nombre', class: 'form-control') %>
+              </div>
+            </div>
+            <!-- fin segunda columna -->
+
+          </div>
+          <!-- fin segunda fila -->
+
+          <!-- tercera fila -->
+          <div class="row p-t-20">
+
+            <!--primera columna-->
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">Facultad</label>
+                <%= text_field_tag('nombre', class: 'form-control') %>
+              </div>
+            </div>
+            <!--fin primera columna-->
+
+            <!--segunda columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Carrera</label>
+                <%= text_field_tag('nombre', class: 'form-control') %>
+              </div>
+            </div>
+            <!-- fin segunda columna -->
+
+            <!-- tercera columna -->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Tipo Resolucion</label>
+                <%= text_field_tag('nombre', class: 'form-control') %>
+              </div>
+            </div>
+            <!-- fin tercera columna -->
+
+          </div>
+          <!-- fin tercera fila -->
+
+          <!-- cuarta fila -->
+          <div class="row p-t-20">
+
+            <!--primera columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Codigo</label>
+                <%= text_field_tag('nombre', class: 'form-control') %>
+              </div>
+            </div>
+            <!--fin primera columna-->
+
+            <!--segunda columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Direccion</label>
+                <%= text_field_tag('nombre', class: 'form-control') %>
+              </div>
+            </div>
+            <!-- fin segunda columna -->
+
+            <!-- tercera columna -->
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="control-label">Telefono</label>
+                <%= text_field_tag('nombre', class: 'form-control') %>
+              </div>
+            </div>
+            <!-- fin tercera columna -->
+
+          </div>
+          <!-- fin cuarta fila -->
+
+          <!-- quita fila -->
+          <div class="row p-t-20">
+
+            <!--primera columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Fallo</label>
+                <%= text_field_tag('nombre', class: 'form-control') %>
+              </div>
+            </div>
+            <!--fin primera columna-->
+
+            <!--segunda columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">Observaciones</label>
+                <%= text_field_tag('nombre', class: 'form-control') %>
+              </div>
+            </div>
+            <!-- fin segunda columna -->
+
+          </div>
+          <!-- fin quinta fila -->
+
+        </div>      
+      </div>
+    </div>
+  </div>  
+</div>
+
+  <div class="actions">
+  </div>
+<% end %>
+<script>
+  $("#denuncium_ci").keyup(function () {
+    var campo_texto = $("#denuncium_ci").val();
+    var cantidad_letras = campo_texto.length;
+    console.log('var: '+campo_texto);
+    if(cantidad_letras > 3){        
+      Rails.ajax({
+        type: 'GET',
+        url: '/denuncias/busca_ci_ajax/'+campo_texto,
+        data: {"dato_crt": campo_texto},
+        success: function(data, textStatus, jqXHR){
+          $("#des_personas").load('/denuncias/busca_ci_ajax/'+campo_texto);
+          console.log('retorno '+ data);
+        }
+      });
+    }
+  });
+</script>
