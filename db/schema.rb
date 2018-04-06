@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 20180404205256) do
   end
 
   create_table "personas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer "facultad_id"
     t.string "item"
     t.string "ci"
     t.string "nombre"

@@ -7,7 +7,9 @@
 	<tbody>
 		<% @datos_persona.each do |dp| %>
 		<tr>
-			<td><%= dp.ci %></td><td><%= dp.ap_paterno %><%= dp.ap_materno %><%= dp.nombre %></td><td><button type="button" class="btn btn-success"><i class="mdi mdi-check"></i></button></td>
+			<td><%= dp.ci %></td>
+			<td><%= dp.ap_paterno %><%= dp.ap_materno %><%= dp.nombre %></td>
+			<td><button onclick="alert('Funciona')" type="button" class="btn btn-success"><i class="mdi mdi-check"></i></button></td>
 		</tr>
 		<% end %>
 	</tbody>
