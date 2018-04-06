@@ -1,19 +1,41 @@
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-lg-25">
     <div class="card card-outline-info">
       <div class="card-block">
         <%= form_tag("/guarda", method: "POST") do %>
         <div class="form-body">
 
           <!--Primera fila-->
-          <div class="row p-t-20">
+          <div class="row p-t-25">
 
             <!--primera columna-->
-            <div class="col-md-2">
+            <div class="col-md-3">
               <div class="form-group">
-                <label class="control-label">Tipo Persona</label>
-                <%= select_tag "denuncium[tipo_pe_persona]", 
-                    options_for_select([['Denunciante'], ['Denunciado']]), 
+                <label class="control-label">
+                  <h3 class="text-orange">Carnet Identidad</h3></label>
+                <%= text_field_tag('CI') 
+                %>
+                <div id="des_personas"></div>
+              </div>
+            </div>
+            <!--fin primera columna-->
+            
+            <!--segunda columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label"><h3 class="text-orange">Ru / Item</h3></label>
+                <%= text_field_tag('nombre', class: 'form-control')
+                %>
+              </div>
+            </div>
+            <!-- fin segunda columna -->
+
+            <!-- tercera columna -->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label"><h3 class="text-orange">Tipo Persona</h3></label>
+                <%= select_tag "emisioncertf[tipo_pe_persona]", 
+                    options_for_select([['Docente'], ['Estudiante']]), 
                     {
                       :class => 'form-control', 
                       required: 'required',
@@ -21,37 +43,18 @@
                 %>
               </div>
             </div>
-            <!--fin primera columna-->
-
-            <!--segunda columna-->
-            <div class="col-md-5">
-              <div class="form-group">
-                <label class="control-label">CI</label>
-                <%= text_field_tag('nombre') %>
-                <div id="des_personas"></div>
-              </div>
-            </div>
-            <!-- fin segunda columna -->
-
-            <!-- tercera columna -->
-            <div class="col-md-5">
-              <div class="form-group">
-                <label class="control-label">Nombre</label>
-                <%= text_field_tag('nombre', class: 'form-control') %>
-              </div>
-            </div>
             <!-- fin tercera columna -->
-
           </div>
-          <!--fin primera fila-->
-          
-          <!-- segunda fila -->
-          <div class="row p-t-20">
+          <!--fin Primera fila-->
+
+            <!-- segunda fila -->
+          <div class="row p-t-25">
 
             <!--primera columna-->
             <div class="col-md-3">
               <div class="form-group">
-                <label class="control-label">Ru / Item</label>
+                <label class="control-label">
+                  <h3 class="text-orange">Nombre</h3></label>
                 <%= text_field_tag('nombre', class: 'form-control') %>
               </div>
             </div>
@@ -60,23 +63,36 @@
             <!--segunda columna-->
             <div class="col-md-3">
               <div class="form-group">
-                <label class="control-label">Fecha</label>
-                <%= text_field_tag('nombre', class: 'form-control') %>
+                <label class="control-label">
+                  <h3 class="text-orange">Ap_Paterno</h3></label>
+                <%= text_field_tag('ap_paterno', class: 'form-control') %>
               </div>
             </div>
-            <!-- fin segunda columna -->
+            <!--fin segunda columna-->
 
+            <!--tercera columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">
+                  <h3 class="text-orange">Ap_materno</h3></label>
+                <%= text_field_tag('ap_materno', class: 'form-control') %>
+              </div>
+            </div>
+            <!--fin tercera columna-->
           </div>
-          <!-- fin segunda fila -->
+          <!--fin segunda fila-->
 
+                
           <!-- tercera fila -->
-          <div class="row p-t-20">
+          <div class="row p-t-25">
 
             <!--primera columna-->
-            <div class="col-md-6">
+            <div class="col-md-3">
               <div class="form-group">
-                <label class="control-label">Facultad</label>
-                <%= text_field_tag('nombre', class: 'form-control') %>
+                <label class="control-label">
+                <h3 class="text-orange">Facultad</h3></label>
+                <%= text_field_tag('nombre', class: 'form-control')
+                 %>
               </div>
             </div>
             <!--fin primera columna-->
@@ -84,8 +100,10 @@
             <!--segunda columna-->
             <div class="col-md-3">
               <div class="form-group">
-                <label class="control-label">Carrera</label>
-                <%= text_field_tag('nombre', class: 'form-control') %>
+                <label class="control-label">
+                <h3 class="text-orange">Carrera</h3></label>
+                <%= text_field_tag('nombre', class: 'form-control') 
+                %>
               </div>
             </div>
             <!-- fin segunda columna -->
@@ -93,41 +111,49 @@
             <!-- tercera columna -->
             <div class="col-md-3">
               <div class="form-group">
-                <label class="control-label">Tipo Resolucion</label>
-                <%= text_field_tag('nombre', class: 'form-control') %>
+                <label class="control-label">
+                <h3 class="text-orange">Categoria</h3></label>
+                <%= text_field_tag('Categoria', class: 'form-control')
+                 %>
               </div>
             </div>
             <!-- fin tercera columna -->
 
           </div>
           <!-- fin tercera fila -->
-
-          <!-- cuarta fila -->
-          <div class="row p-t-20">
+<!-- cuarta fila -->
+          <div class="row p-t-25">
 
             <!--primera columna-->
             <div class="col-md-3">
               <div class="form-group">
-                <label class="control-label">Codigo</label>
-                <%= text_field_tag('nombre', class: 'form-control') %>
+                <label class="control-label">
+                <h3 class="text-orange">Direccion</h3></label>
+                <%= text_field_tag('nombre', class: 'form-control')
+                 %>
               </div>
             </div>
             <!--fin primera columna-->
-
+                 
+                 
             <!--segunda columna-->
             <div class="col-md-3">
               <div class="form-group">
-                <label class="control-label">Direccion</label>
-                <%= text_field_tag('nombre', class: 'form-control') %>
+                <label class="control-label">
+                <h3 class="text-orange">Telefono</h3></label>
+                <%= text_field_tag('nombre', class: 'form-control') 
+                %>
               </div>
             </div>
             <!-- fin segunda columna -->
 
             <!-- tercera columna -->
-            <div class="col-md-6">
+            <div class="col-md-3">
               <div class="form-group">
-                <label class="control-label">Telefono</label>
-                <%= text_field_tag('nombre', class: 'form-control') %>
+                <label class="control-label">
+                <h3 class="text-orange">Correo</h3></label>
+                <%= text_field_tag('nombre', class: 'form-control')
+                  %>
               </div>
             </div>
             <!-- fin tercera columna -->
@@ -135,14 +161,16 @@
           </div>
           <!-- fin cuarta fila -->
 
-          <!-- quita fila -->
-          <div class="row p-t-20">
+          <!-- quinta fila -->
+          <div class="row p-t-25">
 
             <!--primera columna-->
             <div class="col-md-3">
               <div class="form-group">
-                <label class="control-label">Fallo</label>
-                <%= text_field_tag('nombre', class: 'form-control') %>
+                <label class="control-label">
+                <h3 class="text-orange">Fallo</h3></label>
+                <%= text_field_tag('nombre', class: 'form-control') 
+                %>
               </div>
             </div>
             <!--fin primera columna-->
@@ -150,12 +178,27 @@
             <!--segunda columna-->
             <div class="col-md-3">
               <div class="form-group">
-                <label class="control-label">Observaciones</label>
-                <%= text_field_tag('nombre', class: 'form-control') %>
+                <label class="control-label">
+                  <h3 class="text-orange">Observaciones</h3></label>
+                <%= text_field_tag('nombre', class: 'form-control') 
+                %>
               </div>
             </div>
             <!-- fin segunda columna -->
 
+         
+         <!--tercera columna-->
+          <div class="row p-t-25">
+
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">
+                <h3 class="text-orange">Fecha</h3></label>
+                <%= text_field_tag('nombre', class: 'form-control')
+                 %>
+              </div>
+            </div>
+            <!-- fin tercera columna -->
           </div>
           <!-- fin quinta fila -->
 
@@ -169,17 +212,17 @@
   </div>
 <% end %>
 <script>
-  $("#denuncium_ci").keyup(function () {
-    var campo_texto = $("#denuncium_ci").val();
+  $("#personas_ci").keyup(function () {
+    var campo_texto = $("#personas_ci").val();
     var cantidad_letras = campo_texto.length;
     console.log('var: '+campo_texto);
     if(cantidad_letras > 3){        
       Rails.ajax({
         type: 'GET',
-        url: '/denuncias/busca_ci_ajax/'+campo_texto,
+        url: '/emisioncertf/busca_ci_ajax/'+campo_texto,
         data: {"dato_crt": campo_texto},
         success: function(data, textStatus, jqXHR){
-          $("#des_personas").load('/denuncias/busca_ci_ajax/'+campo_texto);
+          $("#emisioncertf_personas").load('/emisioncertf/busca_ci_ajax/'+campo_texto);
           console.log('retorno '+ data);
         }
       });
