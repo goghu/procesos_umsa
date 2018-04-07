@@ -169,8 +169,7 @@
               <div class="form-group">
                 <label class="control-label">
                 <h3 class="text-orange">Fallo</h3></label>
-                <%= text_field_tag('nombre', class: 'form-control') 
-                %>
+                <%= select_tag "persona[fallo]",options_for_select([['Si'],['No']]),{:class => 'form-control',required:'required', :prompt => "Seleccione fallo", required:'required'} %>
               </div>
             </div>
             <!--fin primera columna-->
@@ -188,44 +187,36 @@
 
          
          <!--tercera columna-->
-          <div class="row p-t-25">
+        
 
             <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">
                 <h3 class="text-orange">Fecha</h3></label>
-                <%= text_field_tag('nombre', class: 'form-control')
+                <%= date_field_tag('fecha', nil,class: 'form-control')
                  %>
               </div>
             </div>
             <!-- fin tercera columna -->
-          </div>
+        
+        </div>      
           <!-- fin quinta fila -->
 
-        </div>      
       </div>
     </div>
   </div>  
 </div>
 
-  <div class="actions">
+ <!--/span-->
+            </div>
+
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
+            <button type="button" class="btn btn-inverse">Cancel</button>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
-<script>
-  $("#personas_ci").keyup(function () {
-    var campo_texto = $("#personas_ci").val();
-    var cantidad_letras = campo_texto.length;
-    console.log('var: '+campo_texto);
-    if(cantidad_letras > 3){        
-      Rails.ajax({
-        type: 'GET',
-        url: '/emisioncertf/busca_ci_ajax/'+campo_texto,
-        data: {"dato_crt": campo_texto},
-        success: function(data, textStatus, jqXHR){
-          $("#emisioncertf_personas").load('/emisioncertf/busca_ci_ajax/'+campo_texto);
-          console.log('retorno '+ data);
-        }
-      });
-    }
-  });
-</script>
+</div>

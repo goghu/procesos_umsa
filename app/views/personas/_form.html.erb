@@ -17,86 +17,210 @@
           <% end %>
           <div class="form-body">
 
-            <div class="row p-t-20">
+            <!--Primera fila-->
+            <div class="row p-t-25">
+
+              <!--primera columna-->
               <div class="col-md-3">
                 <div class="form-group">
-                  <label class="control-label">Item</label>
-                  <%= form.text_field :item, id: :persona_item, class: 'form-control', required: 'required' %>
+                  <label class="control-label">
+                  <h3 class="text-orange">Carnet Identidad</h3></label>
+                  <%= form.text_field :Ci, id: :persona_Ci, class: 'form-control', required: 'required' %>
+                </div>
+              </div>
+              <!--fin de primera columna -->
+
+              <!--segunda columna-->
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label"><h3 class="text-orange">Ru/Item</h3></label>
+                  <%= form.text_field :item, id: :persona_item,  class: 'form-control', required: 'required' %>
 
                 </div>
               </div>
-              <!--/span-->
-              <div class="col-md-3">
-                <div class="form-group">
-                  <label class="control-label">CI</label>
-                  <%= form.text_field :ci, id: :persona_ci,  class: 'form-control', required: 'required' %>
+              <!--fin de segunda columna-->
+
+              <!--tercera columna-->
+               <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label"><h3 class="text-orange">Tipo Persona</h3></label>
+                <%= select_tag "persona[tipo]",                 options_for_select([['Docente'], ['Estudiante'], ['Otro']]), {:class => 'form-control', required: 'required', :prompt => "Seleccione tipo", required: 'required'} %>
 
                 </div>
               </div>
+            
+            <!--fin tercera columna-->
+              </div>
+            <!--fin de primera fila-->
 
-              <div class="col-md-6">
+            <!-- segunda fila-->
+            <div class="row p-t-25">
+
+            <!--primera columna-->
+              <div class="col-md-3">
                 <div class="form-group">
-                  <label class="control-label">Nombre</label>
+                  <label class="control-label">
+                    <h3 class="text-orange">Nombre</h3></label>
                   <%= form.text_field :nombre, id: :persona_nombre, class: 'form-control', required: 'required' %>
 
                 </div>
               </div>
-              <!--/span-->
-            </div>
+              <!--fin de primera columna-->
 
-            <div class="row p-t-20">
-
-              <div class="col-md-6">
+              <!--segunda columna-->
+              <div class="col-md-3">
                 <div class="form-group">
-                  <label class="control-label">Facultad</label>
-                  <%= form.text_field :facultad, id: :persona_facultad,  class: 'form-control', required: 'required' %>
+                  <label class="control-label">
+                  <h3 class="text-orange">Ap_Paterno</h3></label>
+                  <%= form.text_field :ap_paterno, id: :persona_ap_paterno, class: 'form-control', required: 'required' %>
 
                 </div>
               </div>
-              <div class="col-md-6">
+
+              <!--fin de segunda columna-->
+
+              <!--tercera columna-->
+              <div class="col-md-3">
                 <div class="form-group">
-                  <label class="control-label">Carrera</label>
+                  <label class="control-label">
+                    <h3 class="text">Ap_Materno</h3></label>
+                  <%= form.text_field :ap_materno, id: :persona_ap_materno, class: 'form-control', required: 'required' %>
+
+                </div>
+              </div>
+               <!--fin de tercera columna-->
+             </div>
+             <!--fin de segunda fila-->
+
+             <!--tercera fila-->
+             <div class="row p-t-25">
+
+              <!--primera columna-->
+
+               <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">
+                  <h3 class="text">Facultad</h3></label>
+                  <%= form.text_field :facultad, id: :persona_facultad,  class: 'form-control', required: 'required' %>
+                </div>
+              </div>
+                  <!--fin primera columna-->
+
+                  <!--segunda columna-->
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">
+                    <h3 class="text">Carrera</h3></label>
                   <%= form.text_field :carrera, id: :persona_carrera, class: 'form-control', required: 'required' %>
 
                 </div>
               </div>
+              <!--fin de segunda columna-->
 
-
-              <!--/span-->
-            </div>
-
-            <div class="row p-t-20">
-
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="control-label">Tipo</label>
-
-                  <%= select_tag "persona[tipo]", options_for_select([['Docente '], ['Universitario']]), {:class => 'form-control', required: 'required', :prompt => "Seleccione tipo", required: 'required'} %>
-
+              <!--tercera columna-->
+              
+              <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">
+                  <h3 class="text-orange">Categoria</h3></label>
+                <%= select_tag "persona[categoria]", options_for_select([['Titular_A'], ['Titular_B'], ['Titular_C'], ['Titular_E'], ['Otro']]), {:class => 'form-control', required: 'required', :prompt => "Seleccione categoria", required: 'required'} %>
 
                 </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label class="control-label">Categoria</label>
-                  <%= form.text_field :categoria, id: :persona_categoria, class: 'form-control', required: 'required' %>
-                </div>
-              </div>
-
-
-              <!--/span-->
+              </div>       
+              <!--fin tercera columna-->
             </div>
+            <!--fin de tercera fila-->
+
+            <!--cuarta fila-->
+            <div class="row p-t-25">
+
+            <!--primera columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">
+                <h3 class="text-orange">Direccion</h3></label>
+                <%= form.text_field :direccion, id: :persona_direccion, class: 'form-control', required: 'required' %>
+              </div>
+            </div>
+            <!--fin primera columna-->
+
+            <!--segunda columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">
+                <h3 class="text-orange">Telefono</h3></label>
+                <%= form.text_field :telefono, id: :persona_telefono, class: 'form-control', required: 'required' %> 
+               </div>
+            </div>
+            <!-- fin segunda columna -->
+
+            <!-- tercera columna -->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">
+                <h3 class="text-orange">Correo</h3></label>
+                <%= form.text_field :correo, id: :persona_correo,  class: 'form-control', required: 'required' %>
+                </div>
+            </div>
+            <!-- fin tercera columna -->
 
           </div>
+          <!-- fin cuarta fila -->
+
+          <!-- quinta fila -->
+          <div class="row p-t-25">
+
+            <!--primera columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">
+                <h3 class="text-orange">Fallo</h3></label>
+                <%= select_tag "persona[fallo]",options_for_select([['Si'],['No']]),{:class => 'form-control',required:'required', :prompt => "Seleccione fallo", required:'required'} %>
+              </div>
+            </div>
+            <!--fin primera columna-->
+
+            <!--segunda columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">
+                  <h3 class="text-orange">Observaciones</h3></label>
+                <%= form.text_field :observaciones, id: :persona_observaciones, class: 'form-control', required: 'required' %>
+              </div>
+            </div>
+            <!-- fin segunda columna -->
+
+         <!--tercera columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">
+                <h3 class="text-orange">Fecha</h3></label>
+                <%= date_field_tag('fecha', nil,class: 'form-control') %>
+              </div>
+            </div>
+            <!-- fin tercera columna -->
+        
+        </div>      
+          <!-- fin quinta fila -->
+    </div>
+  </div>
+ </div>
+</div>
+ <!--/spam-->
+          </div>
+        </div>
+
           <div class="form-actions">
             <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
             <button type="button" class="btn btn-inverse">Cancel</button>
           </div>
-        <% end %>
-      </div>
-    </div>
+          <% end %>
+          </div>
   </div>
+ </div>
 </div>
+      
+
 
 
 

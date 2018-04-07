@@ -410,6 +410,8 @@
             <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Cargos </span></a>
             <ul aria-expanded="false" class="collapse">
               <li><%= link_to "Listado", controller: "cargos", action: "index" %></li>
+              <li><%= link_to "Emisioncertf", controller: "personas", action: "emisioncertf" %></li>
+              <li><%= link_to "Impresion de certificados", controller: "denuncia", action: "impresion" %></li>
               <li><%= link_to "Nuevo", controller: "cargos", action: "new" %></li>
             </ul>
           </li>
