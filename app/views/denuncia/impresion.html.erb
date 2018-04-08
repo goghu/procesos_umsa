@@ -42,7 +42,11 @@ blockquote {
 					<div class="cold-md-12">
 						<div class="pull-right text-center">
 							<hr>
-							<h3 class="font-bold"> Nombre,2nombre,apellido,2pellido </h3>
+							<h3 class="font-bold"> 
+								<% @datos_denuncia.each do |dd| %> 
+								<%=	 dd.nombre %>
+								<% end %>
+							</h3>
 							<h3 class="font-bold">CI.</h3>
 						</p>
 					</hr>

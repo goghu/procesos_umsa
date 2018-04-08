@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get '/elegido/generar/', to: 'elegidos#generar'
   get '/elegido/muestra_generado/', to: 'elegidos#muestra_generado'
   get '/persona/jquery/', to: 'personas#jquery'
-  get '/denuncias/impresion/', to: 'denuncia#impresion'
+  get '/denuncias/impresion/:id_persona', to: 'denuncia#impresion'
   get '/denuncias/busca_ci_ajax/:ci', to: 'denuncia#busca_ci_ajax'
   get '/persona/emisioncertf/', to: 'personas#emisioncertf'
 

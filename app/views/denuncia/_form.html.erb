@@ -15,7 +15,37 @@
         </div>
         <% end %> 
         <div class="form-body">
+          <div class="row p-t-20">
+            <!-- primera columna-->
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="control-label"> BUSCAR CI</label>
+                <%= form.text_field :ci, id: :denuncium_ci, class: 'form-control' %>
+              </div>
+            </div>
+            <!-- fin primera columna -->
 
+            <!-- segunda columna-->
+            <div class="col-md-8">
+              <div class="form-group">
+                <label class="control-label">DATO SELECCIONADO</label>
+                <div id="carga_nombre">
+                  
+                </div>
+              </div>
+            </div>
+            <!-- fin segunda columna -->
+
+          </div>
+
+
+          <div class="row p-t-20">
+            <div class="col-md-12">
+                <div id="des_personas"></div>
+            </div>
+          </div>
+
+          <div id="nueva_denuncia" style="display: none;">
           <!--Primera fila-->
           <div class="row p-t-20">
 
@@ -34,110 +64,12 @@
             </div>
             <!--fin primera columna-->
 
-            <!--segunda columna-->
-            <div class="col-md-5">
-              <div class="form-group">
-                <label class="control-label">CI</label>
-                <%= form.text_field :ci, id: :denuncium_ci, class: 'form-control' %>
-                <div id="des_personas"></div>
-              </div>
-            </div>
-            <!-- fin segunda columna -->
-
             <!-- tercera columna -->
-            <div class="col-md-5">
+            <div class="col-md-2">
               <div class="form-group">
-                <label class="control-label">Nombre</label>
-                <%= form.text_field :nombre, id: :denuncium_nombre, class: 'form-control' %>
-              </div>
-            </div>
-            <!-- fin tercera columna -->
-
-          </div>
-          <!--fin primera fila-->
-          
-          <!-- segunda fila -->
-          <div class="row p-t-20">
-
-            <!--primera columna-->
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Ru / Item</label>
-                <%= form.text_field :ru_item, id: :denuncium_ru_item, class: 'form-control' %>
-              </div>
-            </div>
-            <!--fin primera columna-->
-
-            <!--segunda columna-->
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Fecha</label>
-                <%= form.date_field :fecha, id: :denuncium_fecha,  class: 'form-control', required: 'required' %>
-              </div>
-            </div>
-            <!-- fin segunda columna -->
-
-          </div>
-          <!-- fin segunda fila -->
-
-          <!-- tercera fila -->
-          <div class="row p-t-20">
-
-            <!--primera columna-->
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="control-label">Facultad</label>
-                <% form.number_field :facultad_id, id: :denuncium_facultad_id, class: 'form-control' %>
-                <%= select_tag "denuncium[facultad_id]", 
-                options_from_collection_for_select(
-                  Facultade.where(
-                    borrado: nil, 
-                    ).order(
-                    nombre: :asc
-                    ), 
-                    :id, 
-                    :nombre, 
-                    :selected => form.object.facultad_id
-                    ), 
-                {
-                  :class => 'form-control', 
-                  :prompt => "Seleccione Facultad"
-                } 
-                %>
-              </div>
-            </div>
-            <!--fin primera columna-->
-
-            <!--segunda columna-->
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Carrera</label>
-                <% form.number_field :carrera_id, id: :denuncium_carrera_id, class: 'form-control' %>
-                <%= select_tag "denuncium[carrera_id]", 
-                options_from_collection_for_select(
-                  Carrera.order(
-                    nombre: :asc
-                    ), 
-                    :id, 
-                    :nombre, 
-                    :selected => form.object.carrera_id
-                    ), 
-                {
-                  :class => 'form-control', 
-                  :prompt => "Seleccione Carrera"
-                } 
-                %>
-              </div>
-            </div>
-            <!-- fin segunda columna -->
-
-            <!-- tercera columna -->
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Tipo Resolucion</label>
-                <% form.text_field :tipo_resol, id: :denuncium_tipo_resol, class: 'form-control' %>
-                <%= select_tag "denuncium[tipo_resol]", 
-                options_for_select([['Facultativa'], ['HCU']]), 
+                <label class="control-label">Fallo</label>
+                <%= select_tag "denuncium[tipo_pe_persona]", 
+                options_for_select([['SI'], ['NO']]), 
                 {
                   :class => 'form-control', 
                   required: 'required',
@@ -148,80 +80,25 @@
             <!-- fin tercera columna -->
 
           </div>
-          <!-- fin tercera fila -->
+          <!--fin primera fila-->
+        </div>
 
-          <!-- cuarta fila -->
-          <div class="row p-t-20">
-
-            <!--primera columna-->
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Codigo</label>
-                <%= form.text_field :codigo_caso, id: :denuncium_codigo_caso, class: 'form-control' %>
-              </div>
-            </div>
-            <!--fin primera columna-->
-
-            <!--segunda columna-->
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Direccion</label>
-                <%= form.text_field :direccion, id: :denuncium_direccion, class: 'form-control' %>
-              </div>
-            </div>
-            <!-- fin segunda columna -->
-
-            <!-- tercera columna -->
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="control-label">Telefono</label>
-                <%= form.text_field :telefono, id: :denuncium_telefono, class: 'form-control' %>
-              </div>
-            </div>
-            <!-- fin tercera columna -->
-
+          <div class="form-actions">
+            <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
+            <button type="button" class="btn btn-inverse">Cancel</button>
           </div>
-          <!-- fin cuarta fila -->
-
-          <!-- quita fila -->
-          <div class="row p-t-20">
-
-            <!--primera columna-->
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Fallo</label>
-                <%= form.text_field :fallo, id: :denuncium_fallo, class: 'form-control' %>
-              </div>
-            </div>
-            <!--fin primera columna-->
-
-            <!--segunda columna-->
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label">Observaciones</label>
-                <%= form.text_field :observaciones, id: :denuncium_observaciones, class: 'form-control' %>
-              </div>
-            </div>
-            <!-- fin segunda columna -->
-
-          </div>
-          <!-- fin quinta fila -->
 
         </div>      
       </div>
     </div>
   </div>  
 </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
 <script>
   $("#denuncium_ci").keyup(function () {
     var campo_texto = $("#denuncium_ci").val();
     var cantidad_letras = campo_texto.length;
-    console.log('var: '+campo_texto);
+    // console.log('var: '+campo_texto);
     if(cantidad_letras > 3){        
       Rails.ajax({
         type: 'GET',

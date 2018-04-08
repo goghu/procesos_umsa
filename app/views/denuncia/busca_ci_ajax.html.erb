@@ -1,16 +1,64 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<td>CI</td><td>NOMBRE</td><td></td>
+			<td>CI</td>
+			<td>NOMBRE</td>
+			<td>FACULTAD</td>
+			<td>CARRERA</td>
+			<td>DIRECCION</td>
+			<td>TELEFONO</td>
+			<td>TIPO</td>
+			<td></td>
 		</tr>
 	</thead>
 	<tbody>
 		<% @datos_persona.each do |dp| %>
-		<tr>
+		<tr id="<%= dp.id %>" class="table">
 			<td><%= dp.ci %></td>
-			<td><%= dp.ap_paterno %><%= dp.ap_materno %><%= dp.nombre %></td>
-			<td><button onclick="alert('Funciona')" type="button" class="btn btn-success"><i class="mdi mdi-check"></i></button></td>
+			<td><%= dp.ap_paterno %> <%= dp.ap_materno %> <%= dp.nombre %></td>
+			<td><%= dp.facultad %></td>
+			<td><%= dp.carrera %></td>
+			<td><%= dp.direccion %></td>
+			<td><%= dp.telefono %></td>
+			<td><%= dp.tipo %></td>
+			<td>
+				<button  
+				type='button'
+				id='bt_sel' 
+				class='btn btn-success'>
+				<i class='mdi mdi-check'></i></button>
+			</td>			
 		</tr>
 		<% end %>
 	</tbody>
 </table>
+
+<script type="text/javascript">
+
+	$("tr.table").click(function() {
+		
+		var tableData = $(this).children("td").map(function() {
+			return $(this).text();
+		}).get();
+
+		var btn = "<button type='button' id='bt_sel' class='btn btn-success'>				<i class='mdi mdi-check'></i></button>";
+
+		var ci = $.trim(tableData[0]);
+		var nombre = $.trim(tableData[1]);
+		var facultad = $.trim(tableData[2]);
+		var carrera = $.trim(tableData[3]);
+
+		$("#carga_nombre").html('<b>CI: </b> '+ci+' <b> NOMBRE </b>'+nombre+'-'+btn);
+
+		// console.log(tableData);
+
+		// alert("Your data is: " + $.trim(tableData[0]) + " , " + $.trim(tableData[1]) + " , " + $.trim(tableData[2]));
+	});
+
+	// function carga_datos(id_persona){
+	// 	var nombre = $("#per_nom").val();
+	// 	var facultad = $("#per_fac").val();
+	// 	$("#carga_nombre").html('<b>'+nombre+facultad+'</b>');
+	// 	// alert(nombre);
+	// }
+</script>

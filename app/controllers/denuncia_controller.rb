@@ -53,7 +53,13 @@ class DenunciaController < ApplicationController
   end
 
   def impresion
-    
+    id_persona = params[:id_persona]
+    @datos_denuncia = Denuncium.where("persona_id = ?", id_persona)
+    # byebug
+    respond_to do |format|
+      format.html { @datos_denuncia }
+      format.json { render json: @datos_denuncia }
+    end
   end
 
   def busca_ci_ajax
