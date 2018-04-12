@@ -54,7 +54,8 @@ class DenunciaController < ApplicationController
 
   def impresion
     id_persona = params[:id_persona]
-    @datos_denuncia = Denuncium.where("persona_id = ?", id_persona)
+    #@datos_denuncia = Denuncium.where("persona_id = ?", id_persona)
+    @datos_persona = Denuncium.where("persona_id =?").last
     # byebug
     respond_to do |format|
       format.html { @datos_denuncia }
