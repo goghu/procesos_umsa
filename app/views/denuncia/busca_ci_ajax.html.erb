@@ -1,6 +1,7 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
+			<td>ID</td>
 			<td>CI</td>
 			<td>NOMBRE</td>
 			<td>FACULTAD</td>
@@ -14,6 +15,7 @@
 	<tbody>
 		<% @datos_persona.each do |dp| %>
 		<tr id="<%= dp.id %>" class="table">
+			<td><%= dp.id %></td>
 			<td><%= dp.ci %></td>
 			<td><%= dp.ap_paterno %> <%= dp.ap_materno %> <%= dp.nombre %></td>
 			<td><%= dp.facultad %></td>
@@ -41,12 +43,15 @@
 			return $(this).text();
 		}).get();
 
-		var btn = "<button type='button' id='bt_sel' class='btn btn-success'>				<i class='mdi mdi-check'></i></button>";
+		// var btn = "<button type='button' id='bt_sel' class='btn btn-success'>				<i class='mdi mdi-check'></i></button>";
 
-		var ci = $.trim(tableData[0]);
-		var nombre = $.trim(tableData[1]);
-		var facultad = $.trim(tableData[2]);
-		var carrera = $.trim(tableData[3]);
+		var id = $.trim(tableData[0]);
+		var ci = $.trim(tableData[1]);
+		var nombre = $.trim(tableData[2]);
+		var facultad = $.trim(tableData[3]);
+		var carrera = $.trim(tableData[4]);
+
+		var btn = "<a href='/denuncias/impresion/"+id+"'>Imprimir</a>";
 
 		$("#carga_nombre").html('<b>CI: </b> '+ci+' <b> NOMBRE </b>'+nombre+'-'+btn);
 

@@ -5,21 +5,50 @@ blockquote {
   border-radius: 20px;
 }
 </style>
-<h1>Holas desde impresion</h1>
+
+<style>
+
+@media print {
+    /*@page {
+        size: letter landscape
+    }
+*/
+    .left-sidebar{
+			display: none;
+		}
+
+		.topbar{
+			display: none;
+		}
+
+}
+
+</style>
 
 <!--1ra fila para poner fecha y correlativo del certificado-->
 <div class="row">
-	<div class="col-md-8">
+	<div class="col-md-12">
+		
+		<table border="1">
+			<tr>
+				<td width="20%">
+					<blockquote>
+						<time datetime="fechaISO">
+							<%= @datos_denuncia.fecha %>
+						</time>
+						<b>COM.UNIV.PROC.CERTF:<%= @datos_denuncia.codigo_caso %></b>
+					</blockquote>
+				</td>
+				<td></td>
+			</tr>
+		</table>
+
 		<p>
 			<div class="Certificados de procesos print">
 				
-					<blockquote>
-						<time datetime="fechaISO">La Paz,05 de marzo de 2018</time>
-						<h3><b>COM.UNIV.PROC.CERTF:0001/2018</b></h3>
-					</blockquote>
-				</p>
-			</div>
+			</p>
 		</div>
+	</div>
 </div>
 <!--1ra fila fin-->
 
@@ -42,12 +71,14 @@ blockquote {
 					<div class="cold-md-12">
 						<div class="pull-right text-center">
 							<hr>
-							<h3 class="font-bold"> 
-								<% @datos_denuncia.each do |dd| %> 
-								<%=	 dd.nombre %>
-								<% end %>
+							<h3 class="font-bold">
+								<% debug @datos_denuncia %>
+								<%= @datos_denuncia.persona.nombre %> 
+								<%= @datos_denuncia.persona.ap_paterno %> 
+								<%= @datos_denuncia.persona.ap_materno %> 
 							</h3>
-							<h3 class="font-bold">CI.</h3>
+							<h3 class="font-bold">CI. <%= @datos_denuncia.persona.ci %> 
+							</h3>
 						</p>
 					</hr>
 					<!--fin de segunda fila-->
@@ -59,10 +90,36 @@ blockquote {
 							<div class="pull-right text-justify">
 								<p>
 									<hr>
-									<h4 class="font-Arial">A la fecha No/Si tiene fallo sancionatorio en su contra, es cuanto certificamos para los fines consiguientes.</h4> </p> </hr>
+									<h4 class="font-Arial">A la fecha <B><%= @datos_denuncia.fallo %></b> 
+  tiene fallo sancionatorio en su contra, es cuanto certificamos para los fines consiguientes.</h4> </p> </hr>
 									<!--tercera fila fin-->
 
-									
+									<table border="0">
+										<tr>
+											<td width="20%" height="300px">
+												&nbsp;
+											</td>
+											<td></td>
+										</tr>
+									</table>
+
+									<table>
+										<tr>
+											<td>
+												Dr. Mauricio E. Farfan Espinoza<BR />
+												JEFE DE COMISION DE PROCESOS
+											</td>
+											<td width="150px;">
+												
+											</td>
+											<td>
+												Ing. Alberto Arce <br />
+												SECRETARIO GENERAL											
+
+											</td>
+										</tr>
+									</table>
+
 									<!--para imprimir cuarta fila-->
 									<div class="CERTIFICADO DE PROCEOS print">
 										<div class="clearfix"></div>

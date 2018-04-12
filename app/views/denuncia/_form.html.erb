@@ -106,7 +106,6 @@
         data: {"dato_crt": campo_texto},
         success: function(data, textStatus, jqXHR){
           $("#des_personas").load('/denuncias/busca_ci_ajax/'+campo_texto);
-          console.log('retorno '+ data);
         }
       });
     }
