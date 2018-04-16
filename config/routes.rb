@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :impresos
   resources :carreras
   resources :denuncia
   resources :excels
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
   resources :cargos
   resources :facultades
   resources :emisioncertf
+  resources :impresos
+  
   #devise_for :users
   root to: "facultades#index"
   devise_for :users, controllers: {
@@ -27,6 +30,7 @@ Rails.application.routes.draw do
   get '/persona/jquery/', to: 'personas#jquery'
   get '/denuncias/impresion/:id_persona', to: 'denuncia#impresion'
   get '/denuncias/busca_ci_ajax/:ci', to: 'denuncia#busca_ci_ajax'
+  get '/impresos/impresion/:id_persona', to: 'impreso#impresion'
   get '/persona/emisioncertf/', to: 'personas#emisioncertf'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

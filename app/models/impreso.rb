@@ -1,0 +1,2 @@
+class Impreso < ApplicationRecord
+end

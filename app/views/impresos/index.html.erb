@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Impresos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Personas</th>
+      <th>Denuncium</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @impresos.each do |impreso| %>
+      <tr>
+        <td><%= impreso.personas_id %></td>
+        <td><%= impreso.denuncium_id %></td>
+        <td><%= impreso.user_id %></td>
+        <td><%= link_to 'Show', impreso %></td>
+        <td><%= link_to 'Edit', edit_impreso_path(impreso) %></td>
+        <td><%= link_to 'Destroy', impreso, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Impreso', new_impreso_path %>
