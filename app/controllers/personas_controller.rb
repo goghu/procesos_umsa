@@ -83,6 +83,29 @@ class PersonasController < ApplicationController
     @nombre = Persona.where(tipo:"Emisioncertf")
   end
 
+  def fallo
+    @nombre = Persona.where(tipo:"fallo")
+  end
+
+  def impresion
+    persona_ci = params[:persona_ci]
+    #@datos_denuncia = Denuncium.where("persona_id = ?", id_persona)
+    @datos_persona = Persona.where("persona_ci =?", id_persona).last
+    # byebug
+    respond_to do |format|
+      format.html { @datos_persona }
+      format.json { render json: @datos_persona }
+    end
+  end
+
+  def b_ci_ajax
+   ci_buscar = params[:ci]
+   @datos_persona = Persona.where("ci like ?",  "%#{ci_buscar}%")
+   respond_to do |format|
+   format.html { @datos_persona }
+   format.json { render json: @datos_persona }
+  end
+end
 
 
 =begin

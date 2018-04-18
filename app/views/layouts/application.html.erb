@@ -405,53 +405,57 @@
               <li><%= link_to "Subir Excel", controller: "excels", action: "formexcel" %></li>
             </ul>
           </li>
+          <!--fin de personas-->
 
+
+<!--denuncias-->
+          <li>
+            <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Denuncias </span></a>
+            <ul aria-expanded="false" class="collapse">
+            <li><%= link_to "Nuevo_persona", controller: "personas", action: "new" %></li>
+            <li><%= link_to "Fallo", controller: "personas", action: "fallo" %></li>
+            <li><%= link_to "Emision", controller: "impresos", action: "emision" %></li>
+              
+              
+            </ul>
+          </li>
+<!--fin de denuncias-->
+
+<!--listado por tipo--> 
+        <li>
+          <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Tigrit </span></a>
+          <ul aria-expanded="false" class="collapse">
+            <li><%= link_to "Listado", controller: "elegidos", action: "index" %></li>
+            <li><%= link_to "Nuevo", controller: "elegidos", action: "new" %></li>
+            <li><%= link_to "Docentes", controller: "personas", action: "solodocentes" %></li>
+            <li><%= link_to "Universitarios", controller: "personas", action: "solouniversitarios" %></li>
+            <li><%= link_to "Asesores", controller: "personas", action: "soloasesores" %></li>
+          </ul>
+        </li>
+<!--fin listado por tipo-->      
+
+<!--cargos--> 
           <li>
             <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Cargos </span></a>
             <ul aria-expanded="false" class="collapse">
               <li><%= link_to "Listado", controller: "cargos", action: "index" %></li>
-              <li><%= link_to "Emisioncertf", controller: "personas", action: "emisioncertf" %></li>
-              <li></li>
-              <li><%= link_to "Nuevo", controller: "cargos", action: "new" %></li>
+            <li><%= link_to "Nuevo", controller: "cargos", action: "new" %></li>
             </ul>
           </li>
+<!--fin de cargos--> 
 
-          <li>
+<!--elegidos--> 
+          <!--li>
             <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Elegidos </span></a>
             <ul aria-expanded="false" class="collapse">
               <li><%= link_to "Listado", controller: "elegidos", action: "index" %></li>
               <li><%= link_to "Nuevo", controller: "elegidos", action: "new" %></li>
               <li><%= link_to "Escoger", controller: "elegidos", action: "escoger" %></li>
             </ul>
-          </li>
+          </li-->
+<!--fin de elegidos--> 
 
-          <li>
-            <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Tigrit </span></a>
-            <ul aria-expanded="false" class="collapse">
-              <li><%= link_to "Listado", controller: "elegidos", action: "index" %></li>
-              <li><%= link_to "Nuevo", controller: "elegidos", action: "new" %></li>
-              <li><%= link_to "Docentes", controller: "personas", action: "solodocentes" %></li>
-              <li><%= link_to "Universitarios", controller: "personas", action: "solouniversitarios" %></li>
-              <li><%= link_to "Asesores", controller: "personas", action: "soloasesores" %></li>
-            </ul>
-          </li>
-
-          <li>
-            <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Excel </span></a>
-            <ul aria-expanded="false" class="collapse">
-
-            </ul>
-          </li>
-
-          <li>
-            <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Tigrit </span></a>
-            <ul aria-expanded="false" class="collapse">
-
-            </ul>
-          </li>
-
-        </ul>
-      </nav>
+     
       <!-- End Sidebar navigation -->
     </div>
     <!-- End Sidebar scroll-->

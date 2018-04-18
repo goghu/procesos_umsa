@@ -1,0 +1,108 @@
+<h2>Abogado/Fallo</h2>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card card-outline-info">
+      <div class="card-block">
+        <%= form_tag('/fallo')%>
+        <div class="form-body">
+          <div class="row p-t-20">
+            <!-- 1ra columna buscar-->
+            <div class="col-md-12">
+              <div class="form-group">
+                <div style="text-align:center;">
+                <label class="control-label"> 
+                  <h3><b><p>BUSCAR1 CI: </p> </b></h3></label>
+                <h3><b><p><%= text_field(:persona, :ci) %> </p> </b></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+            <!-- fin 1ra columna -->
+
+            <!-- 2da Seleccion columna-->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <div class="card card-outline-info">
+                  <div class="card-block">
+                    <label class="control-label"> 
+                      <h3><b><p> FALLO: </p> </b></h3></label>
+                        <label class="control-label"><p> <b><h3> DATO A SELECCIONAR</label></p> </b></h3>
+                        <div id="carga_nombre">
+                        </div>
+                      </div>
+                    </div>           
+            <!-- fin 2da columna -->
+
+
+
+
+          <div class="row p-t-20">
+            <div class="col-md-12">
+                <div id="des_personas">Aqui </div>
+            </div>
+          </div>
+        
+
+         <div id="nueva_denuncia" style="display: none;">
+           <div class="row p-t-20">
+            <div class="col-md-2">
+              <div class="form-group">
+                <label class="control-label">Tipo Persona</label>
+                <%= select_tag "persona[tipo_persona]", 
+                    options_for_select([['Denunciante'], ['Denunciado']]), 
+                    {
+                      :class => 'form-control', 
+                      required: 'required',
+                    } 
+                %>
+              </div>
+            </div>
+          </div>
+        </div>
+          
+            <!--fin primera columna-->
+
+            <!-- tercera columna -->
+            <div class="col-md-2">
+              <div class="form-group">
+                <label class="control-label">Fallo</label>
+                <%= select_tag "persona[tipo_persona]", 
+                options_for_select([['SI'], ['NO']]), 
+                {
+                  :class => 'form-control', 
+                  required: 'required',
+                } 
+                %>
+              </div>
+            </div>
+           
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
+            <button type="button" class="btn btn-inverse">Cancel</button>
+          </div>
+
+        </div>      
+      </div>
+    </div>
+  </div>  
+</div>
+<% # end %>
+<script>
+  $("#persona_ci").keyup(function () {
+    var campo_texto = $("#persona_ci").val();
+    var cantidad_letras = campo_texto.length;
+    // console.log('var: '+campo_texto);
+    if(cantidad_letras > 3){        
+      Rails.ajax({
+        type: 'GET',
+        url: '/persona/b_ci_ajax/'+campo_texto,
+        data: {"dato_crt": campo_texto},
+        success: function(data, textStatus, jqXHR){
+          $("#des_personas").load('/persona/b_ci_ajax/'+campo_texto);
+        }
+      });
+    }
+  });
+</script>

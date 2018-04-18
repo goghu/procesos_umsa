@@ -63,7 +63,7 @@ class DenunciaController < ApplicationController
     end
   end
 
-  def busca_ci_ajax
+  def buscar_ci_ajax
     ci_buscar = params[:ci]
     @datos_persona = Persona.where("ci like ?",  "%#{ci_buscar}%")
     respond_to do |format|
@@ -73,6 +73,7 @@ class DenunciaController < ApplicationController
     render layout: false
   end
 
+  
   # DELETE /denuncia/1
   # DELETE /denuncia/1.json
   def destroy
@@ -83,14 +84,19 @@ class DenunciaController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_denuncium
-      @denuncium = Denuncium.find(params[:id])
-    end
+  def fallo
+    # @nombre = Denuncium.where(fallo: "Fallo" )
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def denuncium_params
-      params.require(:denuncium).permit(:tipo_pe_persona, :nombre, :ci, :ru_item, :fecha, :facultad_id, :carrera_id, :tipo_resol, :codigo_caso, :direccion, :telefono, :observaciones, :fallo)
+  def b_ci_ajax
+    ci_buscar = params[:ci]
+    @datos_persona = Persona.where("ci like ?",  "%#{ci_buscar}%")
+    respond_to do |format|
+      format.html { @datos_persona }
+      format.json { render json: @datos_persona }
     end
-end
+    render layout: false    
+  end
+
+  private
+  end
