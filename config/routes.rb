@@ -30,10 +30,12 @@ Rails.application.routes.draw do
   
 
   get '/persona/fallo', to: 'personas#fallo'
+  post '/persona/guarda_fallo/', to: 'personas#guarda_fallo'
   get '/persona/bs_ci_ajax/:ci', to: 'personas#bs_ci_ajax'
-  get '/persona/emisioncertf/', to: 'personas#emisioncertf'
   get '/persona/imprime/:id_persona', to: 'personas#imprime'
+  get '/persona/emisioncertf/', to: 'personas#emisioncertf'
   get '/persona/bu_ci_ajax/:ci', to: 'personas#bu_ci_ajax'
+  get '/persona/imprir:id_persona', to: 'personas#imprimir'
   get '/denuncias/busca_ci_ajax/:ci', to: 'denuncia#busca_ci_ajax'
   get '/denuncias/impresion/:id_persona', to: 'denuncia#impresion'
   get '/impreso/emision', to: 'impresos#emision' 

@@ -84,14 +84,35 @@ class PersonasController < ApplicationController
     #@nombre = Persona.where(tipo:"fallo")
   end
 
-  def impresion
+  def guarda_fallo
+    # agarramos los datos del array de persona
+    datos_form_persona = params[:persona]
+
+    # capturamos los datos para guardar 
+    ci_persona = datos_form_persona[:ci]
+    fallo = datos_form_persona[:fallo]
+    id_per = datos_form_persona[:id]
+
+    # guardamos la nueva denuncia
+    nueva_denuncia = Denuncium.new
+    nueva_denuncia.fallo = fallo
+    nueva_denuncia.persona_id = id_per
+    nueva_denuncia.save
+
+    #actualizamos el fallo de la persona
+    actualiza_persona = Persona.find_by(id: id_per)
+    actualiza_persona.fallo = fallo
+    actualiza_persona.save
+  end
+
+  def imprime
     id_persona = params[:id_persona]
     #@datos_denuncia = Denuncium.where("persona_id = ?", id_persona)
-    @datos_personas = Persona.where("persona_id =?", id_persona).last
+    @datos_persona = Persona.where("id = ?", id_persona).last
     # byebug
     respond_to do |format|
-      format.html { @datos_personas }
-      format.json { render json: @datos_personas }
+      format.html { @datos_persona }
+      format.json { render json: @datos_persona }
     end
   end
 
@@ -99,10 +120,10 @@ class PersonasController < ApplicationController
    ci_buscar = params[:ci]
    @datos_personas = Persona.where("ci like ?",  "%#{ci_buscar}%")
    respond_to do |format|
-   format.html { @datos_personas }
-   format.json { render json: @datos_personas }
-  end
-  render layout: false
+     format.html { @datos_personas }
+     format.json { render json: @datos_personas }
+   end
+   render layout: false
   end
 #fin de busqueda de fallo#
 
@@ -111,14 +132,14 @@ def emisioncertf
    #@nombre = Persona.where(tipo:"Emision")
   end
 
- def impresion
+ def imprimir
     id_persona = params[:id_persona]
     #@datos_denuncia = Denuncium.where("persona_id = ?", id_persona)
-    @datos_personas = Persona.where("persona_id =?", id_persona)
+    @datos_personas = Persona.where("id =?", id_persona)
     # byebug
     respond_to do |format|
-      format.html { @datos_personas }
-      format.json { render json: @datos_personas }
+      format.html { @datos_persona }
+      format.json { render json: @datos_persona }
     end
   end
 

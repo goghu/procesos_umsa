@@ -3,7 +3,7 @@
   <div class="col-lg-12">
     <div class="card card-outline-info">
       <div class="card-block">
-        <%= form_tag('/fallo')%>
+        <%= form_tag('/persona/guarda_fallo')%>
         <div class="form-body">
           <div class="row p-t-20">
             <!-- 1ra columna buscar-->
@@ -36,11 +36,6 @@
             </div>         
             <!-- fin 2da columna -->
 
-
-
-
-          
-          
             <!--fin primera columna-->
 
             <!-- tercera columna -->
@@ -48,7 +43,7 @@
               <div class="form-group">
                 <div id="fallo_persona"></div>
                 <label class="control-label">Fallo</label>
-                <%= select_tag "persona[tipo_persona]", 
+                <%= select_tag "persona[fallo]", 
                 options_for_select([['SI'], ['NO']]), 
                 {
                   :class => 'form-control', 
