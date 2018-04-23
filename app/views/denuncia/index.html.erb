@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Tipo pe persona</th>
+      <th>Tipo_pe_personas</th>
       <th>Nombre</th>
       <th>Ci</th>
       <th>Ru item</th>
@@ -25,19 +25,19 @@
   <tbody>
     <% @denuncia.each do |denuncium| %>
       <tr>
-        <td><%= persona.tipo_pe_persona %></td>
-        <td><%= persona.nombre %></td>
-        <td><%= persona.ci %></td>
-        <td><%= persona.ru_item %></td>
-        <td><%= persona.fecha %></td>
-        <td><%= persona.facultad_id %></td>
-        <td><%= persona.carrera_id %></td>
-        <td><%= persona.tipo_resol %></td>
-        <td><%= persona.codigo_caso %></td>
-        <td><%= persona.direccion %></td>
-        <td><%= persona.telefono %></td>
-        <td><%= persona.observaciones %></td>
-        <td><%= persona.fallo %></td>
+        <td><%= denuncium.tipo_pe_persona %></td>
+        <td><%= denuncium.nombre %></td>
+        <td><%= denuncium.ci %></td>
+        <td><%= denuncium.ru_item %></td>
+        <td><%= denuncium.fecha %></td>
+        <td><%= denuncium.facultad_id %></td>
+        <td><%= denuncium.carrera_id %></td>
+        <td><%= denuncium.tipo_resol %></td>
+        <td><%= denuncium.codigo_caso %></td>
+        <td><%= denuncium.direccion %></td>
+        <td><%= denuncium.telefono %></td>
+        <td><%= denuncium.observaciones %></td>
+        <td><%= denuncium.fallo %></td>
         <td><%= link_to 'Show', denuncium %></td>
         <td><%= link_to 'Edit', edit_denuncium_path(denuncium) %></td>
         <td><%= link_to 'Destroy', denuncium, method: :delete, data: { confirm: 'Are you sure?' } %></td>

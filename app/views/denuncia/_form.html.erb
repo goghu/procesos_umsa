@@ -100,14 +100,14 @@
     var cantidad_letras = campo_texto.length;
     // console.log('var: '+campo_texto);
     if(cantidad_letras > 3){        
-      Rails.ajax({
+      //Rails.ajax({
         type: 'GET',
-        url: '/denuncias/busca_ci_ajax/'+campo_texto,
+        url: '/denuncia/busca_ci_ajax/'+campo_texto,
         data: {"dato_crt": campo_texto},
         success: function(data, textStatus, jqXHR){
-          $("#des_personas").load('/denuncias/busca_ci_ajax/'+campo_texto);
+          $("#des_personas").load('/denuncia/busca_ci_ajax/'+campo_texto);
         }
-      });
+      //});
     }
   });
 </script>

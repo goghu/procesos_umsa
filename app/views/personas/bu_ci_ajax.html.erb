@@ -3,26 +3,28 @@
 		<tr>
 			<td>ID</td>
 			<td>CI</td>
-			<td>NOMBRE</td>
+			<td>NOMBRE_APELLIDOS</td>
 			<td>FACULTAD</td>
 			<td>CARRERA</td>
 			<td>DIRECCION</td>
 			<td>TELEFONO</td>
 			<td>TIPO</td>
+			<td>FALLO</td>
 			<td></td>
 		</tr>
 	</thead>
 	<tbody>
-		<% @denuncia_personas.each do |dp| %>
-		<tr id="<%= dp.id %>" class="table">
-			<td><%= dp.id %></td>
-			<td><%= dp.ci %></td>
-			<td><%= dp.ap_paterno %> <%= dp.ap_materno %> <%= dp.nombre %></td>
-			<td><%= dp.facultad %></td>
-			<td><%= dp.carrera %></td>
-			<td><%= dp.direccion %></td>
-			<td><%= dp.telefono %></td>
-			<td><%= dp.tipo %></td>
+		<% @datos_personas.each do |ep| %>
+		<tr id="<%= ep.id %>" class="table">
+			<td><%= ep.id %></td>
+			<td><%= ep.ci %></td>
+			<td><%= ep.ap_paterno %> <%= ep.ap_materno %> <%= ep.nombre %></td>
+			<td><%= ep.facultad %></td>
+			<td><%= ep.carrera %></td>
+			<td><%= ep.direccion %></td>
+			<td><%= ep.telefono %></td>
+			<td><%= ep.tipo %></td>
+			<td><%= ep.fallo %></td>
 			<td>
 				<button  
 				type='button'
@@ -51,7 +53,7 @@
 		var facultad = $.trim(tableData[3]);
 		var carrera = $.trim(tableData[4]);
 
-		var btn = "<a href='/denuncia/impresion/"+id+"'>Imprimir</a>";
+		var btn = "<a href='/persona/imprime/"+id+"'>Imprimir</a>";
 
 		$("#carga_nombre").html('<b>CI: </b> '+ci+' <b> NOMBRE </b>'+nombre+'-'+btn);
 

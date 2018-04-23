@@ -67,7 +67,7 @@ class DenunciaController < ApplicationController
     ci_buscar = params[:ci]
     @datos_persona = Persona.where("ci like ?",  "%#{ci_buscar}%")
     respond_to do |format|
-      format.html { @datos_persona }
+      format.html { @datos_denuncia }
       format.json { render json: @datos_persona }
     end
     render layout: false
@@ -92,7 +92,7 @@ class DenunciaController < ApplicationController
     ci_buscar = params[:ci]
     @datos_persona = Persona.where("ci like ?",  "%#{ci_buscar}%")
     respond_to do |format|
-      format.html { @datos_persona }
+      format.html { @datos_denuncia }
       format.json { render json: @datos_persona }
     end
     render layout: false    

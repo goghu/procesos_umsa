@@ -79,37 +79,62 @@ class PersonasController < ApplicationController
     @nombre = Persona.where(tipo: "Asesor")
   end
 
-  def emisioncertf
-    @nombre = Persona.where(tipo:"Emisioncertf")
-  end
-
+#fallo inicio buscador#
   def fallo
-    @nombre = Persona.where(tipo:"fallo")
+    #@nombre = Persona.where(tipo:"fallo")
   end
 
   def impresion
-    persona_ci = params[:persona_ci]
+    id_persona = params[:id_persona]
     #@datos_denuncia = Denuncium.where("persona_id = ?", id_persona)
-    @datos_persona = Persona.where("persona_ci =?", id_persona).last
+    @datos_personas = Persona.where("persona_id =?", id_persona).last
     # byebug
     respond_to do |format|
-      format.html { @datos_persona }
-      format.json { render json: @datos_persona }
+      format.html { @datos_personas }
+      format.json { render json: @datos_personas }
     end
   end
 
-  def b_ci_ajax
+  def bs_ci_ajax
    ci_buscar = params[:ci]
-   @datos_persona = Persona.where("ci like ?",  "%#{ci_buscar}%")
+   @datos_personas = Persona.where("ci like ?",  "%#{ci_buscar}%")
    respond_to do |format|
-   format.html { @datos_persona }
-   format.json { render json: @datos_persona }
+   format.html { @datos_personas }
+   format.json { render json: @datos_personas }
   end
-end
+  render layout: false
+  end
+#fin de busqueda de fallo#
 
+#emision inicio de buscador#
+def emisioncertf
+   #@nombre = Persona.where(tipo:"Emision")
+  end
+
+ def impresion
+    id_persona = params[:id_persona]
+    #@datos_denuncia = Denuncium.where("persona_id = ?", id_persona)
+    @datos_personas = Persona.where("persona_id =?", id_persona)
+    # byebug
+    respond_to do |format|
+      format.html { @datos_personas }
+      format.json { render json: @datos_personas }
+    end
+  end
+
+  def bu_ci_ajax
+   ci_buscar = params[:ci]
+   @datos_personas = Persona.where("ci like ?",  "%#{ci_buscar}%")
+   respond_to do |format|
+   format.html { @datos_personas }
+   format.json { render json: @datos_personas }
+  end
+  render layout: false
+end
+#fin de busqueda de emision#
 
 =begin
-    @persona.destroy
+    @persona.destroys
     respond_to do |format|
       format.html { redirect_to personas_url, notice: 'Persona was successfully destroyed.' }
       format.json { head :no_content }

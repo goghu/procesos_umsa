@@ -396,12 +396,14 @@
       <!-- Sidebar navigation-->
       <nav class="sidebar-nav">
         <ul id="sidebarnav">
-          <li class="nav-small-cap">PERSONAL</li>
+          <li class="nav-small-cap">PERSONAS</li>
           <li>
             <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Personas </span></a>
             <ul aria-expanded="false" class="collapse">
               <li><%= link_to "Listado", controller: "personas", action: "index" %></li>
-              <li><%= link_to "Nuevo", controller: "personas", action: "new" %></li>
+              <li><%= link_to "Nuevo_persona", controller: "personas", action: "new" %></li>
+              <li><%= link_to "Emision_Certificado", controller: "personas", action: "emisioncertf" %></li>
+              <li><%= link_to "Abogados_Fallo", controller: "personas", action: "fallo" %></li>
               <li><%= link_to "Subir Excel", controller: "excels", action: "formexcel" %></li>
             </ul>
           </li>
@@ -413,7 +415,7 @@
             <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Denuncias </span></a>
             <ul aria-expanded="false" class="collapse">
             <li><%= link_to "Nuevo_persona", controller: "personas", action: "new" %></li>
-            <li><%= link_to "Fallo", controller: "personas", action: "fallo" %></li>
+            <li><%= link_to "denuncia_busca", controller: "denuncia", action: "new" %></li>
             <li><%= link_to "Emision", controller: "impresos", action: "emision" %></li>
               
               
@@ -423,7 +425,9 @@
 
 <!--listado por tipo--> 
         <li>
-          <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Tigrit </span></a>
+          <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">
+            Listados_Tipo
+          </span></a>
           <ul aria-expanded="false" class="collapse">
             <li><%= link_to "Listado", controller: "elegidos", action: "index" %></li>
             <li><%= link_to "Nuevo", controller: "elegidos", action: "new" %></li>

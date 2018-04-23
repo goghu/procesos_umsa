@@ -37,10 +37,10 @@ blockquote {
         <time datetime= "strftime">
         <h4 class ="font-Arial"><b> 
         La Paz,
-        <%= @datos_denuncia.fecha %> </b>
+        <%= @datos_persona.ci %> </b>
         </h4 class="font-Arial"> </time>
         <b>
-        COM.UNIV.PROC.CERTF:<%= @datos_denuncia.codigo_caso %></b>
+        COM.UNIV.PROC.CERTF:<%= @persona.fallo %></b>
         </blockquote></b>
         </td>
       
@@ -113,10 +113,10 @@ blockquote {
         <tr>
         <td width="60%" height="50px">&nbsp;
         <h4 class="font-bold text-center">
-        <% debug @datos_denuncia %>
-        <%= @datos_denuncia.persona.nombre %> 
-        <%= @datos_denuncia.persona.ap_paterno %> 
-        <%= @datos_denuncia.persona.ap_materno %> 
+        <% debug @personas_persona %>
+        <%= @persona.nombre %> 
+        <%= @persona.ap_paterno %> 
+        <%= @persona.ap_materno %> 
         </h4></td>
         <!--fin 1ra columna -->
 
@@ -127,7 +127,7 @@ blockquote {
         <!--3ra columna de la tabla-->
         <td width="40%" height="50px">&nbsp;
         <h4 class="font-bold text-center">
-        <%= @datos_denuncia.persona.ci %></h4></td>
+        <%= @persona.ci %></h4></td>
         </tr>
         <!--fin 3ra columna -->
         </table>
@@ -141,7 +141,7 @@ blockquote {
   <div class="col-md-12">
     <div class="pull-right text-justify">
       <p> <hr> <h4 class="font-Arial">A la fecha 
-      <b><%= @datos_denuncia.fallo %></b> tiene fallo sancionatorio en su contra, es cuanto certificamos para los fines consiguientes.</h4> </p> </hr>
+      <b><%= @persona.fallo %></b> tiene fallo sancionatorio en su contra, es cuanto certificamos para los fines consiguientes.</h4> </p> </hr>
 
       <!--1ra columna de la tabla-->
       <table border="0">
@@ -182,8 +182,8 @@ blockquote {
         <hr>
         <class="font-Arial">
         Nota:El presente Certificado debe llevar el Sello de Aprobacion de Secretaria General, el mismo tiene vigencia de 30 dias habiles y solo es para uso interno de la UMSA</p></b>
-        <p><b> Reg.No.<%= @datos_denuncia.fallo %> </p></b> 
-        <p><b>User/<%= @datos_denuncia.fallo %></b> </p> 
+        <p><b> Reg.No.<%= @persona.fallo %> </p></b> 
+        <p><b>User/<%= @persona.fallo %></b> </p> 
         </hr> 
     </div>
   </div>
