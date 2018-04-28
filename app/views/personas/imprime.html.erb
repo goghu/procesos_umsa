@@ -24,7 +24,7 @@ blockquote {
 }
 
 </style>
-
+<h2>Abogados Fallo</h2>
 <!--1ra fila tabla para poner fecha del certificado-->
 <div class="form body">
   <div class="row">
@@ -37,10 +37,10 @@ blockquote {
         <time datetime= "strftime">
         <h4 class ="font-Arial"><b> 
         La Paz,
-        <%= @datos_persona.ci %> </b>
+        <%= @datos_persona.fecha_emi_certf %> </b>
         </h4 class="font-Arial"> </time>
         <b>
-        COM.UNIV.PROC.CERTF:<%= @datos_persona.fallo %></b>
+        COM.UNIV.PROC.CERTF:<%= @datos_persona.correlt_certf %></b>
         </blockquote></b>
         </td>
       
@@ -182,7 +182,7 @@ blockquote {
         <hr>
         <class="font-Arial">
         Nota:El presente Certificado debe llevar el Sello de Aprobacion de Secretaria General, el mismo tiene vigencia de 30 dias habiles y solo es para uso interno de la UMSA</p></b>
-        <p><b> Reg.No.<%= @datos_persona.fallo %> </p></b> 
+        <p><b> Reg.No.<%= @datos_persona.no_reg %> </p></b> 
         <p><b>User/<%= @datos_persona.fallo %></b> </p> 
         </hr> 
     </div>

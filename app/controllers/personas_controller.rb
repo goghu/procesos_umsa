@@ -132,23 +132,53 @@ def emisioncertf
    #@nombre = Persona.where(tipo:"Emision")
   end
 
- def imprimir
-    id_persona = params[:id_persona]
+  def guarda_emision
+    # agarramos los datos del array de persona
+    datos_form_persona = params[:persona]
+
+    # capturamos los datos para guardar 
+    ci_persona = datos_form_persona[:ci]
+    id_personas = datos_form_persona[:id]
+    fecha_emi_certf = datos_form_persona[:fecha_emi_certf]
+    correlt_certf = datos_form_persona[:correlt_certf]
+    no_reg = datos_form_persona[:no_reg]
+
+    # guardamos la nueva denuncia
+    nueva_impresos = Impreso.new
+    nueva_impresos.fecha_emi_certf = fecha_emi_certf
+    nueva_impresos.correlt_certf = correlt_certf
+    nueva_impresos.no_reg = no_reg
+    nueva_impresos.persona_id = id_personas
+    nueva_impresos.save
+
+    #actualizamos el fallo de la persona
+    actualiza_persona = Persona.find_by(id: id_personas)
+    actualiza_persona.fecha_emi_certf = fecha_emi_certf
+    actualiza_persona.correlt_certf = correlt_certf
+    actualiza_persona.no_reg = no_reg
+    actualiza_persona.save
+  #byebug
+  end
+
+ def imprimir1
+
+  id_persona = params[:id_persona]
     #@datos_denuncia = Denuncium.where("persona_id = ?", id_persona)
-    @datos_personas = Persona.where("id =?", id_persona)
+    @datos_persona = Persona.where("id = ?", id_persona).last
     # byebug
     respond_to do |format|
       format.html { @datos_persona }
       format.json { render json: @datos_persona }
     end
+
   end
 
   def bu_ci_ajax
    ci_buscar = params[:ci]
    @datos_personas = Persona.where("ci like ?",  "%#{ci_buscar}%")
    respond_to do |format|
-   format.html { @datos_personas }
-   format.json { render json: @datos_personas }
+     format.html { @datos_personas }
+     format.json { render json: @datos_personas }
   end
   render layout: false
 end

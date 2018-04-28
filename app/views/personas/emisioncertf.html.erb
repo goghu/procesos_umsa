@@ -30,7 +30,7 @@ blockquote {
   <div class="col-md-12">
     <div class="card card-outline-info">
       <div class="card-block">
-        <%= form_tag("/emi", method: "POST") do %>
+        <%= form_tag("/persona/guarda_emision", method: "POST") do %>
         <div class="form-body">
 
           <!--Primera fila-->
@@ -54,7 +54,9 @@ blockquote {
               <div class="form-group">
                 <label class="control-label">
                 <h3 class="text-orange"><b>Fecha</h3></b></label>
-                <%= date_field_tag('fecha', nil,class: 'form-control')
+                <%= date_field_tag("persona[fecha_emi_certf]", nil,class: 'form-control')
+               
+                
                  %>
               </div>
             </div>
@@ -69,7 +71,7 @@ blockquote {
             <div class="col-md-4">
               <div class="form-group">
                 <label class="control-label"><h3 class="text-orange">COM.UNIV.CERTF.No.</h3></label>
-                <%= select_tag "persona [año]",options_for_select([['2018'], ['2019'], ['2020'], ['2021'], ['2022'], ['2023'], ['2024'], ['2025']]), 
+                <%= select_tag "persona [no_reg]",options_for_select([['2018'], ['2019'], ['2020'], ['2021'], ['2022'], ['2023'], ['2024'], ['2025']]), 
                     {
                       :class => 'form-control', 
                       required: 'required',
@@ -82,7 +84,7 @@ blockquote {
             <!-- 2da columna -->
             <div class="col-md-4">
               <div class="form-group">
-                <label class="control-label"><h3 class="text-orange">No. Correlativo</h3></label><%= select_tag "persona [No.]", 
+                <label class="control-label"><h3 class="text-orange">No. Correlativo</h3></label><%= select_tag "persona [correlt_certf]", 
                     options_for_select([['018'], ['019'], ['020'], ['021'], ['022'], ['023'], ['024'], ['025']]), 
                     {
                       :class => 'form-control', 
@@ -104,8 +106,9 @@ blockquote {
               <div class="form-group">
                 <div id= "emi_persona"></div>
                 <label class="control-label">
-                  <h3 class="text-orange"></h3></label>
-                <%= debug @datos_personas%>
+                  <h3 class="text-orange"No_Reg.></h3></label>
+                  
+                <!--%= debug @datos_personas%-->
                
               </div>
             </div>

@@ -27,18 +27,20 @@ Rails.application.routes.draw do
   get '/elegido/generar/', to: 'elegidos#generar'
   get '/elegido/escoger/', to: 'elegidos#escoger'
   get '/elegido/muestra_generado/', to: 'elegidos#muestra_generado'
-  
 
   get '/persona/fallo', to: 'personas#fallo'
   post '/persona/guarda_fallo/', to: 'personas#guarda_fallo'
   get '/persona/bs_ci_ajax/:ci', to: 'personas#bs_ci_ajax'
   get '/persona/imprime/:id_persona', to: 'personas#imprime'
+
   get '/persona/emisioncertf/', to: 'personas#emisioncertf'
+  post '/persona/guarda_emision/', to: 'personas#guarda_emision'
   get '/persona/bu_ci_ajax/:ci', to: 'personas#bu_ci_ajax'
-  get '/persona/imprir:id_persona', to: 'personas#imprimir'
+  get '/persona/imprimir1/:id_persona', to: 'personas#imprimir1'
+
   get '/denuncias/busca_ci_ajax/:ci', to: 'denuncia#busca_ci_ajax'
   get '/denuncias/impresion/:id_persona', to: 'denuncia#impresion'
-  get '/impreso/emision', to: 'impresos#emision' 
+  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

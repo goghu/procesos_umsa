@@ -10,6 +10,7 @@
 			<td>TELEFONO</td>
 			<td>TIPO</td>
 			<td>FALLO</td>
+			<td>FECHA_emi_certf</td>
 			<td></td>
 		</tr>
 	</thead>
@@ -25,6 +26,7 @@
 			<td><%= ep.telefono %></td>
 			<td><%= ep.tipo %></td>
 			<td><%= ep.fallo %></td>
+			<td><%= ep.fecha_emi_certf %></td>
 			<td>
 				<button  
 				type='button'
@@ -53,9 +55,9 @@
 		var facultad = $.trim(tableData[3]);
 		var carrera = $.trim(tableData[4]);
 
-		var btn = "<a href='/persona/imprime/"+id+"'>Imprimir</a>";
+		var btn = "<a href='/persona/imprimir1/"+id+"'>Imprimir</a>";
 
-		$("#carga_nombre").html('<b>CI: </b> '+ci+' <b> NOMBRE </b>'+nombre+'-'+btn);
+		$("#carga_nombre").html('<input name="persona[id]" value="'+id+'"><b>CI: </b> '+ci+' <b> NOMBRE </b>'+nombre+'-'+btn);
 
 		// console.log(tableData);
 
