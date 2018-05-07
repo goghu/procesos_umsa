@@ -142,7 +142,7 @@ def emisioncertf
     fecha_emi_certf = datos_form_persona[:fecha_emi_certf]
     correlt_certf = datos_form_persona[:correlt_certf]
     no_reg = datos_form_persona[:no_reg]
-
+    # byebug
     # guardamos la nueva denuncia
     nueva_impresos = Impreso.new
     nueva_impresos.fecha_emi_certf = fecha_emi_certf
