@@ -1,0 +1,73 @@
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<td>ID</td>
+			<td>CI</td>
+			<td>NOMBRE_APELLIDOS</td>
+			<td>FACULTAD</td>
+			<td>CARRERA</td>
+			<td>DIRECCION</td>
+			<td>TELEFONO</td>
+			<td>TIPO</td>
+			<td>FALLO</td>
+			<td>FECHA_emi_certf</td>
+			<td></td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @datos_personas.each do |pg| %>
+		<tr id="<%= pg.id %>" class="table">
+			<td><%= pg.id %></td>
+			<td><%= pg.ci %></td>
+			<td><%= pg.ap_paterno %> <%= pg.ap_materno %> <%= pg.nombre %></td>
+			<td><%= pg.facultad %></td>
+			<td><%= pg.carrera %></td>
+			<td><%= pg.direccion %></td>
+			<td><%= pg.telefono %></td>
+			<td><%= pg.tipo %></td>
+			<td><%= pg.fallo %></td>
+			<td><%= pg.fecha_emi_certf %></td>
+			<td>
+				<button  
+				type='button'
+				id='bt_sel' 
+				class='btn btn-success'>
+				<i class='mdi mdi-check'></i></button>
+			</td>			
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+
+<script type="text/javascript">
+
+	$("tr.table").click(function() {
+		
+		var tableData = $(this).children("td").map(function() {
+			return $(this).text();
+		}).get();
+
+		// var btn = "<button type='button' id='bt_sel' class='btn btn-success'>				<i class='mdi mdi-check'></i></button>";
+
+		var id = $.trim(tableData[0]);
+		var ci = $.trim(tableData[1]);
+		var nombre = $.trim(tableData[2]);
+		var facultad = $.trim(tableData[3]);
+		var carrera = $.trim(tableData[4]);
+
+		var btn = "<a href='/persona/imprimir2/"+id+"'>Imprimir</a>";
+
+		$("#carga_nombre").html('<input name="persona[id]" value="'+id+'"><b>CI: </b> '+ci+' <b> NOMBRE </b>'+nombre+'-'+btn);
+
+		// console.log(tableData);
+
+		// alert("Your data is: " + $.trim(tableData[0]) + " , " + $.trim(tableData[1]) + " , " + $.trim(tableData[2]));
+	});
+
+	// function carga_datos(id_persona){
+	// 	var nombre = $("#per_nom").val();
+	// 	var facultad = $("#per_fac").val();
+	// 	$("#carga_nombre").html('<b>'+nombre+facultad+'</b>');
+	// 	// alert(nombre);
+	// }
+</script>
