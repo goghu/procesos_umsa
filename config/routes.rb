@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   get '/elegido/escoger/', to: 'elegidos#escoger'
   get '/elegido/muestra_generado/', to: 'elegidos#muestra_generado'
 
+  get '/persona/usuario/', to: 'personas#usuarios'
+
   get '/persona/fallo', to: 'personas#fallo'
   post '/persona/guarda_fallo/', to: 'personas#guarda_fallo'
   get '/persona/bs_ci_ajax/:ci', to: 'personas#bs_ci_ajax'

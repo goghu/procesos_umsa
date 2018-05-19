@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180428161724) do
+ActiveRecord::Schema.define(version: 20180519230426) do
 
   create_table "cargos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nombre"
@@ -117,7 +117,11 @@ ActiveRecord::Schema.define(version: 20180428161724) do
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "username"
+    t.string "nombre"
+    t.string "ap_paterno"
+    t.string "ap_materno"
     t.string "email", default: "", null: false
+    t.string "tipo_user"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

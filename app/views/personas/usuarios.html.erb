@@ -1,0 +1,119 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card card-outline-info">
+
+      <div class="card-block">
+        <%= form_with(model: users, local: true) do |form| %>
+          <% if persona.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(persona.errors.count, "error") %> prohibited this persona from being saved:</h2>
+
+              <ul>
+                <% persona.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <div class="form-body">
+
+            <!--Primera fila-->
+            <div class="row p-t-25">
+
+              <!--primera columna-->
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">
+                  <h3 class="text-orange">Carnet Identidad</h3></label>
+                  <%= form.text_field :Ci, id: :users_Ci, class: 'form-control', required: 'required' %>
+                </div>
+              </div>
+              <!--fin de primera columna -->
+
+              <!--segunda columna-->
+              
+               <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label"><h3 class="text-orange">Tipo User</h3></label>
+                <%= select_tag "persona[tipo]",                 options_for_select([['Admin'], ['Abogado'], ['Secretaria'], ['Otro']]), {:class => 'form-control', required: 'required', :prompt => "Seleccione tipo", required: 'required'} %>
+
+                </div>
+              </div>
+              <!--fin de segunda columna-->
+
+              <!--tercera columna-->
+              
+               <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label"><h3 class="text-orange">iniciales</h3></label>
+                <%= select_tag "username",                 options_for_select([['Admin'], ['Abogado'], ['Secretaria'], ['Otro']]), {:class => 'form-control', required: 'required', :prompt => "Seleccione tipo", required: 'required'} %>
+
+                </div>
+              </div>
+              <!--fin tercera columna-->
+
+               </div>
+            <!--fin de primera fila-->
+
+
+            <!-- segunda fila-->
+            <div class="row p-t-25">
+
+
+              <!--primera columna-->
+            
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">
+                    <h3 class="text-orange">Nombre</h3></label>
+                  <%= form.text_field :nombre, id: :users_nombre, class: 'form-control', required: 'required' %>
+
+                </div>
+              </div>
+            <!--fin primera columna-->
+
+              <!--segunda columna-->
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">
+                  <h3 class="text-orange">Ap_Paterno</h3></label>
+                  <%= form.text_field :ap_paterno, id: :users_ap_paterno, class: 'form-control', required: 'required' %>
+
+                </div>
+              </div>
+
+              <!--fin de segunda columna-->
+
+              <!--tercera columna-->
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">
+                    <h3 class="text">Ap_Materno</h3></label>
+                  <%= form.text_field :ap_materno, id: :users_ap_materno, class: 'form-control', required: 'required' %>
+
+                </div>
+              </div>
+               <!--fin de tercera columna-->
+
+              </div>
+            <!--fin de segunda fila-->
+
+
+    </div>
+  </div>
+ </div>
+</div>
+ <!--/spam-->
+          </div>
+       
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
+            <button type="button" class="btn btn-inverse">Cancel</button>
+          </div>
+          <% end %>
+         </div>
+ 
+
+
+

@@ -79,6 +79,10 @@ class PersonasController < ApplicationController
     @nombre = Persona.where(tipo: "Asesor")
   end
 
+  def usuarios
+   #@nombre = Persona.where(tipo:"Usuario")
+  end
+
 #fallo inicio buscador#
   def fallo
     #@nombre = Persona.where(tipo:"fallo")
@@ -126,6 +130,8 @@ class PersonasController < ApplicationController
    render layout: false
   end
 #fin de busqueda de fallo#
+
+
 
 #emision inicio de buscador#
 def emisioncertf
