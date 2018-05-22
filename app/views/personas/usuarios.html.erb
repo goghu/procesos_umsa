@@ -1,119 +1,106 @@
-<div class="row">
-  <div class="col-lg-12">
-    <div class="card card-outline-info">
+<!DOCTYPE html>
+<html lang="en">
+<style type="text/css">
+blockquote {
+  padding: 3px 10px;
+  border: Black 5px solid;
+  border-radius: 20px;
+}
+</style>
 
-      <div class="card-block">
-        <%= form_with(model: users, local: true) do |form| %>
-          <% if persona.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(persona.errors.count, "error") %> prohibited this persona from being saved:</h2>
+<style>
 
-              <ul>
-                <% persona.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
-          <div class="form-body">
+@media print {
+    /*@page {
+        size: letter landscape
+    }
+*/
+    .left-sidebar{
+      display: none;
+    }
 
-            <!--Primera fila-->
-            <div class="row p-t-25">
+    .topbar{
+      display: none;
+    }
 
-              <!--primera columna-->
-              <div class="col-md-3">
-                <div class="form-group">
-                  <label class="control-label">
-                  <h3 class="text-orange">Carnet Identidad</h3></label>
-                  <%= form.text_field :Ci, id: :users_Ci, class: 'form-control', required: 'required' %>
-                </div>
-              </div>
-              <!--fin de primera columna -->
+}
 
-              <!--segunda columna-->
-              
-               <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label"><h3 class="text-orange">Tipo User</h3></label>
-                <%= select_tag "persona[tipo]",                 options_for_select([['Admin'], ['Abogado'], ['Secretaria'], ['Otro']]), {:class => 'form-control', required: 'required', :prompt => "Seleccione tipo", required: 'required'} %>
+</style>
 
-                </div>
-              </div>
-              <!--fin de segunda columna-->
+    <div class="card-body">
+      <form class="form-horizontal form-material" id="loginform" action="index.html">
+        <a href="javascript:void(0)" class="text-center db"><img src="../assets/images/logo-umsa.jpg" alt="Emision de Certificados" /><br/><img src="../assets/images/logo-text4.jpg" alt="Comision de Procesos" /></a> 
+        <h3 class="box-title m-t-40 m-b-0">Nuevo Registro_Usuario</h3><small>Crea tu cuenta</small> 
+        <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input class="form-control" type="text" required="" placeholder="Nombre">
+          </div>
+        </div>
+        <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input class="form-control" type="text" required="" placeholder="Ap_paterno">
+          </div>
+        </div>
+        <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input class="form-control" type="text" required="" placeholder="Ap_materno">
+          </div>
+        </div>
+        <div class="form-group ">
+          <div class="col-xs-12">
+            <input class="form-control" type="text" required="" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group ">
+          <div class="col-xs-12">
+            <input class="form-control" type="password" required="" placeholder="Password">
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-12">
+            <input class="form-control" type="password" required="" placeholder="Confirm Password">
+          </div>
+        </div>
 
-              <!--tercera columna-->
-              
-               <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label"><h3 class="text-orange">iniciales</h3></label>
-                <%= select_tag "username",                 options_for_select([['Admin'], ['Abogado'], ['Secretaria'], ['Otro']]), {:class => 'form-control', required: 'required', :prompt => "Seleccione tipo", required: 'required'} %>
-
-                </div>
-              </div>
-              <!--fin tercera columna-->
-
-               </div>
-            <!--fin de primera fila-->
-
-
-            <!-- segunda fila-->
-            <div class="row p-t-25">
-
-
-              <!--primera columna-->
+        <!-- 2da columna -->
             
-              <div class="col-md-3">
-                <div class="form-group">
-                  <label class="control-label">
-                    <h3 class="text-orange">Nombre</h3></label>
-                  <%= form.text_field :nombre, id: :users_nombre, class: 'form-control', required: 'required' %>
-
-                </div>
+              <div class="form-group">
+                <div class="col-xs-12">
+                <label class="control-label"><h3 class="text-orange">TIPO</h3></label><%= select_tag "users[tipo_user]", 
+                    options_for_select([['Abogado'], ['Secretaria'], ['Otro'], ['Admi']]), 
+                    {
+                      :class => 'form-control', 
+                      required: 'required',
+                    } 
+                %>
               </div>
-            <!--fin primera columna-->
-
-              <!--segunda columna-->
-              <div class="col-md-3">
-                <div class="form-group">
-                  <label class="control-label">
-                  <h3 class="text-orange">Ap_Paterno</h3></label>
-                  <%= form.text_field :ap_paterno, id: :users_ap_paterno, class: 'form-control', required: 'required' %>
-
-                </div>
-              </div>
-
-              <!--fin de segunda columna-->
-
-              <!--tercera columna-->
-              <div class="col-md-3">
-                <div class="form-group">
-                  <label class="control-label">
-                    <h3 class="text">Ap_Materno</h3></label>
-                  <%= form.text_field :ap_materno, id: :users_ap_materno, class: 'form-control', required: 'required' %>
-
-                </div>
-              </div>
-               <!--fin de tercera columna-->
-
-              </div>
-            <!--fin de segunda fila-->
+            </div>
+        <!--fin 2da columna-->
 
 
+
+        <!--div class="form-group">
+          <div class="col-md-12">
+            <div class="checkbox checkbox-primary p-t-0">
+              <input id="checkbox-signup" type="checkbox">
+              <label for="checkbox-signup"> I agree to all <a href="#">Terms</a></label>
+            </div>
+          </div>
+        </div-->
+
+        <div class="form-group text-center m-t-20">
+          <div class="col-xs-12">
+            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">guardar_usuario</button>
+          </div>
+        </div>
+        <div class="form-group m-b-0">
+          <div class="col-sm-12 text-center">
+            <p>ya cuenta usted con usuario<a href="login2.html" class="text-info m-l-5"><b>Registrado</b></a></p>
+          </div>
+        </div>
+      </form>
     </div>
   </div>
- </div>
-</div>
- <!--/spam-->
-          </div>
-       
-
-          <div class="form-actions">
-            <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
-            <button type="button" class="btn btn-inverse">Cancel</button>
-          </div>
-          <% end %>
-         </div>
- 
 
 
-
+</html>
