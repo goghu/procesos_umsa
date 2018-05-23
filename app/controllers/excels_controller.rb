@@ -123,17 +123,21 @@ class ExcelsController < ApplicationController
         if (cont == 0)
           puts "Es la fila de cabeceras"
         else
-          puts "Nombre -- #{workbook[0][cont][0].value}"
-          puts "Ap_paterno -- #{workbook[0][cont][1].value}"
-          puts "Ap_materno -- #{workbook[0][cont][2].value}"
-          puts "Carnet -- #{workbook[0][cont][3].value}"
-          puts "Tipo -- #{workbook[0][cont][4].value}"
-          puts "Ru_Item -- #{workbook[0][cont][5].value}"
-          puts "Facultad -- #{workbook[0][cont][6].value}"
-          puts "Carrera -- #{workbook[0][cont][7].value}"
-          puts "Categoria -- #{workbook[0][cont][8].value}"
-          puts "Direccion -- #{workbook[0][cont][9].value}"
-          puts "Telefono -- #{workbook[0][cont][10].value}"
+          puts "Ru_Item -- #{workbook[0][cont][0].value}"
+          puts "Carnet -- #{workbook[0][cont][1].value}"
+          puts "Nombre -- #{workbook[0][cont][2].value}"
+          puts "Ap_paterno -- #{workbook[0][cont][3].value}"
+          puts "Ap_materno -- #{workbook[0][cont][4].value}"
+          puts "Facultad -- #{workbook[0][cont][5].value}"
+          puts "Carrera -- #{workbook[0][cont][6].value}"
+          puts "Tipo -- #{workbook[0][cont][7].value}"
+          puts "Direccion -- #{workbook[0][cont][8].value}"
+          puts "Telefono -- #{workbook[0][cont][9].value}"
+          puts "Categoria -- #{workbook[0][cont][10].value}"
+          puts "Fallo -- #{workbook[0][cont][11].value}"
+          puts "Observacion -- #{workbook[0][cont][12].value}"
+          puts "Correlt_certf -- #{workbook[0][cont][13].value}"
+          puts "No_Reg -- #{workbook[0][cont][14].value}"
           # validamos para que el carnet para que no se repitan las personas
           p = Persona.new
           p.item = workbook[0][cont][0].value
@@ -144,9 +148,13 @@ class ExcelsController < ApplicationController
           p.facultad = workbook[0][cont][5].value
           p.carrera = workbook[0][cont][6].value
           p.tipo = workbook[0][cont][7].value
-          p.categoria = workbook[0][cont][8].value
-          p.direccion = workbook[0][cont][9].value
-          p.telefono = workbook[0][cont][10].value
+          p.direccion = workbook[0][cont][8].value
+          p.telefono = workbook[0][cont][9].value
+          p.categoria = workbook[0][cont][10].value
+          p.fallo = workbook[0][cont][11].value
+          p.observacion = workbook[0][cont][12].value
+          p.correlt_certf = workbook[0][cont][13].value
+          p.no_reg = workbook[0][cont][14].value
           p.save
         end
 
