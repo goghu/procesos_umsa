@@ -92,7 +92,7 @@ class PersonasController < ApplicationController
     # agarramos los datos del array de persona
     datos_form_persona = params[:persona]
 
-    # capturamos los datos para guardar 
+    # capturamos los datos para guardar
     ci_persona = datos_form_persona[:ci]
     fallo = datos_form_persona[:fallo]
     id_per = datos_form_persona[:id]
@@ -142,7 +142,7 @@ def emisioncertf
     # agarramos los datos del array de persona
     datos_form_persona = params[:persona]
 
-    # capturamos los datos para guardar 
+    # capturamos los datos para guardar
     ci_persona = datos_form_persona[:ci]
     id_personas = datos_form_persona[:id]
     fecha_emi_certf = datos_form_persona[:fecha_emi_certf]
@@ -199,14 +199,17 @@ end
 =end
 
 def emisiongrupal
-   #@nombre = Persona.where(tipo:"Emision")
+  respond_to do |format|
+    format.html
+    format.json { render json: PersonaDatatable.new(view_context) }
   end
+end
 
   def guarda_emisiongrupal
     # agarramos los datos del array de persona
     datos_form_persona = params[:persona]
 
-    # capturamos los datos para guardar 
+    # capturamos los datos para guardar
     ci_persona = datos_form_persona[:ci]
     id_personas = datos_form_persona[:id]
     fecha_emi_certf = datos_form_persona[:fecha_emi_certf]
@@ -264,7 +267,7 @@ end
   end
 
   def jquery
-    
+
   end
 
 end

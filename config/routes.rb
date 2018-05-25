@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   resources :personas
   resources :cargos
   resources :facultades
-  
-  
+
+
   #devise_for :users
   root to: "facultades#index"
   devise_for :users, controllers: {
@@ -40,14 +40,14 @@ Rails.application.routes.draw do
   get '/persona/bu_ci_ajax/:ci', to: 'personas#bu_ci_ajax'
   get '/persona/imprimir1/:id_persona', to: 'personas#imprimir1'
 
-  get '/persona/emisiongrupal/', to: 'personas#emisiongrupal'
+  get '/persona/emisiongrupal/', to: 'personas#emisiongrupal', as: 'emision_grupal'
   post '/persona/guarda_emisiongrupal/', to: 'personas#guarda_emisiongrupal'
   get '/persona/bg_ci_ajax/:ci', to: 'personas#bg_ci_ajax'
   get '/persona/imprimir2/:id_persona', to: 'personas#imprimir2'
 
   get '/denuncias/busca_ci_ajax/:ci', to: 'denuncia#busca_ci_ajax'
   get '/denuncias/impresion/:id_persona', to: 'denuncia#impresion'
-  
+
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

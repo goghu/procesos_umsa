@@ -41,6 +41,9 @@ gem 'jquery-rails'
 # para autenticacion
 gem 'devise'
 
+#para el datatable
+gem 'ajax-datatables-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

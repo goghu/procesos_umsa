@@ -109,10 +109,10 @@ ActiveRecord::Schema.define(version: 20180519230426) do
     t.string "observacion"
     t.string "correlt_certf"
     t.string "no_reg"
+    t.date "fecha_emi_certf"
     t.datetime "borrado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "fecha_emi_certf"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
