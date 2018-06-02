@@ -34,7 +34,7 @@ blockquote {
         <div class="form-body">
 
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-6">
 
               <table id="users-datatable" class="table table-bordered" data-source="<%= emision_grupal_path(format: :json) %>">
                 <thead>
@@ -42,6 +42,7 @@ blockquote {
                     <th>ID</th>
                     <th>CI</th>
                     <th>Nombre</th>
+                    <th>Accion</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -160,6 +161,7 @@ $(document).ready(function() {
       {"data": "id"},
       {"data": "ci"},
       {"data": "nombre"},
+      {"data": "acciones"}
     ]
     // pagingType is optional, if you want full pagination controls.
     // Check dataTables documentation to learn more about
