@@ -263,7 +263,7 @@ end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def persona_params
-    params.require(:persona).permit(:item, :ci, :nombre, :facultad, :carrera, :tipo, :categoria, :borrado)
+    params.require(:persona).permit(:item, :ci, :nombre, :ap_paterno, :ap_materno, :facultad, :carrera, :tipo, :fallo, :direccion, :telefono,:categoria, :observacion, :fecha, :borrado)
   end
 
   def jquery

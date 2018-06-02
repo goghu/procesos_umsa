@@ -25,7 +25,7 @@
                 <div class="form-group">
                   <label class="control-label">
                   <h3 class="text-orange">Carnet Identidad</h3></label>
-                  <%= form.text_field :Ci, id: :persona_Ci, class: 'form-control', required: 'required' %>
+                  <%= form.text_field :ci, id: :persona_ci, class: 'form-control', required: 'required' %>
                 </div>
               </div>
               <!--fin de primera columna -->
@@ -60,7 +60,7 @@
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="control-label">
-                    <h3 class="text-orange">Nombre123</h3></label>
+                    <h3 class="text-orange">Nombre</h3></label>
                   <%= form.text_field :nombre, id: :persona_nombre, class: 'form-control', required: 'required' %>
 
                 </div>
@@ -167,9 +167,15 @@
             <!--primera columna-->
             <div class="col-md-3">
               <div class="form-group">
+               <div id="fallo_persona"></div> 
                 <label class="control-label">
                 <h3 class="text-orange">Fallo</h3></label>
-                <%= select_tag "persona[fallo]",options_for_select([['Si'],['No']]),{:class => 'form-control',required:'required', :prompt => "Seleccione fallo", required:'required'} %>
+                <%= select_tag "persona[fallo]",options_for_select([['Si'],['No']]),
+                {
+                  :class => 'form-control',
+                   required:'required',
+                 }
+                 %>
               </div>
             </div>
             <!--fin primera columna-->
@@ -178,8 +184,8 @@
             <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">
-                  <h3 class="text-orange">Observaciones</h3></label>
-                <%= form.text_field :observaciones, id: :persona_observaciones, class: 'form-control', required: 'required' %>
+                  <h3 class="text-orange">Observacion</h3></label>
+                <%= form.text_field :observacion, id: :persona_observacion, class: 'form-control', required: 'required' %>
               </div>
             </div>
             <!-- fin segunda columna -->
