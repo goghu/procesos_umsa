@@ -44,6 +44,8 @@ Rails.application.routes.draw do
   post '/persona/guarda_emisiongrupal/', to: 'personas#guarda_emisiongrupal'
   get '/persona/bg_ci_ajax/:ci', to: 'personas#bg_ci_ajax'
   get '/persona/imprimir2/:id_persona', to: 'personas#imprimir2'
+  get '/persona/guarda_id/:id_persona/:ul_imp', to: 'personas#guarda_persona_id'
+  get '/persona/mostrar/', to: 'personas#mostrar_antes_imprimir'
 
   get '/denuncias/busca_ci_ajax/:ci', to: 'denuncia#busca_ci_ajax'
   get '/denuncias/impresion/:id_persona', to: 'denuncia#impresion'

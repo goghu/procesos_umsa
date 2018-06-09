@@ -25,14 +25,15 @@ class PersonaDatatable < AjaxDatatablesRails::Base
   end
 
   def get_raw_records
-    # insert query here
+    # inschert query here
+    # Persona.maximum("created_at").select("personas.id, personas.ci, personas.nombre")
     Persona.select("personas.id, personas.ci, personas.nombre")
   end
 
   def dt_actions(id_persona)
     # links = []
     # links = "enlace"+id_persona.to_s
-    links = '<button type="button" id="bt_sel" class="btn btn-success"><i class="mdi mdi-check"></i></button>'.html_safe
+    links = ('<button type="button" onclick="guarda_persona_js('+id_persona.to_s+')" id="bt_sel" class="btn btn-success"><i class="mdi mdi-check"></i></button>').html_safe
     # links << h.link_to 'Edit', h.edit_user_path(object) if h.policy(object).update?
     # links << h.link_to 'Delete', h.user_path(object), method: :delete, remote: true if h.policy(object).destroy?
     # h.safe_join(links, '')

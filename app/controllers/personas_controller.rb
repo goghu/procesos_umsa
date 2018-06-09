@@ -199,6 +199,7 @@ end
 =end
 
 def emisiongrupal
+  @ultima_impresion = Impreso.maximum("no_reg")
   respond_to do |format|
     format.html
     format.json { render json: PersonaDatatable.new(view_context) }
@@ -242,9 +243,9 @@ end
 
   end
 
- def imprimir2
+  def imprimir2
 
-  id_persona = params[:id_persona]
+    id_persona = params[:id_persona]
     #@datos_denuncia = Denuncium.where("persona_id = ?", id_persona)
     @datos_persona = Persona.where("id = ?", id_persona).last
     # byebug
@@ -261,12 +262,24 @@ end
    respond_to do |format|
      format.html { @datos_personas }
      format.json { render json: @datos_personas }
+   end
+    render layout: false
   end
 
+  def guarda_persona_id
+    id_persona_aqui = params[:id_persona]
+    ult_imp_aqui = params[:ul_imp]
+    guarda_impresos = Impreso.new
+    guarda_impresos.persona_id = id_persona_aqui
+    guarda_impresos.no_reg = ult_imp_aqui
+    guarda_impresos.save
+    # byebug
+  end
+
+  def mostrar_antes_imprimir
     
   end
-    render layout: false
-end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_persona

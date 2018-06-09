@@ -35,7 +35,7 @@ blockquote {
 
           <div class="row">
             <div class="col-md-6">
-
+            <%= @ultima_impresion  %>
               <table id="users-datatable" class="table table-bordered" data-source="<%= emision_grupal_path(format: :json) %>">
                 <thead>
                   <tr>
@@ -191,12 +191,32 @@ $(document).ready(function() {
 <script>
   $("#persona_id").click(function) () {
     var campo_texto = $("#persona_id").val();
-        Rails.ajax({
+    Rails.ajax({
+      type: 'GET',
+      url: '/persona/selec_id_ajax/'+campo_texto,
+      data: {"dato_crt": campo_texto},
+      success: function(data, textStatus, jqXHR){
+      }
+    });
+  }
+</script>
+
+<script>
+  function guarda_persona_js(id_persona){
+      var js_ul_imp = <%= @ultima_impresion  %>
+      js_ul_imp++;
+      console.log(js_ul_imp);
+      // console.log('var: '+campo_texto);
+      console.log('variable es '+id_persona);
+      Rails.ajax({
         type: 'GET',
-        url: '/persona/selec_id_ajax/'+campo_texto,
-        data: {"dato_crt": campo_texto},
+        url: '/persona/guarda_id/'+id_persona+'/'+js_ul_imp,
+        data: {"dato_crt": id_persona},
         success: function(data, textStatus, jqXHR){
-           }
+          $("#emi_persona").load('/persona/bg_ci_ajax/'+campo_texto);
+        }
       });
+      
+
     }
-  </script>
+</script>
