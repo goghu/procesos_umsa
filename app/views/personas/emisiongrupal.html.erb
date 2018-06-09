@@ -187,3 +187,16 @@ $(document).ready(function() {
     }
   });
 </script>
+
+<script>
+  $("#persona_id").click(function) () {
+    var campo_texto = $("#persona_id").val();
+        Rails.ajax({
+        type: 'GET',
+        url: '/persona/selec_id_ajax/'+campo_texto,
+        data: {"dato_crt": campo_texto},
+        success: function(data, textStatus, jqXHR){
+           }
+      });
+    }
+  </script>

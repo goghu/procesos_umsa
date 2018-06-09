@@ -231,6 +231,15 @@ end
     actualiza_persona.no_reg = no_reg
     actualiza_persona.save
   #byebug
+  #para selecionar un id para imprimir
+  #def selec_id_ajax
+  # id_selecciona = params[:id]
+  # @datos_personas = Persona.where("id = ?", id_persona).last
+  # respond_to do |format|
+  # format.html { @datos_personas }
+  # format.json { render json: @datos_personas }
+  # end
+
   end
 
  def imprimir2
@@ -252,6 +261,9 @@ end
    respond_to do |format|
      format.html { @datos_personas }
      format.json { render json: @datos_personas }
+  end
+
+    
   end
     render layout: false
 end
