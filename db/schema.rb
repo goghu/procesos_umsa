@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180519230426) do
+ActiveRecord::Schema.define(version: 20180617004001) do
 
   create_table "cargos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nombre"
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20180519230426) do
     t.date "fecha_emi_certf"
     t.string "correlt_certf"
     t.string "no_reg"
+    t.string "numero"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

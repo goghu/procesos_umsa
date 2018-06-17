@@ -199,11 +199,15 @@ end
 =end
 
 def emisiongrupal
-  @ultima_impresion = Impreso.maximum("no_reg")
+  @ultima_impresion = Impreso.maximum("numero")
+  ul_imp = Impreso.where("maximum = ?, numero")
+  if ul_imp.nil?
+  @ultima_impresion = 1
   respond_to do |format|
     format.html
     format.json { render json: PersonaDatatable.new(view_context) }
   end
+end
 end
 
   def guarda_emisiongrupal
@@ -216,14 +220,17 @@ end
     fecha_emi_certf = datos_form_persona[:fecha_emi_certf]
     correlt_certf = datos_form_persona[:correlt_certf]
     no_reg = datos_form_persona[:no_reg]
-    # byebug
+    numero = datos_form_persona[:ul_imp]
+    byebug
     # guardamos la nueva denuncia
     nueva_impresos = Impreso.new
     nueva_impresos.fecha_emi_certf = fecha_emi_certf
     nueva_impresos.correlt_certf = correlt_certf
     nueva_impresos.no_reg = no_reg
+    nueva_impresos.numero = numero
     nueva_impresos.persona_id = id_personas
     nueva_impresos.save
+
 
     #actualizamos el fallo de la persona
     actualiza_persona = Persona.find_by(id: id_personas)
@@ -231,15 +238,7 @@ end
     actualiza_persona.correlt_certf = correlt_certf
     actualiza_persona.no_reg = no_reg
     actualiza_persona.save
-  #byebug
-  #para selecionar un id para imprimir
-  #def selec_id_ajax
-  # id_selecciona = params[:id]
-  # @datos_personas = Persona.where("id = ?", id_persona).last
-  # respond_to do |format|
-  # format.html { @datos_personas }
-  # format.json { render json: @datos_personas }
-  # end
+  
 
   end
 
@@ -269,9 +268,10 @@ end
   def guarda_persona_id
     id_persona_aqui = params[:id_persona]
     ult_imp_aqui = params[:ul_imp]
+    # byebug
     guarda_impresos = Impreso.new
     guarda_impresos.persona_id = id_persona_aqui
-    guarda_impresos.no_reg = ult_imp_aqui
+    guarda_impresos.numero = ult_imp_aqui
     guarda_impresos.save
     # byebug
   end

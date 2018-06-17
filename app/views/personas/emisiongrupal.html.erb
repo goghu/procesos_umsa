@@ -188,25 +188,13 @@ $(document).ready(function() {
   });
 </script>
 
-<script>
-  $("#persona_id").click(function) () {
-    var campo_texto = $("#persona_id").val();
-    Rails.ajax({
-      type: 'GET',
-      url: '/persona/selec_id_ajax/'+campo_texto,
-      data: {"dato_crt": campo_texto},
-      success: function(data, textStatus, jqXHR){
-      }
-    });
-  }
-</script>
 
 <script>
   function guarda_persona_js(id_persona){
-      var js_ul_imp = <%= @ultima_impresion  %>
+      var js_ul_imp = <%= @ultima_impresion %>
       js_ul_imp++;
-      console.log(js_ul_imp);
-      // console.log('var: '+campo_texto);
+      console.log("ultimo es " +js_ul_imp);
+      //console.log('var: '+campo_texto);
       console.log('variable es '+id_persona);
       Rails.ajax({
         type: 'GET',
