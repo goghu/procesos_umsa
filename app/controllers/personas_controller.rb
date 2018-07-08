@@ -203,11 +203,13 @@ def emisiongrupal
   ul_imp = Impreso.where("maximum = ?, numero")
   if ul_imp.nil?
   @ultima_impresion = 1
+else ul_imp = 1
+  end
+
   respond_to do |format|
     format.html
     format.json { render json: PersonaDatatable.new(view_context) }
   end
-end
 end
 
   def guarda_emisiongrupal

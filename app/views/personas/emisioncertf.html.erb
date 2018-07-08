@@ -85,7 +85,7 @@ blockquote {
             <div class="col-md-4">
               <div class="form-group">
                 <label class="control-label"><h3 class="text-orange">No. Correlativo</h3></label><%= select_tag "persona[correlt_certf]", 
-                    options_for_select([['018/2018'], ['019/2018'], ['020/2018'], ['021/2018'], ['022/2018'], ['023/2018'], ['024/2018'], ['025/2018']]), 
+                    options_for_select([['018'], ['019'], ['020'], ['021'], ['022'], ['023'], ['024'], ['025']]), 
                     {
                       :class => 'form-control', 
                       required: 'required',
@@ -97,7 +97,21 @@ blockquote {
           </div>    
           <!-- fin 2da fila -->
             
-
+ <!-- 2da columna -->
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="control-label"><h3 class="text-orange">Year</h3></label><%= select_tag "persona[year]", 
+                    options_for_select([['/2018'], ['/2019'], ['/2020'], ['/2021'], ['/2022'], ['/2023'], ['/2024'], ['/2025']]), 
+                    {
+                      :class => 'form-control', 
+                      required: 'required',
+                    } 
+                %>
+              </div>
+            </div>
+          <!--fin 2da columna-->
+          </div>    
+          <!-- fin 2da fila -->
         <!-- 3ra fila -->
           <div class="row p-t-25">
 
