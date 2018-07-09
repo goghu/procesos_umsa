@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180625161732) do
+ActiveRecord::Schema.define(version: 20180617004001) do
 
   create_table "cargos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "nombre"
@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(version: 20180625161732) do
     t.integer "denuncium_id"
     t.date "fecha_emi_certf"
     t.string "correlt_certf"
-    t.string "year"
     t.string "no_reg"
     t.string "numero"
     t.integer "user_id"
@@ -95,26 +94,28 @@ ActiveRecord::Schema.define(version: 20180625161732) do
   end
 
   create_table "personas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.integer "facultad_id"
     t.string "item"
     t.string "ci"
     t.string "nombre"
-    t.string "ap_paterno"
-    t.string "ap_materno"
     t.string "facultad"
     t.string "carrera"
-    t.string "tipo"
     t.string "direccion"
     t.string "telefono"
+    t.string "tipo"
     t.string "categoria"
     t.string "fallo"
     t.string "observacion"
     t.string "correlt_certf"
     t.string "no_reg"
+    t.date "fecha_emi_certf"
+    t.string "ap_paterno"
+    t.string "ap_materno"
     t.datetime "borrado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "fecha_emi_certf"
+    t.string "observaciones"
+    t.string "correo"
+    t.date "fecha"
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -123,7 +124,6 @@ ActiveRecord::Schema.define(version: 20180625161732) do
     t.string "ap_paterno"
     t.string "ap_materno"
     t.string "email", default: "", null: false
-    t.string "tipo_user"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
