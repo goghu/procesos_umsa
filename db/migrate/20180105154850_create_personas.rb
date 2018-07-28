@@ -4,6 +4,8 @@ class CreatePersonas < ActiveRecord::Migration[5.1]
       t.string :item
       t.string :ci
       t.string :nombre
+      t.string :ap_paterno
+      t.string :ap_materno
       t.string :facultad
       t.string :carrera
       t.string :tipo
