@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Egrupals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Persona</th>
+      <th>Impreso</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @egrupals.each do |egrupal| %>
+      <tr>
+        <td><%= egrupal.persona_id %></td>
+        <td><%= egrupal.impreso_id %></td>
+        <td><%= link_to 'Show', egrupal %></td>
+        <td><%= link_to 'Edit', edit_egrupal_path(egrupal) %></td>
+        <td><%= link_to 'Destroy', egrupal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Egrupal', new_egrupal_path %>

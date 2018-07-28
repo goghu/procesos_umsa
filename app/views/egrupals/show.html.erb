@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Persona:</strong>
+  <%= @egrupal.persona_id %>
+</p>
+
+<p>
+  <strong>Impreso:</strong>
+  <%= @egrupal.impreso_id %>
+</p>
+
+<%= link_to 'Edit', edit_egrupal_path(@egrupal) %> |
+<%= link_to 'Back', egrupals_path %>

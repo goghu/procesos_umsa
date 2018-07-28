@@ -1,0 +1,2 @@
+class Egrupal < ApplicationRecord
+end

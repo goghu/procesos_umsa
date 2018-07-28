@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :egrupals
   resources :impresos
   resources :carreras
   resources :denuncia

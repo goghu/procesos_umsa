@@ -1,0 +1,27 @@
+<%= form_with(model: egrupal, local: true) do |form| %>
+  <% if egrupal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(egrupal.errors.count, "error") %> prohibited this egrupal from being saved:</h2>
+
+      <ul>
+      <% egrupal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :persona_id %>
+    <%= form.number_field :persona_id, id: :egrupal_persona_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :impreso_id %>
+    <%= form.number_field :impreso_id, id: :egrupal_impreso_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
