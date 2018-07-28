@@ -200,10 +200,10 @@ end
 
 def emisiongrupal
   @ultima_impresion = Impreso.maximum("numero")
-  ul_imp = Impreso.where("maximum = ?, numero")
-  if ul_imp.nil?
-  @ultima_impresion = 1
-else ul_imp = 1
+  if @ultima_impresion
+    @ultima_impresion
+  else 
+    @ultima_impresion = 1
   end
 
   respond_to do |format|

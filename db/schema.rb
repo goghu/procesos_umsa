@@ -108,11 +108,11 @@ ActiveRecord::Schema.define(version: 20180617004001) do
     t.string "correlt_certf"
     t.string "no_reg"
     t.date "fecha_emi_certf"
-    t.string "ap_paterno"
-    t.string "ap_materno"
     t.datetime "borrado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ap_paterno", limit: 20
+    t.string "ap_materno", limit: 30
     t.string "observaciones"
     t.string "correo"
     t.date "fecha"
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 20180617004001) do
     t.string "ap_paterno"
     t.string "ap_materno"
     t.string "email", default: "", null: false
+    t.string "tipo_user"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
