@@ -35,7 +35,9 @@ blockquote {
 
           <div class="row">
             <div class="col-md-6">
-            <%= @ultima_impresion  %>
+            ultima impresion <%= @ultima_impresion  %>
+            id impresion <%= @consulta_impresion.id  %>
+            <input type="text" id="cod_impre" name="id_imp" value='<%= @consulta_impresion.id  %>'>
               <table id="users-datatable" class="table table-bordered" data-source="<%= emision_grupal_path(format: :json) %>">
                 <thead>
                   <tr>
@@ -48,6 +50,12 @@ blockquote {
                 <tbody>
                 </tbody>
               </table>
+            </div>
+
+            <div class="col-md-6">
+              <div id="los_seleccionados">
+                    aqui            
+              </div>
             </div>
           </div>
 
@@ -191,20 +199,24 @@ $(document).ready(function() {
 
 <script>
   function guarda_persona_js(id_persona){
-      var js_ul_imp = <%= @ultima_impresion %>
-      js_ul_imp++;
-      console.log("ultimo es "+js_ul_imp);
+      
+      // js_ul_imp++;
+      // capturamos el dato del campo de texto
+      var cod_impresion = $('#cod_impre').val();
+      console.log("cod_impresion "+cod_impresion);
       //console.log('var: '+campo_texto);
       console.log('variable es '+id_persona);
-      Rails.ajax({
+
+      $.ajax({
         type: 'GET',
-        url: '/persona/guarda_id/'+id_persona+'/'+js_ul_imp,
-        data: {"dato_crt": id_persona},
+        url: '/persona/guarda_grupal/'+id_persona+'/'+cod_impresion,
+        data: {"dato_crt": cod_impresion},
         success: function(data, textStatus, jqXHR){
-          $("#emi_persona").load('/persona/bg_ci_ajax/'+campo_texto);
+          // alert('entro');
+          $("#los_seleccionados").load('/persona/muestra_grupal/');
         }
       });
-      
+
 
     }
 </script>

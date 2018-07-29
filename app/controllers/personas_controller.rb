@@ -63,8 +63,6 @@ class PersonasController < ApplicationController
       format.html {redirect_to personas_url, notice: 'La Persona fue eliminado correctamente'}
       format.json {head :no_content}
     end
-
-
   end
 
   def solodocentes
@@ -198,24 +196,26 @@ end
     end
 =end
 
-def emisiongrupal
-  @ultima_impresion = Impreso.maximum("numero")
-  if @ultima_impresion
-    @ultima_impresion
-  else 
-    @ultima_impresion = 1
-  end
+  def emisiongrupal
+    @ultima_impresion = Impreso.maximum("numero")
+    if @ultima_impresion
+      @ultima_impresion
+    else
+      @ultima_impresion = 1
+    end
 
-  respond_to do |format|
-    format.html
-    format.json { render json: PersonaDatatable.new(view_context) }
+    @consulta_impresion = Impreso.last
+
+    respond_to do |format|
+      format.html
+      format.json { render json: PersonaDatatable.new(view_context) }
+    end
   end
-end
 
   def guarda_emisiongrupal
     # agarramos los datos del array de persona
     datos_form_persona = params[:persona]
-
+    # byebug
     # capturamos los datos para guardar
     ci_persona = datos_form_persona[:ci]
     id_personas = datos_form_persona[:id]
@@ -223,24 +223,25 @@ end
     correlt_certf = datos_form_persona[:correlt_certf]
     no_reg = datos_form_persona[:no_reg]
     numero = datos_form_persona[:ul_imp]
-    byebug
+    # byebug
     # guardamos la nueva denuncia
     nueva_impresos = Impreso.new
     nueva_impresos.fecha_emi_certf = fecha_emi_certf
     nueva_impresos.correlt_certf = correlt_certf
     nueva_impresos.no_reg = no_reg
-    nueva_impresos.numero = numero
-    nueva_impresos.persona_id = id_personas
+    # nueva_impresos.numero = numero
+    # nueva_impresos.persona_id = id_personas
     nueva_impresos.save
+    @cod_impresion = nueva_impresos.id
+    puts 'El ultimo id es '+@id_impresion.to_s
+    redirect_to action: 'emisiongrupal'
 
-
-    #actualizamos el fallo de la persona
-    actualiza_persona = Persona.find_by(id: id_personas)
-    actualiza_persona.fecha_emi_certf = fecha_emi_certf
-    actualiza_persona.correlt_certf = correlt_certf
-    actualiza_persona.no_reg = no_reg
-    actualiza_persona.save
-  
+    # actualizamos el fallo de la persona
+    # actualiza_persona = Persona.find_by(id: id_personas)
+    # actualiza_persona.fecha_emi_certf = fecha_emi_certf
+    # actualiza_persona.correlt_certf = correlt_certf
+    # actualiza_persona.no_reg = no_reg
+    # actualiza_persona.save
 
   end
 
@@ -279,7 +280,20 @@ end
   end
 
   def mostrar_antes_imprimir
-    
+
+  end
+
+  def guarda_grupal
+    # byebug
+    guarda_en_grupo = Egrupal.new
+    guarda_en_grupo.persona_id = params[:id_persona]
+    guarda_en_grupo.impreso_id = params[:cod_impresion]
+    guarda_en_grupo.save
+  end
+
+  def muestra_grupal
+    @consulta_grupo = Egrupal.where("impreso_id", params[:cod_impresion])
+    render layout: false
   end
 
   private
