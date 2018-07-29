@@ -213,7 +213,7 @@ $(document).ready(function() {
         data: {"dato_crt": cod_impresion},
         success: function(data, textStatus, jqXHR){
           // alert('entro');
-          $("#los_seleccionados").load('/persona/muestra_grupal/');
+          $("#los_seleccionados").load('/persona/muestra_grupal/'+cod_impresion);
         }
       });
 

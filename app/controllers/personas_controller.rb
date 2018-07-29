@@ -292,7 +292,8 @@ end
   end
 
   def muestra_grupal
-    @consulta_grupo = Egrupal.where("impreso_id", params[:cod_impresion])
+    # byebug
+    @consulta_grupo = Egrupal.where("impreso_id = ?", params[:cod_impresion])
     render layout: false
   end
 

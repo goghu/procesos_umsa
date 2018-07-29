@@ -52,7 +52,7 @@ Rails.application.routes.draw do
   get '/denuncias/impresion/:id_persona', to: 'denuncia#impresion'
 
   get '/persona/guarda_grupal/:id_persona/:cod_impresion', to: 'personas#guarda_grupal'
-  get '/persona/muestra_grupal/', to: 'personas#muestra_grupal'
+  get '/persona/muestra_grupal/:cod_impresion', to: 'personas#muestra_grupal'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
