@@ -1,11 +1,15 @@
 <table class="display nowrap table table-hover table-striped table-bordered">
 	<tr>
-		<td>Nombre</td>
+		<td>Nombre- ap_paterno- ap_materno</td>
+		
 	</tr>
 	<% @consulta_grupo.each do |pg| %>
 	<tr>
 		<td>
+			<%= pg.persona.ci %>
 			<%= pg.persona.nombre %>
+			<%= pg.persona.ap_paterno %>
+			<%= pg.persona.ap_materno %>
 		</td>
 	</tr>
 	<% end %>

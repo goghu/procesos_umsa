@@ -258,15 +258,15 @@ end
 
   end
 
-  def bg_ci_ajax
-   ci_buscar = params[:ci]
-   @datos_personas = Persona.where("ci like ?",  "%#{ci_buscar}%")
-   respond_to do |format|
-     format.html { @datos_personas }
-     format.json { render json: @datos_personas }
-   end
-    render layout: false
-  end
+ # def bg_ci_ajax
+  # ci_buscar = params[:ci]
+   #@datos_personas = Persona.where("ci like ?",  "%#{ci_buscar}%")
+   #respond_to do |format|
+    # format.html { @datos_personas }
+     #format.json { render json: @datos_personas }
+   #end
+    #render layout: false
+  #end
 
   def guarda_persona_id
     id_persona_aqui = params[:id_persona]
