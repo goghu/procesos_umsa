@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   get '/persona/imprimir2/:id_persona', to: 'personas#imprimir2'
   get '/persona/guarda_id/:id_persona/:ul_imp', to: 'personas#guarda_persona_id'
   get '/persona/mostrar/', to: 'personas#mostrar_antes_imprimir'
+  get '/persona/elimina_persona_js/', to: 'personas#elimina_persona_js'
 
   get '/denuncias/busca_ci_ajax/:ci', to: 'denuncia#busca_ci_ajax'
   get '/denuncias/impresion/:id_persona', to: 'denuncia#impresion'
@@ -54,5 +55,6 @@ Rails.application.routes.draw do
   get '/persona/guarda_grupal/:id_persona/:cod_impresion', to: 'personas#guarda_grupal'
   get '/persona/muestra_grupal/:cod_impresion', to: 'personas#muestra_grupal'
 
+  get '/persona/usuarios/:guarda_usuario/', to: 'personas#guarda_usuario'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

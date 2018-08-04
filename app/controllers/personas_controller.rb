@@ -296,6 +296,10 @@ end
     @consulta_grupo = Egrupal.where("impreso_id = ?", params[:cod_impresion])
     render layout: false
   end
+  def elimina_persona_js
+    @consulta_grupo = Egrupal.where("seleccionados =?", params[:id_persona_aqui])
+    render layout: false 
+  end
 
   private
   # Use callbacks to share common setup or constraints between actions.
@@ -308,6 +312,17 @@ end
     params.require(:persona).permit(:item, :ci, :nombre, :ap_paterno, :ap_materno, :facultad, :carrera, :tipo, :fallo, :direccion, :telefono,:categoria, :observacion, :fecha, :borrado)
   end
 
+def guarda_usuario
+    # byebug
+    guarda_en_user = user.new
+    guarda_en_user.user_id = params[:id_user]
+    guarda_en_user.username = params[:username]
+    guarda_en_user.ap_paterno = params[:ap_paterno]
+    guarda_en_user.ap_materno = params[:ap_materno]
+    guarda_en_user.tipo_user = params[:tipo_user]
+    guarda_en_user.contrasena = params[:contrasena]
+    guarda_en_user.save
+  end
   def jquery
 
   end

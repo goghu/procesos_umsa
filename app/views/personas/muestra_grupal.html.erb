@@ -6,10 +6,13 @@
 	<% @consulta_grupo.each do |pg| %>
 	<tr>
 		<td>
+			<%= pg.persona.id %>
 			<%= pg.persona.ci %>
 			<%= pg.persona.nombre %>
 			<%= pg.persona.ap_paterno %>
 			<%= pg.persona.ap_materno %>
+			<button type="button" onclick="eliminar_persona_js(<%= pg.persona.id %>)" id="bt_sel" class="btn btn-success"><i class="mdi mdi-check"></i></button>
+			
 		</td>
 	</tr>
 	<% end %>
