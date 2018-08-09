@@ -1,18 +1,17 @@
 <table class="display nowrap table table-hover table-striped table-bordered">
 	<tr>
-		<td>Nombre- ap_paterno- ap_materno</td>
-		
+		<td>ID</td>
+		<td>CI</td>
+		<td>Nombre</td>
+		<td></td>
 	</tr>
 	<% @consulta_grupo.each do |pg| %>
 	<tr>
+		<td><%= pg.persona.id %></td>
+		<td><%= pg.persona.ci %></td>
+		<td><%= pg.persona.nombre %><%= pg.persona.ap_paterno %><%= pg.persona.ap_materno %></td>
 		<td>
-			<%= pg.persona.id %>
-			<%= pg.persona.ci %>
-			<%= pg.persona.nombre %>
-			<%= pg.persona.ap_paterno %>
-			<%= pg.persona.ap_materno %>
-			<button type="button" onclick="eliminar_persona_js(<%= pg.persona.id %>)" id="bt_sel" class="btn btn-success"><i class="mdi mdi-check"></i></button>
-			
+			<button type="button" onclick="eliminar_persona_js(<%= pg.persona.id %>)" id="bt_sel" class="btn btn-danger"><i class="mdi mdi-backspace"></i></button>
 		</td>
 	</tr>
 	<% end %>

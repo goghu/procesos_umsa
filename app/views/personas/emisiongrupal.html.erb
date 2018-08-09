@@ -33,100 +33,87 @@ blockquote {
         <%= form_tag("/persona/guarda_emisiongrupal", method: "POST") do %>
         <div class="form-body">
 
-          <!--primera fila-->
-        <div class="row">
-
-          <div class="col-md-4">
-            <div class="form-group">
-                <label class="control-label">
-                <h3><b>Fecha</b></h3></label>
-                <%= date_field_tag("persona[fecha_emi_certf]", nil,class: 'form-control')%>
-              </div>
+          <div class="row page-titles">
+            <div class="col-md-6 col-8 align-self-center">
+              <h3 class="text-themecolor m-b-0 m-t-0">NUEVA EMISION GRUPAL</h3>
             </div>
-       </div>
-            
-          <!-- fin primera fila -->
+          </div>
 
-          <!-- 2da fila -->
           <div class="row">
-
-           <!-- 1ra columna -->
-           <div class="col-md-3">
-              <div class="form-group">
-                <label class="control-label"><h3>No. Reg.</h3></label>
-                <%= text_field :persona, :no_reg, class:'form-control'
-                    
-                %>
-              </div>
-            </div>
-            <!--fin 1ra columna-->
-        
-             <!-- 2da columna -->
             <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">
-                  <h3>No. Correlat.</h3></label>
-                    <%= text_field :persona, :correlt_certf, class:'form-control' %>
+                  <h3>Fecha</h3></label>
+                  <%= date_field_tag("persona[fecha_emi_certf]", nil,class: 'form-control') %>
+                </div>
               </div>
-            </div>
-          <!--fin 2da columna-->
-            
-         </div>
-         <!-- fin 2da fila -->
 
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label"><h3>No. Reg.</h3></label>
+                  <%= text_field :persona, :no_reg, class:'form-control' %>
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">
+                    <h3>No. Correlat.</h3></label>
+                    <%= text_field :persona, :correlt_certf, class:'form-control' %>
+                </div>
+              </div>
+
+          </div>
 
          <!-- busca ultima impresion su id -->
-          <div class="row">
-            <div class="col-md-6">
-            ultima impresion 
-            <%= @ultima_impresion  %>
-            id impresion 
-            <%= @consulta_impresion.id  %>
-            <input type="text" id="cod_impre" name="id_imp" value='<%= @consulta_impresion.id  %>'>
-            <div class='row'>
-              <table id="users-datatable" class="table table-bordered" data-source="<%= emision_grupal_path(format: :json) %>">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>CI</th>
-                    <th>Nombre</th>
-                    <th>Seleccionar</th>
+         <div class="row">
+           <div class="col-md-6">
+             <% if @consulta_impresion %>
+             <%= @consulta_impresion.id  %>
+             <input type="hidden" id="cod_impre" name="id_imp" value='<%= @consulta_impresion.id  %>'>
+             <% else %>
+             <input type="hidden" id="cod_impre" name="id_imp" value='1'>
+             <% end %>
+             <div class='row'>
+               <table id="users-datatable" class="display nowrap table table-hover table-striped table-bordered dataTable" data-source="<%= emision_grupal_path(format: :json) %>">
+                 <thead>
+                   <tr>
+                     <th>ID</th>
+                     <th>CI</th>
+                     <th>Nombre</th>
+                     <th></th>
+                   </tr>
+                 </thead>
+                 <tbody>
+                 </tbody>
+               </table>
+             </div>
+           </div>
 
-                  </tr>
-                </thead>
-                <tbody>
-                </tbody>
-              </table>
-            </div>
-          </div>
+           <div class="col-md-6">
+             <h3>Seleccionados para el certificado</h3>
+             <div id="los_seleccionados">
+             </div>
+           </div>
+         </div>
+        <!-- fin de la busqueda impresion-id -->
 
-            <div class="col-md-6">
-              <div id="los_seleccionados">
-                aqui los seleccionados    
-                
-              </div>
-            </div>
+        <h1>&nbsp;</h1>
+        <div class="row">
+          <div class="col-md-6">
+            <button type="submit" class="btn btn-block btn-success">
+              <i class="fa fa-check"></i> GENERAR CERTIFICADO
+            </button>
           </div>
-        <!-- fin de la busqueda impresion-id -->  
+        </div>
 
         </div>
       </div>
     </div>
   </div>
-         
+
  <!--/span-->
-
-
-          <div class="form-actions">
-            <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
-            <button type="button" class="btn btn-inverse">Cancel</button>
-            <button type="button" class="btn btn-success">print</button>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+  <% end %>
 
 <% # end %>
 <script>
@@ -141,7 +128,10 @@ $(document).ready(function() {
       {"data": "ci"},
       {"data": "nombre"},
       {"data": "acciones"}
-    ]
+    ],
+    "oLanguage": {
+      "sUrl": "https://cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+    }
     // pagingType is optional, if you want full pagination controls.
     // Check dataTables documentation to learn more about
     // available options.
@@ -170,7 +160,7 @@ $(document).ready(function() {
 
 <script>
   function guarda_persona_js(id_persona){
-      
+
       // js_ul_imp++;
       // capturamos el dato del campo de texto
       var cod_impresion = $('#cod_impre').val();
