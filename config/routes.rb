@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get '/persona/solodocentes/', to: 'personas#solodocentes'
   get '/persona/solouniversitarios/', to: 'personas#solouniversitarios'
   get '/persona/soloasesores/', to: 'personas#soloasesores'
+  get '/persona/editar_pers/',to: 'personas#editar_pers'
   get '/excel/formexcel/', to: 'excels#formexcel'
   post '/excel/guardaexcel/', to: 'excels#guardaexcel'
   get '/elegido/seleccionar/', to: 'elegidos#seleccionar'
