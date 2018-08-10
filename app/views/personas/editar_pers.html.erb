@@ -1,0 +1,177 @@
+<h1><b><p>Editar datos de persona </p></b></h1>
+
+
+          <div class="form-body">
+         <!--  1ra columna 1ra fila para busqueda de persona -->
+            <div class="row p-t-25">
+             <div class="col-md-3">
+              <div class="form-group">
+                <div style="text-align: ">
+                <label class="control-label">
+                  <h3><b>Buscar CI:</b></h3></label>
+                  <h3><b><%=text_field(:persona, :ci) %></b></h3>
+                  <div id="carga_nombre"> 
+                  </div>
+                 </div>
+            </div>
+          </div>
+        </div>
+
+          <!--   fin de busca persona para editar -->
+
+          <!--   1ra columna 2da fila -->
+          <div class="row p-t-25">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">
+                  <h3><b>Carnet Identidad</b></h3></label>
+                  <h3><b><%=text_field(:persona, :ci) %></b></h3>
+                </div>
+              </div>
+            
+            <!-- fin de 1ra columna -->
+
+          <!--   2da columna 2da fila -->
+
+              <div class="col-md-3">
+                <div class="form-group">
+                   <label class="control-label">
+                    <h3><b>RU/ITEM:</b></h3></label>
+                    <h3><b><%=text_field(:persona, :Ru) %></b></h3>
+                  </div>
+                </div>
+               
+              <!--fin de 2da columna-->
+
+              <!--3ra columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">
+                  <h3><b>Tipo Persona</b></h3></label>
+                 <h3><b><%=text_field(:persona, :tipo) %></b></h3>
+                 </div>
+              </div>
+      </div>
+            <!--fin 3ra columna y 2da fila-->
+            
+            <!-- 3ra fila y 1ra columna-->
+            <div class="row p-t-25">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">
+                    <h3><b>Nombre</b></h3></label>
+                    <h3><b><%=text_field(:persona, :nombre)%></b></h3>             
+                </div>
+              </div>
+              <!--fin de 1ra columna-->
+
+              <!--2da columna-->
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">
+                  <h3><b>Ap_Paterno</b></h3></label>
+                  <h3><b><%=text_field(:persona, :ap_paterno)%></b></h3>
+                </div>
+              </div>
+
+              <!--fin de 2da columna-->
+
+              <!--3ra columna-->
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">
+                    <h3><b>Ap_Materno</b></h3></label>
+                    <h3><b><%=text_field(:persona, :ap_materno)%></b></h3>
+                  </div>
+              </div>
+             </div>
+            <!--fin de 3ra fila y 3ra columna-->
+
+            <!--fin de 4ta fila y 1ra columna-->
+             <div class="row p-t-25">
+               <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">
+                  <h3><b>Facultad</b></h3></label>
+                  <h3><b><%=text_field(:persona, :facultad)%></b></h3>
+                </div>
+              </div>
+                  <!--fin 1ra columna-->
+
+                  <!--2da columna-->
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label class="control-label">
+                    <h3><b>Carrera</b></h3></label>
+                    <h3><b><%=text_field(:persona, :carrera)%> </b></h3>
+                </div>
+              </div>
+              <!--fin de 2da columna-->
+
+              <!--3ra columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">
+                  <h3><b>Categoria</b></h3></label>
+                <%= select_tag "persona[categoria]", options_for_select([['Titular_A'], ['Titular_B'], ['Titular_C'], ['Titular_E'], ['Otro']]), {:class => 'form-control', required: 'required', :prompt => "Seleccione categoria", required: 'required'} %>
+                </div>
+              </div>       
+             </div>
+            <!--fin de 3ra fila y 3ra columna-->
+
+            <!--4ta fila y 1ra columna-->
+            <div class="row p-t-25">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">
+                <h3><b>Direccion</b></h3></label>
+               <h3><b><%=text_field(:persona, :direccion)%></b></h3>
+              </div>
+            </div>
+            <!--fin 1ra columna-->
+
+            <!--2da columna-->
+            <div class="col-md-3">
+              <div class="form-group">
+                <label class="control-label">
+                <h3><b>Telefono</b></h3></label>
+                <h3><b><%=text_field(:persona, :telefono)%></b></h3>
+               </div>
+            </div>
+            <!-- fin 2da columna -->
+
+            <!-- 3ra columna -->
+            <div class="col-md-3">
+              <div class="form-group">
+               <div id="fallo_persona"></div> 
+                <label class="control-label">
+                <h3><b>Fallo</b></h3></label>
+                <h3><b><%=text_field(:persona, :fallo)%></b></h3> </div>     
+              </div>
+            </div>
+          <!-- fin 4ta fila y 3ra columna -->
+
+
+          <!-- 5ta fila y 1ra columna -->
+          <div class="row p-t-25">
+            <div class="col">
+              <div class="form-group">
+                <label class="control-label">
+                  <h3><b>Observacion</b></h3></label>
+               <h3><b><%=text_field(:persona, :observacion)%></b></h3>
+            </div>
+          </div>
+        </div>
+            <!-- fin 5ta fila y 1ra columna -->
+
+             
+ <!--/spam-->
+        
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
+            <button type="button" class="btn btn-inverse">Cancel</button>
+          </div>
+
+
+      
