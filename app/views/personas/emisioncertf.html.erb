@@ -129,7 +129,7 @@ blockquote {
     var cantidad_letras = campo_texto.length;
     // console.log('var: '+campo_texto);
     if(cantidad_letras > 3){        
-      Rails.ajax({
+      $.ajax({
         type: 'GET',
         url: '/persona/bu_ci_ajax/'+campo_texto,
         data: {"dato_crt": campo_texto},
