@@ -222,24 +222,24 @@ def emisioncertf
     datos_form_persona = params[:persona]
     # byebug
     # capturamos los datos para guardar
-    ci_persona = datos_form_persona[:ci]
-    id_personas = datos_form_persona[:id]
-    fecha_emi_certf = datos_form_persona[:fecha_emi_certf]
-    correlt_certf = datos_form_persona[:correlt_certf]
-    no_reg = datos_form_persona[:no_reg]
-    numero = datos_form_persona[:ul_imp]
+    # ci_persona = datos_form_persona[:ci]
+    # id_personas = datos_form_persona[:id]
+    # fecha_emi_certf = datos_form_persona[:fecha_emi_certf]
+    # correlt_certf = datos_form_persona[:correlt_certf]
+    # no_reg = datos_form_persona[:no_reg]
+    # numero = datos_form_persona[:ul_imp]
     # byebug
     # guardamos la nueva denuncia
-    nueva_impresos = Impreso.new
-    nueva_impresos.fecha_emi_certf = fecha_emi_certf
-    nueva_impresos.correlt_certf = correlt_certf
-    nueva_impresos.no_reg = no_reg
+    # nueva_impresos = Impreso.new
+    # nueva_impresos.fecha_emi_certf = fecha_emi_certf
+    # nueva_impresos.correlt_certf = correlt_certf
+    # nueva_impresos.no_reg = no_reg
     # nueva_impresos.numero = numero
     # nueva_impresos.persona_id = id_personas
-    nueva_impresos.save
-    @cod_impresion = nueva_impresos.id
-    puts 'El ultimo id es '+@id_impresion.to_s
-    redirect_to action: 'emisiongrupal'
+    # nueva_impresos.save
+    # @cod_impresion = nueva_impresos.id
+    # puts 'El ultimo id es '+@id_impresion.to_s
+    # redirect_to action: 'emisiongrupal'
 
     # actualizamos el fallo de la persona
     # actualiza_persona = Persona.find_by(id: id_personas)

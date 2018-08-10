@@ -22,9 +22,9 @@
 <% con_impreso = Impreso.where(id: @consulta_grupo[0].impreso_id) %>
 <script>
 	<% if !con_impreso.empty? %>
-		cod_impresion = con_impreso.impreso_id
+		var cod_impresion = <%= con_impreso.ids %>
 	<% else %>
-		cod_impresion = 1
+		var cod_impresion = 1
 	<% end %>
 	function eliminar_persona_js(id_egrupal){
 		// alert("el id es "+id_persona);
