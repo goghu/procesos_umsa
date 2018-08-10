@@ -5,9 +5,12 @@
 		<td>Nombre</td>
 		<td></td>
 	</tr>
-	<% @consulta_grupo.each do |pg| %>
+	<% @consulta_grupo.each_with_index do |pg, index| %>
 	<tr>
-		<td><%= pg.persona.id %></td>
+		<td>
+			<%= pg.persona.id %>
+			<%= hidden_field_tag("egrupal[persona_id][#{index}]", pg.persona.id) %>		
+		</td>
 		<td><%= pg.persona.ci %></td>
 		<td><%= pg.persona.nombre %><%= pg.persona.ap_paterno %><%= pg.persona.ap_materno %></td>
 		<td>

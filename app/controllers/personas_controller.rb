@@ -217,6 +217,7 @@ def emisioncertf
   end
 
   def guarda_emisiongrupal
+    byebug
     # agarramos los datos del array de persona
     datos_form_persona = params[:persona]
     # byebug
