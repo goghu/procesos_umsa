@@ -185,7 +185,11 @@ def emisioncertf
      format.json { render json: @datos_personas }
   end
   render layout: false
-end
+  end
+
+  def elimina_persona_grupal
+    Egrupal.destroy(params[:id_egrupal])
+  end
 #fin de busqueda de emision#
 
 =begin

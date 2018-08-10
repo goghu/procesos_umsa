@@ -49,6 +49,7 @@ Rails.application.routes.draw do
   get '/persona/guarda_id/:id_persona/:ul_imp', to: 'personas#guarda_persona_id'
   get '/persona/mostrar/', to: 'personas#mostrar_antes_imprimir'
   get '/persona/elimina_persona_js/', to: 'personas#elimina_persona_js'
+  get '/persona/elimina_persona_grupal/:id_egrupal', to: 'personas#elimina_persona_grupal'
 
   get '/denuncias/busca_ci_ajax/:ci', to: 'denuncia#busca_ci_ajax'
   get '/denuncias/impresion/:id_persona', to: 'denuncia#impresion'
