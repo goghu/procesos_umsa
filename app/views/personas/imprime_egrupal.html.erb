@@ -152,21 +152,29 @@
         <table border="1"style="margin: 0 auto;">
           <!--1ra columna de la tabla-->  
           <tr>
-            <td width="60%" height="50px">&nbsp;
+            <td width="50%" height="50px">&nbsp;
               <h3 class="font-bold text-center">
                 NOMBRES Y APELLIDOS
-              </h3> 
-            </td>
-            <td width="40%" height="50px">&nbsp;
-              <h3 class="font-bold text-center">
-                CARNET DE IDENTIDAD
-              </h3>
-            </td>
-          </tr>
+                
+                <td width="30%" height="50px">&nbsp;
+                <h3 class="font-bold text-center">
+                CARNET DE IDENTIDAD</h3></td>
+                <td width="20%" height="50px">&nbsp;
+                <h3 class="font-bold text-center">
+                 FALLO</h3></td>
+                </tr>
+
+
+
           <% @personas_escogidas.each do |p| %>
             <tr>
+              <td>
+              <%= p.persona.nombre %>
+              <%= p.persona.ap_paterno %>
+              <%= p.persona.ap_materno %>
+              </td>
               <td><%= p.persona.ci %></td>
-              <td><%= p.persona.nombre %></td>
+              <td><%= p.persona.fallo %></td>
             </tr>
           <% end %>
         </table>
