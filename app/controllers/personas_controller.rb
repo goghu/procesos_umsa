@@ -238,8 +238,8 @@ def emisioncertf
     modelo_impreso.numero = numero
     modelo_impreso.save
     id_impreso = modelo_impreso.id
-    numero_impresion = numero.to_i - 1
-    redirect_to :action => 'imprime_egrupal', :id_impreso => numero_impresion
+    numero_impresion = numero
+    redirect_to :action => 'imprime_egrupal', :id_impreso => numero
 
   end
 
