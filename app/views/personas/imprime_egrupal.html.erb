@@ -1,4 +1,9 @@
 <style type="text/css">
+blockquote {
+  padding: 3px 10px;
+  border: Black 5px solid;
+  border-radius: 20px;
+}
 .tabla-impresion{
   border: 1px solid #54667a;
   width: 100%;
@@ -80,14 +85,15 @@
   }
 }
 </style>
-<h2>Abogados Fallo</h2>
+
 <!--1ra fila tabla para poner fecha del certificado-->
 <div class="form body">
   <div class="row">
     <div class="col-md-12">
-      <table>
+      <table border="0">
       <!--1ra columna de la tabla-->
       <tr>
+       
         <td width="30%" height="20px">&nbsp;
         <b><blockquote>
         <time datetime= "strftime">
@@ -96,9 +102,9 @@
         <%= @datos_impreso.fecha_emi_certf %> </b>
         </h4 class="font-Arial"> </time>
         <b>
-          <pre>
+          
             <% @datos_impreso.inspect %>
-          </pre>
+          
           COM.UNIV.PROC.CERTF:<%= @datos_impreso.correlt_certf %></b>
         </blockquote></b>
         </td>
@@ -136,9 +142,9 @@
 <div class="row">
   <div class="col-md-12">
     <div class="pull-left text-justify">
-      <p> <hr> <h4 class="font-Arial">La Comision Universitaraia de Procesos del Honborable Consejo Universitario de la Universidad Mayor de San Andres, a solicitud escrita del Interesado.</h4> </p> </hr>
+      <p> <hr> <h4 class="font-Arial">La Comisión Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andrés, a solicitud escrita del Interesado.</h4> </p> </hr>
       <br> <h1 class="font-bold"> Certifica:</h1> </br>
-      <h4 class="font-Arial"> Que, revisada la documentacion en la Comision de Procesos, se evidencia que:</h4>
+      <h4 class="font-Arial"> Que, revisada la documentación en la Comisión de Procesos, se evidencia que:</h4>
     </div>
   </div>  
 </div>      
@@ -148,12 +154,11 @@
   <div class="row">
     <div class="cold-md-12">
       <div style="text-align:center;">
-
         <table border="1"style="margin: 0 auto;">
           <!--1ra columna de la tabla-->  
-          <tr>
+          <tr><center>
             <td width="50%" height="50px">&nbsp;
-              <h3 class="font-bold text-center">
+              <h3 class="font-bold text-center"></h3>
                 NOMBRES Y APELLIDOS
                 
                 <td width="30%" height="50px">&nbsp;
@@ -163,8 +168,6 @@
                 <h3 class="font-bold text-center">
                  FALLO</h3></td>
                 </tr>
-
-
 
           <% @personas_escogidas.each do |p| %>
             <tr>
@@ -177,7 +180,7 @@
               <td><%= p.persona.fallo %></td>
             </tr>
           <% end %>
-        </table>
+      </table>
       </div>
     </div>
   </div>
@@ -186,10 +189,9 @@
 <!--4ta fila-->
 <div class="row">
   <div class="col-md-12">
-    <div class="pull-right text-justify">
-      <p> <hr> <h4 class="font-Arial">A la fecha 
-      <b>          
-      </b> tiene fallo sancionatorio en su contra, es cuanto certificamos para los fines consiguientes.</h4> </p> </hr>
+    <div class="pull-left text-justify">
+      <p align="right"> <hr> <h4 class="font-Arial"> 
+      A la fecha tiene fallo sancionatorio en su contra, es cuanto certificamos para los fines consiguientes.</h4> </p> </hr>
 
       <!--1ra columna de la tabla-->
       <table border="0">
@@ -203,16 +205,18 @@
       <table>
       <tr>
       <td><%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %>
-      <h4> <b "font-bold"> Dr. Mauricio E. Farfan Espinoza<BR />
-      JEFE DE COMISION DE PROCESOS </h4> </b> </td>
+      <h4> <b "font-bold"><center> Dr. Mauricio E. Farfan Espinoza<BR /><center>
+      JEFE a.i.
+      <br/><center>DE COMISIÓN DE PROCESOS </h4> </b> </td>
       <!--fin 2da columna de la tabla-->
 
       <td width="350px;"></td>
 
       <!--3ra columna de la tabla-->
       <td><%= image_tag("logo-firma.jpg", class: "dark-logo", alt: "inicio") %>
-      <h4><b "font-bold">Ing. Alberto Arce Tejada <br />
-      SECRETARIO GENERAL UMSA </h4></b></td>
+      <h4><b "font-bold"><center>Ing. Alberto Arce Tejada <br /><center>
+      SECRETARIO GENERAL
+      <br/><center> UMSA </h4></b></td>
       </tr>
       </table>
       <!--fin 3ra columna de la tabla-->
@@ -229,7 +233,7 @@
       <p style="font-size: 8pts;color: black"><p>
         <hr>
         <class="font-Arial">
-        Nota:El presente Certificado debe llevar el Sello de Aprobacion de Secretaria General, el mismo tiene vigencia de 30 dias habiles y solo es para uso interno de la UMSA</p></b>
+        Nota:El presente Certificado debe llevar el Sello de Aprobación de Secretaria General, el mismo tiene vigencia de 30 días hábiles y solo es para uso interno de la UMSA</p></b>
         <p><b> Reg.No.<%= @datos_impreso.no_reg %> </p></b> 
         <p><b>User/</b> </p> 
         </hr> 
