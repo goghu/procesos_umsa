@@ -44,14 +44,14 @@ blockquote {
               <div class="form-group">
                 <label class="control-label">
                   <h3>Fecha</h3></label>
-                  <%= date_field_tag("persona[fecha_emi_certf]", nil,class: 'form-control') %>
+                  <%= date_field_tag('impreso[fecha_emi_certf]', nil, class: 'form-control', :required => true) %>
                 </div>
               </div>
 
               <div class="col-md-3">
                 <div class="form-group">
                   <label class="control-label"><h3>No. Reg.</h3></label>
-                  <%= text_field :persona, :no_reg, class:'form-control' %>
+                  <%= text_field_tag 'impreso[no_reg]', nil, class:'form-control', :required => true %>
                 </div>
               </div>
 
@@ -59,7 +59,7 @@ blockquote {
                 <div class="form-group">
                   <label class="control-label">
                     <h3>No. Correlat.</h3></label>
-                    <%= text_field :persona, :correlt_certf, class:'form-control' %>
+                    <%= text_field_tag 'impreso[correlt_certf]', nil, class:'form-control', :required => true %>
                 </div>
               </div>
 
@@ -69,10 +69,10 @@ blockquote {
          <div class="row">
            <div class="col-md-6">
              <% if @consulta_impresion %>
-             <%= @consulta_impresion.id  %>
-             <input type="hidden" id="cod_impre" name="id_imp" value='<%= @consulta_impresion.id  %>'>
+               <% @consulta_impresion.numero.to_i+1 %>
+               <input type="hidden" id="cod_impre" name="id_imp" value='<%= @consulta_impresion.numero.to_i + 1  %>'>
              <% else %>
-             <input type="hidden" id="cod_impre" name="id_imp" value='1'>
+               <input type="hidden" id="cod_impre" name="id_imp" value='1'>
              <% end %>
              <div class='row'>
                <table id="users-datatable" class="display nowrap table table-hover table-striped table-bordered dataTable" data-source="<%= emision_grupal_path(format: :json) %>">

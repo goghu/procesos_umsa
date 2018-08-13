@@ -58,5 +58,6 @@ Rails.application.routes.draw do
   get '/persona/muestra_grupal/:cod_impresion', to: 'personas#muestra_grupal'
 
   get '/persona/usuarios/:guarda_usuario/', to: 'personas#guarda_usuario'
+  get '/persona/imprime_egrupal/:id_impreso/', to: 'personas#imprime_egrupal', as: 'imprime_egrupal'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
