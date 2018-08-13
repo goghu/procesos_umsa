@@ -1,35 +1,91 @@
 <style type="text/css">
-blockquote {
-  padding: 3px 10px;
-  border: Black 5px solid;
-  border-radius: 20px;
-}
-</style>
-
-<style>
-
-@media print {
-    /*@page {
-        size: letter landscape
-    }
-*/
-    .left-sidebar{
-      display: none;
-    }
-
-    .topbar{
-      display: none;
-    }
-
+.tabla-impresion{
+  border: 1px solid #54667a;
+  width: 100%;
 }
 
+.tabla-impresion tr td{
+  border: 1px solid #54667a;
+  padding: 4px;
+  font-size: 9pt;
+}
+.tabla-impresion-cabecera tr td{
+  width: 100%;
+  padding: 4px;
+  font-size: 9pt;
+}
+.tabla-impresion tr td.montos{
+  border: 1px solid #54667a;
+  padding: 4px;
+  font-size: 9pt;
+  text-align: right;
+}
+.tabla-impresion thead tr th{
+  text-align: center;
+  border: 1px solid black;
+  font-weight: bold;
+}
+.mmt1{
+ margin-top: -1px;
+}
+
+@media print{
+  .left-sidebar{
+    display: none;
+  }
+
+  .topbar{
+    display: none;
+  }
+
+  .tabla-impresion{
+    border: 1px solid #54667a;
+    width: 100%;
+  }
+
+  .tabla-impresion tr td{
+    border: 1px solid #54667a;
+    padding: 4px;
+    font-size: 9pt;
+  }
+  .tabla-impresion-cabecera tr td{
+    width: 100%;
+    padding: 4px;
+    font-size: 9pt;
+  }
+  .tabla-impresion tr td.montos{
+    border: 1px solid #54667a;
+    padding: 4px;
+    font-size: 9pt;
+    text-align: right;
+  }
+  .tabla-impresion thead tr th{
+    text-align: center;
+    border: 1px solid black;
+    font-weight: bold;
+  }
+  .mmt1{
+   margin-top: -1px;
+  }
+ .clase-impresion{
+    color: black;
+    width: 140px;
+    font-size: 12pt;
+  }
+  .no-imprime{
+    display: none;
+  }
+  .page-wrapper{
+    margin-left: 0px;
+  }
+}
 </style>
 <h2>Abogados Fallo</h2>
 <!--1ra fila tabla para poner fecha del certificado-->
 <div class="form body">
   <div class="row">
     <div class="col-md-12">
-      <table border="0">
+      <table>
       <!--1ra columna de la tabla-->
       <tr>
         <td width="30%" height="20px">&nbsp;
@@ -37,10 +93,13 @@ blockquote {
         <time datetime= "strftime">
         <h4 class ="font-Arial"><b> 
         La Paz,
-        <%= @datos_persona.fecha_emi_certf %> </b>
+        <%= @datos_impreso.fecha_emi_certf %> </b>
         </h4 class="font-Arial"> </time>
         <b>
-        COM.UNIV.PROC.CERTF:<%= @datos_impreso.correlt_certf %></b>
+          <pre>
+            <% @datos_impreso.inspect %>
+          </pre>
+          COM.UNIV.PROC.CERTF:<%= @datos_impreso.correlt_certf %></b>
         </blockquote></b>
         </td>
       
@@ -89,47 +148,27 @@ blockquote {
   <div class="row">
     <div class="cold-md-12">
       <div style="text-align:center;">
+
         <table border="1"style="margin: 0 auto;">
-        <!--1ra columna de la tabla-->  
-        <tr>
-        <td width="60%" height="50px">&nbsp;
-        <h3 class="font-bold text-center">
-        NOMBRES Y APELLIDOS</h3> </td>
-        <!--fin 1ra columna -->
-
-        <!--2da columna de la tabla-->
-        <td width="10px;"></td>
-        <!--fin 2da columna -->
-
-        <!--3ra columna de la tabla-->
-        <td width="40%" height="50px">&nbsp;
-        <h3 class="font-bold text-center">
-        CARNET DE IDENTIDAD</h3></td>
-        </tr>
-        <!--fin 3ra columna -->
-
-        <!--2da fila de tabla -->
-        <!--1ra columna de la tabla-->
-        <tr>
-        <td width="60%" height="50px">&nbsp;
-        <h4 class="font-bold text-center">
-        <% debug @datos_persona %>
-        <%= @datos_persona.nombre %> 
-        <%= @datos_persona.ap_paterno %> 
-        <%= @datos_persona.ap_materno %> 
-        </h4></td>
-        <!--fin 1ra columna -->
-
-        <!--2da columna de la tabla-->
-        <td width="10px;"></td>
-        <!--fin 2da columna -->
-
-        <!--3ra columna de la tabla-->
-        <td width="40%" height="50px">&nbsp;
-        <h4 class="font-bold text-center">
-        <%= @datos_persona.ci %></h4></td>
-        </tr>
-        <!--fin 3ra columna -->
+          <!--1ra columna de la tabla-->  
+          <tr>
+            <td width="60%" height="50px">&nbsp;
+              <h3 class="font-bold text-center">
+                NOMBRES Y APELLIDOS
+              </h3> 
+            </td>
+            <td width="40%" height="50px">&nbsp;
+              <h3 class="font-bold text-center">
+                CARNET DE IDENTIDAD
+              </h3>
+            </td>
+          </tr>
+          <% @personas_escogidas.each do |p| %>
+            <tr>
+              <td><%= p.persona.ci %></td>
+              <td><%= p.persona.nombre %></td>
+            </tr>
+          <% end %>
         </table>
       </div>
     </div>
@@ -141,7 +180,8 @@ blockquote {
   <div class="col-md-12">
     <div class="pull-right text-justify">
       <p> <hr> <h4 class="font-Arial">A la fecha 
-      <b><%= @datos_persona.fallo %></b> tiene fallo sancionatorio en su contra, es cuanto certificamos para los fines consiguientes.</h4> </p> </hr>
+      <b>          
+      </b> tiene fallo sancionatorio en su contra, es cuanto certificamos para los fines consiguientes.</h4> </p> </hr>
 
       <!--1ra columna de la tabla-->
       <table border="0">
@@ -182,8 +222,8 @@ blockquote {
         <hr>
         <class="font-Arial">
         Nota:El presente Certificado debe llevar el Sello de Aprobacion de Secretaria General, el mismo tiene vigencia de 30 dias habiles y solo es para uso interno de la UMSA</p></b>
-        <p><b> Reg.No.<%= @datos_persona.no_reg %> </p></b> 
-        <p><b>User/<%= @datos_persona.fallo %></b> </p> 
+        <p><b> Reg.No.<%= @datos_impreso.no_reg %> </p></b> 
+        <p><b>User/</b> </p> 
         </hr> 
     </div>
   </div>

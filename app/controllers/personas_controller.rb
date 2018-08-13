@@ -238,7 +238,8 @@ def emisioncertf
     modelo_impreso.numero = numero
     modelo_impreso.save
     id_impreso = modelo_impreso.id
-    redirect_to :action => 'imprime_egrupal', :id_impreso => numero
+    numero_impresion = numero.to_i - 1
+    redirect_to :action => 'imprime_egrupal', :id_impreso => numero_impresion
 
   end
 
@@ -246,7 +247,7 @@ def emisioncertf
     # byebug
     @datos_impreso = Impreso.where("numero = ?", params[:id_impreso]).first
     @personas_escogidas = Egrupal.where("impreso_id = ?", @datos_impreso)
-    byebug
+    # byebug
   end
 
   def imprimir2
