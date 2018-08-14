@@ -4,6 +4,37 @@ blockquote {
   border: Black 5px solid;
   border-radius: 20px;
 }
+
+.tabla-impresion{
+  border: 1px solid #54667a;
+  width: 100%;
+}
+
+.tabla-impresion tr td{
+  border: 1px solid #54667a;
+  padding: 4px;
+  font-size: 9pt;
+}
+.tabla-impresion-cabecera tr td{
+  width: 100%;
+  padding: 4px;
+  font-size: 9pt;
+}
+.tabla-impresion tr td.montos{
+  border: 1px solid #54667a;
+  padding: 4px;
+  font-size: 9pt;
+  text-align: right;
+}
+.tabla-impresion thead tr th{
+  text-align: center;
+  border: 1px solid black;
+  font-weight: bold;
+}
+.mmt1{
+ margin-top: -1px;
+}
+
 </style>
 
 <style>
@@ -20,9 +51,47 @@ blockquote {
     .topbar{
       display: none;
     }
+    .tabla-impresion{
+    border: 1px solid #54667a;
+    width: 100%;
 
 }
-
+.tabla-impresion tr td{
+    border: 1px solid #54667a;
+    padding: 4px;
+    font-size: 9pt;
+  }
+  .tabla-impresion-cabecera tr td{
+    width: 100%;
+    padding: 4px;
+    font-size: 9pt;
+  }
+  .tabla-impresion tr td.montos{
+    border: 1px solid #54667a;
+    padding: 4px;
+    font-size: 9pt;
+    text-align: right;
+  }
+  .tabla-impresion thead tr th{
+    text-align: center;
+    border: 1px solid black;
+    font-weight: bold;
+  }
+  .mmt1{
+   margin-top: -1px;
+  }
+ .clase-impresion{
+    color: black;
+    width: 140px;
+    font-size: 12pt;
+  }
+  .no-imprime{
+    display: none;
+  }
+  .page-wrapper{
+    margin-left: 0px;
+  }
+}
 </style>
 <!--h2>Emision de Certificados</h2-->
 <!--1ra fila tabla para poner fecha del certificado-->
@@ -35,12 +104,14 @@ blockquote {
         <td width="30%" height="20px">&nbsp;
         <b><blockquote>
         <time datetime= "strftime">
-        <h4 class ="font-Arial"><b> 
+        <h3 class ="font-Arial"><b> 
         La Paz,
         <%= @datos_persona.fecha_emi_certf %> </b>
-        </h4 class="font-Arial"> </time>
+        </h3 class="font-Arial"> </time>
         <b>
-        COM.UNIV.PROC.CERTF:<%= @datos_persona.correlt_certf %></b>
+        <h4 class ="font-Arial"><b>
+        COM.UNIV.PROC.CERTF:<%= @datos_persona.correlt_certf %>
+        </h4 class ="font-Arial">
         </blockquote></b>
         </td>
       
@@ -54,12 +125,12 @@ blockquote {
         <!--fin de la 2da columna de la tabla-->
 
         <!--fin de la 3ra columna de la tabla-->
-        <td width="5%" height="20px">&nbsp;
+        <td width="15%" height="30px">&nbsp;
         <%= image_tag("logo-qr.jpg", class: "dark-logo", alt: "inicio") %></td>
         <!--fin de la 3ra columna de la tabla-->
 
         <!--fin de la 4ta columna de la tabla-->
-        <td width="5%" height="20px">&nbsp;
+        <td width="15%" height="30px">&nbsp;
         <%= image_tag("logo-sello.jpg", class: "dark-logo", alt: "inicio") %> </td>
         <!--fin de la 4ta columna de la tabla-->
         
@@ -77,9 +148,9 @@ blockquote {
 <div class="row">
   <div class="col-md-12">
     <div class="pull-left text-justify">
-      <p> <hr> <h4 class="font-Arial">La Comisión Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andrés, a solicitud escrita del Interesado.</h4> </p> </hr>
+      <p> <hr> <h3 class="font-Arial">La Comisión Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andrés, a solicitud escrita del Interesado.</h3> </p> </hr>
       <br> <h1 class="font-bold"> Certifica:</h1> </br>
-      <h4 class="font-Arial"> Que, revisada la documentación en la Comisión de Procesos, se evidencia que:</h4>
+      <h3 class="font-Arial"> Que, revisada la documentación en la Comisión de Procesos, se evidencia que:</h3>
     </div>
   </div>  
 </div>      
@@ -140,8 +211,8 @@ blockquote {
 <div class="row">
   <div class="col-md-12">
     <div class="pull-right text-justify">
-      <p> <hr> <h4 class="font-Arial">A la fecha 
-      <b><%= @datos_persona.fallo %></b> tiene fallo sancionatorio en su contra, es cuanto certificamos para los fines consiguientes.</h4> </p> </hr>
+      <p> <hr> <h3 class="font-Arial">A la fecha 
+      <b><%= @datos_persona.fallo %></b> tiene fallo sancionatorio en su contra, es cuanto certificamos para los fines consiguientes.</h3> </p> </hr>
 
       <!--1ra columna de la tabla-->
       <table border="0">
@@ -155,17 +226,18 @@ blockquote {
       <table>
       <tr>
       <td><%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %>
-      <h4> <b "font-bold"> Dr. Mauricio E. Farfan Espinoza<BR />
-      JEFE a.i.
-      <br/>DE COMISION DE PROCESOS </h4> </b> </td>
+      <h4> <b "font-bold"> <center>Dr. Mauricio E. Farfan Espinoza<BR /></center>
+      <center>Responsable Administrativo</center>
+      <center>COMISIÓN UNIVERSITARIA DE PROCESOS </h4> </b> </td></center>
       <!--fin 2da columna de la tabla-->
 
       <td width="350px;"></td>
 
       <!--3ra columna de la tabla-->
       <td><%= image_tag("logo-firma.jpg", class: "dark-logo", alt: "inicio") %>
-      <h4><b "font-bold">Ing. Alberto Arce Tejada <br />
-      SECRETARIO GENERAL UMSA </h4></b></td>
+      <h4><b "font-bold"><center>Ing. Alberto Arce Tejada </center>
+      <center>SECRETARIO GENERAL</center>
+      <center>UMSA</center></h4></td></b>
       </tr>
       </table>
       <!--fin 3ra columna de la tabla-->
@@ -181,10 +253,11 @@ blockquote {
     <div class="pull-right">
       <p style="font-size: 8pts;color: black"><p>
         <hr>
-        <class="font-Arial">
-        Nota: El presente Certificado debe llevar el Sello de Aprobación de Secretaria General más el registro Qr. El certificado tiene vigencia de 30 días hábiles y solo es para uso interno de la UMSA</p></b>
-        <p><b> Reg.No.<%= @datos_persona.no_reg %> </p></b> 
-        <p><b>User/<%= @datos_persona.fallo %></b> </p> 
+        <h5 class="font-Arial text-justify">
+        <b>Nota:</b> Para su validez el presente Certificado debe llevar el <b>Sello de Aprobación de Secretaria General </b>más el registro Qr. El certificado tiene vigencia de 30 días hábiles y solo es para uso interno de la <b>UMSA</b></h5></p></b>
+
+        <p> Reg.No.<%= @datos_persona.no_reg %> </p> 
+        <p>User/ </p> 
         </hr> 
     </div>
   </div>

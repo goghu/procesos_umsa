@@ -97,15 +97,17 @@ blockquote {
         <td width="30%" height="20px">&nbsp;
         <b><blockquote>
         <time datetime= "strftime">
-        <h4 class ="font-Arial"><b> 
+        <h2 class ="font-Arial"><b> 
         La Paz,
         <%= @datos_impreso.fecha_emi_certf %> </b>
-        </h4 class="font-Arial"> </time>
+        </h2 class="font-Arial"> </time>
         <b>
           
             <% @datos_impreso.inspect %>
           
-          COM.UNIV.PROC.CERTF:<%= @datos_impreso.correlt_certf %></b>
+        <h5 class ="font-Arial"><b>
+        COM.UNIV.PROC.CERTF:<%= @datos_impreso.correlt_certf %>
+        </h5 class ="font-Arial"></b>
         </blockquote></b>
         </td>
       
@@ -119,12 +121,12 @@ blockquote {
         <!--fin de la 2da columna de la tabla-->
 
         <!--fin de la 3ra columna de la tabla-->
-        <td width="5%" height="20px">&nbsp;
+        <td width="15%" height="30px">&nbsp;
         <%= image_tag("logo-qr.jpg", class: "dark-logo", alt: "inicio") %></td>
         <!--fin de la 3ra columna de la tabla-->
 
         <!--fin de la 4ta columna de la tabla-->
-        <td width="5%" height="20px">&nbsp;
+        <td width="15%" height="30px">&nbsp;
         <%= image_tag("logo-sello.jpg", class: "dark-logo", alt: "inicio") %> </td>
         <!--fin de la 4ta columna de la tabla-->
         
@@ -142,9 +144,9 @@ blockquote {
 <div class="row">
   <div class="col-md-12">
     <div class="pull-left text-justify">
-      <p> <hr> <h4 class="font-Arial">La Comisión Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andrés, a solicitud escrita del Interesado.</h4> </p> </hr>
+      <p> <hr> <h3 class="font-Arial">La Comisión Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andrés, a solicitud escrita del Interesado.</h3> </p> </hr>
       <br> <h1 class="font-bold"> Certifica:</h1> </br>
-      <h4 class="font-Arial"> Que, revisada la documentación en la Comisión de Procesos, se evidencia que:</h4>
+      <h3 class="font-Arial"> Que, revisada la documentación en la Comisión de Procesos, se evidencia que:</h3>
     </div>
   </div>  
 </div>      
@@ -158,12 +160,13 @@ blockquote {
           <!--1ra columna de la tabla-->  
           <tr><center>
             <td width="50%" height="50px">&nbsp;
-              <h3 class="font-bold text-center"></h3>
-                NOMBRES Y APELLIDOS
+              <h3 class="font-bold text-center">                                                                         
+                NOMBRES Y APELLIDOS</h3></td>
                 
                 <td width="30%" height="50px">&nbsp;
                 <h3 class="font-bold text-center">
                 CARNET DE IDENTIDAD</h3></td>
+
                 <td width="20%" height="50px">&nbsp;
                 <h3 class="font-bold text-center">
                  FALLO</h3></td>
@@ -190,8 +193,8 @@ blockquote {
 <div class="row">
   <div class="col-md-12">
     <div class="pull-left text-justify">
-      <p align="right"> <hr> <h4 class="font-Arial"> 
-      A la fecha tiene fallo sancionatorio en su contra, es cuanto certificamos para los fines consiguientes.</h4> </p> </hr>
+      <p align="right"> <hr> <h3 class="font-Arial"> 
+      A la fecha tiene fallo sancionatorio en su contra, es cuanto certificamos para los fines consiguientes.</h3> </p> </hr>
 
       <!--1ra columna de la tabla-->
       <table border="0">
@@ -206,15 +209,15 @@ blockquote {
       <tr>
       <td><%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %>
       <h4> <b "font-bold"><center> Dr. Mauricio E. Farfan Espinoza<BR /><center>
-      JEFE a.i.
-      <br/><center>DE COMISIÓN DE PROCESOS </h4> </b> </td>
+      Responsable Administrativo
+      <br/><center>COMISIÓN UNIVERSITARIA DE PROCESOS </h4> </b> </td>
       <!--fin 2da columna de la tabla-->
 
       <td width="350px;"></td>
 
       <!--3ra columna de la tabla-->
       <td><%= image_tag("logo-firma.jpg", class: "dark-logo", alt: "inicio") %>
-      <h4><b "font-bold"><center>Ing. Alberto Arce Tejada <br /><center>
+      <h4><b "font-bold"><center>Ing. Alberto Arce Tejada <br /></center>
       SECRETARIO GENERAL
       <br/><center> UMSA </h4></b></td>
       </tr>
@@ -232,10 +235,10 @@ blockquote {
     <div class="pull-right">
       <p style="font-size: 8pts;color: black"><p>
         <hr>
-        <class="font-Arial">
-        Nota:El presente Certificado debe llevar el Sello de Aprobación de Secretaria General, el mismo tiene vigencia de 30 días hábiles y solo es para uso interno de la UMSA</p></b>
-        <p><b> Reg.No.<%= @datos_impreso.no_reg %> </p></b> 
-        <p><b>User/</b> </p> 
+        <h5 class="font-arial text-justify">
+        <b>Nota:</b> Para su validez el presente Certificado debe llevar el <b>Sello de Aprobación de Secretaria General,</b> mas el registro Qr. el certificado tiene vigencia de 30 días hábiles y solo es para uso interno de la <b>UMSA</b></p></b>
+        <p> Reg.No.<%= @datos_impreso.no_reg %> </p>
+        <p> User/</p> </h5>
         </hr> 
     </div>
   </div>
