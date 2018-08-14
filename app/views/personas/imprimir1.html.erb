@@ -148,9 +148,9 @@ blockquote {
 <div class="row">
   <div class="col-md-12">
     <div class="pull-left text-justify">
-      <p> <hr> <h3 class="font-Arial">La Comisión Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andrés, a solicitud escrita del Interesado.</h3> </p> </hr>
+      <p> <hr> <h2 class="font-Arial">La Comisión Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andrés, a solicitud escrita del Interesado.</h2> </p> </hr>
       <br> <h1 class="font-bold"> Certifica:</h1> </br>
-      <h3 class="font-Arial"> Que, revisada la documentación en la Comisión de Procesos, se evidencia que:</h3>
+      <h2 class="font-Arial"> Que, revisada la documentación en la Comisión de Procesos, se evidencia que:</h2>
     </div>
   </div>  
 </div>      
@@ -211,8 +211,9 @@ blockquote {
 <div class="row">
   <div class="col-md-12">
     <div class="pull-right text-justify">
-      <p> <hr> <h3 class="font-Arial">A la fecha 
-      <b><%= @datos_persona.fallo %></b> tiene fallo sancionatorio en su contra, es cuanto certificamos para los fines consiguientes.</h3> </p> </hr>
+      <p align="right"> <hr> <h2 class="font-Arial">
+      A la fecha 
+      <b><%= @datos_persona.fallo %></b> tiene fallo sancionatorio en su contra, es cuanto certificamos para los fines consiguientes.</h2> </p> </hr>
 
       <!--1ra columna de la tabla-->
       <table border="0">
@@ -226,7 +227,8 @@ blockquote {
       <table>
       <tr>
       <td><%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %>
-      <h4> <b "font-bold"> <center>Dr. Mauricio E. Farfan Espinoza<BR /></center>
+      <h4> <b "font-bold"> <center>
+      Dr. Mauricio E. Farfan Espinoza<BR /></center>
       <center>Responsable Administrativo</center>
       <center>COMISIÓN UNIVERSITARIA DE PROCESOS </h4> </b> </td></center>
       <!--fin 2da columna de la tabla-->
@@ -253,11 +255,11 @@ blockquote {
     <div class="pull-right">
       <p style="font-size: 8pts;color: black"><p>
         <hr>
-        <h5 class="font-Arial text-justify">
-        <b>Nota:</b> Para su validez el presente Certificado debe llevar el <b>Sello de Aprobación de Secretaria General </b>más el registro Qr. El certificado tiene vigencia de 30 días hábiles y solo es para uso interno de la <b>UMSA</b></h5></p></b>
+        <h3 class="font-Arial text-justify">
+        <b>Nota:</b> Para su validez el presente Certificado debe llevar el <b>Sello de Aprobación de Secretaria General </b>más el registro Qr. El certificado tiene vigencia de 30 días hábiles y solo es para uso interno de la <b>UMSA</b></h3></p></b>
 
-        <p> Reg.No.<%= @datos_persona.no_reg %> </p> 
-        <p>User/ </p> 
+        <h5><p><b> Reg.No.<%= @datos_persona.no_reg %></p></h5></b> 
+        <h5><p><b>User/</p></h5></b>
         </hr> 
     </div>
   </div>
