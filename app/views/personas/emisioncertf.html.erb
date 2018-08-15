@@ -53,7 +53,7 @@ blockquote {
             <div class="col-md-4">
               <div class="form-group">
                 <label class="control-label">
-                <h3 class="text-orange"><b>Fecha</h3></b></label>
+                <h3><b>Fecha</h3></b></label>
                 <%= date_field_tag("persona[fecha_emi_certf]", nil,class: 'form-control')
                
                 
@@ -70,7 +70,8 @@ blockquote {
             <!-- 1ra columna -->
             <div class="col-md-4">
               <div class="form-group">
-                <label class="control-label"><h3 class="text-orange">No. Reg.</h3></label>
+                <label class="control-label">
+                  <h3">No. Reg.</h3></label>
                 <%= text_field :persona, :no_reg, class: 'form-control'%>
               </div>
             </div> 
@@ -79,7 +80,9 @@ blockquote {
             <!-- 2da columna -->
             <div class="col-md-4">
               <div class="form-group">
-                <label class="control-label"><h3 class="text-orange">No. Correlativo</h3></label><%= text_field :persona, :correlt_certf, class: 'form-control'%>
+                <label class="control-label">
+                  <h3>No. Correlativo</h3></label>
+                  <%= text_field :persona, :correlt_certf, class: 'form-control'%>
               </div>
             </div>
           <!--fin 2da columna-->
@@ -97,7 +100,7 @@ blockquote {
               <div class="form-group">
                 <div id= "emi_persona"></div>
                 <label class="control-label">
-                  <h3 class="text-orange"No_Reg.></h3></label>
+                  <h3 No_Reg.></h3></label>
                   
                 <!--%= debug @datos_personas%-->
                
