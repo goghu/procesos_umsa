@@ -12,7 +12,7 @@
               <div class="form-group">
                 <label class="control-label"> 
                 <h3><b><p>BUSCAR CI: </p> </b></h3></label>
-                <h3><b><p><%=text_field(:persona, :ci)%></p></b></h3>
+                <h3><b><p><%= text_field(:persona, :ci)%></p></b></h3>
               </div>
             </div>
           </div>
@@ -62,9 +62,7 @@
                 </div>
               </div>
 
-          <!--fin de 4ta columna de obs>
-
-
+          <!--fin de 4ta columna de obs> -->
 
           <div class="form-actions">
             <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
@@ -76,14 +74,15 @@
     </div>
   </div>  
 </div>
-<% # end %>
+<% #end %>
 <script>
   $("#persona_ci").keyup(function () {
     var campo_texto = $("#persona_ci").val();
     var cantidad_letras = campo_texto.length;
     // console.log('var: '+campo_texto);
-    if(cantidad_letras > 3){        
-      Rails.ajax({
+    if(cantidad_letras > 4){        
+      //alert('entro');
+      $.ajax({
         type: 'GET',
         url: '/persona/bs_ci_ajax/'+campo_texto,
         data: {"dato_crt": campo_texto},

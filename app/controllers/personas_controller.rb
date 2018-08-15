@@ -66,7 +66,7 @@ class PersonasController < ApplicationController
   end
 
   def solodocentes
-    @solodocentes = Persona.where(tipo: "Docente")
+    @solodocentes = Persona.where(tipo: 'Docente')
   end
 
   def solouniversitarios
