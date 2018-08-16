@@ -104,10 +104,10 @@ blockquote {
         <td width="30%" height="20px">&nbsp;
         <b><blockquote>
         <time datetime= "strftime">
-        <h2 class ="font-Arial"><b> 
+        <h3 class ="font-Arial"><b> 
         La Paz,
         <%= @datos_persona.fecha_emi_certf %> </b>
-        </h2 class="font-Arial"> </time>
+        </h3 class="font-Arial"> </time>
         <b>
         <h4 class ="font-Arial"><b>
         COM.UNIV.PROC.CERTF:<%= @datos_persona.correlt_certf %>
@@ -125,12 +125,12 @@ blockquote {
         <!--fin de la 2da columna de la tabla-->
 
         <!--fin de la 3ra columna de la tabla-->
-        <td width="15%" height="30px">&nbsp;
+        <td width="15%" height="20px">&nbsp;
         <%= image_tag("logo-qr.jpg", class: "dark-logo", alt: "inicio") %></td>
         <!--fin de la 3ra columna de la tabla-->
 
         <!--fin de la 4ta columna de la tabla-->
-        <td width="15%" height="30px">&nbsp;
+        <td width="15%" height="20px">&nbsp;
         <%= image_tag("logo-sello.jpg", class: "dark-logo", alt: "inicio") %> </td>
         <!--fin de la 4ta columna de la tabla-->
         
@@ -150,56 +150,59 @@ blockquote {
     <div class="pull-left text-justify">
       <p> <hr> <h2 class="font-Arial">La Comisión Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andrés, a solicitud escrita del Interesado.</h2> </p> </hr>
       <br> <h1 class="font-bold"> Certifica:</h1> </br>
-      <h2 class="font-Arial"> Que, revisada la documentación en la Comisión de Procesos, se evidencia que:</h2>
+      <h2 class="font-Arial"> Que, revisada la documentación en la Comisión Universitaria de Procesos, se evidencia que:</h2>
     </div>
   </div>  
 </div>      
 <!--fin de 2da fila-->
 
 <!--3ra fila -->
-  <div class="row">
-    <div class="cold-md-12">
-      <div style="text-align:center;">
-        <table border="0"style="margin: 0 auto;">
+  <div class="row-t">
+    <div class="cold-lg-24">
+      <div style="border: 0pt solid; text-align:center;">
+        <table border="0" align="center">
+        
         <!--1ra columna de la tabla-->  
-        <tr>
+       
         <!--td width="60%" height="50px">&nbsp;
         <h3 class="font-bold text-center">
         NOMBRES Y APELLIDOS</h3> </td>
         <!--fin 1ra columna -->
 
         <!--2da columna de la tabla-->
-        <td width="10px;"></td>
+        
         <!--fin 2da columna -->
 
         <!--3ra columna de la tabla-->
-        <td width="40%" height="50px">&nbsp;
+        <!--td width="40%" height="50px">&nbsp;
         <h3 class="font-bold text-center">
-        CARNET DE IDENTIDAD</h3></td>
+        </h3></td>
         </tr>
         <!--fin 3ra columna -->
 
         <!--2da fila de tabla -->
         <!--1ra columna de la tabla-->
-        <tr>
-        <td width="60%" height="50px">&nbsp;
-        <h3 class="font-bold text-center">
+        <tr><center>
+        <td width="100%" height="50px">&nbsp;
+        <h1 class="font-bold text-center">
         <% debug @datos_persona %>
         <%= @datos_persona.nombre %> 
         <%= @datos_persona.ap_paterno %> 
         <%= @datos_persona.ap_materno %> 
-        </h3></td>
+        </h1>
+     
         <!--fin 1ra columna -->
 
         <!--2da columna de la tabla-->
-        <td width="10px;"></td>
+        
         <!--fin 2da columna -->
 
         <!--3ra columna de la tabla-->
-        <td width="40%" height="50px">&nbsp;
-        <h3 class="font-bold text-center">C.I. No.
-        <%= @datos_persona.ci %></h3></td>
-        </tr>
+       
+        
+        <h1 class="font-bold text-center">C.I. No.
+        <%= @datos_persona.ci %></h1></td>
+        </tr></center>
         <!--fin 3ra columna -->
         </table>
       </div>
@@ -218,13 +221,8 @@ blockquote {
       <!--1ra columna de la tabla-->
       <table border="0">
       <tr>
-      <td width="20%" height="50px">&nbsp;</td>
-      </tr>
-      </table>
-      <!--1ra columna de la tabla-->
-
-      <!--2da columna de la tabla-->
-      <table>
+      
+     
       <tr>
       <td><%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %>
       <h4> <b "font-bold"> <center>
@@ -233,7 +231,7 @@ blockquote {
       <center>COMISIÓN UNIVERSITARIA DE PROCESOS </h4> </b> </td></center>
       <!--fin 2da columna de la tabla-->
 
-      <td width="350px;"></td>
+      <td width="300px;"></td>
 
       <!--3ra columna de la tabla-->
       <td><%= image_tag("logo-firma.jpg", class: "dark-logo", alt: "inicio") %>
@@ -256,11 +254,9 @@ blockquote {
       <p style="font-size: 8pts;color: black"><p>
         <hr>
         <h3 class="font-Arial text-justify">
-        <b>Nota:</b> Para su validez el presente Certificado debe llevar el <b>Sello de Aprobación de Secretaria General </b>más el registro Qr. El certificado tiene vigencia de 30 días hábiles y solo es para uso interno de la <b>UMSA</b></h3></p></b>
+        <b>Nota:</b> Para su validez el presente Certificado debe llevar el <b>Sello de Aprobación de Secretaria General </b>más el registro Qr. El certificado tiene vigencia de <b>30 días hábiles</b> y solo es para uso interno de la <b>UMSA</b></h3></p></b>
 
-        <h4><p><b> Reg.No.<%= @datos_persona.no_reg %></b></p></h4> 
-        <h4><p><b>C.c.Archivo.</b></p></h4>
-        <h4><p><b>User/</b></p></h4>
+        <h5><p><b> Reg.No.<%= @datos_persona.no_reg %><br/>C.c.Archivo.<br/>User/</h5>
         </hr> 
     </div>
   </div>
