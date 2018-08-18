@@ -15,8 +15,8 @@ blockquote {
   font-size: 9pt;
 }
 .tabla-impresion-cabecera tr td{
-  width: 100%;
-  padding: 4px;
+  width: 70%;
+  padding: 0px;
   font-size: 9pt;
 }
 .tabla-impresion tr td.montos{
@@ -54,7 +54,7 @@ blockquote {
     font-size: 9pt;
   }
   .tabla-impresion-cabecera tr td{
-    width: 100%;
+    width: 70%;
     padding: 4px;
     font-size: 9pt;
   }
@@ -94,7 +94,7 @@ blockquote {
       <!--1ra columna de la tabla-->
       <tr>
        
-        <td width="30%" height="20px">&nbsp;
+        <td width="5%" height="10px">&nbsp;
         <b><blockquote>
         <time datetime= "strftime">
         <h2 class ="font-Arial"><b> 
@@ -156,9 +156,14 @@ blockquote {
   <div class="row">
     <div class="cold-md-12">
       <div style="text-align:center;">
-        <table border="1"style="margin: 0 auto;">
+        <table border="2"style="margin: 0 auto;">
+          <p style="font-size: 20pts;color: black"><p>
           <!--1ra columna de la tabla-->  
           <tr><center>
+          <td width="5%" height="50px">&nbsp;
+                <h3 class="font-bold text-center">
+                 No.</h3></td>
+                
             <td width="50%" height="50px">&nbsp;
               <h3 class="font-bold text-center">                                                                         
                 NOMBRES Y APELLIDOS</h3></td>
@@ -167,21 +172,21 @@ blockquote {
                 <h3 class="font-bold text-center">
                 CARNET DE IDENTIDAD</h3></td>
 
-                <td width="20%" height="50px">&nbsp;
-                <h3 class="font-bold text-center">
-                 FALLO</h3></td>
-                </tr>
+            </tr>    
 
           <% @personas_escogidas.each do |p| %>
             <tr>
+              <td></td>
               <td>
+
               <%= p.persona.nombre %>
               <%= p.persona.ap_paterno %>
               <%= p.persona.ap_materno %>
               </td>
               <td><%= p.persona.ci %></td>
-              <td><%= p.persona.fallo %></td>
+              
             </tr>
+
           <% end %>
       </table>
       </div>
