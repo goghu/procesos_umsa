@@ -43,7 +43,6 @@ blockquote {
                 <label class="control-label">
                   <h3><b>Buscar CI:</b></h3></label>
                   <h3><b><%= text_field(:persona, :ci) %></b></h3>
-                <div id="carga_nombre"> </div>
                 </div>
             </div>
           </div>
@@ -53,11 +52,9 @@ blockquote {
             <div class="col-md-4">
               <div class="form-group">
                 <label class="control-label">
-                <h3><b>Fecha</h3></b></label>
-                <%= date_field_tag("persona[fecha_emi_certf]", nil,class: 'form-control')
-               
-                
-                 %>
+                  <h3><b>Fecha</h3></b>
+                </label>
+                <%= date_field_tag("persona[fecha_emi_certf]", nil,class: 'form-control') %>
               </div>
             </div>
           <!-- fin segunda columna -->
@@ -88,8 +85,9 @@ blockquote {
           <!--fin 2da columna-->
           </div>    
           <!-- fin 2da fila -->
-            
- 
+
+          <div id="carga_nombre">Aqui </div>
+
             
           <!-- fin 2da fila -->
         <!-- 3ra fila -->
@@ -109,12 +107,7 @@ blockquote {
             <!--fin primera columna-->
            </div>
           <!--fin segunda fila-->
-
-                               
  <!--/span-->
-           
-
-         
           <div class="form-actions">
             <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
             <button type="button" class="btn btn-inverse">Cancel</button>
@@ -131,7 +124,7 @@ blockquote {
     var campo_texto = $("#persona_ci").val();
     var cantidad_letras = campo_texto.length;
     // console.log('var: '+campo_texto);
-    if(cantidad_letras > 3){        
+    if(cantidad_letras > 4){        
       $.ajax({
         type: 'GET',
         url: '/persona/bu_ci_ajax/'+campo_texto,

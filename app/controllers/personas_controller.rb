@@ -127,12 +127,12 @@ class PersonasController < ApplicationController
    end
    render layout: false
   end
-#fin de busqueda de fallo#
+    #fin de busqueda de fallo#
 
 
 
-#emision inicio de buscador#
-def emisioncertf
+  #emision inicio de buscador#
+  def emisioncertf
    #@nombre = Persona.where(tipo:"Emision")
   end
 

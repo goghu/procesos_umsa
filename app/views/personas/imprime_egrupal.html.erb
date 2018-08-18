@@ -159,24 +159,28 @@ blockquote {
         <table border="2"style="margin: 0 auto;">
           <p style="font-size: 20pts;color: black"><p>
           <!--1ra columna de la tabla-->  
-          <tr><center>
-          <td width="5%" height="50px">&nbsp;
+          <tr>
+            <td width="5%" height="50px">&nbsp;
                 <h3 class="font-bold text-center">
-                 No.</h3></td>
+                  No.
+                </h3>
+            </td>
                 
             <td width="50%" height="50px">&nbsp;
               <h3 class="font-bold text-center">                                                                         
-                NOMBRES Y APELLIDOS</h3></td>
-                
-                <td width="30%" height="50px">&nbsp;
-                <h3 class="font-bold text-center">
-                CARNET DE IDENTIDAD</h3></td>
+                NOMBRES Y APELLIDOS</h3>
+            </td>
 
-            </tr>    
+            <td width="30%" height="50px">&nbsp;
+              <h3 class="font-bold text-center">
+                CARNET DE IDENTIDAD
+              </h3>
+            </td>
+          </tr>    
 
-          <% @personas_escogidas.each do |p| %>
+          <% @personas_escogidas.each_with_index do |p, index| %>
             <tr>
-              <td></td>
+              <td><%= index+1  %></td>
               <td>
 
               <%= p.persona.nombre %>

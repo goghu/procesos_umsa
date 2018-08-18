@@ -31,13 +31,20 @@
 				<button  
 				type='button'
 				id='bt_sel' 
-				class='btn btn-success'>
+				class='btn btn-success'
+				onclick="selecciona_persona(<%= ep.id %>)">
 				<i class='mdi mdi-check'></i></button>
 			</td>			
 		</tr>
 		<% end %>
 	</tbody>
 </table>
+
+<script>
+	function selecciona_persona(id_persona){
+		alert("entro "+id_persona);
+	}
+</script>
 
 <script type="text/javascript">
 
