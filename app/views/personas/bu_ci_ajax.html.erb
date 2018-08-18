@@ -3,14 +3,9 @@
 		<tr>
 			<td>ID</td>
 			<td>CI</td>
-			<td>NOMBRE_APELLIDOS</td>
-			<td>FACULTAD</td>
+			<td>NOMBRE</td>
 			<td>CARRERA</td>
-			<td>DIRECCION</td>
-			<td>TELEFONO</td>
-			<td>TIPO</td>
 			<td>FALLO</td>
-			<td>FECHA_emi_certf</td>
 			<td></td>
 		</tr>
 	</thead>
@@ -20,19 +15,14 @@
 			<td><%= ep.id %></td>
 			<td><%= ep.ci %></td>
 			<td><%= ep.ap_paterno %> <%= ep.ap_materno %> <%= ep.nombre %></td>
-			<td><%= ep.facultad %></td>
 			<td><%= ep.carrera %></td>
-			<td><%= ep.direccion %></td>
-			<td><%= ep.telefono %></td>
-			<td><%= ep.tipo %></td>
 			<td><%= ep.fallo %></td>
-			<td><%= ep.fecha_emi_certf %></td>
 			<td>
 				<button  
 				type='button'
 				id='bt_sel' 
 				class='btn btn-success'
-				onclick="selecciona_persona(<%= ep.id %>)">
+				>
 				<i class='mdi mdi-check'></i></button>
 			</td>			
 		</tr>
@@ -41,14 +31,18 @@
 </table>
 
 <script>
-	function selecciona_persona(id_persona){
-		alert("entro "+id_persona);
-	}
+	//function selecciona_persona(id_persona){
+		//alert("entro "+id_persona);
+		//$("#emi_persona").html(" ");
+
+	//}
 </script>
 
 <script type="text/javascript">
 
 	$("tr.table").click(function() {
+
+		$("#emi_persona").html(" ");
 		
 		var tableData = $(this).children("td").map(function() {
 			return $(this).text();
@@ -59,12 +53,11 @@
 		var id = $.trim(tableData[0]);
 		var ci = $.trim(tableData[1]);
 		var nombre = $.trim(tableData[2]);
-		var facultad = $.trim(tableData[3]);
-		var carrera = $.trim(tableData[4]);
+		var carrera = $.trim(tableData[3]);
+		var fallo = $.trim(tableData[4]);
 
-		var btn = "<a href='/persona/imprimir1/"+id+"'>Imprimir</a>";
-
-		$("#carga_nombre").html('<input name="persona[id]" value="'+id+'"><b>CI: </b> '+ci+' <b> NOMBRE </b>'+nombre+'-'+btn);
+		$("#carga_nombre").html('<input type="hidden" name="persona[id]" value="'+id+'">');
+		$("#carga_nombre").append('<h3><b>CI: </b> '+ci+' <br /><b>NOMBRE: </b>'+nombre+'<br /><b>CARRERA: </b>'+carrera+'<br /><b>FALLO: </b>'+fallo+'</h3>');
 
 		// console.log(tableData);
 

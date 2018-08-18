@@ -34,84 +34,64 @@ blockquote {
         <div class="form-body">
 
           <!--Primera fila-->
-          <div class="row ">
+          <div class="row">
 
             <!--primera columna-->
-            <div class="col-lg-4">
+            <div class="col-md-3">
               <div class="form-group">
-                <div style="text-align: ">
                 <label class="control-label">
-                  <h3><b>Buscar CI:</b></h3></label>
-                  <h3><b><%= text_field(:persona, :ci) %></b></h3>
-                </div>
+                  <h3>Buscar CI:</h3>
+                </label>
+                  <%= text_field(:persona, :ci, class: 'form-control') %>
+              </div>
             </div>
-          </div>
             <!--fin primera columna-->
             
             <!--segunda columna-->
-            <div class="col-md-4">
+            <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">
-                  <h3><b>Fecha</h3></b>
+                  <h3>Fecha</h3>
                 </label>
-                <%= date_field_tag("persona[fecha_emi_certf]", nil,class: 'form-control') %>
+                <%= date_field_tag("persona[fecha_emi_certf]", nil, class: 'form-control', :required => true) %>
               </div>
             </div>
-          <!-- fin segunda columna -->
-            </div>
-          <!--fin Primera fila-->
-
-          <!--2da fila-->
-          <div class="row p-t-25">
+          <!-- fin segunda columna -->  
 
             <!-- 1ra columna -->
-            <div class="col-md-4">
+            <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">
-                  <h3><b>No. Reg.</b></h3></label>
-                <%= text_field :persona, :no_reg, class: 'form-control'%>
+                  <h3>No. Reg.</h3></label>
+                  <%= text_field :persona, :no_reg, class: 'form-control', :required => true %>
               </div>
             </div> 
             <!--fin 1ra columna-->
 
             <!-- 2da columna -->
-            <div class="col-md-4">
+            <div class="col-md-3">
               <div class="form-group">
                 <label class="control-label">
-                  <h3><b>No. Correlativo</b></h3></label>
-                  <%= text_field :persona, :correlt_certf, class: 'form-control'%>
+                  <h3>No. Correlativo</h3></label>
+                  <%= text_field :persona, :correlt_certf, class: 'form-control', :required => true %>
               </div>
             </div>
           <!--fin 2da columna-->
-          </div>    
+          </div>   
+          <div id="emi_persona"> </div> 
           <!-- fin 2da fila -->
+          <h3>Seleccionado para el certificado</h3>
+          <div id="carga_nombre"> </div>
 
-          <div id="carga_nombre">Aqui </div>
-
-            
-          <!-- fin 2da fila -->
-        <!-- 3ra fila -->
-          <div class="row p-t-25">
-
-            <!--primera columna-->
-            <div class="col-md-4">
-              <div class="form-group">
-                <div id= "emi_persona"></div>
-                <label class="control-label">
-                  <h3 No_Reg.></h3></label>
-                  
-                <!--%= debug @datos_personas%-->
-               
-              </div>
+          <h1>&nbsp;</h1>
+          <div class="row">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-block btn-success">
+                <i class="fa fa-check"></i> GENERAR CERTIFICADO
+              </button>
             </div>
-            <!--fin primera columna-->
-           </div>
-          <!--fin segunda fila-->
- <!--/span-->
-          <div class="form-actions">
-            <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
-            <button type="button" class="btn btn-inverse">Cancel</button>
           </div>
+  
         <% end %>
       </div>
     </div>

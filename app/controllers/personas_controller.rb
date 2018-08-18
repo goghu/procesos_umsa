@@ -139,9 +139,14 @@ class PersonasController < ApplicationController
   def guarda_emision
     # agarramos los datos del array de persona
     datos_form_persona = params[:persona]
-
+    consulta_impresos = Impreso.last
+    if !consulta_impresos.blank?
+      numero = consulta_impresos.numero
+    else
+      numero = 1
+    end
     # capturamos los datos para guardar
-    ci_persona = datos_form_persona[:ci]
+    # ci_persona = datos_form_persona[:ci]
     id_personas = datos_form_persona[:id]
     fecha_emi_certf = datos_form_persona[:fecha_emi_certf]
     correlt_certf = datos_form_persona[:correlt_certf]
@@ -152,6 +157,7 @@ class PersonasController < ApplicationController
     nueva_impresos.fecha_emi_certf = fecha_emi_certf
     nueva_impresos.correlt_certf = correlt_certf
     nueva_impresos.no_reg = no_reg
+    nueva_impresos.numero = numero.to_i+1
     nueva_impresos.persona_id = id_personas
     nueva_impresos.save
 
@@ -161,6 +167,8 @@ class PersonasController < ApplicationController
     actualiza_persona.correlt_certf = correlt_certf
     actualiza_persona.no_reg = no_reg
     actualiza_persona.save
+
+    redirect_to :action => 'imprimir1', :id_persona => id_personas
   #byebug
   end
 
