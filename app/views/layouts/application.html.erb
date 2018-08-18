@@ -402,15 +402,33 @@
             <ul aria-expanded="false" class="collapse">
               <li><%= link_to "Listado", controller: "personas", action: "index" %></li>
               <li><%= link_to "Nuevo_usuarios", controller: "personas", action: "usuarios" %></li>
-              <li><%= link_to "Nuevo_persona", controller: "personas", action: "new" %></li>
               <li><%= link_to "Editar_personas", controller: "personas", action: "editar_pers" %></li>
-              <li><%= link_to "Emision_Certificado", controller: "personas", action: "emisioncertf" %></li>
-               <li><%= link_to "Emision_Grupal", controller: "personas", action: "emisiongrupal" %></li>
-              <li><%= link_to "Abogados_Fallo", controller: "personas", action: "fallo" %></li>
               <li><%= link_to "Subir Excel", controller: "excels", action: "formexcel" %></li>
             </ul>
           </li>
           <!--fin de personas-->
+
+<!--Secretaria-certificados-->
+
+<li>
+            <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Emision de Certificados </span></a>
+            <ul aria-expanded="false" class="collapse">
+              <li><%= link_to "Nuevo_persona", controller: "personas", action: "new" %></li>
+              <li><%= link_to "Emision Certificado", controller: "personas", action: "emisioncertf" %></li>
+               <li><%= link_to "Emision Grupal", controller: "personas", action: "emisiongrupal" %></li>
+
+</ul>
+          </li>
+
+<!--Abogados fallo-->
+
+          <li>
+            <a class="has-arrow" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i><span class="hide-menu">Sentecia/fallo </span></a>
+            <ul aria-expanded="false" class="collapse">
+
+              <li><%= link_to "Abogados_Fallo", controller: "personas", action: "fallo" %></li>
+</ul>
+          </li>
 
 
 <!--denuncias-->

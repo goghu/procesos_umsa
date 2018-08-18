@@ -105,9 +105,9 @@ blockquote {
           
             <% @datos_impreso.inspect %>
           
-        <h4 class ="font-Arial"><b>
+        <h3 class ="font-Arial"><b>
         COM.UNIV.PROC.CERTF:<%= @datos_impreso.correlt_certf %>
-        </h4 class ="font-Arial"></b>
+        </h3 class ="font-Arial"></b>
         </blockquote></b>
         </td>
       
@@ -199,7 +199,7 @@ blockquote {
   <div class="col-md-12">
     <div class="pull-left text-justify">
       <p align="right"> <hr> <h2 class="font-Arial"> 
-      A la fecha tiene fallo sancionatorio en su contra, es cuanto certificamos para los fines consiguientes.</h2> </p> </hr>
+      A la fecha tiene fallo <b>NO</b>sancionatorio en su contra, es cuanto certificamos para los fines consiguientes.</h2> </p> </hr>
 
       <!--1ra columna de la tabla-->
       <table border="0">
@@ -214,8 +214,8 @@ blockquote {
       <tr>
       <td><%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %>
       <h4> <b "font-bold"><center> 
-      Dr. Mauricio E. Farfan Espinoza<BR /><center>
-      <center>Responsable Administrativo</center>
+      M.sc.Mauricio E. Farfan Espinoza<BR /><center>
+      <center>Responsable a.i.</center>
       <center>COMISIÓN UNIVERSITARIA DE PROCESOS</h4></b></td></center>
       <!--fin 2da columna de la tabla-->
 
@@ -242,10 +242,10 @@ blockquote {
       <p style="font-size: 8pts;color: black"><p>
         <hr>
         <h3 class="font-arial text-justify">
-        <b>Nota:</b> Para su validez el presente Certificado debe llevar el <b>Sello de Aprobación de Secretaria General,</b> mas el registro Qr. el certificado tiene vigencia de 30 días hábiles y solo es para uso interno de la <b>UMSA</b></h3></p>
+        <b>Nota:</b> Para su validez el presente Certificado debe llevar el <b>Sello de Aprobación de Secretaria General (recuadro superior),</b> mas el registro Qr. el certificado tiene vigencia de <b>30 días hábiles<b> y solo es para uso interno de la <b>UMSA</b></h3></p>
 
-        <h5><p><b> Reg.No.<%= @datos_impreso.no_reg %> </p></h5></b> 
-        <h5><p><b>User/</b></p></h5> 
+        <h5><p><b> Reg.No.<%= @datos_impreso.no_reg %> </br>
+        C.c.Archivo.<br/>User/</b></p></h5> 
         </hr> 
     </div>
   </div>
