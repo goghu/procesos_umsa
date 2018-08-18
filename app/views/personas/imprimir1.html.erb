@@ -1,9 +1,8 @@
 <style type="text/css">
 blockquote {
-  padding-top:  0px;
+  padding: 3px 10px;
   border: Black 5px solid;
-  border-radius: 0px;
-  margin: 0px 0px 0px;
+  border-radius: 20px;
 }
 </style>
 
@@ -14,12 +13,6 @@ blockquote {
         size: letter landscape
     }
 */
-.nada {
-margin: 0;
-padding: 0;
-border-width: 0;
-}
-
     .left-sidebar{
       display: none;
     }
@@ -29,7 +22,7 @@ border-width: 0;
     }
     .tabla-impresion{
     border: 1px solid #54667a;
-    width: 0%;
+    width: 100%;
 
 }
 .tabla-impresion tr td{
@@ -38,7 +31,7 @@ border-width: 0;
     font-size: 9pt;
   }
   .tabla-impresion-cabecera tr td{
-    width: 0%;
+    width: 100%;
     padding: 4px;
     font-size: 9pt;
   }
@@ -46,7 +39,7 @@ border-width: 0;
     border: 1px solid #54667a;
     padding: 4px;
     font-size: 9pt;
-    text-align: left;
+    text-align: right;
   }
   .tabla-impresion thead tr th{
     text-align: center;
@@ -74,23 +67,26 @@ border-width: 0;
 <div class="form body">
   <div class="row">
     <div class="col-md-12">
-     <div id="nada">
-        <table border="0">
+      <table border="0">
       <!--1ra columna de la tabla-->
-        <tr>
-        <td width="5%" height="10px">&nbsp;
+      <tr>
+        <td width="30%" height="20px">&nbsp;
         <b><blockquote>
         <time datetime= "strftime">
-        <h2 class ="font-Arial"><b> 
+        <h3 class ="font-Arial"><b> 
         La Paz,
         <%= @datos_persona.fecha_emi_certf %> </b>
-        </h2> </time>
-        <h3 class ="font-Arial"><b>
+        </h3 class="font-Arial"> </time>
+        <b>
+        <h4 class ="font-Arial"><b>
         COM.UNIV.PROC.CERTF:<%= @datos_persona.correlt_certf %>
-        </b></h3>
-       </blockquote></b>
+        </h4 class ="font-Arial">
+        </blockquote></b>
+        </td>
       
-      <!--fin de la 1ra columna y borde del texto-->
+
+        <!--fin de la 1ra columna y borde del texto-->
+
 
         <!--2da columna de la tabla-->
         <td width="60%" height="20px">&nbsp;
@@ -106,7 +102,8 @@ border-width: 0;
         <td width="5%" height="10px">&nbsp;
         <%= image_tag("logo-sello.jpg", class: "dark-logo", alt: "inicio") %> </td>
         <!--fin de la 4ta columna de la tabla-->
-       
+        
+      </tr>
       </table>
     </div>
   </div>
@@ -186,8 +183,8 @@ border-width: 0;
 <!--4ta fila-->
 <div class="row">
   <div class="col-md-12">
-    <div class="pull-left text-justify">
-      <p align="left"> <hr> <h2 class="font-Arial">
+    <div class="pull-right text-justify">
+      <p align="right"> <hr> <h2 class="font-Arial">
       A la fecha 
       <b><%= @datos_persona.fallo %></b> tiene fallo sancionatorio ejecutoriado en su contra, es cuanto certificamos para los fines consiguientes.</h2> </p> </hr>
 
@@ -198,9 +195,10 @@ border-width: 0;
      
       <tr>
       <td><%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %>
-      <h4> <b "font-bold"> Dr. Mauricio E. Farfan Espinoza<BR />
-      JEFE a.i. <br/>COMISION UNIVERSITARIA DE PROCESOS </h4> </b> </td>
-
+      <h4> <b "font-bold"> <center>
+      M.Sc. Mauricio E. Farfan Espinoza<BR /></center>
+      <center>Responsable a.i.</center>
+      <center>COMISIÓN UNIVERSITARIA DE PROCESOS </h4> </b> </td></center>
       <!--fin 2da columna de la tabla-->
 
       <td width="300px;"></td>
@@ -222,18 +220,16 @@ border-width: 0;
 <!--5ta fila-->                                 
 <div class="row">
   <div class="col-md-12">
-    <div class="pull-left">
+    <div class="pull-right">
       <p style="font-size: 8pts;color: black"><p>
         <hr>
         <h3 class="font-Arial text-justify">
-        <b>Nota:</b> Para su validez el presente Certificado debe llevar el <b>Sello de Aprobación de Secretaria General (recuadro superior), </b>más el registro Qr. El certificado tiene vigencia de <b>30 días hábiles</b> y solo es para uso interno de la <b>UMSA</b></h3></p></b>
+        <b>Nota:</b> Para su validez el presente Certificado debe llevar el <b>Sello de Aprobación de Secretaria General </b>más el registro Qr. El certificado tiene vigencia de <b>30 días hábiles</b> y solo es para uso interno de la <b>UMSA</b></h3></p></b>
 
         <h5><p><b> Reg.No.<%= @datos_persona.no_reg %><br/>C.c.Archivo.<br/>User/</h5>
         </hr> 
     </div>
   </div>
-</div> 
-</table>                   
+</div>                    
 
-      
 <!--fin de 5ta fila-->

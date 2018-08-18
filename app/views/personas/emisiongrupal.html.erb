@@ -67,7 +67,7 @@ blockquote {
 
          <!-- busca ultima impresion su id -->
          <div class="row">
-           <div class="col-md-6">
+           <div class="col-md-8">
              <% if @consulta_impresion %>
                <% @consulta_impresion.numero.to_i+1 %>
                <input type="hidden" id="cod_impre" name="id_imp" value='<%= @consulta_impresion.numero.to_i + 1  %>'>
@@ -81,6 +81,8 @@ blockquote {
                      <th>ID</th>
                      <th>CI</th>
                      <th>Nombre</th>
+                     <th>Carrera</th>
+                     <th>Fallo</th>
                      <th></th>
                    </tr>
                  </thead>
@@ -90,7 +92,7 @@ blockquote {
              </div>
            </div>
 
-           <div class="col-md-6">
+           <div class="col-md-4">
              <h3>Seleccionados para el certificado</h3>
              <div id="los_seleccionados">
              </div>
@@ -100,7 +102,7 @@ blockquote {
 
         <h1>&nbsp;</h1>
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-12">
             <button type="submit" class="btn btn-block btn-success">
               <i class="fa fa-check"></i> GENERAR CERTIFICADO
             </button>
@@ -127,6 +129,8 @@ $(document).ready(function() {
       {"data": "id"},
       {"data": "ci"},
       {"data": "nombre"},
+      {"data": "carrera"},
+      {"data": "fallo"},
       {"data": "acciones"}
     ],
     "oLanguage": {
