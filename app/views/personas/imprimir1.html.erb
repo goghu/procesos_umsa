@@ -1,43 +1,70 @@
 <style type="text/css">
 blockquote {
-  padding: 3px 10px;
+  padding: 0px 0px;
   border: Black 5px solid;
-  border-radius: 20px;
+  border-radius: 10px;
 }
-</style>
+.tabla-impresion{
+  border: 1px solid #54667a;
+  width: 100%;
+}
 
-<style>
-
+.tabla-impresion tr td{
+  border: 1px solid #54667a;
+  padding: 0px;
+  font-size: 9pt;
+}
+.tabla-impresion-cabecera tr td{
+  width: 70%;
+  padding: 0px;
+  font-size: 9pt;
+}
+.tabla-impresion tr td.montos{
+  border: 1px solid #54667a;
+  padding: 0px;
+  font-size: 9pt;
+  text-align: right;
+}
+.tabla-impresion thead tr th{
+  text-align: center;
+  border: 1px solid black;
+  font-weight: bold;
+}
+.mmt1{
+ margin-top: -1px;
+}
+#nada {
+margin: 0;
+padding: 0;
+border-width: 0;
+}
 @media print {
-    /*@page {
-        size: letter landscape
-    }
-*/
-    .left-sidebar{
-      display: none;
-    }
+   .left-sidebar{
+    display: none;
+  }
 
-    .topbar{
-      display: none;
-    }
-    .tabla-impresion{
+  .topbar{
+    display: none;
+  }
+
+  .tabla-impresion{
     border: 1px solid #54667a;
     width: 100%;
+  }
 
-}
-.tabla-impresion tr td{
+  .tabla-impresion tr td{
     border: 1px solid #54667a;
-    padding: 4px;
+    padding: 0px;
     font-size: 9pt;
   }
   .tabla-impresion-cabecera tr td{
-    width: 100%;
-    padding: 4px;
+    width: 70%;
+    padding: 0px;
     font-size: 9pt;
   }
   .tabla-impresion tr td.montos{
     border: 1px solid #54667a;
-    padding: 4px;
+    padding: 0px;
     font-size: 9pt;
     text-align: right;
   }
@@ -47,11 +74,11 @@ blockquote {
     font-weight: bold;
   }
   .mmt1{
-   margin-top: -1px;
+   margin-top: -8px;
   }
  .clase-impresion{
     color: black;
-    width: 140px;
+    width: 100px;
     font-size: 12pt;
   }
   .no-imprime{
@@ -62,174 +89,107 @@ blockquote {
   }
 }
 </style>
+
+   
+</style>
 <!--h2>Emision de Certificados</h2-->
 <!--1ra fila tabla para poner fecha del certificado-->
 <div class="form body">
   <div class="row">
     <div class="col-md-12">
-      <table border="0">
-      <!--1ra columna de la tabla-->
-      <tr>
-        <td width="30%" height="20px">&nbsp;
-        <b><blockquote>
-        <time datetime= "strftime">
-        <h3 class ="font-Arial"><b> 
-        La Paz,
-        <%= @datos_persona.fecha_emi_certf %> </b>
-        </h3 class="font-Arial"> </time>
-        <b>
-        <h4 class ="font-Arial"><b>
-        COM.UNIV.PROC.CERTF:<%= @datos_persona.correlt_certf %>
-        </h4 class ="font-Arial">
-        </blockquote></b>
-        </td>
-      
+      <table width="990" border="0" height="20px">
+        <tr>
+          <td width="30%" height="20px">&nbsp;
+            <b><blockquote>
+              <time datetime= "strftime">
+                <h2 class ="font-Arial"><b> 
+                  La Paz,
+                  <%= @datos_persona.fecha_emi_certf %> </b>
+                </h2 class="font-Arial"> </time>
+                
+                  <h2 class ="font-Arial"><b>
+                    COM.UNIV.PROC.CERTF:<%= @datos_persona.correlt_certf %></b></h2>
+                  
+                </blockquote></b>
+              </td>
+              <!--2da columna de la tabla-->
+              <td width="60%" height="20px">&nbsp;</td>
+              <!--fin de la 2da columna de la tabla-->
 
-        <!--fin de la 1ra columna y borde del texto-->
+              <!--fin de la 3ra columna de la tabla-->
+              <td width="5%" height="10px">&nbsp;
+                <%= image_tag("logo-qr.jpg", class: "dark-logo", alt: "inicio") %></td>
+                <!--fin de la 3ra columna de la tabla-->
 
-
-        <!--2da columna de la tabla-->
-        <td width="60%" height="20px">&nbsp;
-        </td>
-        <!--fin de la 2da columna de la tabla-->
-
-        <!--fin de la 3ra columna de la tabla-->
-        <td width="5%" height="10px">&nbsp;
-        <%= image_tag("logo-qr.jpg", class: "dark-logo", alt: "inicio") %></td>
-        <!--fin de la 3ra columna de la tabla-->
-
-        <!--fin de la 4ta columna de la tabla-->
-        <td width="5%" height="10px">&nbsp;
-        <%= image_tag("logo-sello.jpg", class: "dark-logo", alt: "inicio") %> </td>
-        <!--fin de la 4ta columna de la tabla-->
+                <!--fin de la 4ta columna de la tabla-->
+                <td width="5%" height="10px">&nbsp;
+                  <%= image_tag("logo-sello.jpg", class: "dark-logo", alt: "inicio") %> </td>
+                  <!--fin de la 4ta columna de la tabla-->
         
-      </tr>
       </table>
-    </div>
-  </div>
-</div>
 
-<!--fin de borde 1ra fila de la tabla-->
-<p><div class="Certificados de procesos print"></p></div>
-    
+ 
+      <table width="990" border="0" height="80px">
+        <tr>
+          <td width="1090%" height="70px">&nbsp;
+            <p> <hr> <h2 class="font-Arial - text-justify">
+              <div id "nada">La Comisión Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andrés, a solicitud escrita del Interesado.</h2> </p> </hr>
+                <br> <h1 class="font-bold"> Certifica:</h1> </br>
+                <h2 class="font-Arial - text-justify"> Que, revisada la documentación en la Comisión Universitaria de Procesos, se evidencia:</h2>
+              </div>
 
-<!--2da fila -->
-<div class="row">
-  <div class="col-md-12">
-    <div class="pull-left text-justify">
-      <p> <hr> <h2 class="font-Arial">
-      La Comisión Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andrés, a solicitud escrita del Interesado.</h2> </p> </hr>
-      <br> <h1 class="font-bold"> Certifica:</h1> </br>
-      <h2 class="font-Arial"> Que, revisada la documentación en la Comisión Universitaria de Procesos, se evidencia:</h2>
-    </div>
-  </div>  
-</div>      
-<!--fin de 2da fila-->
+            </table>
 
-<!--3ra fila -->
-  <div class="row-t">
-    <div class="cold-lg-24">
-      <div style="border: 0pt solid; text-align:center;">
-        <table border="0" align="center">
-        
-        <!--1ra columna de la tabla-->  
-       
-        <!--td width="60%" height="50px">&nbsp;
-        <h3 class="font-bold text-center">
-        NOMBRES Y APELLIDOS</h3> </td>
-        <!--fin 1ra columna -->
+            <table width="990" border="0" height="80px">
+              <tr> <center>
+                <td width="990%" height="70px">&nbsp;
+                  <h1 class="font-bold text-center">
+                    <% debug @datos_persona %>
+                    <%= @datos_persona.nombre %> 
+                    <%= @datos_persona.ap_paterno %> 
+                    <%= @datos_persona.ap_materno %> 
+                  </h1>
+                  <h1 class="font-bold text-center">C.I. No.
+                    <%= @datos_persona.ci %></h1></td>
+                  </center></tr></table>
 
-        <!--2da columna de la tabla-->
-        
-        <!--fin 2da columna -->
+                  <table width="990" border="0" height="80px">
+                    <tr> <center>
+                      <td width="1090%" height="70px">&nbsp;    
+                        <h2 class="font-Arial">
+                          A la fecha 
+                          <b><%= @datos_persona.fallo %></b> tiene fallo sancionatorio ejecutoriado en su contra, es cuanto certificamos para los fines consiguientes.</h2> 
+                        </td></center></tr></table>
 
-        <!--3ra columna de la tabla-->
-        <!--td width="40%" height="50px">&nbsp;
-        <h3 class="font-bold text-center">
-        </h3></td>
-        </tr>
-        <!--fin 3ra columna -->
+                        <table width="990" border="0" height="90px">
+                          <tr> <center>
+                            <td><center> <%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %> </center>
+                              <h3><b><center>
+                                M.Sc. Mauricio E. Farfan Espinoza<BR /></center>
+                                <center>Responsable a.i.</center>
+                                <center>COMISIÓN UNIVERSITARIA DE PROCESOS</center></b></h3></td> 
+                                <!--fin 2da columna de la tabla-->
 
-        <!--2da fila de tabla -->
-        <!--1ra columna de la tabla-->
-        <tr><center>
-        <td width="100%" height="50px">&nbsp;
-        <h1 class="font-bold text-center">
-        <% debug @datos_persona %>
-        <%= @datos_persona.nombre %> 
-        <%= @datos_persona.ap_paterno %> 
-        <%= @datos_persona.ap_materno %> 
-        </h1>
-     
-        <!--fin 1ra columna -->
+                                <td ></td>
 
-        <!--2da columna de la tabla-->
-        
-        <!--fin 2da columna -->
+                                <!--3ra columna de la tabla-->
+                                <td><center><%= image_tag("logo-firma.jpg", class: "dark-logo", alt: "inicio") %></center>
+                                  <h3><b>
+                                    <center>Ing. Alberto Arce Tejada <br/></center>
+                                    <center>SECRETARIO GENERAL</center>
+                                    <center>UMSA</center></b></h3></td>
+                                  </center></tr></table>
+                        
+                                            
+                
+                                  <table width="990" border="0" height="80px">
+                                    <tr> <center>
+                                      <td width="990%" height="70px">&nbsp;    
+                                       <h3 class="font-Arial text-justify">
+                                        <b>Nota:</b> Para su validez el presente Certificado debe llevar el <b>Sello de Aprobación de Secretaria General del (recuadro superior) </b>más el registro Qr. El certificado tiene vigencia de <b>30 días hábiles</b> y solo es para uso interno de la <b>UMSA</b></h3></p></b>
 
-        <!--3ra columna de la tabla-->
-       
-        
-        <h1 class="font-bold text-center">C.I. No.
-        <%= @datos_persona.ci %></h1></td>
-        </tr></center>
-        <!--fin 3ra columna -->
-        </table>
-      </div>
-    </div>
-  </div>
-<!--fin de 3ra fila-->
-
-<!--4ta fila-->
-<div class="row">
-  <div class="col-md-12">
-    <div class="pull-right text-justify">
-      <p align="right"> <hr> <h2 class="font-Arial">
-      A la fecha 
-      <b><%= @datos_persona.fallo %></b> tiene fallo sancionatorio ejecutoriado en su contra, es cuanto certificamos para los fines consiguientes.</h2> </p> </hr>
-
-      <!--1ra columna de la tabla-->
-      <table border="0">
-      <tr>
-      
-     
-      <tr>
-      <td><%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %>
-      <h4> <b "font-bold"> <center>
-      M.Sc. Mauricio E. Farfan Espinoza<BR /></center>
-      <center>Responsable a.i.</center>
-      <center>COMISIÓN UNIVERSITARIA DE PROCESOS </h4> </b> </td></center>
-      <!--fin 2da columna de la tabla-->
-
-      <td width="300px;"></td>
-
-      <!--3ra columna de la tabla-->
-      <td><%= image_tag("logo-firma.jpg", class: "dark-logo", alt: "inicio") %>
-      <h4><b "font-bold"><center>Ing. Alberto Arce Tejada </center>
-      <center>SECRETARIO GENERAL</center>
-      <center>UMSA</center></h4></td></b>
-      </tr>
-      </table>
-      <!--fin 3ra columna de la tabla-->
-    </div>
-  </div>
-</div>  
-<!--fin de 4ta fila-->
-
-
-<!--5ta fila-->                                 
-<div class="row">
-  <div class="col-md-12">
-    <div class="pull-right">
-      <p style="font-size: 8pts;color: black"><p>
-        <hr>
-        <h3 class="font-Arial text-justify">
-        <b>Nota:</b> Para su validez el presente Certificado debe llevar el <b>Sello de Aprobación de Secretaria General </b>más el registro Qr. El certificado tiene vigencia de <b>30 días hábiles</b> y solo es para uso interno de la <b>UMSA</b></h3></p></b>
-
-        <h5><p><b> Reg.No.<%= @datos_persona.no_reg %><br/>C.c.Archivo.<br/>User/</h5>
-        </hr> 
-    </div>
-  </div>
-</div>                    
+                                        <h5><p><b> Reg.No.<%= @datos_persona.no_reg %><br/>C.c.Archivo.<br/>User/
+                                        </b></p></h5></td></center></tr></table>
+                                          
 
 <!--fin de 5ta fila-->
