@@ -5,61 +5,20 @@
         <h4 class="card-title">Lista de Personas</h4>
 
         <div class="table-responsive m-t-40">
-          <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
-            <thead>
-            <tr>
-              
-              
-              <th>Nombre</th>
-              <th>Ap_paterno</th>
-              <th>Ap_materno</th>
-              <th>Ci</th>
-              <th>Tipo</th>
-              <th>Item</th>
-              <th>Fecha</th>
-              <th>Facultad</th>
-              <th>Carrera</th>
-              <th>Categoria</th>
-              <th>Direccion</th>
-              <th>Telefono</th>
-              <th>Observacion</th>
-              <th>Fallo</th>
-              <th>No_Reg</th>
-            
-              <th>Acciones</th>
-            </tr>
-            </thead>
-
-            <tbody>
-            <% @personas.each do |persona| %>
-              <tr>
-                <td><%= persona.nombre %></td>
-                <td><%= persona.ap_paterno%></td>
-                <td><%= persona.ap_materno%></td>
-                <td><%= persona.ci %></td>
-                <td><%= persona.tipo %></td>
-                <td><%= persona.item %></td>  
-                <td><%= persona.fecha_emi_certf %></td>                      
-                <td><%= persona.facultad %></td>
-                <td><%= persona.carrera %></td>
-                <td><%= persona.categoria %></td>
-                <td><%= persona.direccion %></td>
-                <td><%= persona.telefono %></td>
-                <td><%= persona.observacion %></td>
-                <td><%= persona.fallo %></td>
-                <td><%= persona.no_reg %></td>
-               
-                <td>Acciones</td>
-                
-                <td>
-                  <%= link_to "<i class='fa fa-eye'></i>".html_safe, persona %>&nbsp;&nbsp;
-                  <%= link_to "<i class='fa fa-pencil'></i>".html_safe, edit_persona_path(persona) %>&nbsp&nbsp
-                  <%= link_to "<i class='fa fa-trash-o'></i>".html_safe, persona, method: :delete, data: {confirm: 'Esta seguro de Eliminar?'} %>
-                </td>
-              </tr>
-            <% end %>
-            </tbody>
-          </table>
+            <table id="gente-datatable" class="display nowrap table table-hover table-striped table-bordered dataTable" data-source="<%= personas_path(format: :json) %>">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>CI</th>
+                        <th>Nombre</th>
+                        <th>Carrera</th>
+                        <th>Fallo</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
         </div>
       </div>
     </div>

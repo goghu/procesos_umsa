@@ -247,8 +247,12 @@ class PersonasController < ApplicationController
     modelo_impreso.numero = numero
     modelo_impreso.save
     id_impreso = modelo_impreso.id
-    numero_impresion = numero
-    redirect_to :action => 'imprime_egrupal', :id_impreso => numero
+    dato_impreso = Impreso.find(id_impreso)
+    numero_impresion = dato_impreso.numero
+
+    Egrupal.where('impreso_id = ?', numero_impresion).update_all(impreso_id: id_impreso)
+
+    redirect_to :action => 'imprime_egrupal', :id_impreso => numero_impresion
 
   end
 
