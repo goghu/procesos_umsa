@@ -5,7 +5,11 @@ class PersonasController < ApplicationController
   # GET /personas
   # GET /personas.json
   def index
-    @personas = Persona.where(borrado: nil).limit(20)
+    # @personas = Persona.where(borrado: nil).limit(20)
+    respond_to do |format|
+      format.html
+      format.json { render json: GenteDatatable.new(view_context) }
+    end
   end
 
   # GET /personas/1
@@ -223,7 +227,7 @@ class PersonasController < ApplicationController
       format.html
       format.json { render json: PersonaDatatable.new(view_context) }
     end
-    
+
   end
 
   def guarda_emisiongrupal
