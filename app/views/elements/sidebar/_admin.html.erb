@@ -1,0 +1,101 @@
+<nav class="sidebar-nav">
+    <ul id="sidebarnav">
+        <li class="nav-small-cap">PERSONAS</li>
+        <li>
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <i class="mdi mdi-gauge"></i>
+                <span class="hide-menu">Personas Admin
+                </span>
+            </a>
+            <ul aria-expanded="false" class="collapse">
+                <li><%= link_to "Listado", controller: "personas", action: "index" %></li>
+                <li><%= link_to "Nuevo_usuarios", controller: "personas", action: "usuarios" %></li>
+                <li><%= link_to "Editar_personas", controller: "personas", action: "editar_pers" %></li>
+                <li><%= link_to "Subir Excel", controller: "excels", action: "formexcel" %></li>
+            </ul>
+        </li>
+        <!--fin de personas-->
+
+        <!--Secretaria-certificados-->
+
+        <li>
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <i class="mdi mdi-gauge"></i>
+                <span class="hide-menu">SECRETARIA
+                    <BR/>Emision de Certificados
+                </span>
+            </a>
+            <ul aria-expanded="false" class="collapse">
+                <li><%= link_to "Nuevo_persona", controller: "personas", action: "new" %></li>
+                <li><%= link_to "Emision Certificado", controller: "personas", action:
+                    "emisioncertf" %></li>
+                <li><%= link_to "Emision Grupal", controller: "personas", action: "emisiongrupal" %></li>
+
+            </ul>
+        </li>
+
+        <!--Abogados fallo-->
+
+        <li>
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <i class="mdi mdi-gauge"></i>
+                <span class="hide-menu">ABOGADOS
+                    <BR/>Sentecia/fallo
+                </span>
+            </a>
+            <ul aria-expanded="false" class="collapse">
+
+                <li><%= link_to "Abogados_Fallo", controller: "personas", action: "fallo" %></li>
+            </ul>
+        </li>
+
+        <!--denuncias-->
+        <li>
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <i class="mdi mdi-gauge"></i>
+                <span class="hide-menu">Denuncias
+                </span>
+            </a>
+            <ul aria-expanded="false" class="collapse">
+                <li><%= link_to "Nuevo_persona", controller: "personas", action: "new" %></li>
+                <li><%= link_to "denuncia_busca", controller: "denuncia", action: "new" %></li>
+
+            </ul>
+        </li>
+        <!--fin de denuncias-->
+
+        <!--listado por tipo-->
+        <li>
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <i class="mdi mdi-gauge"></i>
+                <span class="hide-menu">
+                    Listados_Tipo
+                </span>
+            </a>
+            <ul aria-expanded="false" class="collapse">
+                <li><%= link_to "Listado", controller: "elegidos", action: "index" %></li>
+                <li><%= link_to "Nuevo", controller: "elegidos", action: "new" %></li>
+                <li><%= link_to "Docentes", controller: "personas", action: "solodocentes" %></li>
+                <li><%= link_to "Universitarios", controller: "personas", action:
+                    "solouniversitarios" %></li>
+                <li><%= link_to "Asesores", controller: "personas", action: "soloasesores" %></li>
+            </ul>
+        </li>
+        <!--fin listado por tipo-->
+
+        <!--cargos-->
+        <li>
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <i class="mdi mdi-gauge"></i>
+                <span class="hide-menu">Cargos
+                </span>
+            </a>
+            <ul aria-expanded="false" class="collapse">
+                <li><%= link_to "Listado", controller: "cargos", action: "index" %></li>
+                <li><%= link_to "Nuevo", controller: "cargos", action: "new" %></li>
+            </ul>
+        </li>
+
+    </ul>
+</nav>
+<!--fin de cargos-->

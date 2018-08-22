@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
 
   #devise_for :users
-  root to: "facultades#index"
+  root to: "personas#bienvenida"
   devise_for :users, controllers: {
       sessions: 'users/sessions'
   }
@@ -59,5 +59,6 @@ Rails.application.routes.draw do
 
   get '/persona/usuarios/:guarda_usuario/', to: 'personas#guarda_usuario'
   get '/persona/imprime_egrupal/:id_impreso/', to: 'personas#imprime_egrupal', as: 'imprime_egrupal'
+  get '/persona/bienvenida', to: 'personas#bienvenida', as: 'bienvenida'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

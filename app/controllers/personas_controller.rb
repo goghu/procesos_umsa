@@ -323,9 +323,14 @@ class PersonasController < ApplicationController
     @consulta_grupo = Egrupal.where("impreso_id = ?", params[:cod_impresion])
     render layout: false
   end
+
   def elimina_persona_js
     @consulta_grupo = Egrupal.where("seleccionados =?", params[:id_persona_aqui])
     render layout: false
+  end
+
+  def bienvenida
+    
   end
 
   private
