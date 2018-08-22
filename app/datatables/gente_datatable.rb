@@ -37,7 +37,7 @@ class GenteDatatable < AjaxDatatablesRails::Base
   end
   def dt_actions(id_persona)
     #code
-    links = ('<button type="button" onclick="guarda_persona_js('+id_persona.to_s+')" id="bt_sel" class="btn btn-success"><i class="mdi mdi-arrow-right-bold"></i></button>').html_safe
+    links = ('<button type="button" onclick="edita_persona('+id_persona.to_s+')" id="bt_sel" class="btn btn-success"><i class="mdi mdi-lead-pencil"></i></button>&nbsp;<button type="button" onclick="guarda_persona_js('+id_persona.to_s+')" id="bt_sel" class="btn btn-danger"><i class="mdi mdi-close"></i></button>').html_safe
   end
 
 end
