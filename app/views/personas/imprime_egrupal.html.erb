@@ -124,57 +124,55 @@ blockquote {
         </div>
       </div>
 
-    <div class="form body">
-      <div class="row">
-        <table width="850" border="0" height="80px">
-          <tr>
-            <td width="850" height="50px">&nbsp;
-             <h2 class="font-Arial - text-justify">
-             La Comisión Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andrés, a solicitud escrita del Interesado.</h2>
-             <br/> <h1 class="font-bold"> Certifica:</h1> <br/>
-             <h2 class="font-Arial - text-justify"> Que, revisada la documentación en la Comisión Universitaria de Procesos, se evidencia que:</h2>
-           </table>
+      <div class="form body">
+        <div class="row">
+          <table width="850" border="0" height="80px">
+            <tr>
+              <td width="850" height="50px">&nbsp;
+               <h2 class="font-Arial - text-justify">
+               La Comisión Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andrés, a solicitud escrita del Interesado.</h2>
+               <br/> <h1 class="font-bold"> Certifica:</h1> <br/>
+               <h2 class="font-Arial - text-justify"> Que, revisada la documentación en la Comisión Universitaria de Procesos, se evidencia que:</h2>
+             </table>
 
-           <table width="850" border="1" height="80px">
-            <tr> 
-              <h3 class="font-bold text-center">
-                <!--1ra columna de la tabla-->  
-                <tr>
-                  <td width="5%" height="50px">&nbsp;
-                    <h3 class="font-bold"><center>
-                    No.</center>
-                  </h3>
-                </td>
-
-                <td width="50%" height="50px">&nbsp;
-                  <h3 class="font-bold"><center> 
-                  NOMBRES Y APELLIDOS</center></h3>
-                </td>
-
-                <td width="30%" height="50px">&nbsp;
-                  <h3 class="font-bold"><center>
-                  CARNET DE IDENTIDAD</center></h3>
-
-
-                  <h3 class="font-bold text-justify"> <% @personas_escogidas.each_with_index do |p, index| %></h3></td>
+             <table width="850" border="1" height="80px">
+              <tr> 
+                <h3 class="font-bold text-center">
+                  <!--1ra columna de la tabla-->  
                   <tr>
-                    <td><h3 class="font-bold text-center">
-                      <%= index+1  %></h3></td>
+                    <td width="5%" height="50px">&nbsp;
+                      <h3 class="font-bold"><center>
+                      No.</center>
+                    </h3>
+                  </td>
 
-                      <td><h3 class="font-bold text-justify"> 
-                        <%= p.persona.nombre %>
-                        <%= p.persona.ap_paterno %>
-                        <%= p.persona.ap_materno %></h3></td>
+                  <td width="50%" height="50px">&nbsp;
+                    <h3 class="font-bold"><center> 
+                    NOMBRES Y APELLIDOS</center></h3>
+                  </td>
 
-                        <td><h3 class="font-bold text-center">
-                          <%= p.persona.ci %></h3></td>
+                  <td width="30%" height="50px">&nbsp;
+                    <h3 class="font-bold"><center>
+                    CARNET DE IDENTIDAD</center></h3>
 
-                        </tr>
 
-                        <% end %>
-                      </h3></td></center></tr></table>
+                    <h3 class="font-bold text-justify"> <% @personas_escogidas.each_with_index do |p, index| %></h3></td>
+                    <tr>
+                      <td><h3 class="font-bold text-center">
+                        <%= index+1  %></h3></td>
+
+                        <td><h3 class="font-bold text-justify"> 
+                          <%= p.persona.nombre %>
+                          <%= p.persona.ap_paterno %>
+                          <%= p.persona.ap_materno %></h3></td>
+
+                          <td><h3 class="font-bold text-center">
+                            <%= p.persona.ci %></h3></td>
+                          </tr>
+                          <% end %>
+                        </h3></td></center></tr></table>
+                      </div>
                     </div>
-                  </div>
 
 
 <div class="form body">
