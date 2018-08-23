@@ -1,4 +1,5 @@
 <style type="text/css">
+<<<<<<< HEAD
     blockquote {
         padding: 0;
         border: Black 5px solid;
@@ -114,29 +115,22 @@
 <!--1ra fila tabla para poner fecha del certificado-->
 <div class="form body">
   <div class="row">
-    <header id="cabecera-fija">
-      <table width="850" border="0" height="80px" class="tabla-impresion-cabecera">
-        <tr>
-          <td width="20%" height="10px">&nbsp;
-            <b>
-              <blockquote>
-                <time datetime="strftime">
-                  <h2 class="font-Arial">
-                    <b>
-                      La Paz,
-                      <%= @datos_impreso.fecha_emi_certf %>
-                    </b>
-                  </h2>
-                </time>
+    <div class="col">
+    <table width="800" border="0" height="0px">
+      <tr>
+       <td width="800" height="0px">&nbsp;
+        <b><blockquote>
+          <time datetime= "strftime">
+            <h2 class ="font-Arial"><b> 
+              La Paz,
+              <%= @datos_impreso.fecha_emi_certf %> </b>
+            </h2> </time>
 
-                <% @datos_impreso.inspect %>
+            <% @datos_impreso.inspect %>
 
-                  <h2 class="font-Arial">
-                    <b>
-                      COM.UNIV.PROC.CERTF:<%= @datos_impreso.correlt_certf %></b>
-                  </h2>
-              </blockquote>
-            </b>
+            <h2 class ="font-Arial"><b>
+              COM.UNIV.PROC.CERTF:<%= @datos_impreso.correlt_certf %></b></h2>
+            </blockquote></b>
           </td>
 
           <!--2da columna de la tabla-->
@@ -176,9 +170,8 @@
             Que, revisada la documentación en la Comisión Universitaria de Procesos, se evidencia que:</h2>
     </table>
 
-
     <% @personas_escogidas.length %>
-    <% if @personas_escogidas.length > 12 %>
+    <% if @personas_escogidas.length > 10 %>
       <table width="850" border="1" height="80px">
           <tr>
               <tr>
@@ -203,7 +196,7 @@
                   </h3>
                 </td>
                 <% @personas_escogidas.each_with_index do |p, index| %>
-                <% if index < 12 %>
+                <% if index < 10 %>
                   <tr>
                     <td>
                       <h3 class="font-bold text-center">
@@ -305,7 +298,7 @@
                   </h3>
                 </td>
                 <% @personas_escogidas.each_with_index do |p, index| %>
-                <% if index > 12 %>
+                <% if index > 10 %>
                   <tr>
                     <td>
                       <h3 class="font-bold text-center">
