@@ -1,468 +1,225 @@
-<style type="text/css">
-<<<<<<< HEAD
+<style>
+
+  blockquote {
+    padding: 8px;
+    border: Black 5px solid;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 14pt;
+  }
+
+  .impresion {
+    width: 1000px;
+    color: #000000;
+  }
+
+  .cabecera {
+    width: 100%;
+  }
+
+  .contenido {
+    text-align: justify;
+    font-size: 16pt;
+  }
+
+  .tabla-datos {
+    margin: auto;
+    border: 1px solid #000000;
+    width: 80%;
+  }
+
+  .tabla-datos tr td{
+    border: 1px solid #000000;
+    padding-left: 8px;
+  }
+
+  .tabla-datos tr th{
+    border: 1px solid #000000;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  @media print {
+
+    .left-sidebar {
+      display: none;
+    }
+
+    .topbar {
+      display: none;
+    }
+
     blockquote {
-        padding: 0;
-        border: Black 5px solid;
-        border-radius: 15px;
-    }
-    .tabla-impresion {
-        border: 1px solid #54667a;
-        width: 100%;
+      padding: 15px;
+      border: Black 5px solid;
+      border-radius: 15px;
     }
 
-    .tabla-impresion tr td {
-        border: 1px solid #54667a;
-        padding: 0;
-        font-size: 9pt;
-    }
-    .tabla-impresion-cabecera tr td {
-        width: 0;
-        padding: 0;
-        font-size: 9pt;
-    }
-    .tabla-impresion tr td.montos {
-        border: 1px solid #54667a;
-        padding: 0;
-        font-size: 9pt;
-        text-align: right;
-    }
-    .tabla-impresion thead tr th {
-        text-align: center;
-        border: 1px solid black;
-        font-weight: bold;
-    }
-    .mmt1 {
-        margin-top: -1px;
+    .impresion {
+      width: 1000px;
     }
 
-    @media print {
-        .left-sidebar {
-            display: none;
-        }
-
-        .topbar {
-            display: none;
-        }
-
-        .tabla-impresion {
-            border: 1px solid #54667a;
-            width: 100%;
-        }
-
-        .tabla-impresion tr td {
-            border: 1px solid #54667a;
-            padding: 0;
-            font-size: 9pt;
-        }
-        .tabla-impresion-cabecera tr td {
-            width: 0;
-            padding: 0;
-            font-size: 9pt;
-        }
-        .tabla-impresion tr td.montos {
-            border: 1px solid #54667a;
-            padding: 0;
-            font-size: 9pt;
-            text-align: right;
-        }
-        .tabla-impresion thead tr th {
-            text-align: center;
-            border: 1px solid black;
-            font-weight: bold;
-        }
-        .mmt1 {
-            margin-top: -1px;
-        }
-        .clase-impresion {
-            color: black;
-            width: 40px;
-            font-size: 12pt;
-        }
-        .no-imprime {
-            display: none;
-        }
-        .page-wrapper {
-            margin-left: 0;
-        }
-       
-        #cabecera-fija {
-            /* page-break-inside: avoid; */
-            display: block;
-            /* width: 100%; */
-            /* position: fixed; */
-            /* display: block; */
-            /* position: running(cabecera-fija); */
-            width: 100%;
-            /* height: 2000px; */
-        }
-        #cuerpo {
-            /* margin-top: 25px; */
-            /* display: block; */
-            /* padding-top: 50px; */
-            /*margin-top: 50px auto;*/
-            /* page-break-inside: always; */
-            /* page-break-before: always; */
-            /* position: block; */
-            /* page-break-after:always; */
-            /* page-break-inside: avoid; */
-        }
-        body {
-            padding-top: 50px;
-        }
+    .cabecera {
+      width: 100%;
     }
+
+    .contenido {
+      text-align: justify;
+      font-size: 14pt;
+    }
+
+  }
 </style>
 
 <!--1ra fila tabla para poner fecha del certificado-->
-<div class="form body">
-  <div class="row">
-    <div class="col">
-    <table width="800" border="0" height="0px">
-      <tr>
-       <td width="800" height="0px">&nbsp;
-        <b><blockquote>
-          <time datetime= "strftime">
-            <h2 class ="font-Arial"><b> 
-              La Paz,
-              <%= @datos_impreso.fecha_emi_certf %> </b>
-            </h2> </time>
-
-            <% @datos_impreso.inspect %>
-
-            <h2 class ="font-Arial"><b>
-              COM.UNIV.PROC.CERTF:<%= @datos_impreso.correlt_certf %></b></h2>
-            </blockquote></b>
+<div class="row">
+  <div class="col-md-12">
+    <div class="impresion">
+      <table class="cabecera">
+        <tr>
+          <td style="width: 60%">
+            <blockquote>
+              <p>La Paz, <%= @datos_impreso.fecha_emi_certf %></p>
+              <p><b>COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %></b></p>
+            </blockquote>
           </td>
-
-          <!--2da columna de la tabla-->
-          <td width="60%" height="20px">&nbsp;</td>
-          <!--fin de la 2da columna de la tabla-->
-
-          <!--fin de la 3ra columna de la tabla-->
-          <td width="20%" height="10px">&nbsp;
+          <td style="text-align: right;">
             <%= image_tag("logo-qr.jpg", class: "dark-logo", alt: "inicio") %>
           </td>
-          <!--fin de la 3ra columna de la tabla-->
-
-          <!--fin de la 4ta columna de la tabla-->
-          <td width="5%" height="10px">&nbsp;
-            <%= image_tag("logo-sello.jpg", class: "dark-logo", alt: "inicio") %>
-          </td>
-          <!--fin de la 4ta columna de la tabla-->
         </tr>
       </table>
-    </header>
-  </div>
-</div>
+      <p class="contenido">
+        LA COMISION UNIVERSITARIA DE PROCESOS DEL HOROABLE CONSEJO UNIVERSITARIO DE LA UNIVERSIDAD MAYOR DE SAN ANDRES, A SOLICITUD ESCRITA DEL INTERESADO.
+      </p>
+      <p class="contenido" style="font-size: 35pt; font-weight: bolder;">CERTIFICA: </p>
+      <p class="contenido">Que, revisada la documentación en la Comisión Universitaria de Procesos, se evidencia que:</p>
 
-<div id="cuerpo">
-  <div class="row">
-    <table width="850px" border="0" height="80px">
-      <tr>
-        <td width="850" height="50px">&nbsp;
-          <h2 class="font-Arial - text-justify">
-            La Comisión Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andrés, a solicitud
-            escrita del Interesado.</h2>
-          <br/>
-          <h1 class="font-bold">
-            Certifica:</h1>
-          <br/>
-          <h2 class="font-Arial - text-justify">
-            Que, revisada la documentación en la Comisión Universitaria de Procesos, se evidencia que:</h2>
-    </table>
+      <h5>&nbsp;</h5>
 
-    <% @personas_escogidas.length %>
-    <% if @personas_escogidas.length > 10 %>
-      <table width="850" border="1" height="80px">
+      <% if @personas_escogidas.length < 10 %>
+
+        <table class="tabla-datos">
           <tr>
+            <th>No.</th>
+            <th>NOMBRES Y APELLIDOS</th>
+            <th>C.I.</th>
+          </tr>
+          <% @personas_escogidas.each_with_index do |p, index| %>
               <tr>
-                <td width="5%" height="50px">&nbsp;
-                  <h3 class="font-bold">
-                    <center>
-                      No.</center>
-                  </h3>
+                <td style="text-align: center;"><%= index+1 %></td>
+                <td>
+                  <%= p.persona.nombre %>
+                  <%= p.persona.ap_paterno %>
+                  <%= p.persona.ap_materno %>
                 </td>
-
-                <td width="50%" height="50px">&nbsp;
-                  <h3 class="font-bold">
-                    <center>
-                      NOMBRES Y APELLIDOS</center>
-                  </h3>
-                </td>
-
-                <td width="30%" height="50px">&nbsp;
-                  <h3 class="font-bold">
-                    <center>
-                      CARNET DE IDENTIDAD</center>
-                  </h3>
-                </td>
-                <% @personas_escogidas.each_with_index do |p, index| %>
-                <% if index < 10 %>
-                  <tr>
-                    <td>
-                      <h3 class="font-bold text-center">
-                        <%= index+1 %>
-                      </h3>
-                    </td>
-
-                    <td>
-                      <h3 class="font-bold text-justify">
-                        <%= p.persona.nombre %>
-                        <%= p.persona.ap_paterno %>
-                        <%= p.persona.ap_materno %>
-                      </h3>
-                    </td>
-
-                    <td>
-                      <h3 class="font-bold text-center">
-                        <%= p.persona.ci %>
-                      </h3>
-                    </td>
-                  </tr>
-                <% end %>
-
-                <% end %>
-            </td>
-            </center>
-            </tr>
+                <td><%= p.persona.ci %></td>
+              </tr>
+          <% end %>
         </table>
 
-        <!-- espacio para la segunda pagina -->
-        <table width="850" border="0" height="80px" class="tabla-impresion-cabecera">
-        </table>  
+      <% else %>
 
-        <!-- cabecera de la segunda pagina -->
-        <table width="850" border="0" height="80px" class="tabla-impresion-cabecera">
-        <tr>
-          <td width="20%" height="10px">&nbsp;
-            <b>
+        <table class="tabla-datos">
+          <tr>
+            <th>No.</th>
+            <th>NOMBRES Y APELLIDOS</th>
+            <th>C.I.</th>
+          </tr>
+          <% @personas_escogidas.each_with_index do |p, index| %>
+          <% c = index %>
+            <% if index < 10 %>
+              <tr>
+                <td style="text-align: center;"><%= c+1 %></td>
+                <td>
+                  <%= p.persona.nombre %>
+                  <%= p.persona.ap_paterno %>
+                  <%= p.persona.ap_materno %>
+                </td>
+                <td><%= p.persona.ci %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </table>
+
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+         <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <!-- cabecera -->
+        <table class="cabecera">
+          <tr>
+            <td style="width: 60%">
               <blockquote>
-                <time datetime="strftime">
-                  <h2 class="font-Arial">
-                    <b>
-                      La Paz,
-                      <%= @datos_impreso.fecha_emi_certf %>
-                    </b>
-                  </h2>
-                </time>
-
-                <% @datos_impreso.inspect %>
-
-                  <h2 class="font-Arial">
-                    <b>
-                      COM.UNIV.PROC.CERTF:<%= @datos_impreso.correlt_certf %></b>
-                  </h2>
+                <p>La Paz, <%= @datos_impreso.fecha_emi_certf %></p>
+                <p><b>COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %></b></p>
               </blockquote>
-            </b>
-          </td>
-
-          <!--2da columna de la tabla-->
-          <td width="60%" height="20px">&nbsp;</td>
-          <!--fin de la 2da columna de la tabla-->
-
-          <!--fin de la 3ra columna de la tabla-->
-          <td width="20%" height="10px">&nbsp;
-            <%= image_tag("logo-qr.jpg", class: "dark-logo", alt: "inicio") %>
-          </td>
-          <!--fin de la 3ra columna de la tabla-->
-
-          <!--fin de la 4ta columna de la tabla-->
-          <td width="5%" height="10px">&nbsp;
-            <%= image_tag("logo-sello.jpg", class: "dark-logo", alt: "inicio") %>
-          </td>
-          <!--fin de la 4ta columna de la tabla-->
-        </tr>
-      </table>
-
-      <!-- datos de la segunda pagina -->
-      <table width="850" border="1" height="80px">
-          <tr>
-              <tr>
-                <td width="5%" height="50px">&nbsp;
-                  <h3 class="font-bold">
-                    <center>
-                      No.</center>
-                  </h3>
-                </td>
-
-                <td width="50%" height="50px">&nbsp;
-                  <h3 class="font-bold">
-                    <center>
-                      NOMBRES Y APELLIDOS</center>
-                  </h3>
-                </td>
-
-                <td width="30%" height="50px">&nbsp;
-                  <h3 class="font-bold">
-                    <center>
-                      CARNET DE IDENTIDAD</center>
-                  </h3>
-                </td>
-                <% @personas_escogidas.each_with_index do |p, index| %>
-                <% if index > 10 %>
-                  <tr>
-                    <td>
-                      <h3 class="font-bold text-center">
-                        <%= index+1 %>
-                      </h3>
-                    </td>
-
-                    <td>
-                      <h3 class="font-bold text-justify">
-                        <%= p.persona.nombre %>
-                        <%= p.persona.ap_paterno %>
-                        <%= p.persona.ap_materno %>
-                      </h3>
-                    </td>
-
-                    <td>
-                      <h3 class="font-bold text-center">
-                        <%= p.persona.ci %>
-                      </h3>
-                    </td>
-                  </tr>
-                <% end %>
-
-                <% end %>
             </td>
-            </center>
-            </tr>
+            <td style="text-align: right;">
+              <%= image_tag("logo-qr.jpg", class: "dark-logo", alt: "inicio") %>
+            </td>
+          </tr>
         </table>
 
+        <h1>&nbsp;</h1>
 
-
-    <% else %>
-      <table width="850" border="1" height="80px">
+        <table class="tabla-datos">
           <tr>
-            <h3 class="font-bold text-center">
-              <!--1ra columna de la tabla-->
+            <th>No.</th>
+            <th>NOMBRES Y APELLIDOS</th>
+            <th>C.I.</th>
+          </tr>
+          <% @personas_escogidas.each_with_index do |p, index| %>
+            <% if index > 10 %>
               <tr>
-                <td width="5%" height="50px">&nbsp;
-                  <h3 class="font-bold">
-                    <center>
-                      No.</center>
-                  </h3>
+                <td style="text-align: center;"><%= index %></td>
+                <td>
+                  <%= p.persona.nombre %>
+                  <%= p.persona.ap_paterno %>
+                  <%= p.persona.ap_materno %>
                 </td>
-
-                <td width="50%" height="50px">&nbsp;
-                  <h3 class="font-bold">
-                    <center>
-                      NOMBRES Y APELLIDOS</center>
-                  </h3>
-                </td>
-
-                <td width="30%" height="50px">&nbsp;
-                  <h3 class="font-bold">
-                    <center>
-                      CARNET DE IDENTIDAD</center>
-                  </h3>
-                </td>
-                <% @personas_escogidas.each_with_index do |p, index| %>
-                <tr>
-                  <td>
-                    <h3 class="font-bold text-center">
-                      <%= index+1 %>
-                    </h3>
-                  </td>
-
-                  <td>
-                    <h3 class="font-bold text-justify">
-                      <%= p.persona.nombre %>
-                        <%= p.persona.ap_paterno %>
-                          <%= p.persona.ap_materno %>
-                    </h3>
-                  </td>
-
-                  <td>
-                    <h3 class="font-bold text-center">
-                      <%= p.persona.ci %>
-                    </h3>
-                  </td>
-
-                </tr>
-                <% end %>
-            </h3>
-            </td>
-            </center>
-            </tr>
+                <td><%= p.persona.ci %></td>
+              </tr>
+            <% end %>
+          <% end %>
         </table>
-    <% end %>
-  </div>
+      <% end %>
 
-  <div class="form body">
-    <div class="row">
-      <table width="850" border="0" height="80px">
+      <h1>&nbsp;</h1>
+      <p class="contenido">A la fecha <b>NO</b> tiene fallo sancionatorio ejecutoriado en su contra, es cuanto certificamos para los fines consiguientes.
+      </p>
+
+      <table class="cabecera">
         <tr>
-          <td width="850" height="80px">&nbsp;
-            <h2 class="font-Arial text-justify">
-              A la fecha
-              <b>NO</b>
-              tiene fallo sancionatorio ejecutoriado en su contra, es cuanto certificamos para los fines consiguientes.</h2>
+          <td style="text-align: center;">
+            <%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %>
+            <p>M.sc.Mauricio E. Farfan Espinoza</p>    
+            <p>Responsable a.i.</p>    
+            <p>COMISIÓN UNIVERSITARIA DE PROCESOS</p>    
+          </td>
+          <td style="text-align: center;">
+            <%= image_tag("logo-firma.jpg", class: "dark-logo", alt: "inicio") %>
+            <p>Ing. Alberto Arce Tejada</p>    
+            <p>Secretario General</p>    
+            <p>UMSA</p>    
           </td>
         </tr>
       </table>
-
-      <table width="850" border="0" height="80px">
-        <tr>
-          <center>
-            <td>
-              <center>
-                <%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %>
-              </center>
-              <h3>
-                <b>
-                  <center>
-                    M.sc.Mauricio E. Farfan Espinoza<br/>
-                  </center>
-                  <center>Responsable a.i.</center>
-                  <center>COMISIÓN UNIVERSITARIA DE PROCESOS</center>
-                </b>
-              </h3>
-            </td>
-
-            <td width="20px;"></td>
-
-            <!--3ra columna de la tabla-->
-            <td>
-              <center>
-                <%= image_tag("logo-firma.jpg", class: "dark-logo", alt: "inicio") %>
-              </center>
-              <h3>
-                <b>
-                  <center>Ing. Alberto Arce Tejada
-                    <br/>
-                  </center>
-                  <center>Secretario General</center>
-                  <center>
-                    UMSA</center>
-                </b>
-              </h3>
-            </td>
-          </center>
-        </tr>
-      </table>
-
-      <table width="850" border="0" height="80px">
-        <tr>
-          <td width="850" height="80px">&nbsp;
-            <h3 class="font-Arial text-justify">
-              <b>Nota: El certificado tiene vigencia de
-                <b>30 días calendario</b><br>
-              </b>
-              El presente Certificado para su validez debe llevar el
-              <b>sello de Aprobación de Secretaria General</b>
-              más el registro Qr. y solo es para uso interno de la
-              <b>UMSA</b>
-            </h3><br/>
-
-            <h5 class="font-bold text-justify">
-              <b>
-                Reg.No.<%= @datos_impreso.no_reg %>
-                  <br/> C.c.Archivo.
-                  <br/>User/</b>
-            </h5>
-        </tr>
-      </table>
+      
+      <p class="contenido">Nota: El certificado tiene vigencia de 30 días calendario</p>
+      <p class="contenido"> El presente Certificado para su validez debe llevar el <b>sello de Aprobación de Secretaria General</b> más el registro Qr. y solo es para uso interno de la <b>UMSA</b></p>
+      <p>
+         Reg.No.<%= @datos_impreso.no_reg %>
+        <br/> C.c.Archivo.
+        <br/>User/</b>
+      </p>
     </div>
   </div>
 </div>
-<!--fin de 5ta fila-->

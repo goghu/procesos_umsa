@@ -215,13 +215,15 @@ class PersonasController < ApplicationController
   def emisiongrupal
 
     @ultima_impresion = Impreso.maximum("numero")
+    # @ultima_impresion = Egrupal.maximum("impreso_id")
     if @ultima_impresion
       @ultima_impresion
     else
       @ultima_impresion = 1
     end
 
-    @consulta_impresion = Impreso.last
+    # @consulta_impresion = Impreso.last
+    @consulta_impresion = Egrupal.last
 
     respond_to do |format|
       format.html
@@ -231,7 +233,6 @@ class PersonasController < ApplicationController
   end
 
   def guarda_emisiongrupal
-
 
     numero = params[:id_imp]
     datos_impreso = params[:impreso]
@@ -330,7 +331,7 @@ class PersonasController < ApplicationController
   end
 
   def bienvenida
-    
+
   end
 
   private

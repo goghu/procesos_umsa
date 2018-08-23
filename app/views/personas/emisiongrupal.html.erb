@@ -69,8 +69,8 @@ blockquote {
          <div class="row">
            <div class="col-md-8">
              <% if @consulta_impresion %>
-               <% @consulta_impresion.numero.to_i+1 %>
-               <input type="hidden" id="cod_impre" name="id_imp" value='<%= @consulta_impresion.numero.to_i + 1  %>'>
+               <% maximo = @consulta_impresion.impreso_id.to_i + 1 %>
+               <input type="hidden" id="cod_impre" name="id_imp" value='<%= maximo %>'>
              <% else %>
                <input type="hidden" id="cod_impre" name="id_imp" value='1'>
              <% end %>
