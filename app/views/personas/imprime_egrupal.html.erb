@@ -1,7 +1,7 @@
 <style>
 
   blockquote {
-    padding: 1px;
+    padding: 3px;
     border: Black 5px solid;
     border-radius: 15px;
     font-family: Arial Black;
@@ -79,195 +79,194 @@
       <table class="cabecera">
         <tr>
           <td style="width: 60%">
+            <h1>&nbsp;</h1>
+            <h1>&nbsp;</h1>
             <blockquote>
               <h2 class="font-Arial"><p><b>La Paz, <%= @datos_impreso.fecha_emi_certf %></p></b>
-              <p><b>COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %></b></p></h2>
-            </blockquote>
-          </td>
-          <td width="50%" height="0px">&nbsp; 
-          <td style="text-align: right;">
-            <%= image_tag("logo-qr.jpg", class: "dark-logo", alt: "inicio") %>
-          </td>
-          <td style="text-aling: right;">
-        <%= image_tag("logo-sello.jpg", class: "dark-logo", alt: "inicio") %> </td>
-        </tr>
-      </table>
-
-      <p class="contenido" style="font-size: 19pt; font-weight:normal;">
-        La Comision Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andres, a solicitud escrita del Interesado.
-        <hr></hr>
-      </p>
-    <p class="contenido" style="font-size: 35pt; font-weight:normal;"><b><h1>Certifica: </H1></p></b>
-     
-      <p class="contenido" style="font-size: 19pt; font-weight:normal;">
-      Revisada la documentación en la Comisión Universitaria de Procesos, se evidencia que:</p>
-
-      <h5>&nbsp;</h5>
-
-      <% if @personas_escogidas.length <= 10 %>
-
-        <table class="tabla-datos">
-          <tr>
-            <th>No.</th>
-            <th>NOMBRES Y APELLIDOS</th>
-            <th>C.I.</th>
-          </tr>
-          <% @personas_escogidas.each_with_index do |p, index| %>
-              <tr>
-                <td style="text-align: center;"><%= index+1 %></td>
-                <td>
-                  <%= p.persona.nombre %>
-                  <%= p.persona.ap_paterno %>
-                  <%= p.persona.ap_materno %>
-                </td>
-                <td><%= p.persona.ci %></td>
-              </tr>
-          <% end %>
-        </table>
-
-      <% else %>
-
-        <table class="tabla-datos">
-          <tr>
-           
-            <td width="10%" height="50px">&nbsp;
-            <h3 class="font-Arial text-center">
-            <b>No.</b></h3></td>
-
-            <td width="65%" height="50px">&nbsp;
-            <h3 class="font-Arial text-center">
-            <b> Nombres y Apellidos</b></h3></td>
-
-            <td width="25%" height="50px">&nbsp;
-            <h3 class="font-Arial text-center">
-            <b>Carnet de Identidad</b></h3></td>
-
-          </tr>
-           <tr>
-         
-          <% @personas_escogidas.each_with_index do |p, index| %>
-          <% c = index %>
-            <% if index < 12 %>
-
-             
-                 
-                  <td style="text-align: center;"><h4><b><%= c+1 %></b></h4></td>
-                
-                  <td width="65%" height="50px">&nbsp;
-                  <h4 class="font-bold text-justify">
-                    <%= p.persona.nombre %>
-                  <%= p.persona.ap_paterno %>
-                  <%= p.persona.ap_materno %></h4></td>
-                </td>
-
-                <td width="25%" height="50px">&nbsp;
-                <h4 class="font-bold text-center">
-                <%= p.persona.ci %></h4></td></td>
-
-              </tr>
-            <% end %>
-          <% end %>
-        </table>
-
-        <h1>&nbsp;</h1>
-        <h1>&nbsp;</h1>
-        <h1>&nbsp;</h1>
-        <h1>&nbsp;</h1>
-        <h1>&nbsp;</h1>
-        <h1>&nbsp;</h1>
-        <h1>&nbsp;</h1>
-        <h1>&nbsp;</h1>
-        <h1>&nbsp;</h1>
-        <h1>&nbsp;</h1>
-        <h1>&nbsp;</h1>
-        <h1>&nbsp;</h1>
-        
-        
-        <!-- cabecera -->
-        <table class="cabecera">
-          <tr>
-            <td style="width: 60%">
-              <blockquote>
-                <h2 class="font-Arial"><p><b>La Paz, <%= @datos_impreso.fecha_emi_certf %></b></p>
                 <p><b>COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %></b></p></h2>
               </blockquote>
             </td>
-            <td width="50%" height="20px">&nbsp; 
-            <td style="text-align: right;">
-              <%= image_tag("logo-qr.jpg", class: "dark-logo", alt: "inicio") %>
-            </td>
-            
-            <td style="text-aling: right;">
-            <%= image_tag("logo-sello.jpg", class: "dark-logo", alt: "inicio") %> </td>
-          </tr>
-        </table>
 
-        <h1>&nbsp;</h1>
-
-        <table class="tabla-datos">
-          <tr>
-            <th><h3><b>No.</b></h3></th>
-            <th><h3><b>Nombres y Apellidos</b></h3></th>
-            <th><h3><b>Carnet de Identidad</b></h3></th>
-          </tr>
-          
-          <% @personas_escogidas.each_with_index do |p, index| %>
-            <% if index > 12 %>
-
-              <tr>
-                <td style="text-align: center;"><h4><b><%= index %></b></h4></td>
-
-                <td width="65%" height="50px">&nbsp;
-                 <h4 class="font-bold text-justify">
-                 <%= p.persona.nombre %>
-                  <%= p.persona.ap_paterno %>
-                  <%= p.persona.ap_materno %></h4>
-                </td>
-
-                <td width="25%" height="50px">&nbsp;
-                <h4 class="font-bold text-center">
-                <%= p.persona.ci %></h4></td>
-
+            <td width="50%" height="0px">&nbsp; 
+              <td style="text-align: right;">
+                <h1>&nbsp;</h1>
+                <h1>&nbsp;</h1>
+                <%= image_tag("logo-qr.jpg", class: "dark-logo", alt: "inicio") %>
+              </td>
+              <td style="text-aling: right;">
+                <h1>&nbsp;</h1>
+                <h1>&nbsp;</h1>
+                <%= image_tag("logo-sello.jpg", class: "dark-logo", alt: "inicio") %> </td>
               </tr>
-            <% end %>
-          <% end %>
-        </table>
-      <% end %>
+            </table>
 
-      <h1>&nbsp;</h1>
-      <p class="contenido" style="font-size: 19pt; font-weight:normal;">A la fecha <b>NO</b> tiene fallo sancionatorio ejecutoriado en su contra, es cuanto certificamos para los fines consiguientes.<br/>
-      </p>
+            <p class="contenido" style="font-size: 19pt; font-weight:normal;">
+              La Comision Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andres, a solicitud escrita del Interesado.
+              <hr></hr>
+            </p>
+            <p class="contenido" style="font-size: 35pt; font-weight:normal;"><b><h1>Certifica: </H1></p></b>
 
-      <table class="cabecera">
-        <tr>
-          <td style="text-align: center;">
-            <%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %>
-            <h3 class="font-Arial "><b>
-            <p>M.sc.Mauricio E. Farfan Espinoza</p>    
-            <p>Responsable a.i.</p>    
-            <p>COMISIÓN UNIVERSITARIA DE PROCESOS</p></b></h3>   
-          </td>
+              <p class="contenido" style="font-size: 19pt; font-weight:normal;">
+              Revisada la documentación en la Comisión Universitaria de Procesos, se evidencia que:</p>
 
-          <td style="text-align: center;">
-            <%= image_tag("logo-firma.jpg", class: "dark-logo", alt: "inicio") %>
-            <h3 class="font-Arial "><b>
-            <p>Ing. Alberto Arce Tejada</p>    
-            <p>Secretario General</p>    
-            <p>UMSA</p></b></h3>   
-          </td><br/>
-        </tr>
-      </table>
+              <h5>&nbsp;</h5>
 
-    <hr></hr>
+              <% if @personas_escogidas.length < 10 %>
 
-     <p class="contenido"style="font-size: 16pt; font-weight:normal;"> <b>Nota:</b> Para su validez debe llevar el <b>sello de Aprobación de Secretaria General</b> más el registro <b>Qr.</b><br/> El certificado tiene vigencia de <b>30 días calendario</b> y es de uso interno de la <b>UMSA</b></p>
-      
-      
-      <p class="contenido"style="font-size: 12pt; font-weight:bold;">
-         Reg.No.<%= @datos_impreso.no_reg %>
-        <br/> C.c.Archivo.
-        <br/>User/</b>
-      </p>
-    </div>
-  </div>
-</div>
+              <table class="tabla-datos">
+                <tr>
+                  <th>No.</th>
+                  <th>NOMBRES Y APELLIDOS</th>
+                  <th>C.I.</th>
+                </tr>
+                <% @personas_escogidas.each_with_index do |p, index| %>
+                <tr>
+                  <td style="text-align: center;"><%= index+1 %></td>
+                  <td>
+                    <%= p.persona.nombre %>
+                    <%= p.persona.ap_paterno %>
+                    <%= p.persona.ap_materno %>
+                  </td>
+                  <td><%= p.persona.ci %></td>
+                </tr>
+                <% end %>
+              </table>
+
+              <% else %>
+
+              <table class="tabla-datos">
+                <tr>
+
+                  <td width="10%" height="50px">&nbsp;
+                    <h3 class="font-Arial text-center">
+                      <b>No.</b></h3></td>
+
+                      <td width="65%" height="50px">&nbsp;
+                        <h3 class="font-Arial text-center">
+                          <b> Nombres y Apellidos</b></h3></td>
+
+                          <td width="25%" height="50px">&nbsp;
+                            <h3 class="font-Arial text-center">
+                              <b>Carnet de Identidad</b></h3></td>
+
+                            </tr>
+                            <tr>
+
+                              <% @personas_escogidas.each_with_index do |p, index| %>
+                              <% c = index %>
+                              <% if index < 12 %>
+
+
+
+                              <td style="text-align: center;"><h4><b><%= c+1 %></b></h4></td>
+
+                              <td width="65%" height="50px">&nbsp;
+                                <h4 class="font-bold text-justify">
+                                  <%= p.persona.nombre %>
+                                  <%= p.persona.ap_paterno %>
+                                  <%= p.persona.ap_materno %></h4></td>
+                                </td>
+
+                                <td width="25%" height="50px">&nbsp;
+                                  <h4 class="font-bold text-center">
+                                    <%= p.persona.ci %></h4></td></td>
+
+                                  </tr>
+                                  <% end %>
+                                  <% end %>
+                                </table>
+
+                                
+                                <h1>&nbsp;</h1>
+                                <h1>&nbsp;</h1>
+                                <h1>&nbsp;</h1>
+                                <h1>&nbsp;</h1>
+                                
+                                <!-- cabecera -->
+                                <table class="cabecera">
+                                  <tr>
+                                    <td style="width: 60%">
+                                      <blockquote>
+                                        <h2 class="font-Arial"><p><b>La Paz, <%= @datos_impreso.fecha_emi_certf %></b></p>
+                                          <p><b>COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %></b></p></h2>
+                                        </blockquote>
+                                      </td>
+                                      <td width="50%" height="0px">&nbsp; 
+                                        <td style="text-align: right;">
+                                          <%= image_tag("logo-qr.jpg", class: "dark-logo", alt: "inicio") %>
+                                        </td>
+
+                                        <td style="text-aling: right;">
+                                          <%= image_tag("logo-sello.jpg", class: "dark-logo", alt: "inicio") %> </td>
+                                        </tr>
+                                      </table>
+
+                                      <h1>&nbsp;</h1>
+
+                                      <table class="tabla-datos">
+                                        <tr>
+                                          <th><h3><b>No.</b></h3></th>
+                                          <th><h3><b>Nombres y Apellidos</b></h3></th>
+                                          <th><h3><b>Carnet de Identidad</b></h3></th>
+                                        </tr>
+
+                                        <% @personas_escogidas.each_with_index do |p, index| %>
+                                        <% if index > 12 %>
+
+                                        <tr>
+                                          <td style="text-align: center;"><h4><b><%= index %></b></h4></td>
+
+                                          <td width="65%" height="50px">&nbsp;
+                                           <h4 class="font-bold text-justify">
+                                             <%= p.persona.nombre %>
+                                             <%= p.persona.ap_paterno %>
+                                             <%= p.persona.ap_materno %></h4>
+                                           </td>
+
+                                           <td width="25%" height="50px">&nbsp;
+                                            <h4 class="font-bold text-center">
+                                              <%= p.persona.ci %></h4></td>
+
+                                            </tr>
+                                            <% end %>
+                                            <% end %>
+                                          </table>
+                                          <% end %>
+
+                                          <h1>&nbsp;</h1>
+                                          <p class="contenido" style="font-size: 19pt; font-weight:normal;">A la fecha <b>NO</b> tiene fallo sancionatorio ejecutoriado en su contra, es cuanto certificamos para los fines consiguientes.<br/>
+                                          </p>
+
+                                          <table class="cabecera">
+                                            <tr>
+                                              <td style="text-align: center;">
+                                                <%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %>
+                                                <h3 class="font-Arial "><b>
+                                                  <p>M.sc.Mauricio E. Farfan Espinoza</p>    
+                                                  <p>Responsable a.i.</p>    
+                                                  <p>COMISIÓN UNIVERSITARIA DE PROCESOS</p></b></h3>   
+                                                </td>
+
+                                                <td style="text-align: center;">
+                                                  <%= image_tag("logo-firma.jpg", class: "dark-logo", alt: "inicio") %>
+                                                  <h3 class="font-Arial "><b>
+                                                    <p>Ing. Alberto Arce Tejada</p>    
+                                                    <p>Secretario General</p>    
+                                                    <p>UMSA</p></b></h3>   
+                                                  </td><br/>
+                                                </tr>
+                                              </table>
+
+                                              <hr></hr>
+
+                                              <p class="contenido"style="font-size: 16pt; font-weight:normal;"> <b>Nota:</b> Para su validez debe llevar el <b>sello de Aprobación de Secretaria General</b> más el registro <b>Qr.</b><br/> El certificado tiene vigencia de <b>30 días calendario</b> y es de uso interno de la <b>UMSA</b></p>
+
+
+                                              <p class="contenido"style="font-size: 12pt; font-weight:bold;">
+                                               Reg.No.<%= @datos_impreso.no_reg %>
+                                               <br/> C.c.Archivo.
+                                               <br/>User/</b>
+                                             </p>
+                                           </div>
+                                         </div>
+                                        </div>
