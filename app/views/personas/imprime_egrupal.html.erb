@@ -87,11 +87,13 @@
               </blockquote>
             </td>
 
-            <td width="50%" height="0px">&nbsp; 
+            <td width="50%" height="0px">&nbsp;
               <td style="text-align: right;">
                 <h1>&nbsp;</h1>
                 <h1>&nbsp;</h1>
-                <%= image_tag("logo-qr.jpg", class: "dark-logo", alt: "inicio") %>
+                <div style="" id="codigoQR">
+
+                </div>
               </td>
               <td style="text-aling: right;">
                 <h1>&nbsp;</h1>
@@ -102,7 +104,7 @@
 
             <p class="contenido" style="font-size: 19pt; font-weight:normal;">
               La Comision Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andres, a solicitud escrita del Interesado.
-              <hr></hr>
+              <hr><hr />
             </p>
             <p class="contenido" style="font-size: 35pt; font-weight:normal;"><b><h1>Certifica: </H1></p></b>
 
@@ -111,7 +113,7 @@
 
               <h5>&nbsp;</h5>
 
-              <% if @personas_escogidas.length < 10 %>
+              <% if (@personas_escogidas.length < 10) %>
 
               <table class="tabla-datos">
                 <tr>
@@ -176,12 +178,12 @@
                                   <% end %>
                                 </table>
 
-                                
+
                                 <h1>&nbsp;</h1>
                                 <h1>&nbsp;</h1>
                                 <h1>&nbsp;</h1>
                                 <h1>&nbsp;</h1>
-                                
+
                                 <!-- cabecera -->
                                 <table class="cabecera">
                                   <tr>
@@ -191,9 +193,11 @@
                                           <p><b>COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %></b></p></h2>
                                         </blockquote>
                                       </td>
-                                      <td width="50%" height="0px">&nbsp; 
+                                      <td width="50%" height="0px">&nbsp;
                                         <td style="text-align: right;">
-                                          <%= image_tag("logo-qr.jpg", class: "dark-logo", alt: "inicio") %>
+                                            <div style="" id="codigoQR2">
+
+                                            </div>
                                         </td>
 
                                         <td style="text-aling: right;">
@@ -242,17 +246,17 @@
                                               <td style="text-align: center;">
                                                 <%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %>
                                                 <h3 class="font-Arial "><b>
-                                                  <p>M.sc.Mauricio E. Farfan Espinoza</p>    
-                                                  <p>Responsable a.i.</p>    
-                                                  <p>COMISIÓN UNIVERSITARIA DE PROCESOS</p></b></h3>   
+                                                  <p>M.sc.Mauricio E. Farfan Espinoza</p>
+                                                  <p>Responsable a.i.</p>
+                                                  <p>COMISIÓN UNIVERSITARIA DE PROCESOS</p></b></h3>
                                                 </td>
 
                                                 <td style="text-align: center;">
                                                   <%= image_tag("logo-firma.jpg", class: "dark-logo", alt: "inicio") %>
                                                   <h3 class="font-Arial "><b>
-                                                    <p>Ing. Alberto Arce Tejada</p>    
-                                                    <p>Secretario General</p>    
-                                                    <p>UMSA</p></b></h3>   
+                                                    <p>Ing. Alberto Arce Tejada</p>
+                                                    <p>Secretario General</p>
+                                                    <p>UMSA</p></b></h3>
                                                   </td><br/>
                                                 </tr>
                                               </table>
@@ -270,3 +274,20 @@
                                            </div>
                                          </div>
                                         </div>
+
+<% content_for :add_js do %>
+  <script src="<%= asset_path '/js/jquery-qrcode-0.14.0.js' %>"></script>
+  <script>
+      var textoqr = "La Paz, <%= @datos_impreso.fecha_emi_certf %> \n COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %> \n Reg.No.<%= @datos_impreso.no_reg %>";
+
+      var options = {
+        render: 'image'
+        , size: 95
+        , background: '#fdfdfd'
+        , text: textoqr
+      };
+      var divSelector = '#codigoQR';
+      $('#codigoQR').qrcode(options);
+      $('#codigoQR2').qrcode(options);
+    </script>
+<% end %>
