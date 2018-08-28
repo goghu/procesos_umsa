@@ -1,7 +1,7 @@
 <style>
 
   blockquote {
-    padding: 3px;
+    padding: 1px;
     border: Black 5px solid;
     border-radius: 15px;
     font-family: Arial Black;
@@ -57,7 +57,7 @@
     }
 
     .impresion {
-      width: 850px;
+      width: 900px;
     }
 
     .cabecera {
@@ -74,13 +74,13 @@
 
 <!--1ra fila tabla para poner fecha del certificado-->
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-lg-12">
     <div class="impresion">
       <table class="cabecera">
         <tr>
           <td style="width: 60%">
             <h1>&nbsp;</h1>
-            <h1>&nbsp;</h1>
+            
             <blockquote>
               <h2 class="font-Arial"><p><b>La Paz, <%= @datos_impreso.fecha_emi_certf %></p></b>
                 <p><b>COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %></b></p></h2>
@@ -90,12 +90,12 @@
             <td width="50%" height="0px">&nbsp; 
               <td style="text-align: right;">
                 <h1>&nbsp;</h1>
-                <h1>&nbsp;</h1>
+                
                 <%= image_tag("logo-qr.jpg", class: "dark-logo", alt: "inicio") %>
               </td>
               <td style="text-aling: right;">
                 <h1>&nbsp;</h1>
-                <h1>&nbsp;</h1>
+                
                 <%= image_tag("logo-sello.jpg", class: "dark-logo", alt: "inicio") %> </td>
               </tr>
             </table>
@@ -181,7 +181,7 @@
                                 <h1>&nbsp;</h1>
                                 <h1>&nbsp;</h1>
                                 <h1>&nbsp;</h1>
-                                
+                                <h1>&nbsp;</h1>
                                 <!-- cabecera -->
                                 <table class="cabecera">
                                   <tr>
