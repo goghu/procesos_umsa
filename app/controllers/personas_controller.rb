@@ -1,5 +1,4 @@
 class PersonasController < ApplicationController
-
   before_action :set_persona, only: [:show, :edit, :update, :destroy]
 
   # GET /personas
@@ -33,11 +32,11 @@ class PersonasController < ApplicationController
 
     respond_to do |format|
       if @persona.save
-        format.html {redirect_to personas_url, notice: 'Persona was successfully created.'}
-        format.json {render :show, status: :created, location: @persona}
+        format.html { redirect_to personas_url, notice: "Persona was successfully created." }
+        format.json { render :show, status: :created, location: @persona }
       else
-        format.html {render :new}
-        format.json {render json: @persona.errors, status: :unprocessable_entity}
+        format.html { render :new }
+        format.json { render json: @persona.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,11 +46,11 @@ class PersonasController < ApplicationController
   def update
     respond_to do |format|
       if @persona.update(persona_params)
-        format.html {redirect_to personas_url, notice: 'Persona was successfully updated.'}
-        format.json {render :show, status: :ok, location: @persona}
+        format.html { redirect_to personas_url, notice: "Persona was successfully updated." }
+        format.json { render :show, status: :ok, location: @persona }
       else
-        format.html {render :edit}
-        format.json {render json: @persona.errors, status: :unprocessable_entity}
+        format.html { render :edit }
+        format.json { render json: @persona.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -62,15 +61,16 @@ class PersonasController < ApplicationController
     idPer = params[:id]
     person = Persona.find(idPer)
     person.borrado = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+  person.nombre
     person.save
     respond_to do |format|
-      format.html {redirect_to personas_url, notice: 'La Persona fue eliminado correctamente'}
-      format.json {head :no_content}
+      format.html { redirect_to personas_url, notice: 'La Persona fue eliminado correctamente' }
+      format.json { head :no_content }
     end
   end
 
   def solodocentes
-    @solodocentes = Persona.where(tipo: 'Docente')
+    @solodocentes = Persona.where(tipo: "Docente")
   end
 
   def solouniversitarios
@@ -82,12 +82,12 @@ class PersonasController < ApplicationController
   end
 
   def usuarios
-   #@nombre = Persona.where(tipo:"Usuario")
+    # @nombre = Persona.where(tipo:"Usuario")
   end
 
-#fallo inicio buscador#
+  # fallo inicio buscador#
   def fallo
-    #@nombre = Persona.where(tipo:"fallo")
+    # @nombre = Persona.where(tipo:"fallo")
   end
 
   def guarda_fallo
@@ -95,7 +95,7 @@ class PersonasController < ApplicationController
     datos_form_persona = params[:persona]
 
     # capturamos los datos para guardar
-    ci_persona = datos_form_persona[:ci]
+    # ci_persona = datos_form_persona[:ci]
     fallo = datos_form_persona[:fallo]
     id_per = datos_form_persona[:id]
 
@@ -123,21 +123,20 @@ class PersonasController < ApplicationController
   end
 
   def bs_ci_ajax
-   ci_buscar = params[:ci]
-   @datos_personas = Persona.where("ci like ?",  "%#{ci_buscar}%")
-   respond_to do |format|
-     format.html { @datos_personas }
-     format.json { render json: @datos_personas }
-   end
-   render layout: false
+    ci_buscar = params[:ci]
+    @datos_personas = Persona.where("ci like ?", "%#{ci_buscar}%")
+    respond_to do |format|
+      format.html { @datos_personas }
+      format.json { render json: @datos_personas }
+    end
+    render layout: false
   end
-    #fin de busqueda de fallo#
 
-
+  #fin de busqueda de fallo#
 
   #emision inicio de buscador#
   def emisioncertf
-   #@nombre = Persona.where(tipo:"Emision")
+    #@nombre = Persona.where(tipo:"Emision")
   end
 
   def guarda_emision
@@ -161,7 +160,7 @@ class PersonasController < ApplicationController
     nueva_impresos.fecha_emi_certf = fecha_emi_certf
     nueva_impresos.correlt_certf = correlt_certf
     nueva_impresos.no_reg = no_reg
-    nueva_impresos.numero = numero.to_i+1
+    nueva_impresos.numero = numero.to_i + 1
     nueva_impresos.persona_id = id_personas
     nueva_impresos.save
 
@@ -172,13 +171,12 @@ class PersonasController < ApplicationController
     actualiza_persona.no_reg = no_reg
     actualiza_persona.save
 
-    redirect_to :action => 'imprimir1', :id_persona => id_personas
-  #byebug
+    redirect_to :action => "imprimir1", :id_persona => id_personas
+    #byebug
   end
 
- def imprimir1
-
-  id_persona = params[:id_persona]
+  def imprimir1
+    id_persona = params[:id_persona]
     #@datos_denuncia = Denuncium.where("persona_id = ?", id_persona)
     @datos_persona = Persona.where("id = ?", id_persona).last
     # byebug
@@ -186,23 +184,23 @@ class PersonasController < ApplicationController
       format.html { @datos_persona }
       format.json { render json: @datos_persona }
     end
-
   end
 
   def bu_ci_ajax
-   ci_buscar = params[:ci]
-   @datos_personas = Persona.where("ci like ?",  "%#{ci_buscar}%")
-   respond_to do |format|
-     format.html { @datos_personas }
-     format.json { render json: @datos_personas }
-  end
-  render layout: false
+    ci_buscar = params[:ci]
+    @datos_personas = Persona.where("ci like ?", "%#{ci_buscar}%")
+    respond_to do |format|
+      format.html { @datos_personas }
+      format.json { render json: @datos_personas }
+    end
+    render layout: false
   end
 
   def elimina_persona_grupal
     Egrupal.destroy(params[:id_egrupal])
   end
-#fin de busqueda de emision#
+
+  #fin de busqueda de emision#
 
 =begin
     @persona.destroys
@@ -212,8 +210,7 @@ class PersonasController < ApplicationController
     end
 =end
 
-  def emisiongrupal
-
+def emisiongrupal
     @ultima_impresion = Impreso.maximum("numero")
     # @ultima_impresion = Egrupal.maximum("impreso_id")
     if @ultima_impresion
@@ -229,11 +226,9 @@ class PersonasController < ApplicationController
       format.html
       format.json { render json: PersonaDatatable.new(view_context) }
     end
-
   end
 
   def guarda_emisiongrupal
-
     numero = params[:id_imp]
     datos_impreso = params[:impreso]
     datos_persona = params[:egrupal]
@@ -255,10 +250,9 @@ class PersonasController < ApplicationController
     dato_impreso = Impreso.find(id_impreso)
     numero_impresion = dato_impreso.numero
 
-    Egrupal.where('impreso_id = ?', numero_impresion).update_all(impreso_id: id_impreso)
+    Egrupal.where("impreso_id = ?", numero_impresion).update_all(impreso_id: id_impreso)
 
-    redirect_to :action => 'imprime_egrupal', :id_impreso => numero_impresion
-
+    redirect_to :action => "imprime_egrupal", :id_impreso => numero_impresion
   end
 
   def imprime_egrupal
@@ -274,7 +268,6 @@ class PersonasController < ApplicationController
   end
 
   def imprimir2
-
     id_persona = params[:id_persona]
     #@datos_denuncia = Denuncium.where("persona_id = ?", id_persona)
     @datos_persona = Persona.where("id = ?", id_persona).last
@@ -283,17 +276,16 @@ class PersonasController < ApplicationController
       format.html { @datos_persona }
       format.json { render json: @datos_persona }
     end
-
   end
 
- # def bg_ci_ajax
+  # def bg_ci_ajax
   # ci_buscar = params[:ci]
-   #@datos_personas = Persona.where("ci like ?",  "%#{ci_buscar}%")
-   #respond_to do |format|
-    # format.html { @datos_personas }
-     #format.json { render json: @datos_personas }
-   #end
-    #render layout: false
+  #@datos_personas = Persona.where("ci like ?",  "%#{ci_buscar}%")
+  #respond_to do |format|
+  # format.html { @datos_personas }
+  #format.json { render json: @datos_personas }
+  #end
+  #render layout: false
   #end
 
   def guarda_persona_id
@@ -308,7 +300,6 @@ class PersonasController < ApplicationController
   end
 
   def mostrar_antes_imprimir
-
   end
 
   def guarda_grupal
@@ -331,10 +322,10 @@ class PersonasController < ApplicationController
   end
 
   def bienvenida
-
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_persona
     @persona = Persona.find(params[:id])
@@ -342,7 +333,7 @@ class PersonasController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def persona_params
-    params.require(:persona).permit(:item, :ci, :nombre, :ap_paterno, :ap_materno, :facultad, :carrera, :tipo, :fallo, :direccion, :telefono,:categoria, :observacion, :fecha, :borrado)
+    params.require(:persona).permit(:item, :ci, :nombre, :ap_paterno, :ap_materno, :facultad, :carrera, :tipo, :fallo, :direccion, :telefono, :categoria, :observacion, :fecha, :borrado)
   end
 
   def guarda_usuario
@@ -358,7 +349,5 @@ class PersonasController < ApplicationController
   end
 
   def jquery
-
   end
-
 end
