@@ -29,7 +29,7 @@ class PersonasController < ApplicationController
   # POST /personas.json
   def create
     @persona = Persona.new(persona_params)
-
+ 
     respond_to do |format|
       if @persona.save
         format.html { redirect_to personas_url, notice: "Persona was successfully created." }
