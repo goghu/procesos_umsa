@@ -1,151 +1,126 @@
-<style type="text/css">
-blockquote {
-  padding: 0px 0px;
-  border: Black 5px solid;
-  border-radius: 10px;
-}
-.tabla-impresion{
-  border: 0px solid #54667a;
-  width: 100%;
-}
+<style>
 
-.tabla-impresion tr td{
-  border: 0px solid #54667a;
-  padding: 0px;
-  font-size: 9pt;
-}
-.tabla-impresion-cabecera tr td{
-  width: 0%;
-  padding: 0px;
-  font-size: 9pt;
-}
-.tabla-impresion tr td.montos{
-  border: 0px solid #54667a;
-  padding: 0px;
-  font-size: 9pt;
-  text-align: right;
-}
-.tabla-impresion thead tr th{
-  text-align: center;
-  border: 0px solid black;
-  font-weight: bold;
-}
-.mmt1{
- margin-top: -0px;
-}
-#nada {
-margin: 0;
-padding: 0;
-border-width: 0;
-}
-@media print {
-   .left-sidebar{
-    display: none;
+  blockquote {
+    padding: 1px;
+    border: Black 5px solid;
+    border-radius: 15px;
+    font-family: Arial Black;
+    font-weight: bold;
+    font-size: 10pt;
   }
 
-  .topbar{
-    display: none;
+  .impresion {
+    width: 850px;
+    color: #000000;
   }
 
-  .tabla-impresion{
-    border: 0px solid #54667a;
+  .cabecera {
     width: 100%;
   }
 
-  .tabla-impresion tr td{
-    border: 0px solid #54667a;
-    padding: 0px;
-    font-size: 9pt;
+  .contenido {
+    text-align: justify;
+    font-size: 14pt;
   }
-  .tabla-impresion-cabecera tr td{
-    width: 0%;
-    padding: 0px;
-    font-size: 9pt;
+
+  .tabla-datos {
+    margin: auto;
+    border: 0px solid #000000;
+    width: 80%;
   }
-  .tabla-impresion tr td.montos{
-    border: 0px solid #54667a;
-    padding: 0px;
-    font-size: 9pt;
-    text-align: right;
+
+  .tabla-datos tr td{
+    border: 1px solid #000000;
+    padding-left: -5px;
   }
-  .tabla-impresion thead tr th{
+
+  .tabla-datos tr th{
+    border: 1px solid #000000;
+    font-weight: 700;
     text-align: center;
-    border: 0px solid black;
-    font-weight: bold;
   }
-  .mmt1{
-   margin-top: -0px;
+
+  @media print {
+
+    .left-sidebar {
+      display: none;
+    }
+
+    .topbar {
+      display: none;
+    }
+
+    blockquote {
+      padding: 1px;
+      border: Black 5px solid;
+      border-radius: 15px;
+    }
+
+    .impresion {
+      width: 900px;
+    }
+
+    .cabecera {
+      width: 100%;
+    }
+
+    .contenido {
+      text-align: justify;
+      font-size: 14pt;
+    }
+
   }
- .clase-impresion{
-    color: black;
-    width: 100px;
-    font-size: 12pt;
-  }
-  .no-imprime{
-    display: none;
-  }
-  .page-wrapper{
-    margin-left: 0px;
-  }
-}
 </style>
 
    
 </style>
 <!--h2>Emision de Certificados</h2-->
 <!--1ra fila tabla para poner fecha del certificado-->
-<div class="form body">
-  <div class="row">
-   <table width="800" border="0" height="20px">
-    <tr>
-      <td width="30%" height="20px">&nbsp;
-        <b><blockquote>
-          <time datetime= "strftime">
-            <h2 class ="font-Arial"><b> 
-              La Paz,
-              <%= @datos_persona.fecha_emi_certf %> </b>
-            </h2> </time>
-
-            <h2 class ="font-Arial"><b>
-              COM.UNIV.PROC.CERTF:<%= @datos_persona.correlt_certf %></b></h2>
-            </blockquote></b>
+<div class="row">
+  <div class="col-lg-12">
+    <div class="impresion">
+      <table class="cabecera">
+        <tr>
+          <td style="width: 50%">
+            <h1>&nbsp;</h1>
+            <h1>&nbsp;</h1>
+       <blockquote>
+        <h2 class ="font-Arial">
+          <p><b>La Paz, <%= @datos_persona.fecha_emi_certf %></b></p>
+          <b><p>COM.UNIV.PROC.CERTF:<%= @datos_persona.correlt_certf %></p></b>
+        </h2>
+       </blockquote>
           </td>
-          <!--2da columna de la tabla-->
-          <td width="60%" height="20px">&nbsp;</td>
-          <!--fin de la 2da columna de la tabla-->
 
-          <!--fin de la 3ra columna de la tabla-->
-          <td width="5%" height="10px">&nbsp;
-            <%= image_tag("logo-qr.jpg", class: "dark-logo", alt: "inicio") %></td>
-            <!--fin de la 3ra columna de la tabla-->
-
-            <!--fin de la 4ta columna de la tabla-->
-            <td width="5%" height="10px">&nbsp;
-              <%= image_tag("logo-sello.jpg", class: "dark-logo", alt: "inicio") %> </td>
-              <!--fin de la 4ta columna de la tabla-->
-            </tr>
-          </table>
-        </div>
-      </div>
-
-      <div class="form body">
-        <div class="row">
-          <table width="800" border="0" height="80px">
-            <tr>
-              <td width="800" height="70px">&nbsp;
-                <p> <hr> <h2 class="font-Arial - text-justify">
-                  <div id "nada">La Comisión Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andrés, a solicitud escrita del Interesado.</h2> </p> </hr>
-                    <br> <h1 class="font-bold"> Certifica:</h1> </br>
-                    <h2 class="font-Arial - text-justify"> Que, revisada la documentación en la Comisión Universitaria de Procesos, se evidencia que:</h2>
-                  </table>
+          <td width="50%" height="0px">&nbsp;
+              <td style="text-align: right;">
+                <div style="" id="codigoQR">
+                <h1>&nbsp;</h1>
                 </div>
-              </div>
+              </td>
+              <td style="text-aling: right;">
+                <h1>&nbsp;</h1>
 
-              <div class="form body">
-                <div class="row">
-                  <table width="800" border="0" height="80px">
+            <%= image_tag("logo-sello.jpg", class: "dark-logo", alt: "inicio") %>
+          </td>
+        </tr>
+      </table>
+      
+      <p class="contenido" style="font-size: 19pt; font-weight:normal;">
+       La Comisión Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andrés, a solicitud escrita del Interesado.
+       <hr> </hr>
+     </p>
+
+      <p class="contenido" style="font-size: 32pt; font-weight:normal;"><b><h1>Certifica: </H1></p></b>
+
+      <p class="contenido" style="font-size: 19pt; font-weight:normal;">
+      Revisada la documentación en la Comisión Universitaria de Procesos, se evidencia que:</p>
+  <hr> </hr>
+               
+           
+                  <table width="800" border="0" height="60px">
                     <tr> <center>
-                      <td width="800" height="70px">&nbsp;
+                      <td width="800" height="60px">&nbsp;
                         <h1 class="font-bold text-center">
                           <% debug @datos_persona %>
                           <%= @datos_persona.nombre %> 
@@ -155,57 +130,48 @@ border-width: 0;
                         <h1 class="font-bold text-center">C.I. No.
                           <%= @datos_persona.ci %></h1></td>
                         </center></tr></table>
-                      </div>
-                    </div>
+                      
+<hr> </hr>
+                 
 
-                  
-                    <div class="form body">
-                      <div class="row">
-                        <table width="800" border="0" height="80px">
-                          <tr> <center>
-                            <td width="800" height="70px">&nbsp;    
-                              <h2 class="font-Arial text-justify">
-                               A la fecha 
-                               <b><%= @datos_persona.fallo %></b> tiene fallo sancionatorio ejecutoriado en su contra, es cuanto certificamos para los fines consiguientes.</h2> 
-                             </td></center></tr></table>
-                           </div>
-                         </div>
+                  <p class="contenido" style="font-size: 19pt; font-weight:normal;">A la fecha <b>NO</b> tiene fallo sancionatorio ejecutoriado en su contra, es cuanto certificamos para los fines consiguientes.<br/>
+                  </p>
 
 
-                         <div class="form body">
-                          <div class="row">
-                           <table width="800" border="0" height="90px">
-                            <tr> <center>
-                             <td><center><%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %></center>
-                              <h3><b><center>
-                                M.Sc. Mauricio E. Farfan Espinoza<BR /></center>
-                                <center>Responsable a.i.</center>
-                                <center>COMISIÓN UNIVERSITARIA DE PROCESOS</center></b></h3></td> 
 
-                                <td width="20px"></td>
+                         <table class="cabecera">
+                                            <tr>
+                                              <td style="text-align: center;">
+                                                <%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %>
+                                                <h3 class="font-Arial "><b>
+                                                  <p>M.sc.Mauricio E. Farfan Espinoza</p>
+                                                  <p>Responsable a.i.</p>
+                                                  <p>COMISIÓN UNIVERSITARIA DE PROCESOS</p></b></h3>
+                                                </td>
 
-                                <!--3ra columna de la tabla-->
-                                <td><center><%= image_tag("logo-firma.jpg", class: "dark-logo", alt: "inicio") %></center>
-                                  <h3><b>
-                                    <center>Ing. Alberto Arce Tejada <br/></center>
-                                    <center>SECRETARIO GENERAL</center>
-                                    <center>UMSA</center></b></h3></td>
-                                  </center></tr></table>
-                                </div>
-                              </div>        
+                                                <td style="text-align: center;">
+                                                  <%= image_tag("logo-firma.jpg", class: "dark-logo", alt: "inicio") %>
+                                                  <h3 class="font-Arial "><b>
+                                                    <p>Ing. Alberto Arce Tejada</p>
+                                                    <p>Secretario General</p>
+                                                    <p>UMSA</p></b></h3>
+                                                  </td><br/>
+                                                </tr>
+                                              </table>
 
-                              <div class="form body">
-                                <div class="row">
-                                 <table width="800" border="0" height="80px">
-                                  <tr>
-                                   <td width="800" height="70px">&nbsp;    
-                                     <h3 class="font-Arial text-justify">
-                                      <b>Nota:</b> Para su validez debe llevar el <b>sello de Aprobación de Secretaria General</b> más el registro Qr.<br/>
-                                      El certificado tiene vigencia de <b>30 días calendario</b> y es de uso interno de la <b>UMSA</b></h3><br/>
-                                       <h5 class="font-Arial text-justify">     
-                                        <b> Reg.No.<%= @datos_persona.no_reg %><br/>C.c.Archivo.<br/>User/</b>
-                                      </h5></td>
-                                    </tr></table>
-                                    </div>
-                                  </div>
-<!--fin de 5ta fila-->
+                                              <hr></hr>       
+
+                             <p class="contenido"style="font-size: 16pt; font-weight:normal;"> <b>Nota:</b> Para su validez debe llevar el <b>sello de Aprobación de Secretaria General</b> más el registro <b>Qr.</b><br/> El certificado tiene vigencia de <b>30 días calendario</b> y es de uso interno de la <b>UMSA</b></p>
+
+
+                                              <p class="contenido"style="font-size: 12pt; font-weight:bold;">
+                                               Reg.No.<%= @datos_persona.no_reg %>
+                                               <br/> C.c.Archivo.
+                                               <br/>User/</b>
+                                             </p>
+                                           </div>
+                                         </div>
+                                        </div>
+
+
+             
