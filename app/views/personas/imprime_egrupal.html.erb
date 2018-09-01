@@ -114,7 +114,7 @@
 
               <% if (@personas_escogidas.length < 10) %>
 
-              <table class="tabla-datos">
+              <H4><table class="tabla-datos">
                 <tr>
                   <th>No.</th>
                   <th>NOMBRES Y APELLIDOS</th>
@@ -131,7 +131,7 @@
                   <td><%= p.persona.ci %></td>
                 </tr>
                 <% end %>
-              </table>
+              </table></H4>
 
               <% else %>
 
@@ -277,7 +277,7 @@
 <% content_for :add_js do %>
   <script src="<%= asset_path '/js/jquery-qrcode-0.14.0.js' %>"></script>
   <script>
-      var textoqr = "La Paz, <%= @datos_impreso.fecha_emi_certf %> \n COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %> \n Reg.No.<%= @datos_impreso.no_reg %>";
+      var textoqr = " Secretaria General Ing. Alberto Arce Tejada UMSA La Paz, <%= @datos_impreso.fecha_emi_certf %> \n COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %> \n Reg.No.<%= @datos_impreso.no_reg %>";
 
       var options = {
         render: 'image'

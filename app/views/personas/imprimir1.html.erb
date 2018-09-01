@@ -206,7 +206,7 @@
     <% content_for :add_js do %>
         <script src="<%= asset_path '/js/jquery-qrcode-0.14.0.js' %>"></script>
         <script>
-            var textoqr = "La Paz, <%= @datos_persona.fecha_emi_certf %> \n COM.UNIV.PROC.CERTF: <%= @datos_persona.correlt_certf %> \n Reg.No.<%= @datos_persona.no_reg %>";
+            var textoqr = "Secretaria General Ing. Alberto Arce Tejada UMSA La Paz, <%= @datos_persona.fecha_emi_certf %> \n COM.UNIV.PROC.CERTF: <%= @datos_persona.correlt_certf %> \n Reg.No.<%= @datos_persona.no_reg %>";
 
             var options = {
                 render: 'image',

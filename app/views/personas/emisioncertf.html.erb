@@ -104,7 +104,7 @@ blockquote {
     var campo_texto = $("#persona_ci").val();
     var cantidad_letras = campo_texto.length;
     // console.log('var: '+campo_texto);
-    if(cantidad_letras > 4){        
+    if(cantidad_letras > 3){        
       $.ajax({
         type: 'GET',
         url: '/persona/bu_ci_ajax/'+campo_texto,
