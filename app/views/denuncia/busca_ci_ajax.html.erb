@@ -3,11 +3,11 @@
 		<tr>
 			<td>ID</td>
 			<td>CI</td>
-			<td>NOMBRE</td>
+			<td>NO1MBRE</td>
 			<td>FACULTAD</td>
 			<td>CARRERA</td>
-			<td>DIRECCION</td>
-			<td>TELEFONO</td>
+			<td>OBSERVACION</td>
+			<td>FALLO</td>
 			<td>TIPO CRT</td>
 			<td></td>
 		</tr>
@@ -20,8 +20,8 @@
 			<td><%= dp.ap_paterno %> <%= dp.ap_materno %> <%= dp.nombre %></td>
 			<td><%= dp.facultad %></td>
 			<td><%= dp.carrera %></td>
-			<td><%= dp.direccion %></td>
-			<td><%= dp.telefono %></td>
+			<td><%= dp.observacion %></td>
+			<td><%= dp.fallo %></td>
 			<td><%= dp.tipo %></td>
 			<td>
 				<button  
@@ -51,6 +51,9 @@
 		var nombre = $.trim(tableData[2]);
 		var facultad = $.trim(tableData[3]);
 		var carrera = $.trim(tableData[4]);
+		var observacion = $.trim(tableData[5]);
+		var fallo = $.trim(tableData[6]);
+		var tipo = $.trim(tableData[7]);
 
 		var btn = "<a href='/denuncia/impresion/"+id+"'>Imprimir</a>";
 
