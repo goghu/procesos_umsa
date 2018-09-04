@@ -1,35 +1,41 @@
+<!--FALLO-->
 <table class="table table-striped">
-    <thead>
-        <tr>
-            <td>ID</td>
-            <td>CI</td>
-            <td>NOMBRE_APELLIDOS</td>
-            <td>FACULTAD</td>
-            <td>CARRERA</td>
-            <td>TIPO</td>
-            <td></td>
-        </tr>
-    </thead>
-    <tbody>
-        <% @datos_personas.each do |fp| %>
-            <tr id="<%= fp.id %>" class="table">
-                <td><%= fp.id %></td>
-                <td><%= fp.ci %></td>
-                <td><%= fp.ap_paterno %>
-                    <%= fp.ap_materno %>
-                    <%= fp.nombre %></td>
-
-                <td><%= fp.facultad %></td>
-                <td><%= fp.carrera %></td>
-                <td><%= fp.tipo %></td>
-                <td>
-                    <button type='button' id='bt_sel' class='btn btn-success'>
-                        <i class='mdi mdi-check'></i>
-                    </button>
-                </td>
-            </tr>
-        <% end %>
-    </tbody>
+	<thead>
+		<tr>
+			<td>ID</td>
+			<td>CI</td>
+			<td>NOMBRE_APELLIDOS</td>
+			<td>FACULTAD</td>
+			<td>CARRERA</td>
+			<td>OBSERVACION</td>
+			<td>FALLO</td>
+			<td>TIPO</td>
+			<td></td>
+		</tr>
+	</thead>
+	<tbody>
+		<% @datos_personas.each do |fp| %>
+		<tr id="<%= fp.id %>" class="table">
+			<td><%= fp.id %></td>
+			<td><%= fp.ci %></td>
+			<td><%= fp.ap_paterno %> <%= fp.ap_materno %> <%= fp.nombre %></td>
+			
+			<td><%= fp.facultad %></td>
+			<td><%= fp.carrera %></td>
+			<td><%= fp.observacion %></td>
+			<td><%= fp.fallo %></td>
+			<td><%= fp.tipo %></td>
+			<td>
+				<button  
+				type='button'
+				id='bt_sel' 
+				class='btn btn-success'>
+				<i class='mdi mdi-check'></i></button>
+			</td>			
+		</tr>
+		<% end %>
+	</tbody>
+>>>>>>> 69b0ee367ae2057320ebae743a4e441ec4c656f7
 </table>
 
 <script type="text/javascript">
