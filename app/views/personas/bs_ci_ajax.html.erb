@@ -1,70 +1,67 @@
 <table class="table table-striped">
-	<thead>
-		<tr>
-			<td>ID</td>
-			<td>CI</td>
-			<td>NOMBRE_APELLIDOS</td>
-			<td>FACULTAD</td>
-			<td>CARRERA</td>
-			<td>DIRECCION</td>
-			<td>TELEFONO</td>
-			<td>TIPO</td>
-			<td></td>
-		</tr>
-	</thead>
-	<tbody>
-		<% @datos_personas.each do |fp| %>
-		<tr id="<%= fp.id %>" class="table">
-			<td><%= fp.id %></td>
-			<td><%= fp.ci %></td>
-			<td><%= fp.ap_paterno %> <%= fp.ap_materno %> <%= fp.nombre %></td>
-			
-			<td><%= fp.facultad %></td>
-			<td><%= fp.carrera %></td>
-			<td><%= fp.direccion %></td>
-			<td><%= fp.telefono %></td>
-			<td><%= fp.tipo %></td>
-			<td>
-				<button  
-				type='button'
-				id='bt_sel' 
-				class='btn btn-success'>
-				<i class='mdi mdi-check'></i></button>
-			</td>			
-		</tr>
-		<% end %>
-	</tbody>
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>CI</td>
+            <td>NOMBRE_APELLIDOS</td>
+            <td>FACULTAD</td>
+            <td>CARRERA</td>
+            <td>TIPO</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        <% @datos_personas.each do |fp| %>
+            <tr id="<%= fp.id %>" class="table">
+                <td><%= fp.id %></td>
+                <td><%= fp.ci %></td>
+                <td><%= fp.ap_paterno %>
+                    <%= fp.ap_materno %>
+                    <%= fp.nombre %></td>
+
+                <td><%= fp.facultad %></td>
+                <td><%= fp.carrera %></td>
+                <td><%= fp.tipo %></td>
+                <td>
+                    <button type='button' id='bt_sel' class='btn btn-success'>
+                        <i class='mdi mdi-check'></i>
+                    </button>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
 </table>
 
 <script type="text/javascript">
 
-	$("tr.table").click(function() {
-		
-		var tableData = $(this).children("td").map(function() {
-			return $(this).text();
-		}).get();
+    $("tr.table").click(function () {
 
-		// var btn = "<button type='button' id='bt_sel' class='btn btn-success'>				<i class='mdi mdi-check'></i></button>";
+        var tableData = $(this)
+            .children("td")
+            .map(function () {
+                return $(this).text();
+            })
+            .get();
 
-		var id = $.trim(tableData[0]);
-		var ci = $.trim(tableData[1]);
-		var nombre = $.trim(tableData[2]);
-		var facultad = $.trim(tableData[3]);
-		var carrera = $.trim(tableData[4]);
+        // var btn = "<button type='button' id='bt_sel' class='btn btn-success'>				<i
+        // class='mdi mdi-check'></i></button>";
 
-		var btn = "<a href='/persona/imprime/"+id+"'>Imprimir</a>";
+        var id = $.trim(tableData[0]);
+        var ci = $.trim(tableData[1]);
+        var nombre = $.trim(tableData[2]);
+        var facultad = $.trim(tableData[3]);
+        var carrera = $.trim(tableData[4]);
 
-		$("#carga_nombre").html('<input name="persona[id]" value="'+id+'"><b>CI: </b> '+ci+' <b> NOMBRE </b>'+nombre+'-'+btn);
+        $("#carga_nombre").html(
+            '<input type="hidden" name="persona[id]" value="' + id + '"><b>CI: </b> ' + ci + ' <b> NOMBRE' +
+            ' </b>' + nombre
+        );
 
-		// console.log(tableData);
+        // console.log(tableData); alert("Your data is: " + $.trim(tableData[0]) + " , "
+        // + $.trim(tableData[1]) + " , " + $.trim(tableData[2]));
+    });
 
-		// alert("Your data is: " + $.trim(tableData[0]) + " , " + $.trim(tableData[1]) + " , " + $.trim(tableData[2]));
-	});
-
-	// function carga_datos(id_persona){
-	// 	var nombre = $("#per_nom").val();
-	// 	var facultad = $("#per_fac").val();
-	// 	$("#carga_nombre").html('<b>'+nombre+facultad+'</b>');
-	// 	// alert(nombre);
-	// }
+    // function carga_datos(id_persona){ 	var nombre = $("#per_nom").val(); 	var
+    // facultad = $("#per_fac").val();
+    // $("#carga_nombre").html('<b>'+nombre+facultad+'</b>');   alert(nombre); }
 </script>

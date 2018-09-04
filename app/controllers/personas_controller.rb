@@ -98,10 +98,12 @@ class PersonasController < ApplicationController
     # ci_persona = datos_form_persona[:ci]
     fallo = datos_form_persona[:fallo]
     id_per = datos_form_persona[:id]
+    obs = datos_form_persona[:observaciones]
 
     # guardamos la nueva denuncia
     nueva_denuncia = Denuncium.new
     nueva_denuncia.fallo = fallo
+    nueva_denuncia.observaciones = obs
     nueva_denuncia.persona_id = id_per
     nueva_denuncia.save
 
