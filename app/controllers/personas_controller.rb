@@ -110,7 +110,12 @@ class PersonasController < ApplicationController
     #actualizamos el fallo de la persona
     actualiza_persona = Persona.find_by(id: id_per)
     actualiza_persona.fallo = fallo
+    actualiza_persona.observacion = obs
     actualiza_persona.save
+
+    flash[:notice] = "Se guardo correctamente los datos"
+    redirect_to :action => "fallo"
+
   end
 
   def imprime
