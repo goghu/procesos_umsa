@@ -349,6 +349,7 @@ def emisiongrupal
     nuevo_usuario.ap_paterno = params[:ap_paterno]
     nuevo_usuario.ap_materno = params[:ap_materno]
     nuevo_usuario.email = params[:email]
+    nuevo_usuario.tipo_user = params[:tipo_user]
     # nuevo_usuario.encrypted_password = params[:contra]
     nuevo_usuario.save
     # guarda_en_user = user.new
