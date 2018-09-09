@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="card card-outline-info">
+
+      <div class="card-block">
+        <%= form_tag('/persona/guarda_usuario', method: "POST") do |form| %>
+          <div class="form-body">
+            <div class="row p-t-20">
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="control-label">Nombre</label>
+                  <%= text_field_tag :nombre, nil, class: 'form-control', required: 'required' %>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="control-label">Apellido Paterno</label>
+                  <%= text_field_tag :ap_paterno, nil, class: 'form-control', required: 'required' %>
+                </div>
+              </div>
+
+              <!--/span-->
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="control-label">Apellido Materno</label>
+                  <%= text_field_tag :ap_materno, nil, class: 'form-control', required: 'required' %>
+                </div>
+              </div>
+              <!--/span-->
+            </div>
+
+            <div class="row p-t-20">
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label">Email</label>
+                    <%= text_field_tag :email, nil, class: 'form-control', required: 'required' %>
+                  </div>
+                </div>
+  
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label">Password</label>
+                    <%= text_field_tag :contra, nil, class: 'form-control', required: 'required' %>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label class="control-label">Tipo</label>
+                    <%= select_tag(:user_id, options_for_select([['Administrador', 'Administrador'], ['Abogado', 'Abogado'], ['Secretaria', 'Secretaria']]),class: 'form-control')%>
+                  </div>
+                </div>
+
+            </div>
+
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Save</button>
+            <button type="button" class="btn btn-inverse">Cancel</button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

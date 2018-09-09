@@ -331,6 +331,38 @@ def emisiongrupal
   def bienvenida
   end
 
+  def muestra_usuarios
+    @usuarios = User.all  
+  end
+
+  def nuevo_usuario
+    # @usuario = User.new
+  end
+
+  def guarda_usuario
+    # byebug
+    nuevo_usuario = User.new
+    if params[:contra] != ''
+      nuevo_usuario.password = params[:contra]
+    end
+    nuevo_usuario.nombre = params[:nombre]
+    nuevo_usuario.ap_paterno = params[:ap_paterno]
+    nuevo_usuario.ap_materno = params[:ap_materno]
+    nuevo_usuario.email = params[:email]
+    # nuevo_usuario.encrypted_password = params[:contra]
+    nuevo_usuario.save
+    # guarda_en_user = user.new
+    # guarda_en_user.user_id = params[:id_user]
+    # guarda_en_user.username = params[:username]
+    # guarda_en_user.ap_paterno = params[:ap_paterno]
+    # guarda_en_user.ap_materno = params[:ap_materno]
+    # guarda_en_user.tipo_user = params[:tipo_user]
+    # guarda_en_user.contrasena = params[:contrasena]
+    # guarda_en_user.save
+    # redirect_to
+    redirect_to :action => "nuevo_usuario"
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -340,19 +372,7 @@ def emisiongrupal
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def persona_params
-    params.require(:persona).permit(:item, :ci, :nombre, :ap_paterno, :ap_materno, :facultad, :carrera, :tipo, :fallo, :direccion, :telefono, :categoria, :observacion, :fecha, :borrado)
-  end
-
-  def guarda_usuario
-    # byebug
-    guarda_en_user = user.new
-    guarda_en_user.user_id = params[:id_user]
-    guarda_en_user.username = params[:username]
-    guarda_en_user.ap_paterno = params[:ap_paterno]
-    guarda_en_user.ap_materno = params[:ap_materno]
-    guarda_en_user.tipo_user = params[:tipo_user]
-    guarda_en_user.contrasena = params[:contrasena]
-    guarda_en_user.save
+    params.require(:persona).permit(:item, :ci, :nombre, :ap_paterno, :email, :contra, :ap_materno, :facultad, :carrera, :tipo, :fallo, :direccion, :telefono, :categoria, :observacion, :fecha, :borrado)
   end
 
   def jquery
