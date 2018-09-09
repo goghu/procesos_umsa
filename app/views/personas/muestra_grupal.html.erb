@@ -1,0 +1,43 @@
+<table class="display nowrap table table-hover table-striped table-bordered">
+	<tr>
+		<td>ID</td>
+		<td>CI</td>
+		<td>Nombre</td>
+		<td>Fallo</td>
+		<td></td>
+	</tr>
+	<% @consulta_grupo.each_with_index do |pg, index| %>
+	<tr>
+		<td>
+			<%= pg.persona.id %>
+			<%= hidden_field_tag("egrupal[persona_id][#{index}]", pg.persona.id) %>		
+		</td>
+		<td><%= pg.persona.ci %></td>
+		<td><%= pg.persona.nombre %><%= pg.persona.ap_paterno %><%= pg.persona.ap_materno %></td>
+		<td><%= pg.persona.fallo %></td>
+		<td>
+			<button type="button" onclick="eliminar_persona_js(<%= pg.id %>)" id="bt_sel" class="btn btn-danger"><i class="mdi mdi-backspace"></i></button>
+		</td>
+	</tr>
+	<% end %>
+</table>
+<% con_impreso = Impreso.where(id: @consulta_grupo[0].impreso_id) %>
+<script>
+	<% if !con_impreso.empty? %>
+		var cod_impresion = <%= con_impreso.ids %>
+	<% else %>
+		var cod_impresion = 1
+	<% end %>
+	function eliminar_persona_js(id_egrupal){
+		// alert("el id es "+id_persona);
+		$.ajax({
+			type: 'GET',
+			url: '/persona/elimina_persona_grupal/'+id_egrupal,
+			data: {"dato_crt": cod_impresion},
+			success: function(data, textStatus, jqXHR){
+        // alert('entro');
+        $("#los_seleccionados").load('/persona/muestra_grupal/'+cod_impresion);
+      }
+    });
+	}
+</script>
