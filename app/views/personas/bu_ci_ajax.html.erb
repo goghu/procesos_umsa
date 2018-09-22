@@ -5,9 +5,10 @@
 			<td>ID</td>
 			<td>CI</td>
 			<td>NOMBRE</td>
-			<td>CARRERA</td>
-			<td>OBSERVACION</td>
 			<td>FALLO</td>
+			<td>REVISADO</td>
+			<td>OBSERVACION</td>
+			<td>CARRERA</td>
 			<td></td>
 		</tr>
 	</thead>
@@ -17,9 +18,15 @@
 			<td><%= ep.id %></td>
 			<td><%= ep.ci %></td>
 			<td><%= ep.ap_paterno %> <%= ep.ap_materno %> <%= ep.nombre %></td>
-			<td><%= ep.carrera %></td>
-			<td><%= ep.observacion %></td>
 			<td><%= ep.fallo %></td>
+			<td><%= ep.rev_inic %></td>
+			<td><%= ep.observacion %></td>
+			<td><%= ep.no_inf %></td>
+			<td><%= ep.fecha %></td>
+			<td><%= ep.codigo_caso %></td>
+			<td><%= ep.tipo_resol %></td>
+			<td><%= ep.h_ruta %></td>
+			<td><%= ep.carrera %></td>
 			<td>
 				<button  
 				type='button'
@@ -58,9 +65,16 @@
 		var nombre = $.trim(tableData[2]);
 		var carrera = $.trim(tableData[3]);
 		var fallo = $.trim(tableData[4]);
+		var rev_inic = $.trim(tableData[5]);
+		var observacion = $.trim(tableData[6]);
+		var no_inf = $.trim(tableData[7]);
+		var fecha = $.trim(tableData[8]);
+		var codigo_caso = $.trim(tableData[9]);
+		var tipo_resol = $.trim(tableData[10]);
+		var h_ruta = $.trim(tableData[11]);
 
 		$("#carga_nombre").html('<input type="hidden" name="persona[id]" value="'+id+'">');
-		$("#carga_nombre").append('<h3><b>CI: </b> '+ci+' <br /><b>NOMBRE: </b>'+nombre+'<br /><b>CARRERA: </b>'+carrera+'<br /><b>FALLO: </b>'+fallo+'</h3>');
+		$("#carga_nombre").append('<h3><b>CI: </b> '+ci+' <br /><b>NOMBRE: </b>'+nombre+'<br /><b>CARRERA: </b>'+carrera+'<br /><b>FALLO: </b>'+fallo+'<br/> <b>REVISADO: </b>'+rev_inic+'<br/> <b>OBSERVACION: </b>'+observacion+'<br/> <b>no_inf: </b>'+no_inf+' <br/> <b>fecha: </b>'+fecha+' <br/> <b>codigo_caso: </b>'+codigo_caso+' <br/> <b>tipo_resol: </b>'+tipo_resol+' <br/> <b>h_ruta: </b>'+h_ruta+' </h3>');
 
 		// console.log(tableData);
 

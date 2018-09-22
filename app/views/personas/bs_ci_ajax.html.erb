@@ -1,15 +1,15 @@
-<!--FALLO-->
+0<!--FALLO-->
 <table class="table table-striped">
 	<thead>
 		<tr>
 			<td>ID</td>
 			<td>CI</td>
 			<td>NOMBRE_APELLIDOS</td>
+			<td>FALLO</td>
+			<td>OBSERVACION</td>
+			<td>TIPO</td>
 			<td>FACULTAD</td>
 			<td>CARRERA</td>
-			<td>OBSERVACION</td>
-			<td>FALLO</td>
-			<td>TIPO</td>
 			<td></td>
 		</tr>
 	</thead>
@@ -19,12 +19,17 @@
 			<td><%= fp.id %></td>
 			<td><%= fp.ci %></td>
 			<td><%= fp.ap_paterno %> <%= fp.ap_materno %> <%= fp.nombre %></td>
-			
+			<td><%= fp.fallo %></td>
+			<td><%= fp.observacion %></td>
+			<td><%= fp.tipo %></td>
+			<td><%= fp.no_inf %></td>
+			<td><%= fp.fecha %></td>
+			<td><%= fp.codigo_caso %></td>
+			<td><%= fp.tipo_resol %></td>
+			<td><%= fp.h_ruta %></td>
 			<td><%= fp.facultad %></td>
 			<td><%= fp.carrera %></td>
-			<td><%= fp.observacion %></td>
-			<td><%= fp.fallo %></td>
-			<td><%= fp.tipo %></td>
+			
 			<td>
 				<button  
 				type='button'

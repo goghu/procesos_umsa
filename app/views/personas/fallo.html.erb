@@ -33,7 +33,7 @@ blockquote {
         <%= form_tag('/persona/guarda_fallo', method: "POST")do %>
           <div class="form-body">
 
-          <!--Primera fila-->
+          <!--1ra fila-->
             <div class="row">
           <!-- 1ra columna-->
            <div class="col-md-2">
@@ -59,7 +59,9 @@ blockquote {
               } 
               %>
               </div>
+              <!-- fin 2da columna -->
 
+            <!-- fin 3ra columna -->
               <div class="col-md-8">
                 <div class="form-group">
                   <label class="control-label"> 
@@ -68,6 +70,76 @@ blockquote {
                   <%= text_field(:persona, :observaciones, class: 'form-control', required: 'required') %>
                 </div>
               </div>
+              <!-- fin 3ra columna -->
+
+              <!--2da fila-->
+            <div class="row">
+              <!--1ra columna-->
+              <div class="col-md-2">
+                
+                  <label class="control-label"> 
+                    <h3> &nbsp;&nbsp;Revisado:</h3>
+                  </label>
+                  <%= text_field(:persona, :rev_inic, class: 'form-control', required: 'required') %>
+                </div>
+
+              <div class="col-md-6">
+                
+                  <label class="control-label"> 
+                    <h3> &nbsp;&nbsp;COM.UNIV.PROC.INF.No.</h3>
+                  </label>
+                  <%= text_field(:persona, :no_inf, class: 'form-control', required: 'required') %>
+                </div>
+                
+              <div class="col-md-4">
+                
+                  <label class="control-label"> 
+                    <h3> &nbsp;&nbsp;fecha_Informe:</h3>
+                  </label>
+                  <%= date_field_tag("persona[fecha]", nil, class:  'form-control', :required => true) %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!--3ra fila-->
+            <div class="row">
+              <!--1ra columna-->
+              <div class="col-md-4">
+                
+                  <label class="control-label"> 
+                    <h3> &nbsp;&nbsp;Caso.CUP.</h3>
+                  </label>
+                  <%= text_field(:persona, :codigo_caso, class: 'form-control', required: 'required') %>
+                </div>
+
+               <!--2da columna--> 
+              <div class="col-md-4">
+                
+                  <label class="control-label"> 
+                    <h3> &nbsp;&nbsp;Tipo de Resolucion:</h3>
+                  </label>
+                  <%= text_field(:persona, :tipo_resol, class: 'form-control', required: 'required') %>
+                </div>
+
+                   <!--3ra columna-->
+              <div class="col-md-4">
+                
+                  <label class="control-label"> 
+                    <h3> &nbsp;&nbsp;Hoja/Ruta</h3>
+                  </label>
+                  <%= text_field(:persona, :h_ruta, class: 'form-control', required: 'required') %>
+                </div>
+                </div>
+                </div>
+              </div>
+             </div>
+             
+            
+              
+
+
 
             </div>
           <!--fin 2da columna-->

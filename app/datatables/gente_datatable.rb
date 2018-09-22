@@ -9,8 +9,9 @@ class GenteDatatable < AjaxDatatablesRails::Base
       id: { source: "Persona.id", cond: :eq,  searchable: false },
       ci: { source: "Persona.ci", cond: :like },
       nombre: { source: "Persona.nombre", cond: :like },
-      carrera: { source: "Persona.carrera", cond: :like },
       fallo: { source: "Persona.fallo", cond: :like },
+      observacion: { source: "Persona.observacion", cond: :like },
+      carrera: { source: "Persona.carrera", cond: :like },
     }
   end
 
@@ -23,8 +24,9 @@ class GenteDatatable < AjaxDatatablesRails::Base
         id: record.id,
         ci: record.ci,
         nombre: record.nombre,
-        carrera: record.carrera,
         fallo: record.fallo,
+        observacion: record.observacion,
+        carrera: record.carrera,
         acciones: dt_actions(record.id)
       }
     end
@@ -33,7 +35,7 @@ class GenteDatatable < AjaxDatatablesRails::Base
   def get_raw_records
     # insert query here
     # User.all
-    Persona.select("personas.id, personas.ci, personas.nombre, personas.facultad, personas.carrera, personas.fallo")
+    Persona.select("personas.id, personas.ci, personas.nombre, personas.fallo, personas.observacion, personas.carrera")
   end
   def dt_actions(id_persona)
     #code

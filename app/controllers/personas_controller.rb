@@ -99,18 +99,35 @@ class PersonasController < ApplicationController
     fallo = datos_form_persona[:fallo]
     id_per = datos_form_persona[:id]
     obs = datos_form_persona[:observaciones]
-
+    rev_inic = datos_form_persona[:rev_inic]
+    no_inf = datos_form_persona[:no_inf]
+    fecha = datos_form_persona[:fecha]
+    codigo_caso = datos_form_persona[:codigo_caso]
+    tipo_resol = datos_form_persona[:tipo_resol]
+    h_ruta = datos_form_persona[:h_ruta]
     # guardamos la nueva denuncia
     nueva_denuncia = Denuncium.new
     nueva_denuncia.fallo = fallo
+    nueva_denuncia.rev_inic = rev_inic
     nueva_denuncia.observaciones = obs
+    nueva_denuncia.no_inf = no_inf
+    nueva_denuncia.fecha = fecha
+    nueva_denuncia.codigo_caso = codigo_caso
+    nueva_denuncia.tipo_resol = tipo_resol
+    nueva_denuncia.h_ruta = h_ruta
     nueva_denuncia.persona_id = id_per
     nueva_denuncia.save
 
     #actualizamos el fallo de la persona
     actualiza_persona = Persona.find_by(id: id_per)
     actualiza_persona.fallo = fallo
+    actualiza_persona.rev_inic = rev_inic
     actualiza_persona.observacion = obs
+    actualiza_persona.no_inf = no_inf
+    actualiza_persona.fecha = fecha
+    actualiza_persona.codigo_caso = codigo_caso
+    actualiza_persona.tipo_resol = tipo_resol
+    actualiza_persona.h_ruta = h_ruta
     actualiza_persona.save
 
     flash[:notice] = "Se guardo correctamente los datos"
