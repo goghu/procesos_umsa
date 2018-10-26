@@ -4,11 +4,12 @@
 			<td>ID</td>
 			<td>CI</td>
 			<td>NOMBRE</td>
-			<td>FACULTAD</td>
-			<td>CARRERA</td>
 			<td>OBSERVACION</td>
 			<td>FALLO</td>
 			<td>TIPO</td>
+			<td>REVISADO</td>
+			<td>FACULTAD</td>
+			<td>CARRERA</td>
 			<td></td>
 		</tr>
 	</thead>
@@ -18,11 +19,17 @@
 			<td><%= dp.id %></td>
 			<td><%= dp.ci %></td>
 			<td><%= dp.ap_paterno %> <%= dp.ap_materno %> <%= dp.nombre %></td>
+			<td><%= dp.fallo %></td>
+			<td><%= dp.observacion %></td>
+			<td><%= dp.rev_inic %></td>
+			<td><%= dp.tipo %></td>
+			<td><%= fp.no_inf %></td>
+			<td><%= fp.fecha %></td>
+			<td><%= fp.codigo_caso %></td>
+			<td><%= fp.tipo_resol %></td>
+			<td><%= fp.h_ruta %></td>
 			<td><%= dp.facultad %></td>
 			<td><%= dp.carrera %></td>
-			<td><%= dp.observacion %></td>
-			<td><%= dp.fallo %></td>
-			<td><%= dp.tipo %></td>
 			<td>
 				<button  
 				type='button'
@@ -48,6 +55,14 @@
 		var id = $.trim(tableData[0]);
 		var ci = $.trim(tableData[1]);
 		var nombre = $.trim(tableData[2]);
+		var fallo = $.trim(tableData[3]);
+		var observacion = $.trim(tableData[4]);
+        var rev_inic = $.trim(tableData[5]);
+		var no_inf = $.trim(tableData[6]);
+		var fecha = $.trim(tableData[7]);
+		var codigo_caso = $.trim(tableData[8]);
+		var tipo_resol = $.trim(tableData[9]);
+		var h_ruta = $.trim(tableData[10]);
 		var facultad = $.trim(tableData[3]);
 		var carrera = $.trim(tableData[4]);
 
