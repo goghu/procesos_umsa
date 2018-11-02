@@ -82,3 +82,4 @@ procesos.sublime-workspace
 p_u.code-workspace
 
 .vscode/settings.json
+.byebug_history

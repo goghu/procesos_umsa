@@ -253,6 +253,7 @@ def emisiongrupal
   end
 
   def guarda_emisiongrupal
+
     numero = params[:id_imp]
     datos_impreso = params[:impreso]
     datos_persona = params[:egrupal]
@@ -281,12 +282,8 @@ def emisiongrupal
 
   def imprime_egrupal
 
-    #byebug
-    # agarramos los datos del array de persona
-    datos_form_persona = params[:persona]
-
     # byebug
-    @datos_impreso = Impreso.where("numero = ?", params[:id_impreso]).first
+    @datos_impreso = Impreso.where("id = ?", params[:id_impreso]).first
     @personas_escogidas = Egrupal.where("impreso_id = ?", @datos_impreso)
     # byebug
   end
