@@ -33,7 +33,7 @@ class PersonaDatatable < AjaxDatatablesRails::Base
   def get_raw_records
     # inschert query here
     # Persona.maximum("created_at").select("personas.id, personas.ci, personas.nombre")
-    Persona.select("personas.id, personas.ci, personas.nombre, personas.fallo, personas.observacion, personas.carrera, ")
+    Persona.select("personas.id, personas.ci, personas.nombre, personas.fallo, personas.observacion, personas.carrera")
   end
 
   def dt_actions(id_persona)

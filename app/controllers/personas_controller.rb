@@ -1,6 +1,5 @@
 class PersonasController < ApplicationController
   before_action :set_persona, only: [:show, :edit, :update, :destroy]
-
   # GET /personas
   # GET /personas.json
   def index
@@ -91,6 +90,7 @@ class PersonasController < ApplicationController
   end
 
   def guarda_fallo
+    # byebug
     # agarramos los datos del array de persona
     datos_form_persona = params[:persona]
 
@@ -119,15 +119,15 @@ class PersonasController < ApplicationController
     nueva_denuncia.save
 
     #actualizamos el fallo de la persona
-    actualiza_persona = Persona.find_by(id: id_per)
+    actualiza_persona = Persona.find(id_per)
     actualiza_persona.fallo = fallo
     actualiza_persona.rev_inic = rev_inic
     actualiza_persona.observacion = obs
-    #actualiza_persona.no_inf = no_inf
-    #actualiza_persona.fecha = fecha
-    #actualiza_persona.codigo_caso = codigo_caso
-    #actualiza_persona.tipo_resol = tipo_resol
-    #actualiza_persona.h_ruta = h_ruta
+    actualiza_persona.no_inf = no_inf
+    actualiza_persona.fecha = fecha
+    actualiza_persona.codigo_caso = codigo_caso
+    actualiza_persona.tipo_resol = tipo_resol
+    actualiza_persona.h_ruta = h_ruta
     actualiza_persona.save
 
     flash[:notice] = "Se guardo correctamente los datos"
@@ -390,7 +390,7 @@ def emisiongrupal
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def persona_params
-    params.require(:persona).permit(:item, :ci, :nombre, :ap_paterno, :email, :contra, :ap_materno, :facultad, :carrera, :tipo, :fallo, :direccion, :telefono, :categoria, :observacion, :fecha, :borrado)
+    params.require(:persona).permit(:item, :ci, :nombre, :ap_paterno, :email, :contra, :ap_materno, :facultad, :carrera, :tipo, :fallo, :direccion, :telefono, :categoria, :observacion, :fecha, :borrado, :codigo_caso, :tipo_resol, :h_ruta)
   end
 
   def jquery
