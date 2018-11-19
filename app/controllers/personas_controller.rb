@@ -121,7 +121,6 @@ class PersonasController < ApplicationController
     #actualizamos el fallo de la persona
     actualiza_persona = Persona.find(id_per)
     actualiza_persona.fallo = fallo
-
     actualiza_persona.rev_inic = rev_inic
     actualiza_persona.observacion = obs
     actualiza_persona.no_inf = no_inf
@@ -129,9 +128,7 @@ class PersonasController < ApplicationController
     actualiza_persona.codigo_caso = codigo_caso
     actualiza_persona.tipo_resol = tipo_resol
     actualiza_persona.h_ruta = h_ruta
-
     actualiza_persona.observacion = observacion
-
     actualiza_persona.save
 
     flash[:notice] = "Se guardo correctamente los datos"
