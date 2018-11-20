@@ -144,7 +144,7 @@ class ExcelsController < ApplicationController
           puts "H_ruta -- #{workbook[0][cont][18].value}"
           puts "Correlt_certf -- #{workbook[0][cont][19].value}"
           puts "No_Reg -- #{workbook[0][cont][20].value}"
-          puts "Fecha_emis_certf -- #{workbook[0][cont][21].value}"
+         
 
           # validamos para que el carnet para que no se repitan las personas
           p = Persona.new
@@ -163,13 +163,13 @@ class ExcelsController < ApplicationController
           p.rev_inic = workbook[0][cont][12].value
           p.observacion = workbook[0][cont][13].value
           p.no_inf = workbook[0][cont][14].value
-          p.fecha_Informe = workbook[0][cont][15].value
+          p.fecha = workbook[0][cont][15].value
           p.codigo_caso = workbook[0][cont][16].value
           p.tipo_resol = workbook[0][cont][17].value
           p.h_ruta = workbook[0][cont][18].value
           p.correlt_certf = workbook[0][cont][19].value
           p.no_reg = workbook[0][cont][20].value
-          p.fecha_emi_certf = workbook[0][cont][21].value
+          
           p.save
         end
 

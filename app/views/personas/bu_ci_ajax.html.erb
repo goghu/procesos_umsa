@@ -5,10 +5,11 @@
 			<td>ID</td>
 			<td>CI</td>
 			<td>NOMBRE</td>
+			<td>CARRERA</td>
 			<td>FALLO</td>
 			<td>REVISADO</td>
 			<td>OBSERVACION</td>
-			<td>CARRERA</td>
+			
 			<td></td>
 		</tr>
 	</thead>
@@ -18,6 +19,7 @@
 			<td><%= ep.id %></td>
 			<td><%= ep.ci %></td>
 			<td><%= ep.ap_paterno %> <%= ep.ap_materno %> <%= ep.nombre %></td>
+			<td><%= ep.carrera %></td>
 			<td><%= ep.fallo %></td>
 			<td><%= ep.rev_inic %></td>
 			<td><%= ep.observacion %></td>
@@ -26,7 +28,6 @@
 			<td><%= ep.codigo_caso %></td>
 			<td><%= ep.tipo_resol %></td>
 			<td><%= ep.h_ruta %></td>
-			<td><%= ep.carrera %></td>
 			<td>
 				<button  
 				type='button'
