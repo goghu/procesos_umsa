@@ -135,9 +135,17 @@ class ExcelsController < ApplicationController
           puts "Telefono -- #{workbook[0][cont][9].value}"
           puts "Categoria -- #{workbook[0][cont][10].value}"
           puts "Fallo -- #{workbook[0][cont][11].value}"
-          puts "Observacion -- #{workbook[0][cont][12].value}"
-          puts "Correlt_certf -- #{workbook[0][cont][13].value}"
-          puts "No_Reg -- #{workbook[0][cont][14].value}"
+          puts "Revisado -- #{workbook[0][cont][12].value}"
+          puts "Observacion -- #{workbook[0][cont][13].value}"
+          puts "No_informe -- #{workbook[0][cont][14].value}"
+          puts "Fecha -- #{workbook[0][cont][15].value}"
+          puts "Codg_caso -- #{workbook[0][cont][16].value}"
+          puts "Tipo_resol -- #{workbook[0][cont][17].value}"
+          puts "H_ruta -- #{workbook[0][cont][18].value}"
+          puts "Correlt_certf -- #{workbook[0][cont][19].value}"
+          puts "No_Reg -- #{workbook[0][cont][20].value}"
+          puts "Fecha_emis_certf -- #{workbook[0][cont][21].value}"
+
           # validamos para que el carnet para que no se repitan las personas
           p = Persona.new
           p.item = workbook[0][cont][0].value
@@ -152,9 +160,16 @@ class ExcelsController < ApplicationController
           p.telefono = workbook[0][cont][9].value
           p.categoria = workbook[0][cont][10].value
           p.fallo = workbook[0][cont][11].value
-          p.observacion = workbook[0][cont][12].value
-          p.correlt_certf = workbook[0][cont][13].value
-          p.no_reg = workbook[0][cont][14].value
+          p.rev_inic = workbook[0][cont][12].value
+          p.observacion = workbook[0][cont][13].value
+          p.no_inf = workbook[0][cont][14].value
+          p.fecha_Informe = workbook[0][cont][15].value
+          p.codigo_caso = workbook[0][cont][16].value
+          p.tipo_resol = workbook[0][cont][17].value
+          p.h_ruta = workbook[0][cont][18].value
+          p.correlt_certf = workbook[0][cont][19].value
+          p.no_reg = workbook[0][cont][20].value
+          p.fecha_emi_certf = workbook[0][cont][21].value
           p.save
         end
 
