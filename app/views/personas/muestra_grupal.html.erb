@@ -1,35 +1,41 @@
-<table class="display nowrap table table-hover table-striped table-bordered">
-	<tr>
-		<td>ID</td>
-		<td>CI</td>
-		<td>Nombre</td>
-		<td>Fallo</td>
-		<td></td>
-	</tr>
+Cantidad: <b><%= @cantidad_personas %></b> Personas para el certificado 
+<table class="display nowrap table table-hover table-striped table-bordered" id="mi_tabla_grupal">
+	<thead>
+		<tr>
+			<th>No</th>
+			<th>CI</th>
+			<th>Nombre</th>
+			<th>Fallo</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
 	<% @consulta_grupo.each_with_index do |pg, index| %>
-	<tr>
-		<td>
-			<%= pg.persona.id %>
-			<%= hidden_field_tag("egrupal[persona_id][#{index}]", pg.persona.id) %>		
-		</td>
-		<td><%= pg.persona.ci %></td>
-		<td><%= pg.persona.nombre %><%= pg.persona.ap_paterno %><%= pg.persona.ap_materno %></td>
-		<td><%= pg.persona.fallo %></td>
-		<td>
-			<button type="button" onclick="eliminar_persona_js(<%= pg.id %>)" id="bt_sel" class="btn btn-danger"><i class="mdi mdi-backspace"></i></button>
-		</td>
-	</tr>
+		<tr>
+			<td>
+				<%= index+1 %>
+				<%# pg.persona.id %>
+				<%= hidden_field_tag("egrupal[persona_id][#{index}]", pg.persona.id) %>		
+			</td>
+			<td><%= pg.persona.ci %></td>
+			<td><%= pg.persona.nombre %><%= pg.persona.ap_paterno %><%= pg.persona.ap_materno %></td>
+			<td><%= pg.persona.fallo %></td>
+			<td>
+				<button type="button" onclick="eliminar_persona_js(<%= pg.id %>)" id="bt_sel" class="btn btn-danger"><i class="mdi mdi-backspace"></i></button>
+			</td>
+		</tr>
 	<% end %>
+	</tbody>
 </table>
-<% con_impreso = Impreso.where(id: @consulta_grupo[0].impreso_id) %>
+
 <script>
-	<% if !con_impreso.empty? %>
-		var cod_impresion = <%= con_impreso.ids %>
-	<% else %>
-		var cod_impresion = 1
-	<% end %>
+	var cod_impresion = <%= @id_impresion %>;
+	$(document).ready(function () {
+		$('#mi_tabla_grupal').dataTable();
+	});
+
 	function eliminar_persona_js(id_egrupal){
-		// alert("el id es "+id_persona);
+		// alert("el id es "+id_egrupal);
 		$.ajax({
 			type: 'GET',
 			url: '/persona/elimina_persona_grupal/'+id_egrupal,

@@ -222,6 +222,7 @@ class PersonasController < ApplicationController
   end
 
   def elimina_persona_grupal
+    # byebug
     Egrupal.destroy(params[:id_egrupal])
   end
 
@@ -235,18 +236,17 @@ class PersonasController < ApplicationController
     end
 =end
 
-def emisiongrupal
-    @ultima_impresion = Impreso.maximum("numero")
-    # @ultima_impresion = Egrupal.maximum("impreso_id")
-    if @ultima_impresion
-      @ultima_impresion
-    else
-      @ultima_impresion = 1
-    end
+  def emisiongrupal
 
-    # @consulta_impresion = Impreso.last
-    @consulta_impresion = Egrupal.last
+    ultimo_numero = Impreso.last
 
+    modelo_impreso = Impreso.new
+    modelo_impreso.user_id = current_user.id
+    modelo_impreso.numero = ultimo_numero.numero.to_i+1
+    modelo_impreso.save
+    
+    @id_impreso = modelo_impreso.id
+    
     respond_to do |format|
       format.html
       format.json { render json: PersonaDatatable.new(view_context) }
@@ -266,12 +266,13 @@ def emisiongrupal
     #   @ultima_impresion = 1
     # end
 
-    modelo_impreso = Impreso.new
-    modelo_impreso.fecha_emi_certf = datos_impreso[:fecha_emi_certf]
-    modelo_impreso.no_reg = datos_impreso[:no_reg]
-    modelo_impreso.correlt_certf = datos_impreso[:correlt_certf]
-    modelo_impreso.numero = numero
-    modelo_impreso.save
+    # modelo_impreso = Impreso.new
+    # modelo_impreso.fecha_emi_certf = datos_impreso[:fecha_emi_certf]
+    # modelo_impreso.no_reg = datos_impreso[:no_reg]
+    # modelo_impreso.correlt_certf = datos_impreso[:correlt_certf]
+    # modelo_impreso.numero = numero
+    # modelo_impreso.save
+
     id_impreso = modelo_impreso.id
     dato_impreso = Impreso.find(id_impreso)
     numero_impresion = dato_impreso.numero
@@ -326,19 +327,27 @@ def emisiongrupal
 
   def guarda_grupal
     # byebug
-    guarda_en_grupo = Egrupal.new
-    guarda_en_grupo.persona_id = params[:id_persona]
-    guarda_en_grupo.impreso_id = params[:cod_impresion]
-    guarda_en_grupo.save
+    consulta_duplicados = Egrupal.where(impreso_id: params[:cod_impresion], persona_id: params[:id_persona])
+    if consulta_duplicados.present?
+      
+    else
+      guarda_en_grupo = Egrupal.new
+      guarda_en_grupo.persona_id = params[:id_persona]
+      guarda_en_grupo.impreso_id = params[:cod_impresion]
+      guarda_en_grupo.save
+    end
   end
 
   def muestra_grupal
     # byebug
     @consulta_grupo = Egrupal.where("impreso_id = ?", params[:cod_impresion])
+    @cantidad_personas = Egrupal.where("impreso_id = ?", params[:cod_impresion]).count
+    @id_impresion = params[:cod_impresion]
     render layout: false
   end
 
   def elimina_persona_js
+    # byebug
     @consulta_grupo = Egrupal.where("seleccionados =?", params[:id_persona_aqui])
     render layout: false
   end

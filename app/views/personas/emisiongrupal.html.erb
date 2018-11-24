@@ -22,9 +22,7 @@ blockquote {
     }
 
 }
-
 </style>
-
 <div class="form body">
 <div class="row">
   <div class="col-md-24">
@@ -66,39 +64,34 @@ blockquote {
 
           </div>
 
-         <!-- busca ultima impresion su id -->
-         <div class="row">
-           <div class="col-md-8">
-             <% if @consulta_impresion %>
-               <% maximo = @consulta_impresion.impreso_id.to_i + 1 %>
-               <input type="hidden" id="cod_impre" name="id_imp" value='<%= maximo %>'>
-             <% else %>
-               <input type="hidden" id="cod_impre" name="id_imp" value='1'>
-             <% end %>
-             <div class='row'>
-               <table id="users-datatable" class="display nowrap table table-hover table-striped table-bordered dataTable" data-source="<%= emision_grupal_path(format: :json) %>">
-                 <thead>
-                   <tr>
-                     <th>ID</th>
-                     <th>CI</th>
-                     <th>Nombre</th>
-                     <th>Carrera</th>
-                     <th>Fallo</th>
-                     <th></th>
-                   </tr>
-                 </thead>
-                 <tbody>
-                 </tbody>
-               </table>
-             </div>
-           </div>
+        <!-- busca ultima impresion su id -->
+        <div class="row">
+          <div class="col-md-8">
+            <%= hidden_field_tag 'id_impreso', @id_impreso %>
+            <div class='row'>
+              <table id="users-datatable" class="display nowrap table table-hover table-striped table-bordered dataTable" data-source="<%= emision_grupal_path(format: :json) %>">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>CI</th>
+                    <th>Nombre</th>
+                    <th>Carrera</th>
+                    <th>Fallo</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+          </div>
 
-           <div class="col-md-4">
-             <h3>Seleccionados para el certificado</h3>
-             <div id="los_seleccionados">
-             </div>
-           </div>
-         </div>
+          <div class="col-md-4">
+            <h3>Seleccionados para el certificado</h3>
+            <div id="los_seleccionados">
+            </div>
+          </div>
+        </div>
         <!-- fin de la busqueda impresion-id -->
 
         <h1>&nbsp;</h1>
@@ -120,6 +113,7 @@ blockquote {
 
 <script>
 $(document).ready(function() {
+  //var table = $('#mi_tabla').DataTable();
   $('#users-datatable').dataTable({
     "processing": true,
     "serverSide": true,
@@ -140,7 +134,24 @@ $(document).ready(function() {
     // Check dataTables documentation to learn more about
     // available options.
   });
+
+  //var table1 = $('#example1').DataTable();
+  // var table1 = $('#mi_tabla').DataTable();
+  /*var table2 = $('#mi_tabla').dataTable();
+
+  $(document).on('click', 'button.transferir', function () {
+    //alert('entro');
+    var row = table1.row($(this).parents('tr'));
+    var rowNode = row.node();
+    row.remove();
+
+    table2
+      .row.add(rowNode)
+      .draw();
+  });*/
+
 });
+
 </script>
 
 <script>
@@ -167,10 +178,10 @@ $(document).ready(function() {
 
       // js_ul_imp++;
       // capturamos el dato del campo de texto
-      var cod_impresion = $('#cod_impre').val();
+      var cod_impresion = $('#id_impreso').val();
       console.log("cod_impresion "+cod_impresion);
       //console.log('var: '+campo_texto);
-      console.log('variable es '+id_persona);
+      // console.log('variable es '+id_persona);
 
       $.ajax({
         type: 'GET',
@@ -184,9 +195,4 @@ $(document).ready(function() {
 
 
     }
-</script>
-<script>
-$('#example23').DataTable({
-        dom: 'Bfrtip',
-        buttons: ['print']
 </script>
