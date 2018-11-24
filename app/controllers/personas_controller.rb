@@ -255,38 +255,20 @@ class PersonasController < ApplicationController
 
   def guarda_emisiongrupal
 
-    numero = params[:id_imp]
-    datos_impreso = params[:impreso]
-    datos_persona = params[:egrupal]
+    modelo_impreso = Impreso.find(params[:id_impreso])
+    modelo_impreso.fecha_emi_certf = params[:impreso][:fecha_emi_certf]
+    modelo_impreso.no_reg = params[:impreso][:no_reg]
+    modelo_impreso.correlt_certf = params[:impreso][:correlt_certf]
+    modelo_impreso.save
 
-    # @ultima_impresion = Impreso.maximum("numero")
-    # if @ultima_impresion
-    #   @ultima_impresion.numero.to_i + 1
-    # else
-    #   @ultima_impresion = 1
-    # end
-
-    # modelo_impreso = Impreso.new
-    # modelo_impreso.fecha_emi_certf = datos_impreso[:fecha_emi_certf]
-    # modelo_impreso.no_reg = datos_impreso[:no_reg]
-    # modelo_impreso.correlt_certf = datos_impreso[:correlt_certf]
-    # modelo_impreso.numero = numero
-    # modelo_impreso.save
-
-    id_impreso = modelo_impreso.id
-    dato_impreso = Impreso.find(id_impreso)
-    numero_impresion = dato_impreso.numero
-
-    Egrupal.where("impreso_id = ?", numero_impresion).update_all(impreso_id: id_impreso)
-
-    redirect_to :action => "imprime_egrupal", :id_impreso => numero_impresion
+    redirect_to :action => "imprime_egrupal", :id_impreso => params[:id_impreso]
   end
 
   def imprime_egrupal
 
     # byebug
     @datos_impreso = Impreso.where("id = ?", params[:id_impreso]).first
-    @personas_escogidas = Egrupal.where("impreso_id = ?", @datos_impreso)
+    @personas_escogidas = Egrupal.where("impreso_id = ?", params[:id_impreso])
     # byebug
   end
 
