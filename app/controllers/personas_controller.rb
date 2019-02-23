@@ -60,7 +60,6 @@ class PersonasController < ApplicationController
     idPer = params[:id]
     person = Persona.find(idPer)
     person.borrado = Time.now.strftime("%Y-%m-%d %H:%M:%S")
-  person.nombre
     person.save
     respond_to do |format|
       format.html { redirect_to personas_url, notice: 'La Persona fue eliminado correctamente' }
@@ -370,6 +369,20 @@ class PersonasController < ApplicationController
     redirect_to :action => "nuevo_usuario"
   end
 
+  def elimina_persona
+    # byebug
+    idPer = params[:id_persona]
+    person = Persona.find(idPer)
+    person.destroy
+    # person.borrado = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+    # person.save
+    respond_to do |format|
+      format.html { redirect_to personas_url, notice: 'La Persona fue eliminado correctamente' }
+      format.json { head :no_content }
+    end
+
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -385,8 +398,4 @@ class PersonasController < ApplicationController
   def jquery
   end
 
-  def elimina_persona
-
-  end
-  
 end
