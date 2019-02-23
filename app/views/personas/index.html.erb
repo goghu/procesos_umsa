@@ -58,6 +58,11 @@ $(document).ready(function() {
 function edita_persona(id_persona){
   window.location = "/personas/"+id_persona+"/edit";
 }
+
+function elimina_persona_js(id_persona){
+  // window.location = "/personas/"+id_persona+"/edit";\
+  alert('Entro');
+}
 </script>
 
 <%= link_to 'New Persona', new_persona_path %>

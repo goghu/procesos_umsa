@@ -384,4 +384,9 @@ class PersonasController < ApplicationController
 
   def jquery
   end
+
+  def elimina_persona
+
+  end
+  
 end
