@@ -66,15 +66,15 @@ class ImpresosController < ApplicationController
   end
 
   def emision
-     @nombre = Impreso.where(tipo: "Emision" )
+    @nombre = Impreso.where(tipo: "Emision" )
   end
 
   def bu_ci_ajax
-   # ci_buscar = params[:ci]
-   # @datos_persona = Persona.where("ci like ?",  "%#{ci_buscar}%")
-   # respond_to do |format|
-   #   format.html { @datos_persona }
-   #   format.json { render json: @datos_persona }
+  # ci_buscar = params[:ci]
+  # @datos_persona = Persona.where("ci like ?",  "%#{ci_buscar}%")
+  # respond_to do |format|
+  #   format.html { @datos_persona }
+  #   format.json { render json: @datos_persona }
   end
 
   def reporte
