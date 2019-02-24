@@ -35,7 +35,8 @@ Rails.application.routes.draw do
   post "/persona/guarda_fallo/", to: "personas#guarda_fallo"
   get "/persona/bs_ci_ajax/:ci", to: "personas#bs_ci_ajax"
   get "/persona/imprime/:id_persona", to: "personas#imprime"
-  get "/impreso/reporte/", to: "personas#reporte"
+  get "/impreso/reporte/", to: "impresos#reporte"
+  post "/impreso/genera_reporte/", to: "impresos#genera_reporte"
 
   get "/persona/emisioncertf/", to: "personas#emisioncertf"
   post "/persona/guarda_emision/", to: "personas#guarda_emision"
