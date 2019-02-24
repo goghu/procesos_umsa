@@ -75,7 +75,11 @@ class ImpresosController < ApplicationController
    # respond_to do |format|
    #   format.html { @datos_persona }
    #   format.json { render json: @datos_persona }
-    end
+  end
+
+  def reportes
+    
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
