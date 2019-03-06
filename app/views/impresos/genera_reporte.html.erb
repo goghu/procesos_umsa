@@ -25,12 +25,12 @@ blockquote {
 
 </style>
 <h2>Reporte en Fechas</h2>
-
 <p><div class="Certificados de procesos print"></p></div>
 <!--3ra fila -->
   <div class="row">
-    <div class="cold-md-12">
+    <div class="col-md-6">
       <div style="text-align:center;">
+        Listaod de impreso Grupales
         <table border="1"style="margin: 0 auto;">
           <thead>
             <tr>
@@ -41,12 +41,40 @@ blockquote {
             </tr>
         </thead>
         <tbody>
-          <% @listado_grupales.each do |g| %>
+          <% @listado_grupales.each do |lg| %>
             <tr>
-              <td><%= g.persona.nombre %></td>
-              <td><%= g.persona.ci %></td>
-              <td><%= g.persona.no_reg %></td>
-              <td><%= g.persona.correlt_certf %></td>
+              <td><%= lg.persona.nombre %></td>
+              <td><%= lg.persona.ci %></td>
+              <td><%= lg.impreso.no_reg %></td>
+              <td><%= lg.impreso.correlt_certf %></td>
+            </tr>
+            <% end %>
+
+        </tbody>
+        
+        </table>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div style="text-align:center;">
+        Listado de impresos indivudules
+        <table border="1"style="margin: 0 auto;">
+          <thead>
+            <tr>
+              <td>Nombre</td>
+              <td>CI</td>
+              <td>N reg</td>
+              <td>Certificado</td>
+            </tr>
+        </thead>
+        <tbody>
+          <% @listado_individuales.each do |li| %>
+            <tr>
+              <td><%= li.nombre %></td>
+              <td><%= li.ci %></td>
+              <td><%= li.no_reg %></td>
+              <td><%= li.correlt_certf %></td>
             </tr>
             <% end %>
 

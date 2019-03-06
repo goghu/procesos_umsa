@@ -86,7 +86,13 @@ class ImpresosController < ApplicationController
     fecha_ini = params[:reporte][:fecha_inicial].to_datetime
     fecha_f = params[:reporte][:fecha_final].to_datetime
     @listado_grupales = Egrupal.where('created_at BETWEEN ? AND ?', fecha_ini.beginning_of_day, fecha_f.end_of_day)
-    @listado_individuales = Impreso.where('created_at BETWEEN ? AND ?', fecha_ini.beginning_of_day, fecha_f.end_of_day)
+
+    # @listado_impresos = Impreso.where('created_at BETWEEN ? AND ?', fecha_ini.beginning_of_day, fecha_f.end_of_day)
+    @listado_individuales = Persona.where('updated_at BETWEEN ? AND ?', fecha_ini.beginning_of_day, fecha_f.end_of_day)
+
+    # @listado_impresos.each do |li|
+      
+    # end
     # byebug
     # byebug
     # Impreso.select(:presona_id).distinct.where('created_at BETWEEN ? AND ?', params[:reporte][:fecha_inicial].beginning_of_day, params[:reporte][:fecha_inicial].end_of_day)
