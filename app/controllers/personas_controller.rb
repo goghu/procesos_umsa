@@ -267,7 +267,7 @@ class PersonasController < ApplicationController
 
     # byebug
     @datos_impreso = Impreso.where("id = ?", params[:id_impreso]).first
-    @personas_escogidas = Egrupal.where("impreso_id = ?", params[:id_impreso])
+    @personas_escogidas = Egrupal.where("impreso_id = ?", params[:id_impreso]).order(persona_id: :desc)
     # byebug
   end
 
