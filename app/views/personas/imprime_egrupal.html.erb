@@ -47,6 +47,14 @@
     text-align: center;
   }  
 
+  .tabla-datos tr.contenidos{
+    border: 1px solid #000000;
+    font-weight: 700;
+    height: 50px;
+    text-align: center;
+    /*padding: 5 0 5 0;*/
+  }  
+
   @media print {
 
     .left-sidebar {
@@ -134,7 +142,7 @@
         <% if index == cantidad_primera_hoja %>
           <% break %>
         <% end %>
-        <tr>
+        <tr class="contenidos">
           <td style="text-align: center;"><%= index+1 %></td>
           <td>
             <%= p.persona.nombre %>
@@ -146,23 +154,27 @@
         <% end %>
       </table>
       
-      cantidad <%= cantidad_total_sin_primera = @personas_escogidas.length-cantidad_primera_hoja %><br>
-      hojas <%= cantidad_hojas = cantidad_total_sin_primera/cantidad_hoja %><br>
-      sobrante <%= cantidad_sobrantes = cantidad_total_sin_primera - (cantidad_hoja * cantidad_hojas) %><br>
+      <% cantidad_total_sin_primera = @personas_escogidas.length-cantidad_primera_hoja %><br>
+      <% cantidad_hojas = cantidad_total_sin_primera/cantidad_hoja %><br>
+      <% cantidad_sobrantes = cantidad_total_sin_primera - (cantidad_hoja * cantidad_hojas) %><br>
       
       <% if cantidad_hojas > 0 %>
-      <% contador_interno = 13 %>
+      <h1>&nbsp;</h1>
+      <h1>&nbsp;</h1>
+      <h1>&nbsp;</h1>
+
+      <% contador_interno = cantidad_primera_hoja+1 %>
       <%# si la cantidad de hojas es mayor a 0  %>
 
       <% contador = 1 %>
         <% for i in 1..cantidad_hojas do %>
           <% if contador == 1 %>
-            Inicio: <%= inicio = cantidad_primera_hoja+1 %><br>
+            <% inicio = cantidad_primera_hoja+1 %><br>
           <% else %>
-            Inicio: <%= inicio = contador_interno %><br>  
+            <% inicio = contador_interno %><br>  
           <% end %>
-          Final: <%= final = inicio+cantidad_hoja %><br>
-          Contador: <%= contador %><br>
+          <% final = inicio+cantidad_hoja %><br>
+          <% contador %><br>
           <table class="cabecera">
             <tr>
               <td style="width: 60%">
@@ -191,7 +203,7 @@
             <% @personas_escogidas.each_with_index do |p, index| %>
 
               <% if (index >= inicio) && (index <= final) %>
-                <tr>
+                <tr class="contenidos">
                   <td style="text-align: center;"><%= index %></td>
                   <td>
                     <%= p.persona.nombre %>
@@ -205,6 +217,15 @@
             
             <% end %>
           </table>
+          <% if contador != cantidad_hojas %>
+            <h1>&nbsp;</h1>
+            <h1>&nbsp;</h1>
+            <h1>&nbsp;</h1>
+            <h1>&nbsp;</h1>
+          <% else %>
+
+          <% end %>
+
           <% contador+=1 %>
         <% end %>
         
