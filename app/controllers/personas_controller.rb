@@ -127,7 +127,7 @@ class PersonasController < ApplicationController
     actualiza_persona.codigo_caso = codigo_caso
     actualiza_persona.tipo_resol = tipo_resol
     actualiza_persona.h_ruta = h_ruta
-    actualiza_persona.observacion = observacion
+    actualiza_persona.observacion = obs
     actualiza_persona.save
 
     flash[:notice] = "Se guardo correctamente los datos"
