@@ -132,6 +132,7 @@
       <% cantidad_hoja = 17 %>
       <%# inicio_primera_hoja = 13 %>
 
+      <!-- imprimimos la cabecera -->
       <table class="tabla-datos">
         <tr class="cabecera">
           <th>No.</th>
@@ -145,6 +146,7 @@
         <tr class="contenidos">
           <td style="text-align: center;"><%= index+1 %></td>
           <td>
+            <%= p.persona.id %> - 
             <%= p.persona.nombre %>
             <%= p.persona.ap_paterno %>
             <%= p.persona.ap_materno %>
@@ -153,10 +155,13 @@
         </tr>
         <% end %>
       </table>
+      <!-- fin de la cabecera -->
       
+      <!-- imprimimos el cuerpo -->
       <% cantidad_total_sin_primera = @personas_escogidas.length-cantidad_primera_hoja %><br>
       <% cantidad_hojas = cantidad_total_sin_primera/cantidad_hoja %><br>
       <% cantidad_sobrantes = cantidad_total_sin_primera - (cantidad_hoja * cantidad_hojas) %><br>
+      <% contador_sin_primera = 0 %>
       
       <% if cantidad_hojas > 0 %>
       <h1>&nbsp;</h1>
@@ -203,9 +208,11 @@
             <% @personas_escogidas.each_with_index do |p, index| %>
 
               <% if (index >= inicio) && (index <= final) %>
+              <% contador_sin_primera += 1 %>
                 <tr class="contenidos">
                   <td style="text-align: center;"><%= index %></td>
                   <td>
+                    <%= p.persona.id %> - 
                     <%= p.persona.nombre %>
                     <%= p.persona.ap_paterno %>
                     <%= p.persona.ap_materno %>
@@ -227,13 +234,67 @@
           <% end %>
 
           <% contador+=1 %>
+
         <% end %>
         
       <% else %>
           
       <% end %>            
+      <!-- fin imprimimos el cuerpo -->
 
-      <!-- fin comenzamos la impresion -->
+      <!-- imprimimos el pie -->
+      <% contador_sin_primera %><br>
+      <% cantidad_total = contador_sin_primera+cantidad_primera_hoja %><br>
+      <% sobrantes = @cantidad_personas_escogidas-cantidad_total %><br>
+      <% if sobrantes > 0 %>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+        <h1>&nbsp;</h1>
+      
+        <% a_mostrar = @cantidad_personas_escogidas-sobrantes %>
+        <table class="cabecera">
+          <tr>
+            <td style="width: 60%">
+              <blockquote>
+                <h2 class="font-Arial"><p><b>La Paz, <%= @datos_impreso.fecha_emi_certf %></b></p>
+                <p><b>COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %></b></p></h2>
+              </blockquote>
+            </td>
+            <td width="50%" height="0px">&nbsp;
+              <td style="text-align: right;">
+                <div class="codigoQR2">
+                </div>
+              </td>
+              <td style="text-aling: right;">
+                <%= image_tag("logo-sello.jpg", class: "dark-logo", alt: "inicio") %> 
+              </td>
+            </tr>
+        </table>
+        <table class="tabla-datos">
+          <tr class="cabecera">
+            <th>No.</th>
+            <th>NOMBRES Y APELLIDOS</th>
+            <th>C.I.</th>
+          </tr>
+          <% @personas_escogidas.each_with_index do |p, index| %>
+          <% if index >= a_mostrar %>
+            <tr class="contenidos">
+              <td style="text-align: center;"><%= index+1 %></td>
+              <td>
+                <%= p.persona.id %> - 
+                <%= p.persona.nombre %>
+                <%= p.persona.ap_paterno %>
+                <%= p.persona.ap_materno %>
+              </td>
+              <td><%= p.persona.ci %></td>
+            </tr>
+          <% end %>
+          <% end %>
+        </table>
+      <% end %>
+
+      <!-- fin limprimimos el pie -->
 
     <h1>&nbsp;</h1>
     <p class="contenido" style="font-size: 19pt; font-weight:normal;">A la fecha
