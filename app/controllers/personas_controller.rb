@@ -236,7 +236,6 @@ class PersonasController < ApplicationController
 =end
 
   def emisiongrupal
-
     ultimo_numero = Impreso.last
 
     modelo_impreso = Impreso.new
