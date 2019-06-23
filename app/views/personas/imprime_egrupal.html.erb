@@ -157,9 +157,9 @@
       <!-- fin de la cabecera -->
       
       <!-- imprimimos el cuerpo -->
-      <% cantidad_total_sin_primera = @personas_escogidas.length-cantidad_primera_hoja %><br>
-      <% cantidad_hojas = cantidad_total_sin_primera/cantidad_hoja %><br>
-      <% cantidad_sobrantes = cantidad_total_sin_primera - (cantidad_hoja * cantidad_hojas) %><br>
+      <% cantidad_total_sin_primera = @personas_escogidas.length-cantidad_primera_hoja %>
+      <% cantidad_hojas = cantidad_total_sin_primera/cantidad_hoja %>
+      <% cantidad_sobrantes = cantidad_total_sin_primera - (cantidad_hoja * cantidad_hojas) %>
       <% contador_sin_primera = 0 %>
       
       <% if cantidad_hojas > 0 %>
@@ -173,12 +173,12 @@
       <% contador = 1 %>
         <% for i in 1..cantidad_hojas do %>
           <% if contador == 1 %>
-            <% inicio = cantidad_primera_hoja %><br>
+            <% inicio = cantidad_primera_hoja %>
           <% else %>
-            <% inicio = contador_interno %><br>  
+            <% inicio = contador_interno %>  
           <% end %>
-          <% final = inicio+cantidad_hoja %><br>
-          <% contador %><br>
+          <% final = inicio+cantidad_hoja %>
+          <% contador %>
           <table class="cabecera">
             <tr>
               <td style="width: 60%">
@@ -242,9 +242,9 @@
       <!-- fin imprimimos el cuerpo -->
 
       <!-- imprimimos el pie -->
-      <% contador_sin_primera %><br>
-      <% cantidad_total = contador_sin_primera+cantidad_primera_hoja %><br>
-      <% sobrantes = @cantidad_personas_escogidas-cantidad_total %><br>
+      <% contador_sin_primera %>
+      <% cantidad_total = contador_sin_primera+cantidad_primera_hoja %>
+      <% sobrantes = @cantidad_personas_escogidas-cantidad_total %>
       <% if sobrantes > 0 %>
         <h1>&nbsp;</h1>
         <h1>&nbsp;</h1>
