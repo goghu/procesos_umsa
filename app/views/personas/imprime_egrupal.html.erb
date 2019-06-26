@@ -171,13 +171,14 @@
       <%# si la cantidad de hojas es mayor a 0  %>
 
       <% contador = 1 %>
+      <%# contador por hojas  %>
         <% for i in 1..cantidad_hojas do %>
           <% if contador == 1 %>
             <% inicio = cantidad_primera_hoja %>
           <% else %>
-            <% inicio = contador_interno %>  
+            <% inicio = contador_interno-1 %>  
           <% end %>
-          <% final = inicio+cantidad_hoja %>
+          <% final = inicio+cantidad_hoja-1 %>
           <% contador %>
           <table class="cabecera">
             <tr>
@@ -211,6 +212,7 @@
                 <tr class="contenidos">
                   <td style="text-align: center;"><%= index+1 %></td>
                   <td>
+                    <%# inicio %>
                     <%# p.persona.id %>
                     <%= p.persona.nombre %>
                     <%= p.persona.ap_paterno %>
