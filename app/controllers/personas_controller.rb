@@ -268,6 +268,12 @@ class PersonasController < ApplicationController
     @datos_impreso = Impreso.where("id = ?", params[:id_impreso]).first
     @personas_escogidas = Egrupal.where("impreso_id = ?", params[:id_impreso]).order(persona_id: :desc)
     @cantidad_personas_escogidas = Egrupal.where("impreso_id = ?", params[:id_impreso]).order(persona_id: :desc).count
+    if @cantidad_personas_escogidas <= 12
+      puts "si"
+      render template: "personas/imprime_egrupal_doce"
+    else
+      render template: "personas/imprime_egrupal"
+    end
     # byebug
   end
 
