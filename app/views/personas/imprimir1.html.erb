@@ -85,10 +85,10 @@
                             <h2 class="font-Arial">
                                 
                                     <b>La Paz,
-                                        <%= @datos_persona.fecha_emi_certf %></b>
+                                        <%= @datos_persona.fecha_emi_certf %></b></br>
                                 
-                                <b> COM.UNIV.PROC.CERTF:<%= @datos_persona.correlt_certf %>
-                                </b>
+                                <b> COM.UNIV.PROC.CERTF:<%= @datos_persona.correlt_certf %></b>
+                                </br>
                             </h2>
                         </blockquote>
                     </td>
@@ -152,23 +152,23 @@
 
                     <table class="cabecera">
                         <tr>
-                            <td style="text-align: center;">
+                            <!--td style="text-align: center;">
                                 <%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %>
                                 <h3 class="font-Arial ">
                                     <b>
-                                        <p>M.Sc.Mauricio E. Farfan Espinoza<br/>
+                                        <p>M.Sc.Mauricio E. Farfán Espinoza<br/>
                                         Responsable a.i.<br/>
                                         COMISIÓN UNIVERSITARIA DE PROCESOS</p>
                                     </b>
                                 </h3>
-                            </td>
+                            </td-->
 
                             <td style="text-align: center;">
-                                <%= image_tag("logo-firma.jpg", class: "dark-logo", alt: "inicio") %>
+                                <%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %>
                                 <h3 class="font-Arial ">
                                     <b>
-                                        <p>Ing. Alberto Arce Tejada<br/>
-                                        Secretario General<br/>
+                                        <p>Ing. Victor Hugo Herrera Cusicanqui<br/>
+                                        Secretario General a.i.<br/>
                                         UMSA</p>
                                     </b>
                                 </h3>
@@ -203,7 +203,7 @@
     <% content_for :add_js do %>
         <script src="<%= asset_path '/js/jquery-qrcode-0.14.0.js' %>"></script>
         <script>
-            var textoqr = "Secretaria General Ing. Alberto Arce Tejada UMSA La Paz, <%= @datos_persona.fecha_emi_certf %> \n COM.UNIV.PROC.CERTF: <%= @datos_persona.correlt_certf %> \n Reg.No.<%= @datos_persona.no_reg %>";
+            var textoqr = "Secretaria General Ing. Victor Hugo Herrera Cusicanqui UMSA La Paz, <%= @datos_persona.fecha_emi_certf %> \n COM.UNIV.PROC.CERTF: <%= @datos_persona.correlt_certf %> \n Reg.No.<%= @datos_persona.no_reg %>";
 
             var options = {
                 render: 'image',

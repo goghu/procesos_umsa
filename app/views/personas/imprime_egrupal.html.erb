@@ -3,7 +3,7 @@
   blockquote {
     padding: 1px;
     border: Black 5px solid;
-    border-radius: 15px;
+    border-radius: 10px;
     font-family: Arial Black;
     font-weight: bold;
     font-size: 10pt;
@@ -20,7 +20,7 @@
 
   .contenido {
     text-align: justify;
-    font-size: 14pt;
+    font-size: 18pt;
   }
 
   .tabla-datos {
@@ -51,7 +51,7 @@
     border: 1px solid #000000;
     font-weight: 700;
     height: 50px;
-    text-align: center;
+    text-align: justify;
     /*padding: 5 0 5 0;*/
   }  
 
@@ -72,7 +72,7 @@
     }
 
     .impresion {
-      width: 790px;
+      width: 950px;
     }
 
     .cabecera {
@@ -81,7 +81,7 @@
 
     .contenido {
       text-align: justify;
-      font-size: 14pt;
+      font-size: 20pt;
     }
 
   }
@@ -93,10 +93,10 @@
       <table class="cabecera">
         <tr>
           <td style="width: 60%">
-            <h1>&nbsp;</h1>
+            <!--h1>&nbsp;</h-->
             <blockquote>
-              <h2 class="font-Arial"><p><b>La Paz, <%= @datos_impreso.fecha_emi_certf %></p></b>
-                <p><b>COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %></b></p></h2>
+              <h2 class="font-Arial"><b>La Paz, <%= @datos_impreso.fecha_emi_certf %></br></b>
+                <b>COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %></b></br></h2>
             </blockquote>
           </td>
 
@@ -113,14 +113,14 @@
         </tr>
       </table>
 
-      <p class="contenido" style="font-size: 19pt; font-weight:normal;">
+      <p class="contenido" style="font-size: 20pt; font-weight:normal;">
         La Comision Universitaria de Procesos del Honorable Consejo Universitario de la Universidad Mayor de San Andres, a solicitud escrita del Interesado.
         <hr />
       </p>
 
       <p class="contenido" style="font-size: 35pt; font-weight:normal;"><h1><b>Certifica: </b></h1></p>
 
-      <p class="contenido" style="font-size: 19pt; font-weight:normal;">
+      <p class="contenido" style="font-size: 20pt; font-weight:normal;">
       Revisada la documentación en la Comisión Universitaria de Procesos, se evidencia que:</p>
 
       <h5>&nbsp;</h5>
@@ -143,7 +143,8 @@
           <% break %>
         <% end %>
         <tr class="contenidos">
-          <td style="text-align: center;"><%= index+1 %></td>
+          <b> <td style="font-size:14pt;text-align: center;"><%= index+1 %></td></b>
+          
           <td>
             <%# p.persona.id %> 
             <%= p.persona.nombre %>
@@ -183,9 +184,11 @@
           <table class="cabecera">
             <tr>
               <td style="width: 60%">
+                
+
                 <blockquote>
-                  <h2 class="font-Arial"><p><b>La Paz, <%= @datos_impreso.fecha_emi_certf %></b></p>
-                  <p><b>COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %></b></p></h2>
+                  <h2 class="font-Arial"><p><b>La Paz, <%= @datos_impreso.fecha_emi_certf %></b></br>
+                  <b>COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %></b></br></h2>
                 </blockquote>
               </td>
               <td width="50%" height="0px">&nbsp;
@@ -210,7 +213,8 @@
               <% if (index >= inicio) && (index <= final) %>
               <% contador_sin_primera += 1 %>
                 <tr class="contenidos">
-                  <td style="text-align: center;"><%= index+1 %></td>
+                  <b> <td style="font-size:14pt;text-align: center;"><%= index+1 %></td></b>
+                  
                   <td>
                     <%# inicio %>
                     <%# p.persona.id %>
@@ -229,7 +233,7 @@
             <h1>&nbsp;</h1>
             <h1>&nbsp;</h1>
             <h1>&nbsp;</h1>
-            <h1>&nbsp;</h1>
+           
           <% else %>
 
           <% end %>
@@ -251,15 +255,15 @@
         <h1>&nbsp;</h1>
         <h1>&nbsp;</h1>
         <h1>&nbsp;</h1>
-        <h1>&nbsp;</h1>
+       
 
         <% a_mostrar = @cantidad_personas_escogidas-sobrantes %>
         <table class="cabecera">
           <tr>
             <td style="width: 60%">
               <blockquote>
-                <h2 class="font-Arial"><p><b>La Paz, <%= @datos_impreso.fecha_emi_certf %></b></p>
-                <p><b>COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %></b></p></h2>
+                <h2 class="font-Arial"><b>La Paz, <%= @datos_impreso.fecha_emi_certf %></b></br>
+                <b>COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %></b></br></h2>
               </blockquote>
             </td>
             <td width="50%" height="0px">&nbsp;
@@ -281,7 +285,8 @@
           <% @personas_escogidas.each_with_index do |p, index| %>
           <% if index >= a_mostrar %>
             <tr class="contenidos">
-              <td style="text-align: center;"><%= index+1 %></td>
+              <b> <td style="font-size:14pt;text-align: center;"><%= index+1 %></td></b>
+              
               <td>
                 <%# p.persona.id %>
                 <%= p.persona.nombre %>
@@ -299,7 +304,7 @@
 
     <!-- <h1>&nbsp;</h1> -->
     <br />
-    <p class="contenido" style="font-size: 19pt; font-weight:normal;">A la fecha
+    <p class="contenido" style="font-size: 20pt; font-weight:normal;">A la fecha
         <b>NO</b>
         tiene sanción vigente como efecto de Proceso Universitario, es cuanto
         certificamos para los fines consiguientes.<br/>
@@ -307,24 +312,24 @@
 
     <table class="cabecera">
         <tr>
+            <!--td style="text-align: center;">
+                <%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %>
+                <h3 class="font-Arial ">
+                    <b>
+                        M.Sc.Mauricio E. Farf&aacute;n Espinoza</br>
+                        Responsable a.i.</br>
+                        COMISIÓN UNIVERSITARIA DE PROCESOS</br>
+                    </b>
+                </h3>
+            </td-->
+
             <td style="text-align: center;">
                 <%= image_tag("logo-firma1.jpg", class: "dark-logo", alt: "inicio") %>
                 <h3 class="font-Arial ">
                     <b>
-                        <p>M.Sc.Mauricio E. Farf&aacute;n Espinoza</p>
-                        <p>Responsable a.i.</p>
-                        <p>COMISIÓN UNIVERSITARIA DE PROCESOS</p>
-                    </b>
-                </h3>
-            </td>
-
-            <td style="text-align: center;">
-                <%= image_tag("logo-firma.jpg", class: "dark-logo", alt: "inicio") %>
-                <h3 class="font-Arial ">
-                    <b>
-                        <p>Ing. Alberto Arce Tejada</p>
-                        <p>Secretario General</p>
-                        <p>UMSA</p>
+                        Ing. Victor Hugo Herrera Cusicanqui</br>
+                        Secretario General a.i.</br>
+                        UMSA</br>
                     </b>
                 </h3>
             </td><br/>
@@ -347,7 +352,7 @@
 <% content_for :add_js do %>
   <script src="<%= asset_path '/js/jquery-qrcode-0.14.0.js' %>"></script>
   <script>
-      var textoqr = " Secretaria General Ing. Alberto Arce Tejada UMSA La Paz, <%= @datos_impreso.fecha_emi_certf %> \n COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %> \n Reg.No.<%= @datos_impreso.no_reg %>";
+      var textoqr = " Secretaria General Ing. Victor Hugo Herrera Cusicanqui UMSA La Paz, <%= @datos_impreso.fecha_emi_certf %> \n COM.UNIV.PROC.CERTF: <%= @datos_impreso.correlt_certf %> \n Reg.No.<%= @datos_impreso.no_reg %>";
 
       var options = {
         render: 'image'
@@ -360,3 +365,4 @@
       $('.codigoQR2').qrcode(options);
     </script>
 <% end %>
+
