@@ -36,6 +36,7 @@ blockquote {
             <tr>
               <td>Nombre</td>
               <td>CI</td>
+              <td>Correlativo</td>
               <td>N reg</td>
               <td>Certificado</td>
             </tr>
@@ -43,8 +44,9 @@ blockquote {
         <tbody>
           <% @listado_grupales.each do |lg| %>
             <tr>
-              <td><%= lg.persona.nombre %></td>
+              <td><%= lg.persona.nombre %> <%= lg.persona.ap_paterno %> <%= lg.persona.ap_materno %></td>
               <td><%= lg.persona.ci %></td>
+              <td><%= lg.impreso.numero %></td>
               <td><%= lg.impreso.no_reg %></td>
               <td><%= lg.impreso.correlt_certf %></td>
             </tr>
@@ -71,7 +73,7 @@ blockquote {
         <tbody>
           <% @listado_individuales.each do |li| %>
             <tr>
-              <td><%= li.nombre %></td>
+              <td><%= li.nombre %> <%= li.ap_paterno %> <%= li.ap_materno %></td>
               <td><%= li.ci %></td>
               <td><%= li.no_reg %></td>
               <td><%= li.correlt_certf %></td>
