@@ -75,17 +75,22 @@ blockquote {
               <td>CI</td>
               <td>N reg</td>
               <td>Certificado</td>
+              <td>Fecha</td>
             </tr>
         </thead>
         <tbody>
           <% @listado_individuales.each do |li| %>
-            <tr>
+            <% if !li.fecha_emi_certf.blank? %>
+              <tr>
               <td><%= li.nombre %> <%= li.ap_paterno %> <%= li.ap_materno %></td>
               <td><%= li.ci %></td>
               <td><%= li.no_reg %></td>
               <td><%= li.correlt_certf %></td>
-            </tr>
+              <td><%= li.fecha_emi_certf %></td>
+              </tr>
             <% end %>
+            
+          <% end %>
 
         </tbody>
         
