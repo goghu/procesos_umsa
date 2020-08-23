@@ -30,7 +30,7 @@ blockquote {
   <div class="row">
     <div class="col-md-6">
       <div style="text-align:center;">
-        Listaod de impreso Grupales
+        Listado de impreso Grupales
         <table border="1"style="margin: 0 auto;">
           <thead>
             <tr>
@@ -39,18 +39,25 @@ blockquote {
               <td>Correlativo</td>
               <td>N reg</td>
               <td>Certificado</td>
+              <td>Fecha</td>
             </tr>
         </thead>
         <tbody>
           <% @listado_grupales.each do |lg| %>
+          <% if !lg.impreso.fecha_emi_certf.blank? %>
             <tr>
               <td><%= lg.persona.nombre %> <%= lg.persona.ap_paterno %> <%= lg.persona.ap_materno %></td>
               <td><%= lg.persona.ci %></td>
               <td><%= lg.impreso.numero %></td>
               <td><%= lg.impreso.no_reg %></td>
               <td><%= lg.impreso.correlt_certf %></td>
+              <td><%= lg.impreso.fecha_emi_certf %></td>
             </tr>
-            <% end %>
+          <% else %>
+            
+          <% end %>
+            
+          <% end %>
 
         </tbody>
         
