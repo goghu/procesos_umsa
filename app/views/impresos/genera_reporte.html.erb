@@ -36,7 +36,6 @@ blockquote {
             <tr>
               <td>Nombre</td>
               <td>CI</td>
-              <td>Correlativo</td>
               <td>N reg</td>
               <td>Certificado</td>
               <td>Fecha</td>
@@ -48,7 +47,6 @@ blockquote {
             <tr>
               <td><%= lg.persona.nombre %> <%= lg.persona.ap_paterno %> <%= lg.persona.ap_materno %></td>
               <td><%= lg.persona.ci %></td>
-              <td><%= lg.impreso.numero %></td>
               <td><%= lg.impreso.no_reg %></td>
               <td><%= lg.impreso.correlt_certf %></td>
               <td><%= lg.impreso.fecha_emi_certf %></td>
@@ -75,6 +73,7 @@ blockquote {
               <td>CI</td>
               <td>N reg</td>
               <td>Certificado</td>
+              <td>Fallo</td>
               <td>Fecha</td>
             </tr>
         </thead>
@@ -86,6 +85,7 @@ blockquote {
               <td><%= li.ci %></td>
               <td><%= li.no_reg %></td>
               <td><%= li.correlt_certf %></td>
+              <td><%= li.fallo %></td>
               <td><%= li.fecha_emi_certf %></td>
               </tr>
             <% end %>
